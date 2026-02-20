@@ -3,9 +3,9 @@ Material MT_archway_pillar02_HDRP {
 	1.000000;1.000000;1.000000;1.000000;;
 	0.000000;
 	0.000000;0.000000;0.000000;;
-	1.000000;1.000000;1.000000;;
+	0.000000;0.000000;0.000000;;
 	TextureFilename {
-		"T_archway_pillar02_D.png";
+		"..\..\..\Asset\Assets\Symphonie\Ruins\Texture\archway_pillar02\T_archway_pillar02_D.png";
 	}
 }
 Frame archway_pillar02 {
