@@ -53,10 +53,7 @@ void Explain::Update()
 //•`‰æ
 void Explain::Draw()
 {
-    LoadGraphScreen(0.0f, 0.0f, "Assets/Explain3.png", true);
-
-    LoadGraphScreen(0.0f, 576.0f, "Assets/Explain2.png", true);
-
+    LoadGraphScreen(450.0f, 200.0f, "Assets/‘€ìà–¾.png", true);
 
 }
 

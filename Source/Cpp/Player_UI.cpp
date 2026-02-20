@@ -146,12 +146,12 @@ void Player_UI::Draw()
 
 	if (item0)
 	{
-		DrawGraph(1730, 890, item0->GetIcon(), true);
+		DrawGraph(1530, 890, item0->GetIcon(), true);
 	}
 
 	if (item1)
 	{
-		DrawGraph(1530, 890, item1->GetIcon(), true);
+		DrawGraph(1730, 890, item1->GetIcon(), true);
 	}
 
 	SetUseZBufferFlag(TRUE); //Zバッファ有効

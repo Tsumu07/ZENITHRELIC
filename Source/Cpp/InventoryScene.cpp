@@ -146,7 +146,7 @@ void Inventory::Draw()
 {
 	DrawBox(100, 100, 600, 700, GetColor(255, 255, 255), FALSE);
 	DrawString(120, 120, "Inventory", GetColor(255, 255, 0));
-	DrawString(220, 120, "ZキーとXキーで装備", GetColor(255, 255, 0));
+	DrawString(220, 120, "L/Rで装備", GetColor(255, 255, 0));
 
 	Object* player = Master::mpObjectManager->FindByTag(100);
 	auto Play = dynamic_cast<Player*>(player);
@@ -187,7 +187,6 @@ void Inventory::Draw()
 	sprintf_s(totalamount, "合計金額  : %d$", TotalAmount);
 	DrawString(100, 710, totalamount, GetColor(255, 255, 255));
 
-	DrawString(100, 750, "E = Close", GetColor(200, 200, 200));
 }
 
 void Inventory::Finaliza()

@@ -255,11 +255,12 @@ void Stage::Initaliza()
     PointSetModel = MV1LoadModel("Resource/Swarm09.x");
 
     //柱
-    ColumnSetModel = MV1LoadModel("Resource/archway_Column02.x");
+    ColumnSetModel = MV1LoadModel("Resource/archway_pillar02.x");
 
     //ドア
     GoalSetModel = MV1LoadModel("Resource/PortalSeven.x");
 
+    MV1SetScale(ColumnSetModel, VGet(0.5f, 0.5f, 0.5f));
 
     MV1SetRotationXYZ(PlayerSetModel, VGet(0.0f, DX_PI_F, 0.0f));
 
@@ -363,7 +364,6 @@ void Stage::Update()
         //柱
         else if (Corsol >= 520.0f && Corsol < 780.0f)
         {
-            //BoxSelect = true;
             ColumnSelect = true;
 
         }
@@ -371,7 +371,6 @@ void Stage::Update()
         //壁
         else if (Corsol >= 780.0f && Corsol < 1040.0f)
         {
-            //HpItemSelect = true;
             WallSelect = true;
 
         }
@@ -605,17 +604,6 @@ void Stage::Update()
 
                     return;
                 }
-
-                ////if(KEYSet == false)
-                ////{
-                ////    PlaySoundMem(WarnSE, DX_PLAYTYPE_BACK);
-
-                ////    KEYWarn = true;
-
-                ////    WarnCount = 180.0f;
-
-                ////    return;
-                ////}
 
                 if (GoalSet == false)
                 {
@@ -1251,8 +1239,7 @@ void Stage::Draw()
         MV1DrawModel(GoalSetModel);
     }
 
-    LoadGraphScreen(0.0f, 950.0f, "Assets/Guide.png", true);
-    LoadGraphScreen(170.0f, 910.0f, "Assets/PlusMinusUI.png", true);
+    LoadGraphScreen(0.0f, 350.0f, "Assets/Guide_stage.png", true);
 
     //アイコンの表示
     for (int i = 0; i < 6; i++)
