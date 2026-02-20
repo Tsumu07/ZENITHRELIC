@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\FSM">
+      <UniqueIdentifier>{7b392662-70c9-4ad7-b535-8f9a277bb9e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Controller">
+      <UniqueIdentifier>{aee4d136-06a0-4ddd-9410-1e5712825339}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object">
+      <UniqueIdentifier>{5a6f6088-3956-46e1-8d51-7f7a3cea526b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene">
+      <UniqueIdentifier>{00bfe938-5faf-4865-accd-d023421da579}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\Player">
+      <UniqueIdentifier>{4f05603d-e38a-4cf6-8cb6-c6f9744db8d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\Enemy">
+      <UniqueIdentifier>{383fc513-9f2f-45bd-a451-326a94979d91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\Item">
+      <UniqueIdentifier>{291ef94a-0b76-4082-82f1-42bd76476e23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\Obstacle">
+      <UniqueIdentifier>{8facfff0-be15-41eb-a01f-c2587d956cea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\Goal">
+      <UniqueIdentifier>{553832a1-3a3d-41f1-87f1-821cecac40c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Hit">
+      <UniqueIdentifier>{3cd8d8e8-f899-4128-91a3-05753eb7ef07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Manager">
+      <UniqueIdentifier>{35890b89-a6f9-45af-8dda-0254e67104a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\FSM">
+      <UniqueIdentifier>{07f0a4a9-ed2e-4b8a-ba61-724a22062f6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Controller">
+      <UniqueIdentifier>{cde010f9-c153-4bc1-86ce-f811563ef6bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Manager">
+      <UniqueIdentifier>{3ba27a65-90db-47ff-a143-7535d76aad67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Hit">
+      <UniqueIdentifier>{e6fa95b5-52bc-4757-99fc-852463d3c50f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Scene">
+      <UniqueIdentifier>{0cd2487b-5ec2-4557-a2c6-75dd99d60b0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Object">
+      <UniqueIdentifier>{0f8475ea-13be-4c57-b45d-22e7ca17e4dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Object\Enemy">
+      <UniqueIdentifier>{4cd5f3ca-39e0-4d8a-a03f-7022fd6c01a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Object\Player">
+      <UniqueIdentifier>{647b5205-7ae3-474b-947a-ab5dc6a4c401}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Object\Item">
+      <UniqueIdentifier>{346620d5-a37b-4415-9eb0-6033e4a23b40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Object\Goal">
+      <UniqueIdentifier>{aac87da0-8f87-4c86-b809-4264511977a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Object\Obstacle">
+      <UniqueIdentifier>{7e57fb4c-ad18-4628-b182-c7e2c51596e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Shader">
+      <UniqueIdentifier>{2d6f5010-0e2f-4a69-9e4a-3b4def21b831}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\FSM.cpp">
+      <Filter>ソース ファイル\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\FSMFactory.cpp">
+      <Filter>ソース ファイル\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\CheckKey.cpp">
+      <Filter>ソース ファイル\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\ObjectManager.cpp">
+      <Filter>ソース ファイル\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\ResourceManeger.cpp">
+      <Filter>ソース ファイル\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Haeder\SceneManager.cpp">
+      <Filter>ソース ファイル\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\GameManager.cpp">
+      <Filter>ソース ファイル\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\SceneBase.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\StageScene.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\Title.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\GameClear.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\GameOver.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\Goal.cpp">
+      <Filter>ソース ファイル\Object\Goal</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\Camera.cpp">
+      <Filter>ソース ファイル\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\Explain.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\Spider.cpp">
+      <Filter>ソース ファイル\Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\HpItem.cpp">
+      <Filter>ソース ファイル\Object\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\Wall.cpp">
+      <Filter>ソース ファイル\Object\Obstacle</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\StageFrame.cpp">
+      <Filter>ソース ファイル\Object\Obstacle</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\Player_state.cpp">
+      <Filter>ソース ファイル\Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\Player.cpp">
+      <Filter>ソース ファイル\Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\Menu.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\Point.cpp">
+      <Filter>ソース ファイル\Object\Obstacle</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Haeder\Colliison.cpp">
+      <Filter>ソース ファイル\Hit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\HitCapsule.cpp">
+      <Filter>ソース ファイル\Hit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\Triangle.cpp">
+      <Filter>ソース ファイル\Hit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\Object.cpp">
+      <Filter>ソース ファイル\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\ItemBase.cpp">
+      <Filter>ソース ファイル\Object\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\ItemManeger.cpp">
+      <Filter>ソース ファイル\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\EquippedItems.cpp">
+      <Filter>ソース ファイル\Object\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\InventoryScene.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\ItemDrop.cpp">
+      <Filter>ソース ファイル\Object\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Haeder\Game.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\Pathfinding.cpp">
+      <Filter>ソース ファイル\Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\SkyBox.cpp">
+      <Filter>ソース ファイル\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\Field.cpp">
+      <Filter>ソース ファイル\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\SettingExplain.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Master.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\FadeScene.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\Player_UI.cpp">
+      <Filter>ソース ファイル\Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\Column.cpp">
+      <Filter>ソース ファイル\Object\Obstacle</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\Spider_State.cpp">
+      <Filter>ソース ファイル\Object\Enemy</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Haeder\MagicColliison.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\Shot.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\FSM.h">
+      <Filter>ヘッダー ファイル\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\FSMFactory.h">
+      <Filter>ヘッダー ファイル\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\CheckKey.h">
+      <Filter>ヘッダー ファイル\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\GameManager.h">
+      <Filter>ヘッダー ファイル\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\ObujectManager.h">
+      <Filter>ヘッダー ファイル\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\ResourceManeger.h">
+      <Filter>ヘッダー ファイル\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\SceneManager.h">
+      <Filter>ヘッダー ファイル\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\Colliison.h">
+      <Filter>ヘッダー ファイル\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\HitCapsule.h">
+      <Filter>ヘッダー ファイル\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\Triangle.h">
+      <Filter>ヘッダー ファイル\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\Config.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\Explain.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\GameClear.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\GameOver.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\Menu.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\SceneBase.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\StageScene.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\Title.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\Spider.h">
+      <Filter>ヘッダー ファイル\Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\HpItem.h">
+      <Filter>ヘッダー ファイル\Object\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\Goal.h">
+      <Filter>ヘッダー ファイル\Object\Goal</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\Point.h">
+      <Filter>ヘッダー ファイル\Object\Obstacle</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\StageFrame.h">
+      <Filter>ヘッダー ファイル\Object\Obstacle</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\Wall.h">
+      <Filter>ヘッダー ファイル\Object\Obstacle</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\Player.h">
+      <Filter>ヘッダー ファイル\Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\Player_state.h">
+      <Filter>ヘッダー ファイル\Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\Camera.h">
+      <Filter>ヘッダー ファイル\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\IState.h">
+      <Filter>ヘッダー ファイル\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\Pathfinding.h">
+      <Filter>ヘッダー ファイル\Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\Object.h">
+      <Filter>ヘッダー ファイル\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\ItemBase.h">
+      <Filter>ヘッダー ファイル\Object\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\ItemManeger.h">
+      <Filter>ヘッダー ファイル\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\EquippedItems.h">
+      <Filter>ヘッダー ファイル\Object\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\InventoryScene.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\ItemDrop.h">
+      <Filter>ヘッダー ファイル\Object\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\Game.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\Field.h">
+      <Filter>ヘッダー ファイル\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\SkyBox.h">
+      <Filter>ヘッダー ファイル\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\SettingExplain.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Master.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\FadeScene.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\Player_UI.h">
+      <Filter>ヘッダー ファイル\Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\Column.h">
+      <Filter>ヘッダー ファイル\Object\Obstacle</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Haeder\Spider_State.h">
+      <Filter>ヘッダー ファイル\Object\Enemy</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Shader\DefaultPS.hlsl">
+      <Filter>ソース ファイル\Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Shader\DefaultVS.hlsl">
+      <Filter>ソース ファイル\Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Shader\WallPS.hlsl">
+      <Filter>ソース ファイル\Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Shader\SkyBoxPS.hlsl">
+      <Filter>ソース ファイル\Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Shader\SkyBoxVS.hlsl">
+      <Filter>ソース ファイル\Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Shader\wipePS.hlsl">
+      <Filter>ソース ファイル\Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Shader\gaugePS.hlsl">
+      <Filter>ソース ファイル\Shader</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>
