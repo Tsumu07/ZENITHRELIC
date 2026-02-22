@@ -373,8 +373,10 @@ void ObjectManager::UpdateEffect(std::string tag, VECTOR pos, VECTOR rot, VECTOR
 
 int ObjectManager::GetEffectByTag(std::string tag)
 {
-    for (auto& pair : effectList) {
-        if (pair.first == tag) {
+    for (auto& pair : effectList) 
+    {
+        if (pair.first == tag)
+        {
             return pair.second;
         }
     }

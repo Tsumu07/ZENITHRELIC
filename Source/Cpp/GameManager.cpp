@@ -60,6 +60,9 @@ void GameManager::Initaliza()
     Effekseer_SetGraphicsDeviceLostCallbackFunctions();
 
     Master::mpResourceManager->LoadEffectFromFile("Effect/Light.efkefc", 5.0f);
+    Master::mpResourceManager->LoadEffectFromFile("Effect/Attack.efkefc", 5.0f);
+    Master::mpResourceManager->LoadEffectFromFile("Effect/Portal.efkefc", 5.0f);
+    Master::mpResourceManager->LoadEffectFromFile("Effect/a.efkefc", 5.0f);
 
     if (Master::mpObjectManager == nullptr)
     {

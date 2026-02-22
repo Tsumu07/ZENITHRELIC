@@ -25,6 +25,10 @@ enum PLAYER_STATE
 //ë“ã@èÛë‘
 class PSIdle : public IState
 {
+private:
+	VECTOR attackOffset;
+	VECTOR attackPos;
+
 public:
 	PSIdle() = default;
 	~PSIdle() = default;
@@ -37,6 +41,10 @@ public:
 //ï‡Ç≠
 class PSWalk : public IState
 {
+private:
+	VECTOR attackOffset;
+	VECTOR attackPos;
+
 public:
 	PSWalk() = default;
 	~PSWalk() = default;

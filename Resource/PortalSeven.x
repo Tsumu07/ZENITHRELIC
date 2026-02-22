@@ -5,7 +5,7 @@ Material PortalSeven_Albedo {
 	0.000000;0.000000;0.000000;;
 	0.000000;0.000000;0.000000;;
 	TextureFilename {
-		"..\..\..\Asset\Assets\Reversed Interactive\The Portal Collection\Textures\PortalSeven_Albedo.png";
+		"PortalSeven_Albedo.png";
 	}
 }
 Frame PortalSeven {
