@@ -25,6 +25,7 @@ Inventory::Inventory()
 , MaxUnder(0.0f)
 , cursor(0)
 ,TotalAmount(0)
+,Background(0)
 ,InputJoycon(false)
 {
 }
@@ -38,6 +39,8 @@ void Inventory::Initaliza()
 	cursor = 0;
 
 	TotalAmount = 0;
+
+	Background = Master::mpSceneManager->GetLastGameScreen();
 
 	//ˆêu‚Ìæ“¾
 	InputJoycon = false;
@@ -144,6 +147,12 @@ void Inventory::Update()
 
 void Inventory::Draw()
 {
+
+	if (Background != -1)
+	{
+		DrawGraph(0, 0, Background, TRUE);
+	}
+
 	DrawBox(100, 100, 600, 700, GetColor(255, 255, 255), FALSE);
 	DrawString(120, 120, "Inventory", GetColor(255, 255, 0));
 	DrawString(220, 120, "L/R‚Å‘•”õ", GetColor(255, 255, 0));

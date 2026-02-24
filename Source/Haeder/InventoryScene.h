@@ -29,6 +29,9 @@ private:
     //‡Œv‹àŠz
     int TotalAmount;
 
+    //”wŒi‰æ‘œ
+    int Background;
+
     bool InputJoycon;
 
 

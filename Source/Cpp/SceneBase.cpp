@@ -14,7 +14,6 @@ SceneBase::~SceneBase()
 //‰Šú‰»
 void SceneBase::Initaliza()
 {
-
 }
 
 //XV

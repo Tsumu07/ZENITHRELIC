@@ -22,6 +22,7 @@ SceneManager::SceneManager()
 ,m_currentScene(SceneNone)
 ,m_isSceneChanging(false)
 ,IsMenuSceneEnd(false)
+,m_lastGameScreenHandle(-1)
 {
 }
 
@@ -197,6 +198,14 @@ void SceneManager::OpenInventory()
 
 void SceneManager::CloseInventory()
 {
+    int handle = m_lastGameScreenHandle;
+
+    if (handle != -1)
+    {
+        DeleteGraph(handle);
+        m_lastGameScreenHandle = -1;
+    }
+
     DeleteMenuScene();
     IsMenuSceneEnd = false;
 }

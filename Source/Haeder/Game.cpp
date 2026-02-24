@@ -8,6 +8,7 @@
 #include "../Haeder/Player.h"
 #include "../Haeder/Player_UI.h"
 #include "../Master.h"
+#include "CheckKey.h"
 #include <EffekseerForDXLib.h>
 
 //コンストラクタ
@@ -19,6 +20,9 @@ Game::Game()
 ,pshandle(-1)
 ,skyboxPShandle(-1)
 ,skyboxVShandle(-1)
+,width(-1)
+,height(-1)
+,handle(-1)
 {
 
 }
@@ -102,13 +106,21 @@ void Game::Update()
 
     static int shotCount = 0;
 
-    ////スクショ
-    //if (CheckHitPillar(Pillar_INPUT_E))
-    //{
-    //    char filename[64];
-    //    sprintf_s(filename, "screenshot_%03d.png", shotCount++);
-    //    SaveDrawScreen(0, 0, 1920, 1080, filename);
-    //}
+
+    //アイテム画面
+    if (CheckDownController(PAD_INPUT_3) != 0 || CheckDownKey(KEY_INPUT_E) != 0)
+    {
+
+        GetDrawScreenSize(&width, &height);
+
+        handle = MakeScreen(width, height);
+
+        GetDrawScreenGraph(0, 0, width, height, handle);
+
+        Master::mpSceneManager->SetLastGameScreen(handle);
+        Master::mpSceneManager->OpenInventory();
+    }
+
 }
 
 //描画

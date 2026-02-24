@@ -34,6 +34,9 @@ private:
 
     SceneName m_currentScene;
 
+    //Inventory‚Ì”wŒi
+    int m_lastGameScreenHandle;
+
     bool m_isSceneChanging;  // ƒtƒF[ƒh’†‚©H
 
     bool IsMenuSceneEnd;
@@ -70,4 +73,8 @@ public:
 
     void DeleteMenuScene();
 
+    //Inventory‚Ì”wŒi
+    void SetLastGameScreen(int handle) { m_lastGameScreenHandle = handle;}
+
+    int GetLastGameScreen() const { return m_lastGameScreenHandle; }
 };

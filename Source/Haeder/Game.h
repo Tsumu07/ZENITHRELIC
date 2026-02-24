@@ -3,7 +3,7 @@
 #include "../Haeder/SkyBox.h"
 #include "../Haeder/Player_UI.h"
 
-class Game :public SceneBase
+class Game : public SceneBase
 {
 private:
     SkyBox* m_skybox;
@@ -14,6 +14,11 @@ private:
     int pshandle;
     int skyboxPShandle;
     int skyboxVShandle;
+
+    //Inventoryの背景
+    int width;
+    int height;
+    int handle;
 
 public:
     Game();   //コンストラクタ

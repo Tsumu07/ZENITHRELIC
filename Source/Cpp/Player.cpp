@@ -40,8 +40,13 @@ Player::Player()
 ,nextPos(VGet(0.0f, 0.0f, 0.0f))
 ,playerBottom(VGet(0.0f, 0.0f, 0.0f))
 ,playerTop(VGet(0.0f, 0.0f, 0.0f))
-, mvTargetMoveDirection(VGet(0.0f,0.0f,0.0f))
+,mvTargetMoveDirection(VGet(0.0f,0.0f,0.0f))
 ,playerR(80.0f)
+,DamageEffectLoadGraph(-1)
+,DamageEffectHandle()
+,DamageEffectCount(0)
+,DamageEffectWait()
+,DamageEffetFlag(false)
 ,HitPillar(false)
 ,AttackPillar(false)
 ,HitSpider(false)
@@ -97,6 +102,14 @@ void Player::Initaliza()
 	AnimHandle[Animetion::PickItem] = MV1LoadModel("Resource/Anime/PickUp.x");
 	AnimHandle[Animetion::Dame] = MV1LoadModel("Resource/Anime/GetHit.x");
 	AnimHandle[Animetion::Die] = MV1LoadModel("Resource/Anime/Die.x");
+
+	//エフェクト
+	//ダメージ
+	DamageEffectLoadGraph = LoadDivGraph("Effect/Damage.png", 5, 5, 1, 240, 240, DamageEffectHandle);
+	
+	DamageEffectCount = 0;
+
+	DamageEffectWait = 0;
 
 	//アイテム
 	m_inventory = new ItemManeger();
@@ -216,7 +229,7 @@ void Player::Update()
 
 	}
 
-	//ゴーレムの当たり判定(本体)
+	//くもの当たり判定(本体)
 	for (int i = 0; i < Spiders.size(); i++)
 	{
 		Spider* spider = dynamic_cast<Spider*>(Spiders.at(i));
@@ -226,7 +239,7 @@ void Player::Update()
 			continue;
 		}
 
-		//ゴーレム(本体)
+		//くも(本体)
 		VECTOR SpiderBottom = spider->GetPos();
 		VECTOR SpiderTop = VAdd(spider->GetPos(), VGet(0.0f, 200.0f, 0.0f));
 		float  SpiderR = spider->GetRadius();
@@ -239,7 +252,7 @@ void Player::Update()
 
 		if (HitSpider && GetInvincible() == 0)
 		{
-			if (IsDead())
+			if (!IsDead())
 			{
 				//ダメージを受ける
 				Damage(60.0f);
@@ -249,7 +262,7 @@ void Player::Update()
 
 		}
 
-		//ゴーレムへ攻撃
+		//くもへ攻撃
 		if (mState == Animetion::Attack)
 		{
 			AttackSpider = Capsule::CheckColliisonToHitCapsule(
@@ -420,13 +433,6 @@ void Player::Update()
 
 	MV1SetPosition(mnModelHandle, GetPos());
 
-	//アイテム画面
-	if (CheckDownController(PAD_INPUT_3) != 0 || CheckDownKey(KEY_INPUT_E) != 0)
-	{
-		Master::mpSceneManager->OpenInventory();
-
-	}
-
 	//死ぬ処理
 	if (mState == Animetion::Die)
 	{
@@ -572,6 +578,29 @@ void Player::Draw()
 	MV1DrawModel(mnModelHandle);
 	MV1DrawModel(mnWeponHandle);
 
+	//攻撃を受けた時のエフェクト
+	if (GetHitEnemy())
+	{
+		DrawBillboard3D(VGet(GetPos().x, GetPos().y + 100.0f, GetPos().z ), 0.5f, 0.5f, 320.0f, 90.0f, DamageEffectHandle[DamageEffectCount], TRUE);
+
+		//エフェクト再生
+		if (DamageEffectCount <= 5)
+		{
+			DamageEffectWait++;
+		}
+
+		if (DamageEffectWait >= 25)
+		{
+			DamageEffectCount += 1;
+			DamageEffectWait = 0;
+		}
+
+		if (DamageEffectCount >= 5)
+		{
+			DamageEffectCount = 0;
+			DamageEffectWait = 0;
+		}
+	}
 }
 
 void Player::Finaliza()

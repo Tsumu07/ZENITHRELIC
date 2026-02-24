@@ -66,6 +66,13 @@ private:
     //敵に当たったら
     bool HitEnemy;
 
+    //エフェクト
+    int DamageEffectLoadGraph;
+    int DamageEffectHandle[5];
+    int DamageEffectCount;
+    int DamageEffectWait;
+    bool DamageEffetFlag;
+
 
 public:
     Player();   //コンストラクタ

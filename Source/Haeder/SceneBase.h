@@ -10,4 +10,5 @@ public:
     virtual void Update();//XV
     virtual void Draw();//•`‰æ
     virtual void Finaliza();//I—¹ˆ—
+
 };

@@ -234,12 +234,10 @@
     <ClInclude Include="Source\Haeder\SceneManager.h" />
     <ClInclude Include="Source\Haeder\Spider.h" />
     <ClInclude Include="Source\Haeder\GameManager.h" />
-    <ClInclude Include="Source\Haeder\MagicColliison.h" />
     <ClInclude Include="Source\Haeder\Object.h" />
     <ClInclude Include="Source\Haeder\ObujectManager.h" />
     <ClInclude Include="Source\Haeder\Player.h" />
     <ClInclude Include="Source\Haeder\SettingExplain.h" />
-    <ClInclude Include="Source\Haeder\Shot.h" />
     <ClInclude Include="Source\Haeder\SkyBox.h" />
     <ClInclude Include="Source\Haeder\Spider_State.h" />
     <ClInclude Include="Source\Haeder\StageFrame.h" />

@@ -21,6 +21,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 	SetFullScreenResolutionMode(DX_FSRESOLUTIONMODE_MAXIMUM);
 
+	//SetGraphMode(1920, 1080, 32);
 	SetGraphMode(1920, 1080, 32);
 
 	SetUseLarge3DPositionSupport(TRUE);
