@@ -41,6 +41,7 @@ private:
 	std::map<std::string, int> m_images;
 	std::map<std::string, int> m_effects;
 	std::map<std::string, int> m_constbuff;
+	std::map<std::string, int> m_sounds;
 
 
 public:
@@ -66,5 +67,6 @@ public:
 	void SetConstbuffPS(std::string name, int slot);
 	int GetConstBuff(std::string name);
 
-	
+	int LoadSoundFromFile(const std::string& name);
+
 };

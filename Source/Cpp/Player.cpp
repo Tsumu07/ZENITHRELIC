@@ -47,6 +47,7 @@ Player::Player()
 ,DamageEffectCount(0)
 ,DamageEffectWait()
 ,DamageEffetFlag(false)
+,NowHit(false)
 ,HitPillar(false)
 ,AttackPillar(false)
 ,HitSpider(false)
@@ -221,7 +222,12 @@ void Player::Update()
 				{
 					column->Damage(20);
 
-					//当たった時のエフェクトを追加
+					//エフェクト
+					if (Master::mpObjectManager->GetEffectByTag("Break") == -1)
+					{
+						Master::mpObjectManager->AddEffect("Effect/Break.efkefc", "Break", GetAttack(), VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
+					}
+
 				}
 			}
 
@@ -281,6 +287,8 @@ void Player::Update()
 					spider->Damage(100.0f);
 
 					spider->SetHitPlayer(true);
+
+
 				}
 			}
 		}
@@ -291,6 +299,8 @@ void Player::Update()
 	if (GetHitEnemy())
 	{
 		Invincible = 160.0f;
+
+		NowHit = true;
 	}
 
 	if (GetInvincible() > 0)
@@ -347,7 +357,7 @@ void Player::Update()
 	EquippedItems* equip = GetEquippedItems();
 	ItemManeger* inv = GetInventory();
 
-	if (CheckDownController(PAD_INPUT_5) != 0 || CheckDownKey(KEY_INPUT_Z))
+	if (CheckDownController(PAD_INPUT_5) != 0 || CheckDownKey(KEY_INPUT_X))
 	{
 		ItemBase* item = equip->GetItem(0);
 
@@ -360,7 +370,7 @@ void Player::Update()
 		}
 	}
 
-	if (CheckDownController(PAD_INPUT_6) != 0 || CheckDownKey(KEY_INPUT_X))
+	if (CheckDownController(PAD_INPUT_6) != 0 || CheckDownKey(KEY_INPUT_Z))
 	{
 		ItemBase* item = equip->GetItem(1);
 
@@ -578,34 +588,51 @@ void Player::Draw()
 	MV1DrawModel(mnModelHandle);
 	MV1DrawModel(mnWeponHandle);
 
+	// ヒットした瞬間に初期化
+	if (NowHit && !DamageEffetFlag)
+	{
+		DamageEffectCount = 0;
+		DamageEffectWait = 0;
+	}
+
 	//攻撃を受けた時のエフェクト
-	if (GetHitEnemy())
+	if (NowHit)
 	{
 		DrawBillboard3D(VGet(GetPos().x, GetPos().y + 100.0f, GetPos().z ), 0.5f, 0.5f, 320.0f, 90.0f, DamageEffectHandle[DamageEffectCount], TRUE);
 
-		//エフェクト再生
-		if (DamageEffectCount <= 5)
-		{
-			DamageEffectWait++;
-		}
+		DamageEffectWait++;
 
 		if (DamageEffectWait >= 25)
 		{
-			DamageEffectCount += 1;
+			DamageEffectCount++;
 			DamageEffectWait = 0;
+
+			if (DamageEffectCount >= 5)
+			{
+				DamageEffectCount = 0;
+
+				NowHit = false;
+			}
 		}
 
-		if (DamageEffectCount >= 5)
-		{
-			DamageEffectCount = 0;
-			DamageEffectWait = 0;
-		}
+		DamageEffetFlag = NowHit;
+
+
 	}
+
+
 }
 
 void Player::Finaliza()
 {
+	//3Dモデル削除
 	MV1DeleteModel(mnModelHandle);
 	MV1DeleteModel(mnWeponHandle);
+
+	//エフェクト削除
+	for (DamageEffectCount = 0; DamageEffectCount < 5; DamageEffectCount++)
+	{
+		DeleteGraph(DamageEffectHandle[DamageEffectCount]);
+	}
 }
 

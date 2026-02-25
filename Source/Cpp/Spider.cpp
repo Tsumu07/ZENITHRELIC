@@ -17,9 +17,7 @@
 
 int Spider::Count = 1;
 
-/**
-* @fn　コンストラクタ
-*/
+//コンストラクタ
 Spider::Spider() : Object()
 ,mnSpiderModel(-1)
 ,mStateSpider(SpiderAnimetion::SpiderIidel)

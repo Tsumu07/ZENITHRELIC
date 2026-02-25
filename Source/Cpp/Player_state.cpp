@@ -53,15 +53,6 @@ int PSIdle::Update(Object* parent)
 		return PLAYER_STATE_PICKITEM;
 	}
 
-	if (CheckDownKey(KEY_INPUT_RETURN))
-	{
-		if (Master::mpObjectManager->GetEffectByTag("HP") == -1)
-		{
-			Master::mpObjectManager->AddEffect("Effect/a.efkefc", "HP", VGet(parent->GetPos().x,60.0f,parent->GetPos().z), VGet(0.0f, 0.0f, 0.0f), VGet(10.0f, 10.0f, 10.0f));
-		}
-
-	}
-
 	//ƒ_ƒ[ƒW‚ğó‚¯‚é
 	Player* player = dynamic_cast<Player*>(parent);
 
@@ -123,14 +114,6 @@ int PSWalk::Update(Object* parent)
 		dir.z = -1;
 	}
 
-	if (CheckDownKey(KEY_INPUT_RETURN))
-	{
-		if (Master::mpObjectManager->GetEffectByTag("Attack") == -1)
-		{
-			Master::mpObjectManager->AddEffect("Effect/Attack.efkefc", "Attack", parent->GetPos(), VGet(0.0f, 0.0f, 0.0f), VGet(10.0f, 10.0f, 10.0f));
-		}
-
-	}
 
 	//if (CheckHitPillar(Pillar_INPUT_SPACE))
 	//{

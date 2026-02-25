@@ -118,6 +118,27 @@ void ResourceManager::UnloadEffect(std::string tag)
 	m_effects.erase(it);
 }
 
+//音の読み込み
+int ResourceManager::LoadSoundFromFile(const std::string& name)
+{
+	auto it = m_sounds.find(name);
+
+	if (it != m_sounds.end())
+	{
+		return it->second;
+	}
+
+	int handle = LoadSoundMem(name.c_str());
+
+	if (handle == -1)
+	{
+		return -1;
+	}
+
+	m_sounds[name] = handle;
+	return handle;
+}
+
 //すべてのリソースを開放する
 void ResourceManager::Uninitializa(void)
 {
@@ -131,8 +152,16 @@ void ResourceManager::Uninitializa(void)
 		DeleteGraph(image.second);
 	}
 
+	for (auto& pair : m_sounds)
+	{
+		DeleteSoundMem(pair.second);
+	}
+
 	m_effects.clear();
 	m_images.clear();
+	m_sounds.clear();
+
+
 }
 
 // 定数バッファの作成
@@ -174,7 +203,10 @@ void ResourceManager::SetConstbuffPS(std::string name, int slot)
 int ResourceManager::GetConstBuff(std::string name)
 {
 	if (m_constbuff.find(name) == m_constbuff.end())
+	{
 		return -1;
+	}
 
 	return m_constbuff[name];
 }
+

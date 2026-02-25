@@ -1,10 +1,14 @@
 #pragma once
 #include "../Haeder/SceneBase.h"
+#include "../Haeder/Player_UI.h"
 #include "DxLib.h"
 
 class Inventory : public SceneBase
 {
 private:
+
+    Player_UI* m_player_ui;
+
     //‰E‚Ì’¸“_
     float TriangleLeftX;
     float TriangleLeftY;

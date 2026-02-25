@@ -4,15 +4,13 @@
 
 class HpItem : public ItemBase
 {
-public:
-    HpItem() 
-    {
-        m_price = 150;
-        m_iconHandle = LoadGraph("Assets/Hp_Icon.png");
-        m_modelHandle = MV1LoadModel("Resource/bottle_green.x");
-        MV1SetScale(m_modelHandle, VGet(30.0f, 30.0f, 30.0f));
+private:
 
-    }
+    VECTOR EffectPos;
+
+public:
+
+    HpItem();
 
     virtual void UseItem(Player* player) override;
     virtual std::string GetName() const override { return "HP Potion"; }

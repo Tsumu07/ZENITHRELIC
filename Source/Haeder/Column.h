@@ -19,6 +19,10 @@ private:
 
     bool IsCylinder() const override { return true; }
 
+    float m_deadTimer;        // 死亡演出用タイマー
+    float m_startY;           // 開始Y座標保存
+    bool  m_isDeadStarted;    // 演出開始フラグ
+    VECTOR Deadpos;
 public:
 
     Column();   //コンストラクタ

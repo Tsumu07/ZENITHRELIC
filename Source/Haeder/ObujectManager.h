@@ -17,6 +17,7 @@ private:
 
     std::list<Object*> objList;
     std::list<std::pair<std::string, int>> effectList;
+    std::list<std::pair<std::string, int>> soundList;
 
     MATRIX matView;
 
@@ -57,6 +58,11 @@ public:
     void AddEffect(std::string name, std::string tag, VECTOR pos, VECTOR rot, VECTOR scale);
     void UpdateEffect(std::string tag, VECTOR pos, VECTOR rot, VECTOR scale);
     int GetEffectByTag(std::string tag);
+
+    //サウンド関係
+    void AddSound(std::string name, std::string tag, int playType);
+    void StopSound(std::string tag);
+    int GetSoundByTag(std::string tag);
 
     //カメラの復元
     void RestoreViewMatrix() const;

@@ -7,6 +7,7 @@
 #include "../Haeder/EquippedItems.h"
 #include "../Haeder/CheckKey.h"
 #include "../Haeder/ItemBase.h"
+#include "../Haeder/Player_UI.h"
 #include "../Master.h"
 #include "Dxlib.h"
 
@@ -15,6 +16,7 @@ Inventory g_inventory;
 
 Inventory::Inventory()
 : SceneBase()
+,m_player_ui()
 , TriangleLeftX(0.0f)
 , TriangleLeftY(0.0f)
 , TriangleUnderX(0.0f)
@@ -36,6 +38,19 @@ Inventory::~Inventory()
 
 void Inventory::Initaliza()
 {
+	//ƒvƒŒƒCƒ„[‚ÌUI
+	{
+		m_player_ui = new Player_UI();
+		m_player_ui->Initaliza();
+		m_player_ui->SetLayer(1);
+		m_player_ui->SetTag(10);
+		m_player_ui->SetPos(VGet(0.0f, 0.0f, 0.0f));
+		m_player_ui->SetDir(VGet(1.0f, 0.0f, 0.0f));
+		m_player_ui->SetSpeed(0.0f);
+		m_player_ui->SetTeam(1);
+
+	}
+
 	cursor = 0;
 
 	TotalAmount = 0;
@@ -49,6 +64,8 @@ void Inventory::Initaliza()
 
 void Inventory::Update()
 {
+	m_player_ui->Update();
+
 	Object* player = Master::mpObjectManager->FindByTag(100);
 	auto Play = dynamic_cast<Player*>(player);
 	ItemManeger* inv = Play->GetInventory();
@@ -152,6 +169,9 @@ void Inventory::Draw()
 	{
 		DrawGraph(0, 0, Background, TRUE);
 	}
+
+	//UI
+	m_player_ui->Draw();
 
 	DrawBox(100, 100, 600, 700, GetColor(255, 255, 255), FALSE);
 	DrawString(120, 120, "Inventory", GetColor(255, 255, 0));

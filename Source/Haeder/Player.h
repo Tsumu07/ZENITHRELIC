@@ -72,7 +72,7 @@ private:
     int DamageEffectCount;
     int DamageEffectWait;
     bool DamageEffetFlag;
-
+    bool NowHit;
 
 public:
     Player();   //コンストラクタ

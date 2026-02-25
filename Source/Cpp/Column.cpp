@@ -14,9 +14,13 @@ Column::Column()
     : Object()
     , mnColumnModelHandle(-1)
     , mvColumnPosition(VGet(0.0f, 0.0f, 0.0f))
+    , Deadpos(VGet(0.0f, 0.0f, 0.0f))
     , ColumnRotationY(0.0f)
     , DeleteColumnCount(0.0f)
     , ItemRandom(0.0f)
+    , m_deadTimer(0.0f)
+    , m_startY(0.0f)
+    , m_isDeadStarted(false)
 {
 }
 
@@ -45,10 +49,40 @@ void Column::Update()
 
     if (IsDead())
     {
+
+        //エフェクト
+        if (Master::mpObjectManager->GetEffectByTag("Delete") == -1)
+        {
+            Master::mpObjectManager->AddEffect("Effect/Delete.efkefc", "Delete", GetPos(), VGet(0.0f, 0.0f, 0.0f), VGet(30.0f, 30.0f, 30.0f));
+        }
+
+        // 初回だけ保存
+        if (!m_isDeadStarted)
+        {
+            m_isDeadStarted = true;
+            m_startY = GetPos().y;
+            m_deadTimer = 0.0f;
+        }
+
+        m_deadTimer += 1.0f;
+
+        Deadpos = GetPos();
+
+        //沈む処理
+        Deadpos.y = m_startY - m_deadTimer * 2.5f;   // 徐々に下に沈む
+
+        //左右揺れ
+        Deadpos.x += sinf(m_deadTimer * 0.2f) * 5.0f;
+
+        SetPos(Deadpos);
+        MV1SetPosition(mnColumnModelHandle, Deadpos);
+
+        MV1SetRotationXYZ(mnColumnModelHandle,VGet(0.0f, 0.0f, sinf(m_deadTimer * 0.2f) * 0.1f));
+
         // 初回だけタイマーをセット
         if (DeleteColumnCount <= 0.0f)
         {
-            DeleteColumnCount = 120.0f;
+            DeleteColumnCount = 180.0f;
         }
 
         // カウントダウン
@@ -85,7 +119,7 @@ void Column::Update()
             }
 
             ItemDrop* drop = new ItemDrop(itemData);
-            drop->SetPos(GetPos());
+            drop->SetPos(VGet(GetPos().x, m_startY,GetPos().z));
             drop->Initaliza();
             drop->SetTag(500);
 

@@ -62,7 +62,14 @@ void GameManager::Initaliza()
     Master::mpResourceManager->LoadEffectFromFile("Effect/Light.efkefc", 5.0f);
     Master::mpResourceManager->LoadEffectFromFile("Effect/Attack.efkefc", 5.0f);
     Master::mpResourceManager->LoadEffectFromFile("Effect/Portal.efkefc", 5.0f);
-    Master::mpResourceManager->LoadEffectFromFile("Effect/a.efkefc", 5.0f);
+    Master::mpResourceManager->LoadEffectFromFile("Effect/HP.efkefc", 5.0f);
+    Master::mpResourceManager->LoadEffectFromFile("Effect/Break.efkefc", 5.0f);
+    Master::mpResourceManager->LoadEffectFromFile("Effect/Delete.efkefc", 5.0f);
+    Master::mpResourceManager->LoadEffectFromFile("Effect/Delete_Enemy.efkefc", 5.0f);
+    Master::mpResourceManager->LoadEffectFromFile("Effect/Portal1.efkefc", 5.0f);
+
+
+    Master::mpResourceManager->LoadSoundFromFile("Musics/ステータス治療1.mp3");
 
     if (Master::mpObjectManager == nullptr)
     {

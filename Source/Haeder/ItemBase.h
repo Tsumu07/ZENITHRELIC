@@ -9,13 +9,13 @@ protected:
     std::string m_name;
     int m_price;
     int m_iconHandle;
-    int m_modelHandle = -1;
+    int m_modelHandle;
 
 public:
 
-    ItemBase() {}
+    ItemBase();
 
-    virtual ~ItemBase() {}
+    virtual ~ItemBase();
 
     // アイテム効果
     virtual void UseItem(Player* player) = 0;
@@ -29,15 +29,12 @@ public:
     // モデルパス（ドロップ表示用）
     virtual const char* GetDropModelPath() const = 0;
 
-    //装備させるモデル
-    int GetModel() const { return m_modelHandle; }
-
     //UIの表示
-    int GetIcon() const { return m_iconHandle; }
+    int GetIcon() const;
 
     // 半径（拾う時の当たり判定）
-    virtual float GetPickupRadius() const { return 80.0f; }
+    virtual float GetPickupRadius() const;
 
-    //アイテムの値段
-    int GetPrice() const { return m_price; }
+        //アイテムの値段
+    int GetPrice() const;
 };

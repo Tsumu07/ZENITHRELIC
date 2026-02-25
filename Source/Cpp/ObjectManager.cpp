@@ -42,15 +42,36 @@ void ObjectManager::Update()
     {
         workObject->Update();
         workObject = workObject->GetNextObject();
+
     } while (workObject != nullptr);
 
     for (auto it = effectList.begin(); it != effectList.end(); )
     {
         // エフェクトが終了しているかをチェックする（0が再生中）
         if (IsEffekseer3DEffectPlaying((*it).second) != 0)
+        {
             it = effectList.erase(it);  // 再生が終了していたらリストから削除
+        }
+
         else
+        {
             ++it;  // 継続中なら次へ
+        }
+
+    }
+
+    for (auto it = soundList.begin(); it != soundList.end(); )
+    {
+
+        if (CheckSoundMem(it->second) != 0)
+        {
+            it = soundList.erase(it);
+        }
+
+        else
+        {
+            ++it;
+        }
     }
 
     // カメラのビュー行列を取得する。
@@ -344,7 +365,9 @@ void ObjectManager::AddEffect(std::string name, std::string tag, VECTOR pos, VEC
     int handle = Master::mpResourceManager->GetEffect(name);
 
     if (handle == -1)
+    {
         return;
+    }
 
     // エフェクトを再生する。
     int playingEffectHandle = PlayEffekseer3DEffect(handle);
@@ -363,7 +386,9 @@ void ObjectManager::UpdateEffect(std::string tag, VECTOR pos, VECTOR rot, VECTOR
     int playingEffectHandle = GetEffectByTag(tag);
 
     if (playingEffectHandle == -1)
+    {
         return;
+    }
 
     // 再生中のエフェクトを移動する。
     SetPosPlayingEffekseer3DEffect(playingEffectHandle, pos.x, pos.y, pos.z);
@@ -382,6 +407,53 @@ int ObjectManager::GetEffectByTag(std::string tag)
     }
 
     return -1;
+}
+
+void ObjectManager::AddSound(std::string name, std::string tag, int playType)
+{
+    int handle = Master::mpResourceManager->LoadSoundFromFile(name);
+
+    if (handle == -1)
+    {
+        return;
+    }
+
+    PlaySoundMem(handle, playType);
+
+    soundList.push_back(std::make_pair(tag, handle));
+
+}
+
+void ObjectManager::StopSound(std::string tag)
+{
+    for (auto it = soundList.begin(); it != soundList.end(); )
+    {
+        if (it->first == tag)
+        {
+            StopSoundMem(it->second);
+
+            it = soundList.erase(it);
+        }
+
+        else
+        {
+            ++it;
+        }
+    }
+}
+
+int ObjectManager::GetSoundByTag(std::string tag)
+{    
+    for (auto& pair : soundList)
+    {
+        if (pair.first == tag)
+        {
+            return pair.second;
+        }
+    }
+
+    return -1;
+
 }
 
 void ObjectManager::RestoreViewMatrix(void) const
