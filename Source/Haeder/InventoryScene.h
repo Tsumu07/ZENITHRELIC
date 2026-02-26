@@ -36,8 +36,28 @@ private:
     //背景画像
     int Background;
 
+    //メニューのUI
+    int MenuUI[6];
+    int RetrySelectUI;
+    int TitleSelectUI;
+    int ExitSelectUI;
+
+    float MenuUIX;
+
+    float RetryUI;
+
+    float TitleUI;
+
+    float ExitUI;
+
+    float SelectpictureR;
+    float SelectpictureL;
+    float SelectY;
+
     bool InputJoycon;
 
+    //メニュー画面の表示
+    bool OpenMenu;
 
 public:
     Inventory();   //コンストラクタ

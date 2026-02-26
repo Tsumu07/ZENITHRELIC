@@ -228,6 +228,7 @@ void Player::Update()
 						Master::mpObjectManager->AddEffect("Effect/Break.efkefc", "Break", GetAttack(), VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
 					}
 
+
 				}
 			}
 
@@ -284,10 +285,15 @@ void Player::Update()
 				if (!spider->IsDead())
 				{
 					//ダメージを与える
-					spider->Damage(100.0f);
+					spider->Damage(250.0f);
 
 					spider->SetHitPlayer(true);
 
+					//エフェクト
+					if (Master::mpObjectManager->GetEffectByTag("Attack") == -1)
+					{
+						Master::mpObjectManager->AddEffect("Effect/Attack.efkefc", "Attack", VGet(GetAttack().x, GetAttack().y + 120.0f, GetAttack().z), VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
+					}
 
 				}
 			}

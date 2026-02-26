@@ -48,7 +48,7 @@ void ObjectManager::Update()
     for (auto it = effectList.begin(); it != effectList.end(); )
     {
         // エフェクトが終了しているかをチェックする（0が再生中）
-        if (IsEffekseer3DEffectPlaying((*it).second) != 0)
+        if (IsEffekseer3DEffectPlaying(it->second) != 0)
         {
             it = effectList.erase(it);  // 再生が終了していたらリストから削除
         }
@@ -379,6 +379,7 @@ void ObjectManager::AddEffect(std::string name, std::string tag, VECTOR pos, VEC
 
     effectList.push_back(std::make_pair(tag, playingEffectHandle));
 }
+
 
 void ObjectManager::UpdateEffect(std::string tag, VECTOR pos, VECTOR rot, VECTOR scale)
 {

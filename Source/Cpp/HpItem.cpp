@@ -29,10 +29,8 @@ void HpItem::UseItem(Player* player)
     player->AddHp(50);
     
     //エフェクト
-    if (Master::mpObjectManager->GetEffectByTag("HP") == -1)
-    {
-        Master::mpObjectManager->AddEffect("Effect/HP.efkefc", "HP", EffectPos, VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
-    }
+   
+    Master::mpObjectManager->AddEffect("Effect/HP.efkefc", "HP", EffectPos, VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
 
     Master::mpObjectManager->UpdateEffect("HP", EffectPos, VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
 

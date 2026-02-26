@@ -150,9 +150,6 @@
     <ClCompile Include="Source\Cpp\Player.cpp">
       <Filter>ソース ファイル\Object\Player</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Cpp\Menu.cpp">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Cpp\Point.cpp">
       <Filter>ソース ファイル\Object\Obstacle</Filter>
     </ClCompile>
@@ -255,9 +252,6 @@
       <Filter>ヘッダー ファイル\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Source\Haeder\GameOver.h">
-      <Filter>ヘッダー ファイル\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\Menu.h">
       <Filter>ヘッダー ファイル\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Source\Haeder\SceneBase.h">

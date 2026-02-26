@@ -15,20 +15,32 @@
 Inventory g_inventory;
 
 Inventory::Inventory()
-: SceneBase()
+:SceneBase()
 ,m_player_ui()
-, TriangleLeftX(0.0f)
-, TriangleLeftY(0.0f)
-, TriangleUnderX(0.0f)
-, TriangleUnderY(0.0f)
-, TriangleUpX(0.0f)
-, TriangleUpY(0.0f)
-, MaxUp(0.0f)
-, MaxUnder(0.0f)
-, cursor(0)
+,TriangleLeftX(0.0f)
+,TriangleLeftY(0.0f)
+,TriangleUnderX(0.0f)
+,TriangleUnderY(0.0f)
+,TriangleUpX(0.0f)
+,TriangleUpY(0.0f)
+,MaxUp(0.0f)
+,MaxUnder(0.0f)
+,cursor(0)
 ,TotalAmount(0)
 ,Background(0)
+,MenuUI()
+,RetrySelectUI(0)
+,TitleSelectUI(0)
+,ExitSelectUI(0)
+,MenuUIX(0.0f)
+,RetryUI(0.0f)
+,TitleUI(0.0f)
+,ExitUI(0.0f)
+,SelectpictureR(0.0f)
+,SelectpictureL(0.0f)
+,SelectY(0.0f)
 ,InputJoycon(false)
+,OpenMenu(false)
 {
 }
 
@@ -60,6 +72,28 @@ void Inventory::Initaliza()
 	//一瞬の取得
 	InputJoycon = false;
 
+	//メニュー
+	LoadDivGraph("Assets/GameOverUI.png", 6, 2, 3, 320, 108, MenuUI);
+
+	//一番上
+	MaxUp = 180.0f;
+
+	//一番下
+	MaxUnder = 420.0f;
+
+	MenuUIX = 780.0f;
+	RetryUI = 250.0f;
+	TitleUI = 370.0f;
+	ExitUI = 490.0f;
+
+	SelectpictureL = 640.0f;
+	SelectpictureR = 1065.0f;
+	SelectY = 180.0f;
+
+	RetrySelectUI = 0;
+	TitleSelectUI = 0;
+	ExitSelectUI = 0;
+	OpenMenu = false;
 }
 
 void Inventory::Update()
@@ -82,82 +116,156 @@ void Inventory::Update()
 		InputJoycon = false;
 	}
 
-	// 閉じる
-	if (CheckDownController(PAD_INPUT_3) != 0 || CheckDownKey(KEY_INPUT_E))
+	//メニュー画面の表示
+	if (/*コントローラー対応 ||*/ CheckDownKey(KEY_INPUT_Q))
 	{
-		Master::mpSceneManager->CloseInventory();
-	}
 
-	// カーソル移動
-	if (input.Y <= -500.0f && InputJoycon == false || CheckDownKey(KEY_INPUT_DOWN))
-	{
-		cursor++;
-		InputJoycon = true;
-
-	}
-
-	if (input.Y >= 500.0f && InputJoycon == false || CheckDownKey(KEY_INPUT_UP))
-	{
-		cursor--;
-		InputJoycon = true;
-
-	}
-
-	if (cursor < 0)
-	{
-		cursor = count - 1;
-	}
-
-	if (cursor >= count)
-	{
-		cursor = 0;
-	}
-
-	// アイテムを装備(スロット1)
-	if (CheckDownController(PAD_INPUT_6) != 0 || CheckDownKey(KEY_INPUT_Z))
-	{
-		ItemBase* item = inv->GetItem(cursor);
-
-		if (item)
+		if (!OpenMenu)
 		{
-			Play->GetEquippedItems()->SetItemToSlot(1, item);
+			OpenMenu = true;
+		}
+	}
 
-			// カーソル補正
-			if (cursor >= inv->GetItemCount())
+	if (OpenMenu)
+	{
+
+		if (CheckDownController(PAD_INPUT_3) != 0 || CheckDownKey(KEY_INPUT_E))
+		{
+			OpenMenu = false;
+		}
+
+		if (CheckDownController(PAD_INPUT_2) != 0 || CheckDownKey(KEY_INPUT_Q))
+		{
+			//ゲーム画面
+			if (SelectY >= 175.0f && SelectY <= 185.0f)
 			{
-				cursor = inv->GetItemCount() - 1;
+				Master::mpSceneManager->ChangeScene(SceneName::GameScene);
+
 			}
+
+			//タイトル
+			else if (SelectY >= 295.0f && SelectY <= 305.0f)
+			{
+				Master::mpSceneManager->ChangeScene(SceneName::TitleScene);
+			}
+
+			//終了
+			else if (SelectY >= 415.0f && SelectY <= 425.0f)
+			{
+				Master::mpGameManager->EndGameLoop();
+
+			}
+
+		}
+
+		// カーソル移動
+		if (input.Y <= -500.0f && InputJoycon == false || CheckDownKey(KEY_INPUT_DOWN))
+		{
+			SelectY += 120.0f;
+			InputJoycon = true;
+
+		}
+
+		if (input.Y >= 500.0f && InputJoycon == false || CheckDownKey(KEY_INPUT_UP))
+		{
+			SelectY -= 120.0f;
+			InputJoycon = true;
+
+		}
+
+		if (SelectY < MaxUp)
+		{
+			SelectY = 420.0f;
+		}
+
+		if (SelectY > MaxUnder)
+		{
+			SelectY = 180.0f;
+		}
+
+	}
+
+	else
+	{
+		// 閉じる
+		if (CheckDownController(PAD_INPUT_3) != 0 || CheckDownKey(KEY_INPUT_E))
+		{
+			Master::mpSceneManager->CloseInventory();
+		}
+
+		// カーソル移動
+		if (input.Y <= -500.0f && InputJoycon == false || CheckDownKey(KEY_INPUT_DOWN))
+		{
+			cursor++;
+			InputJoycon = true;
+
+		}
+
+		if (input.Y >= 500.0f && InputJoycon == false || CheckDownKey(KEY_INPUT_UP))
+		{
+			cursor--;
+			InputJoycon = true;
+
+		}
+
+		if (cursor < 0)
+		{
+			cursor = count - 1;
+		}
+
+		if (cursor >= count)
+		{
+			cursor = 0;
+		}
+
+		// アイテムを装備(スロット1)
+		if (CheckDownController(PAD_INPUT_6) != 0 || CheckDownKey(KEY_INPUT_Z))
+		{
+			ItemBase* item = inv->GetItem(cursor);
+
+			if (item)
+			{
+				Play->GetEquippedItems()->SetItemToSlot(1, item);
+
+				// カーソル補正
+				if (cursor >= inv->GetItemCount())
+				{
+					cursor = inv->GetItemCount() - 1;
+				}
+
+			}
+		}
+
+		// アイテムを装備(スロット2)
+		if (CheckDownController(PAD_INPUT_5) != 0 || CheckDownKey(KEY_INPUT_X))
+		{
+			ItemBase* item = inv->GetItem(cursor);
+
+			if (item)
+			{
+				Play->GetEquippedItems()->SetItemToSlot(0, item);
+
+				// カーソル補正
+				if (cursor >= inv->GetItemCount())
+				{
+					cursor = inv->GetItemCount() - 1;
+				}
+
+			}
+		}
+
+		TotalAmount = 0;
+
+		for (int i = 0; i < inv->GetItemCount(); i++)
+		{
+			ItemBase* item = inv->GetItem(i);
+
+			TotalAmount += item->GetPrice();
 
 		}
 	}
 
-	// アイテムを装備(スロット2)
-	if (CheckDownController(PAD_INPUT_5) != 0 || CheckDownKey(KEY_INPUT_X))
-	{
-		ItemBase* item = inv->GetItem(cursor);
-
-		if (item)
-		{
-			Play->GetEquippedItems()->SetItemToSlot(0, item);
-
-			// カーソル補正
-			if (cursor >= inv->GetItemCount())
-			{
-				cursor = inv->GetItemCount() - 1;
-			}
-
-		}
-	}
-
-	TotalAmount = 0;
-
-	for (int i = 0; i < inv->GetItemCount(); i++)
-	{
-		ItemBase* item = inv->GetItem(i);
-
-		TotalAmount += item->GetPrice();
-
-	}
+	//OpenMenuがtrueの時
 
 	g_inventory.SetTotalAmount(TotalAmount);
 }
@@ -173,53 +281,76 @@ void Inventory::Draw()
 	//UI
 	m_player_ui->Draw();
 
-	DrawBox(100, 100, 600, 700, GetColor(255, 255, 255), FALSE);
-	DrawString(120, 120, "Inventory", GetColor(255, 255, 0));
-	DrawString(220, 120, "L/Rで装備", GetColor(255, 255, 0));
+	//メニュー画面
+	if (OpenMenu)
+	{
+		LoadGraphScreen(460, 150, "Assets/Menu.png", true);
 
-	Object* player = Master::mpObjectManager->FindByTag(100);
-	auto Play = dynamic_cast<Player*>(player);
+		LoadGraphScreen(SelectpictureR, SelectY, "Assets/SelectpictureR.png", true);
 
-	ItemManeger* inv = Play->GetInventory();
+		LoadGraphScreen(SelectpictureL, SelectY - 15, "Assets/SelectpictureL.png", true);
 
-	for (int i = 0; i < inv->GetItemCount(); i++)
-	{		
-		ItemBase* item = inv->GetItem(i);
+		//UI
+		DrawGraph(MenuUIX, RetryUI, MenuUI[0 + RetrySelectUI], true);
+		DrawGraph(MenuUIX, TitleUI, MenuUI[2 + TitleSelectUI], true);
+		DrawGraph(MenuUIX, ExitUI, MenuUI[4 + ExitSelectUI], true);
 
-		int y = 170 + i * 40;
+	}
 
-		if (cursor == i)
+	else
+	{
+		LoadGraphScreen(100, 100, "Assets/Item.png", true);
+
+		DrawString(150, 150, "L/Rで装備", GetColor(0, 0, 0));
+
+		Object* player = Master::mpObjectManager->FindByTag(100);
+		auto Play = dynamic_cast<Player*>(player);
+
+		ItemManeger* inv = Play->GetInventory();
+
+		for (int i = 0; i < inv->GetItemCount(); i++)
 		{
-			DrawBox(110, y - 5, 590, y + 35, GetColor(50, 50, 255), TRUE);
+			ItemBase* item = inv->GetItem(i);
 
-			DrawString(800, 600, item->GetExplain().c_str(), GetColor(255, 255, 255));
+			int y = 190 + i * 40;
+
+			if (cursor == i)
+			{
+				DrawBox(140, y - 5, 550, y + 25, GetColor(50, 50, 255), FALSE);
+
+				DrawString(150, 800, item->GetExplain().c_str(), GetColor(0, 0, 0));
+			}
+
+			DrawString(150, y, item->GetName().c_str(), GetColor(0, 0, 0));
+			char price[32];
+			sprintf_s(price, " : %d", item->GetPrice());
+			DrawString(350, y, price, GetColor(0, 0, 0));
+
+			EquippedItems* equip = Play->GetEquippedItems();
+
+			if (item == equip->GetItem(0))
+			{
+				// 装備中マーク
+				DrawBox(500, y, 520, y + 20, GetColor(50, 50, 255), TRUE);
+			}
+
+			else if (item == equip->GetItem(1))
+			{
+				// 装備中マーク
+				DrawBox(500, y, 520, y + 20, GetColor(255, 50, 50), TRUE);
+
+			}
 		}
-
-		DrawString(130, y, item->GetName().c_str(), GetColor(255, 255, 255));
-		char price[32];
-		sprintf_s(price, " : %d", item->GetPrice());
-		DrawString(350, y, price, GetColor(255, 255, 0));
 
 		EquippedItems* equip = Play->GetEquippedItems();
 
-		if (item == equip->GetItem(0) || item == equip->GetItem(1))
-		{
-			// 装備中マーク（□）
-			DrawBox(520, y + 5, 540, y + 25, GetColor(255, 255, 0), FALSE);
-		}
+		char totalamount[32];
+		sprintf_s(totalamount, "合計金額  : %d$", TotalAmount);
+		DrawString(150, 850, totalamount, GetColor(0, 0, 0));
 	}
-
-
-	EquippedItems* equip = Play->GetEquippedItems();
-
-	char totalamount[32];
-	sprintf_s(totalamount, "合計金額  : %d$", TotalAmount);
-	DrawString(100, 710, totalamount, GetColor(255, 255, 255));
-
 }
 
 void Inventory::Finaliza()
 {
 
 }
-

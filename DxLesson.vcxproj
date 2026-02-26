@@ -174,7 +174,6 @@
     <ClCompile Include="Source\Cpp\InventoryScene.cpp" />
     <ClCompile Include="Source\Cpp\ItemBase.cpp" />
     <ClCompile Include="Source\Cpp\ItemDrop.cpp" />
-    <ClCompile Include="Source\Cpp\Menu.cpp" />
     <ClCompile Include="Source\Cpp\Pathfinding.cpp" />
     <ClCompile Include="Source\Cpp\Player_UI.cpp" />
     <ClCompile Include="Source\Cpp\Player_state.cpp" />
@@ -224,7 +223,6 @@
     <ClInclude Include="Source\Haeder\ItemBase.h" />
     <ClInclude Include="Source\Haeder\ItemDrop.h" />
     <ClInclude Include="Source\Haeder\ItemManeger.h" />
-    <ClInclude Include="Source\Haeder\Menu.h" />
     <ClInclude Include="Source\Haeder\Pathfinding.h" />
     <ClInclude Include="Source\Haeder\Player_UI.h" />
     <ClInclude Include="Source\Haeder\Player_state.h" />

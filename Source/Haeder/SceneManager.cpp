@@ -5,7 +5,6 @@
 #include "../Haeder/Config.h"
 #include "../Haeder/GameClear.h"
 #include "../Haeder/GameOver.h"
-#include "../Haeder/Menu.h"
 #include "../Haeder/Game.h"
 #include "../Haeder/StageScene.h"
 #include "../Haeder/Explain.h"
@@ -16,12 +15,12 @@
 //コンストラクタ
 SceneManager::SceneManager()
 :mpScene(nullptr)
-,mpMenuScene(nullptr)
+,mpInventoryScene(nullptr)
 ,mpWipeScene(nullptr)
 ,m_nextScene(SceneNone)
 ,m_currentScene(SceneNone)
 ,m_isSceneChanging(false)
-,IsMenuSceneEnd(false)
+,IsInventorySceneEnd(false)
 ,m_lastGameScreenHandle(-1)
 {
 }
@@ -148,38 +147,30 @@ void SceneManager::Draw()
     ScreenFlip();
 }
 
-void SceneManager::CreateMenu()
+void SceneManager::UpdateInventoryScene()
 {
-    mpMenuScene = new Menu();
-
-    mpMenuScene->Initaliza();
-
-}
-
-void SceneManager::UpdateMenuScene()
-{
-    if (mpMenuScene != nullptr)
+    if (mpInventoryScene != nullptr)
     {
-        mpMenuScene->Update();
+        mpInventoryScene->Update();
     }
 }
 
-void SceneManager::DrawMenuScene()
+void SceneManager::DrawInventoryScene()
 {
-    if (mpMenuScene != nullptr)
+    if (mpInventoryScene != nullptr)
     {
-        mpMenuScene->Draw();
+        mpInventoryScene->Draw();
     }
 
 }
 
-void SceneManager::DeleteMenuScene()
+void SceneManager::DeleteInventoryScene()
 {
-    if (mpMenuScene != nullptr)
+    if (mpInventoryScene != nullptr)
     {
-        delete mpMenuScene;
+        delete mpInventoryScene;
 
-        mpMenuScene = nullptr;
+        mpInventoryScene = nullptr;
     }
 
 }
@@ -187,12 +178,12 @@ void SceneManager::DeleteMenuScene()
 void SceneManager::OpenInventory()
 {
     // 既存のメニューがあるなら破棄
-    DeleteMenuScene();
+    DeleteInventoryScene();
 
     // InventoryScene をメニューシーンとして開く
-    mpMenuScene = new Inventory();
+    mpInventoryScene = new Inventory();
 
-    mpMenuScene->Initaliza();
+    mpInventoryScene->Initaliza();
 
 }
 
@@ -206,8 +197,8 @@ void SceneManager::CloseInventory()
         m_lastGameScreenHandle = -1;
     }
 
-    DeleteMenuScene();
-    IsMenuSceneEnd = false;
+    DeleteInventoryScene();
+    IsInventorySceneEnd = false;
 }
 
 //終了処理

@@ -11,16 +11,16 @@
 
 //コンストラクタ
 Column::Column()
-    : Object()
-    , mnColumnModelHandle(-1)
-    , mvColumnPosition(VGet(0.0f, 0.0f, 0.0f))
-    , Deadpos(VGet(0.0f, 0.0f, 0.0f))
-    , ColumnRotationY(0.0f)
-    , DeleteColumnCount(0.0f)
-    , ItemRandom(0.0f)
-    , m_deadTimer(0.0f)
-    , m_startY(0.0f)
-    , m_isDeadStarted(false)
+:Object()
+,mnColumnModelHandle(-1)
+,mvColumnPosition(VGet(0.0f, 0.0f, 0.0f))
+,Deadpos(VGet(0.0f, 0.0f, 0.0f))
+,ColumnRotationY(0.0f)
+,DeleteColumnCount(0.0f)
+,ItemRandom(0.0f)
+,m_deadTimer(0.0f)
+,m_startY(0.0f)
+,m_isDeadStarted(false)
 {
 }
 
@@ -50,16 +50,14 @@ void Column::Update()
     if (IsDead())
     {
 
-        //エフェクト
-        if (Master::mpObjectManager->GetEffectByTag("Delete") == -1)
-        {
-            Master::mpObjectManager->AddEffect("Effect/Delete.efkefc", "Delete", GetPos(), VGet(0.0f, 0.0f, 0.0f), VGet(30.0f, 30.0f, 30.0f));
-        }
-
         // 初回だけ保存
         if (!m_isDeadStarted)
         {
             m_isDeadStarted = true;
+
+            //エフェクト再生
+            Master::mpObjectManager->AddEffect("Effect/Delete.efkefc", "Delete", GetPos(), VGet(0.0f, 0.0f, 0.0f), VGet(30.0f, 30.0f, 30.0f));
+
             m_startY = GetPos().y;
             m_deadTimer = 0.0f;
         }

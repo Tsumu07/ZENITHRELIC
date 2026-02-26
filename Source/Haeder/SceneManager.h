@@ -25,7 +25,7 @@ private:
     SceneBase* mpScene;
 
     //メニュー画面など
-    SceneBase* mpMenuScene;
+    SceneBase* mpInventoryScene;
 
     //フェードイン、フェードアウト
     FadeScene* mpWipeScene;
@@ -39,7 +39,7 @@ private:
 
     bool m_isSceneChanging;  // フェード中か？
 
-    bool IsMenuSceneEnd;
+    bool IsInventorySceneEnd;
 
 public:
     SceneManager();   //コンストラクタ
@@ -59,19 +59,17 @@ public:
 
     void CloseInventory();
 
-    void CreateMenu();
+    bool IsInventoryScene() { return mpInventoryScene != nullptr; }
 
-    bool IsMenuScene() { return mpMenuScene != nullptr; }
+    bool InventorySceneEnd() { return IsInventorySceneEnd; }
 
-    bool MenuSceneEnd() { return IsMenuSceneEnd; }
+    void UpdateInventoryScene();
 
-    void UpdateMenuScene();
+    void DrawInventoryScene();
 
-    void DrawMenuScene();
+    void SetInventorySceneEnd(bool isInventorySceneEnd) { IsInventorySceneEnd = isInventorySceneEnd; }
 
-    void SetMenuSceneEnd(bool isMenuSceneEnd) { IsMenuSceneEnd = isMenuSceneEnd; }
-
-    void DeleteMenuScene();
+    void DeleteInventoryScene();
 
     //Inventoryの背景
     void SetLastGameScreen(int handle) { m_lastGameScreenHandle = handle;}

@@ -61,7 +61,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 		// 現在のカウントを取得する
 		int time = GetNowCount();
 
-		if(!Master::mpSceneManager->IsMenuScene())
+		if(!Master::mpSceneManager->IsInventoryScene())
 		{
 
 			//シーンマネージャーの更新
@@ -82,17 +82,17 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 		{
 			ClearDrawScreen();
 
-			Master::mpSceneManager->UpdateMenuScene();
+			Master::mpSceneManager->UpdateInventoryScene();
 
-			Master::mpSceneManager->DrawMenuScene();
+			Master::mpSceneManager->DrawInventoryScene();
 
 			ScreenFlip();
 
-			if (Master::mpSceneManager->MenuSceneEnd())
+			if (Master::mpSceneManager->InventorySceneEnd())
 			{
-				Master::mpSceneManager->DeleteMenuScene();
+				Master::mpSceneManager->DeleteInventoryScene();
 
-				Master::mpSceneManager->SetMenuSceneEnd(false);
+				Master::mpSceneManager->SetInventorySceneEnd(false);
 
 				//背景の色を灰色にする
 				SetBackgroundColor(0, 0, 0);

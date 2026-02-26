@@ -309,13 +309,6 @@ void Stage::Update()
         Master::mpSceneManager->ChangeScene(SceneName::TitleScene);
     }
 
-    //アイテム画面
-    if (CheckDownKey(KEY_INPUT_E) != 0)
-    {
-        Master::mpSceneManager->CreateMenu();
-
-    }
-
     if (Save == false)
     {
         //右
@@ -629,6 +622,12 @@ void Stage::Update()
         if (input.X == 0)
         {
             InputJoycon = false;
+        }
+
+        //閉じる
+        if (CheckDownController(PAD_INPUT_3) != 0 || CheckDownKey(KEY_INPUT_E))
+        {
+            Save = false;
         }
 
         //右

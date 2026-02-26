@@ -292,7 +292,7 @@ void GameManager::Initaliza()
 
     fclose(fileverticalwall);
 
-    //ƒS[ƒŒƒ€‚Ìî•ñ
+    //‚­‚à‚Ìî•ñ
     char filenameSpider[64];
     sprintf_s(filenameSpider, "Spider%d.bin", stage);
 

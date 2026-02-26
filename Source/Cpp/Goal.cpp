@@ -3,6 +3,7 @@
 #include "../Haeder/GameManager.h"
 #include "../Haeder/ObujectManager.h"
 #include "../Haeder/Object.h"
+#include "../Master.h"
 #include <math.h>
 
 //コンストラクタ
@@ -30,9 +31,16 @@ void Goal::Initaliza()
 //更新
 void Goal::Update()
 {
+
     MV1SetPosition(mnGoalModelHandle, GetPos());
 
     MV1SetRotationXYZ(mnGoalModelHandle, mvGoalRotation);
+
+    //エフェクト
+    if (Master::mpObjectManager->GetEffectByTag("Portal") == -1)
+    {
+        Master::mpObjectManager->AddEffect("Effect/Portal1.efkefc", "Portal", VGet(GetPos().x, GetPos().y + 140.0f, GetPos().z), VGet(0.0f, 0.0f, 0.0f), VGet(15.0f, 15.0f, 15.0f));
+    }
 
 }
 

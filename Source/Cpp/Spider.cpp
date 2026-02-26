@@ -198,15 +198,23 @@ void Spider::Update()
      SetInvincible(Invincible);
 
      //ƒNƒ‚‚ðÁ‚·
-     if (IsDead() && !m_isDeadStarted)
+     if (IsDead())
      {
-         m_isDeadStarted = true;
-         PlaySoundMem(SpiderVoise, DX_PLAYTYPE_BACK);
-         DeleteSpiderCount = 120.0f;
+         if (!m_isDeadStarted)
+         {
+             m_isDeadStarted = true;
+
+             Master::mpObjectManager->AddEffect("Effect/Delete_Enemy.efkefc", "Delete_Enemy", GetPos(), VGet(0.0f, 0.0f, 0.0f), VGet(5.0f, 5.0f, 5.0f));
+
+             PlaySoundMem(SpiderVoise, DX_PLAYTYPE_BACK);
+             DeleteSpiderCount = 120.0f;
+         }
+
      }
 
      if (m_isDeadStarted)
      {
+
          --DeleteSpiderCount;
 
          if (DeleteSpiderCount <= 0)
