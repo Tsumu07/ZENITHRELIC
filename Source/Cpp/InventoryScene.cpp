@@ -131,6 +131,8 @@ void Inventory::Update()
 			if (SelectY >= 175.0f && SelectY <= 185.0f)
 			{
 				Master::mpSceneManager->ChangeScene(SceneName::GameScene);
+				Master::mpSceneManager->CloseInventory();
+				OpenMenu = false;
 
 			}
 
@@ -138,6 +140,8 @@ void Inventory::Update()
 			else if (SelectY >= 295.0f && SelectY <= 305.0f)
 			{
 				Master::mpSceneManager->ChangeScene(SceneName::TitleScene);
+				Master::mpSceneManager->CloseInventory();
+				OpenMenu = false;
 			}
 
 			//èIóπ

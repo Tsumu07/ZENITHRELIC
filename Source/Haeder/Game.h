@@ -2,6 +2,7 @@
 #include "SceneBase.h"
 #include "../Haeder/SkyBox.h"
 #include "../Haeder/Player_UI.h"
+#include "../Haeder/SubScene.h"
 
 class Game : public SceneBase
 {

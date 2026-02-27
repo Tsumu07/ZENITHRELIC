@@ -463,10 +463,7 @@ void GameManager::Draw()
 //I—¹ˆ—
 void GameManager::Finaliza()
 {    
-    // EffekseerI—¹ˆ—
-    Effkseer_End();
-
-    Master::mpObjectManager->SetDeleteFlagAll();
+    Master::mpObjectManager->DeleteAll();
 
 }
 

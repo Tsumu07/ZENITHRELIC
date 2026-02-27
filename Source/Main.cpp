@@ -117,6 +117,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 	Master::Finalize();
 
+	// Effekseer終了処理
+	Effkseer_End();
+
 	// DXライブラリ使用の終了処理
 	DxLib_End();
 

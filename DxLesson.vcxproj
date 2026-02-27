@@ -190,6 +190,8 @@
     <ClCompile Include="Source\Cpp\Spider_State.cpp" />
     <ClCompile Include="Source\Cpp\StageFrame.cpp" />
     <ClCompile Include="Source\Cpp\StageScene.cpp" />
+    <ClCompile Include="Source\Cpp\StartSubScene.cpp" />
+    <ClCompile Include="Source\Cpp\SubScene.cpp" />
     <ClCompile Include="Source\Cpp\Title.cpp" />
     <ClCompile Include="Source\Cpp\Triangle.cpp" />
     <ClCompile Include="Source\Cpp\Wall.cpp" />
@@ -240,6 +242,8 @@
     <ClInclude Include="Source\Haeder\Spider_State.h" />
     <ClInclude Include="Source\Haeder\StageFrame.h" />
     <ClInclude Include="Source\Haeder\StageScene.h" />
+    <ClInclude Include="Source\Haeder\StartSubScene.h" />
+    <ClInclude Include="Source\Haeder\SubScene.h" />
     <ClInclude Include="Source\Haeder\Title.h" />
     <ClInclude Include="Source\Haeder\Triangle.h" />
     <ClInclude Include="Source\Haeder\Wall.h" />
