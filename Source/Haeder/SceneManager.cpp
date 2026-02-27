@@ -67,6 +67,7 @@ void SceneManager::ChangeScene(SceneName Scene)
 //更新
 void SceneManager::Update()
 {
+
     // フェード中
     if (mpWipeScene->GetFadeMode() != 0)
     {

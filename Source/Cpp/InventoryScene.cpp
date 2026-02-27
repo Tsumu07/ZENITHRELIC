@@ -117,15 +117,6 @@ void Inventory::Update()
 	}
 
 	//メニュー画面の表示
-	if (/*コントローラー対応 ||*/ CheckDownKey(KEY_INPUT_Q))
-	{
-
-		if (!OpenMenu)
-		{
-			OpenMenu = true;
-		}
-	}
-
 	if (OpenMenu)
 	{
 
@@ -134,7 +125,7 @@ void Inventory::Update()
 			OpenMenu = false;
 		}
 
-		if (CheckDownController(PAD_INPUT_2) != 0 || CheckDownKey(KEY_INPUT_Q))
+		if (CheckDownController(PAD_INPUT_2) != 0 || CheckDownKey(KEY_INPUT_SPACE))
 		{
 			//ゲーム画面
 			if (SelectY >= 175.0f && SelectY <= 185.0f)
@@ -187,6 +178,11 @@ void Inventory::Update()
 
 	else
 	{
+		if (/*コントローラー対応 ||*/ CheckDownKey(KEY_INPUT_Q))
+		{
+			OpenMenu = true;
+		}
+
 		// 閉じる
 		if (CheckDownController(PAD_INPUT_3) != 0 || CheckDownKey(KEY_INPUT_E))
 		{
