@@ -124,8 +124,10 @@ void GameOver::Update()
         InputJoycon = false;
     }
 
-    if (CheckDownController(PAD_INPUT_2) != 0 || CheckDownKey(KEY_INPUT_Q))
+    if (CheckDownController(PAD_INPUT_2) != 0 || CheckDownKey(KEY_INPUT_SPACE))
     {
+        PlaySoundMem(ButtonMusic, DX_PLAYTYPE_BACK);
+
         //ƒQ[ƒ€‰æ–Ê
         if (SelectpictureL >= 35.0f && SelectpictureL <= 45.0f)
         {

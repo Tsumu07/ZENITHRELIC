@@ -115,6 +115,7 @@ Stage::Stage()
 ,EditerBGM(-1)
 ,SetSE(-1)
 ,SaveSE(-1)
+,SaveCompleted(-1)
 ,WarnSE(-1)
 ,DeleteSE(-1)
 {
@@ -149,8 +150,11 @@ void Stage::Initaliza()
     //置いた音
     SetSE = LoadSoundMem("Musics/決定ボタンを押す31.mp3");
 
-    //保存した音
+    //セーブボタン
     SaveSE = LoadSoundMem("Musics/決定ボタンを押す3.mp3");
+
+    //セーブ完了
+    SaveCompleted = LoadSoundMem("Musics/決定ボタンを押す8.mp3");
 
     //警告音 
     WarnSE = LoadSoundMem("Musics/警告音2.mp3");
@@ -393,7 +397,7 @@ void Stage::Update()
         }
 
         //Bボタン(押された瞬間だけ)
-        if (CheckDownController(PAD_INPUT_2) != 0 && Save == false || CheckDownKey(KEY_INPUT_Q))
+        if (CheckDownController(PAD_INPUT_2) != 0 && Save == false || CheckDownKey(KEY_INPUT_SPACE))
         {
             //プレイヤー(ポジション)
             if (PlayerSelect == true)
@@ -676,8 +680,12 @@ void Stage::Update()
             SelectSave_No2 = 1;
         }
 
-        if (CheckDownController(PAD_INPUT_7) != 0 || CheckDownKey(KEY_INPUT_Q))
+        if (CheckDownController(PAD_INPUT_7) != 0 || CheckDownKey(KEY_INPUT_SPACE))
         {
+
+            //SE
+            PlaySoundMem(SaveCompleted, DX_PLAYTYPE_BACK);
+
 
             //プレイヤーの情報
             //書き込み

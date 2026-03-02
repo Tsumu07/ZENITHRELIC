@@ -41,6 +41,8 @@ private:
 
     bool IsInventorySceneEnd;
 
+    bool m_waitStartSubScene;
+
 public:
     SceneManager();   //コンストラクタ
     ~SceneManager();  //デストラクタ

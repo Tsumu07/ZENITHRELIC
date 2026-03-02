@@ -169,6 +169,7 @@
     <ClCompile Include="Source\Cpp\FSMFactory.cpp" />
     <ClCompile Include="Source\Cpp\GameClear.cpp" />
     <ClCompile Include="Source\Cpp\GameOver.cpp" />
+    <ClCompile Include="Source\Cpp\GoalSubScene.cpp" />
     <ClCompile Include="Source\Cpp\HitCapsule.cpp" />
     <ClCompile Include="Source\Cpp\HpItem.cpp" />
     <ClCompile Include="Source\Cpp\InventoryScene.cpp" />
@@ -218,6 +219,7 @@
     <ClInclude Include="Source\Haeder\GameClear.h" />
     <ClInclude Include="Source\Haeder\GameOver.h" />
     <ClInclude Include="Source\Haeder\Game.h" />
+    <ClInclude Include="Source\Haeder\GoalSubScene.h" />
     <ClInclude Include="Source\Haeder\HitCapsule.h" />
     <ClInclude Include="Source\Haeder\HpItem.h" />
     <ClInclude Include="Source\Haeder\InventoryScene.h" />

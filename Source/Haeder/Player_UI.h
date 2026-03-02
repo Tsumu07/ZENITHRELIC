@@ -1,7 +1,7 @@
 #pragma once
 #include "Object.h"
 
-class Player_UI : public Object
+class Player_UI
 {
 private:
 

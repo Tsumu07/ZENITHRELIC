@@ -73,6 +73,11 @@ private:
     int DamageEffectWait;
     bool DamageEffetFlag;
     bool NowHit;
+    
+    //SE
+    int AttackSE;
+    int ColumnSE;
+    int DamageSE;
 
 public:
     Player();   //コンストラクタ
@@ -120,6 +125,9 @@ public:
 
     //敵に当たったフラグの取得
     bool GetHitEnemy() const { return HitEnemy; }
+
+    //ゴールに付いたフラグの取得
+    bool GetHitGoal() const { return HitGoal; }
 
     //アイテム選択
     bool SelectItem;

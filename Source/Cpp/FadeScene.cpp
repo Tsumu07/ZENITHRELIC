@@ -112,7 +112,8 @@ void FadeScene::Update()
 void FadeScene::Draw()
 {
 
-    if (m_fadeMode == 0)
+    // フェードイン・アウト中だけ描画する
+    if (m_fadeMode != 1 && m_fadeMode != 2)
     {
         return;
     }

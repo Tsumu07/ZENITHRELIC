@@ -21,6 +21,7 @@ SceneManager::SceneManager()
 ,m_currentScene(SceneNone)
 ,m_isSceneChanging(false)
 ,IsInventorySceneEnd(false)
+,m_waitStartSubScene(false)
 ,m_lastGameScreenHandle(-1)
 {
 }
@@ -44,6 +45,8 @@ void SceneManager::Initaliza()
     mpWipeScene = new FadeScene();
     mpWipeScene->Initaliza();
     mpWipeScene->SetFadeMode(1);
+
+    m_waitStartSubScene = false;
 
 }
 
@@ -114,10 +117,32 @@ void SceneManager::Update()
                 m_currentScene = m_nextScene;
             }
 
-            mpWipeScene->SetFadeMode(1);//フェードイン
+            m_waitStartSubScene = true;
             m_isSceneChanging = false;
         }
 
+    }
+
+    if (m_waitStartSubScene)
+    {
+        Game* game = dynamic_cast<Game*>(mpScene);
+
+        if (game)
+        {
+            // GameだけStartSubScene待ち
+            if (game->IsStartSubSceneEnd())
+            {
+                mpWipeScene->SetFadeMode(1);
+                m_waitStartSubScene = false;
+            }
+        }
+
+        else
+        {
+            // Game以外は即フェードイン
+            mpWipeScene->SetFadeMode(1);
+            m_waitStartSubScene = false;
+        }
     }
 
     // 通常更新
@@ -135,7 +160,6 @@ void SceneManager::Draw()
 
     if (mpScene)
     {
-
         mpScene->Draw();
     }
 

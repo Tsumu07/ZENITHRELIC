@@ -8,8 +8,7 @@
 #include "../Master.h"
 
 Player_UI::Player_UI()
-:Object()
-,LoadShader(-1)
+:LoadShader(-1)
 ,Frame(0)
 ,SlotHandle(-1)
 ,PlayerHp(0.0f)

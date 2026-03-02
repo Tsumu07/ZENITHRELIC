@@ -173,6 +173,7 @@ private:
     int EditerBGM;
     int SetSE;
     int SaveSE;
+    int SaveCompleted;
     int WarnSE;
     int DeleteSE;
 

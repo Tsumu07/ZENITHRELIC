@@ -2,6 +2,7 @@
 #include "../Haeder/Game.h"
 #include "../Haeder/SceneBase.h"
 #include "../Haeder/SceneManager.h"
+#include "../Haeder/StartSubScene.h"
 #include "../Haeder/GameManager.h"
 #include "../Haeder/ObujectManager.h"
 #include "../Haeder/Camera.h"
@@ -15,6 +16,8 @@
 Game::Game()
 :m_skybox()
 ,m_player_ui()
+,m_startsubscene()
+,m_goalsubscene()
 ,m_shadowMap(-1)
 ,vshandle(-1)
 ,pshandle(-1)
@@ -23,6 +26,8 @@ Game::Game()
 ,width(-1)
 ,height(-1)
 ,handle(-1)
+,GameBGM(-1)
+,m_startSubSceneEnd(false)
 {
 
 }
@@ -36,6 +41,12 @@ Game::~Game()
 //初期化
 void Game::Initaliza()
 {
+    m_startSubSceneEnd = false;
+
+    m_startsubscene = new StartSubScene();
+    m_startsubscene->Initaliza();
+
+    m_goalsubscene = nullptr;
 
     Master::mpGameManager->Initaliza();
 
@@ -56,14 +67,8 @@ void Game::Initaliza()
     {
         m_player_ui = new Player_UI();
         m_player_ui->Initaliza();
-        m_player_ui->SetLayer(1);
-        m_player_ui->SetTag(10);
-        m_player_ui->SetPos(VGet(0.0f, 0.0f, 0.0f));
-        m_player_ui->SetDir(VGet(1.0f, 0.0f, 0.0f));
-        m_player_ui->SetSpeed(0.0f);
-        m_player_ui->SetTeam(1);
-
     }
+
 
     m_shadowMap = MakeShadowMap(8192, 8192);
 
@@ -94,18 +99,46 @@ void Game::Initaliza()
     //SkyBox用ピクセルシェーダーを読み込む
     skyboxPShandle = LoadPixelShader("SkyBoxPS.cso");
 
+    GameBGM = LoadSoundMem("Musics/Game.mp3");
+
+    PlaySoundMem(GameBGM, DX_PLAYTYPE_LOOP);
+
 }
 
 //更新
 void Game::Update()
 {
 
+    //ゴール
+    Object* GetPlayer = Master::mpObjectManager->FindByTag(100);
+    auto goal = dynamic_cast<Player*>(GetPlayer);
+
+
+    if (m_startsubscene)
+    {
+        m_startsubscene->Update();
+        if (m_startsubscene->IsEnd())
+        {
+            m_startsubscene->Finaliza();
+            delete m_startsubscene;
+            m_startsubscene = nullptr;
+            m_startSubSceneEnd = true;
+        }
+
+        return; // 入力含め本編停止
+    }
+
+    if (m_goalsubscene)
+    {
+        m_goalsubscene->Update();
+        return;
+    }
+
     Master::mpGameManager->Update();
     m_skybox->Update();
     m_player_ui->Update();
 
     static int shotCount = 0;
-
 
     //アイテム画面
     if (CheckDownController(PAD_INPUT_3) != 0 || CheckDownKey(KEY_INPUT_E) != 0)
@@ -120,6 +153,13 @@ void Game::Update()
         Master::mpSceneManager->SetLastGameScreen(handle);
         Master::mpSceneManager->OpenInventory();
     }
+
+    if (goal->GetHitGoal() && m_goalsubscene == nullptr)
+    {
+        m_goalsubscene = new GoalSubScene();
+        m_goalsubscene->Initaliza();
+    }
+
 
 }
 
@@ -153,8 +193,25 @@ void Game::Draw()
 
     m_skybox->Draw();
 
-    //UI
-    m_player_ui->Draw();
+    if (m_startsubscene)
+    {
+        m_startsubscene->Draw();
+
+        return;
+    }
+
+    else
+    {
+        //UI
+        m_player_ui->Draw();
+
+    }
+
+    if (m_goalsubscene)
+    {
+        m_goalsubscene->Draw();
+    }
+
 
     // Effekseerエフェクトの描画
     DrawEffekseer3D();
@@ -175,4 +232,10 @@ void Game::Finaliza()
 
     Master::mpGameManager->Finaliza();
 
+}
+
+
+bool Game::IsStartSubSceneEnd()
+{
+    return m_startSubSceneEnd;
 }

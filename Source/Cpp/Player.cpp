@@ -59,6 +59,9 @@ Player::Player()
 ,AttackSpider(false)
 ,HitEnemy(false)
 ,mfAngle(0.0f)
+,AttackSE(-1)
+,ColumnSE(-1)
+,DamageSE(-1)
 {
 }
 
@@ -228,6 +231,7 @@ void Player::Update()
 						Master::mpObjectManager->AddEffect("Effect/Break.efkefc", "Break", GetAttack(), VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
 					}
 
+					//SE
 
 				}
 			}
@@ -265,6 +269,8 @@ void Player::Update()
 				Damage(60.0f);
 
 				SetHitEnemy(true);
+
+				//SE
 			}
 
 		}
@@ -285,7 +291,7 @@ void Player::Update()
 				if (!spider->IsDead())
 				{
 					//ダメージを与える
-					spider->Damage(250.0f);
+					spider->Damage(100.0f);
 
 					spider->SetHitPlayer(true);
 
@@ -295,6 +301,7 @@ void Player::Update()
 						Master::mpObjectManager->AddEffect("Effect/Attack.efkefc", "Attack", VGet(GetAttack().x, GetAttack().y + 120.0f, GetAttack().z), VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
 					}
 
+					//SE
 				}
 			}
 		}
@@ -332,12 +339,6 @@ void Player::Update()
 			playerBottom, playerTop, playerR
 		);
 
-		//ゴールについていたら
-		if (HitGoal)
-		{
-			Master::mpSceneManager->ChangeScene(SceneName::GameClearScene);
-
-		}
 	}
 
 	//壁の当たり判定

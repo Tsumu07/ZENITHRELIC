@@ -16,7 +16,7 @@ Inventory g_inventory;
 
 Inventory::Inventory()
 :SceneBase()
-,m_player_ui()
+//,m_player_ui()
 ,TriangleLeftX(0.0f)
 ,TriangleLeftY(0.0f)
 ,TriangleUnderX(0.0f)
@@ -50,18 +50,6 @@ Inventory::~Inventory()
 
 void Inventory::Initaliza()
 {
-	//プレイヤーのUI
-	{
-		m_player_ui = new Player_UI();
-		m_player_ui->Initaliza();
-		m_player_ui->SetLayer(1);
-		m_player_ui->SetTag(10);
-		m_player_ui->SetPos(VGet(0.0f, 0.0f, 0.0f));
-		m_player_ui->SetDir(VGet(1.0f, 0.0f, 0.0f));
-		m_player_ui->SetSpeed(0.0f);
-		m_player_ui->SetTeam(1);
-
-	}
 
 	cursor = 0;
 
@@ -98,7 +86,6 @@ void Inventory::Initaliza()
 
 void Inventory::Update()
 {
-	m_player_ui->Update();
 
 	Object* player = Master::mpObjectManager->FindByTag(100);
 	auto Play = dynamic_cast<Player*>(player);
@@ -182,7 +169,7 @@ void Inventory::Update()
 
 	else
 	{
-		if (/*コントローラー対応 ||*/ CheckDownKey(KEY_INPUT_Q))
+		if (CheckDownController(PAD_INPUT_1) != 0 || CheckDownKey(KEY_INPUT_Q))
 		{
 			OpenMenu = true;
 		}
@@ -278,9 +265,6 @@ void Inventory::Draw()
 		DrawGraph(0, 0, Background, TRUE);
 	}
 
-	//UI
-	m_player_ui->Draw();
-
 	//メニュー画面
 	if (OpenMenu)
 	{
@@ -343,6 +327,19 @@ void Inventory::Draw()
 		}
 
 		EquippedItems* equip = Play->GetEquippedItems();
+
+		ItemBase* item0 = equip->GetItem(0);
+		ItemBase* item1 = equip->GetItem(1);
+
+		if (item0)
+		{
+			DrawGraph(1730, 890, item0->GetIcon(), true);
+		}
+
+		if (item1)
+		{
+			DrawGraph(1530, 890, item1->GetIcon(), true);
+		}
 
 		char totalamount[32];
 		sprintf_s(totalamount, "合計金額  : %d$", TotalAmount);

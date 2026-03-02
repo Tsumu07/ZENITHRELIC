@@ -10,22 +10,19 @@ StartSubScene::~StartSubScene()
 
 void StartSubScene::Initaliza()
 {
-	m_timer = 180; // 3ïb
+	m_timer = 120;
 	m_isEnd = false;
 }
 
 void StartSubScene::Update()
 {
+    SubScene::Update();
 }
 
 void StartSubScene::Draw()
 {
-    // îºìßñæçïîwåi
-    SetDrawBlendMode(DX_BLENDMODE_ALPHA, 180);
-    DrawBox(0, 0, 1280, 720, GetColor(0, 0, 0), TRUE);
-    SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+    LoadGraphScreen(0, 0, "Assets/Objective.png", true);
 
-    DrawString(500, 300, "ÉSÅ[ÉãÇ…å¸Ç©Ç¶ÅI", GetColor(255, 255, 255));
 }
 
 void StartSubScene::Finaliza()

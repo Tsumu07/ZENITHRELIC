@@ -43,6 +43,7 @@ void ItemDrop::Update()
 
     if (distSq < r * r && player->GetAnimationState() == Animetion::PickItem)
     {
+        //SE
         // プレイヤーへアイテム追加
         player->GetInventory()->AddItem(itemData);
 
