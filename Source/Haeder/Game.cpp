@@ -27,6 +27,7 @@ Game::Game()
 ,height(-1)
 ,handle(-1)
 ,GameBGM(-1)
+,InventorySE(-1)
 ,m_startSubSceneEnd(false)
 {
 
@@ -99,7 +100,11 @@ void Game::Initaliza()
     //SkyBox用ピクセルシェーダーを読み込む
     skyboxPShandle = LoadPixelShader("SkyBoxPS.cso");
 
+    InventorySE = LoadSoundMem("Musics/OpenInventory.mp3");
+
     GameBGM = LoadSoundMem("Musics/Game.mp3");
+
+    ChangeVolumeSoundMem(170, GameBGM);
 
     PlaySoundMem(GameBGM, DX_PLAYTYPE_LOOP);
 
@@ -117,6 +122,7 @@ void Game::Update()
     if (m_startsubscene)
     {
         m_startsubscene->Update();
+
         if (m_startsubscene->IsEnd())
         {
             m_startsubscene->Finaliza();
@@ -143,6 +149,11 @@ void Game::Update()
     //アイテム画面
     if (CheckDownController(PAD_INPUT_3) != 0 || CheckDownKey(KEY_INPUT_E) != 0)
     {
+        ChangeVolumeSoundMem(200, InventorySE);
+
+
+        PlaySoundMem(InventorySE, DX_PLAYTYPE_BACK);
+
 
         GetDrawScreenSize(&width, &height);
 
@@ -154,12 +165,12 @@ void Game::Update()
         Master::mpSceneManager->OpenInventory();
     }
 
+    //ゴールしたら
     if (goal->GetHitGoal() && m_goalsubscene == nullptr)
     {
         m_goalsubscene = new GoalSubScene();
         m_goalsubscene->Initaliza();
     }
-
 
 }
 
@@ -232,8 +243,11 @@ void Game::Finaliza()
 
     Master::mpGameManager->Finaliza();
 
-}
 
+    DeleteSoundMem(InventorySE);
+    DeleteSoundMem(GameBGM);
+
+}
 
 bool Game::IsStartSubSceneEnd()
 {

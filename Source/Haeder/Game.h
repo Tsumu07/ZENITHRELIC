@@ -28,7 +28,7 @@ private:
 
     //SE
     int GameBGM;
-
+    int InventorySE;
 
 public:
     Game();   //コンストラクタ

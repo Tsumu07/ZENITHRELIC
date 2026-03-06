@@ -162,6 +162,8 @@ void Stage::Initaliza()
     //消す音
     DeleteSE = LoadSoundMem("Musics/キャンセル4.mp3");
     
+    ChangeVolumeSoundMem(170, EditerBGM);
+
     //BGM再生
     PlaySoundMem(EditerBGM, DX_PLAYTYPE_LOOP);
 
@@ -918,7 +920,10 @@ void Stage::Update()
     //リセット(オブジェクトのみ)
     if (CheckDownController(PAD_INPUT_9) != 0 || CheckDownKey(KEY_INPUT_E))
     {
+        PlaySoundMem(DeleteSE, DX_PLAYTYPE_BACK);
+
         SpiderModelRist.clear();
+        ColumnModelRist.clear();
         PointModelRist.clear();
     }
 
@@ -1285,10 +1290,13 @@ void Stage::Draw()
 //終了処理
 void Stage::Finaliza()
 {
-
-    //ClearDrawScreen();
-
     DeleteSoundMem(EditerBGM);
+    DeleteSoundMem(ButtonMusic);
+    DeleteSoundMem(SetSE);
+    DeleteSoundMem(SaveSE);
+    DeleteSoundMem(SaveCompleted);
+    DeleteSoundMem(WarnSE);
+    DeleteSoundMem(DeleteSE);
 
     Master::mpObjectManager->SetDeleteFlagAll();
 

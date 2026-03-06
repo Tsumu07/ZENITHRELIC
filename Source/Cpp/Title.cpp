@@ -74,6 +74,8 @@ void Title::Initaliza()
     //ƒ{ƒ^ƒ“
     ButtonMusic = LoadSoundMem("Musics/poka01.mp3");
 
+    ChangeVolumeSoundMem(170, TitleBGM);
+
     //BGMÄ¶
     PlaySoundMem(TitleBGM, DX_PLAYTYPE_LOOP);
 
@@ -427,8 +429,8 @@ void Title::Finaliza()
     Master::mpObjectManager->Delete(m_skybox);
     m_skybox = nullptr;
 
-    //ClearDrawScreen();
 
     DeleteSoundMem(TitleBGM);
+    DeleteSoundMem(ButtonMusic);
 
 }
