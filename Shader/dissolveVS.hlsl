@@ -59,7 +59,6 @@ struct VS_OUTPUT
 };
 
 
-
 #ifdef SKINMESH
 #define LOCAL_WORLD_MAT         lLocalWorldMatrix
 #else
@@ -102,88 +101,40 @@ VS_OUTPUT main(VS_INPUT VSInput)
 
 		// ÉuÉåÉìÉhçsóÒÇÃçÏê¨
     lBoneFloatIndex = VSInput.BlendIndices0;
-    lLocalWorldMatrix[0] = g_LocalWorldMatrix.
-    Matrix[ lBoneFloatIndex.
-    x + 0] * VSInput.BlendWeight0.xxxx;
-    lLocalWorldMatrix[1] = g_LocalWorldMatrix.
-    Matrix[ lBoneFloatIndex.
-    x + 1] * VSInput.BlendWeight0.xxxx;
-    lLocalWorldMatrix[2] = g_LocalWorldMatrix.
-    Matrix[ lBoneFloatIndex.
-    x + 2] * VSInput.BlendWeight0.xxxx;
+    lLocalWorldMatrix[0] = g_LocalWorldMatrix.Matrix[ lBoneFloatIndex.x + 0] * VSInput.BlendWeight0.xxxx;
+    lLocalWorldMatrix[1] = g_LocalWorldMatrix.Matrix[ lBoneFloatIndex.x + 1] * VSInput.BlendWeight0.xxxx;
+    lLocalWorldMatrix[2] = g_LocalWorldMatrix.Matrix[ lBoneFloatIndex.x + 2] * VSInput.BlendWeight0.xxxx;
 
-    lLocalWorldMatrix[0] += g_LocalWorldMatrix.
-    Matrix[ lBoneFloatIndex.
-    y + 0] * VSInput.BlendWeight0.yyyy;
-    lLocalWorldMatrix[1] += g_LocalWorldMatrix.
-    Matrix[ lBoneFloatIndex.
-    y + 1] * VSInput.BlendWeight0.yyyy;
-    lLocalWorldMatrix[2] += g_LocalWorldMatrix.
-    Matrix[ lBoneFloatIndex.
-    y + 2] * VSInput.BlendWeight0.yyyy;
+    lLocalWorldMatrix[0] += g_LocalWorldMatrix.Matrix[ lBoneFloatIndex.y + 0] * VSInput.BlendWeight0.yyyy;
+    lLocalWorldMatrix[1] += g_LocalWorldMatrix.Matrix[ lBoneFloatIndex.y + 1] * VSInput.BlendWeight0.yyyy;
+    lLocalWorldMatrix[2] += g_LocalWorldMatrix.Matrix[ lBoneFloatIndex.y + 2] * VSInput.BlendWeight0.yyyy;
 
-    lLocalWorldMatrix[0] += g_LocalWorldMatrix.
-    Matrix[ lBoneFloatIndex.
-    z + 0] * VSInput.BlendWeight0.zzzz;
-    lLocalWorldMatrix[1] += g_LocalWorldMatrix.
-    Matrix[ lBoneFloatIndex.
-    z + 1] * VSInput.BlendWeight0.zzzz;
-    lLocalWorldMatrix[2] += g_LocalWorldMatrix.
-    Matrix[ lBoneFloatIndex.
-    z + 2] * VSInput.BlendWeight0.zzzz;
+    lLocalWorldMatrix[0] += g_LocalWorldMatrix.Matrix[ lBoneFloatIndex.z + 0] * VSInput.BlendWeight0.zzzz;
+    lLocalWorldMatrix[1] += g_LocalWorldMatrix.Matrix[ lBoneFloatIndex.z + 1] * VSInput.BlendWeight0.zzzz;
+    lLocalWorldMatrix[2] += g_LocalWorldMatrix.Matrix[ lBoneFloatIndex.z + 2] * VSInput.BlendWeight0.zzzz;
 
-    lLocalWorldMatrix[0] += g_LocalWorldMatrix.
-    Matrix[ lBoneFloatIndex.
-    w + 0] * VSInput.BlendWeight0.wwww;
-    lLocalWorldMatrix[1] += g_LocalWorldMatrix.
-    Matrix[ lBoneFloatIndex.
-    w + 1] * VSInput.BlendWeight0.wwww;
-    lLocalWorldMatrix[2] += g_LocalWorldMatrix.
-    Matrix[ lBoneFloatIndex.
-    w + 2] * VSInput.BlendWeight0.wwww;
+    lLocalWorldMatrix[0] += g_LocalWorldMatrix.Matrix[ lBoneFloatIndex.w + 0] * VSInput.BlendWeight0.wwww;
+    lLocalWorldMatrix[1] += g_LocalWorldMatrix.Matrix[ lBoneFloatIndex.w + 1] * VSInput.BlendWeight0.wwww;
+    lLocalWorldMatrix[2] += g_LocalWorldMatrix.Matrix[ lBoneFloatIndex.w + 2] * VSInput.BlendWeight0.wwww;
 
 #ifdef BONE8
 
     lBoneFloatIndex = VSInput.BlendIndices1;
-    lLocalWorldMatrix[0] += g_LocalWorldMatrix.
-    Matrix[ lBoneFloatIndex.
-    x + 0] * VSInput.BlendWeight1.xxxx;
-    lLocalWorldMatrix[1] += g_LocalWorldMatrix.
-    Matrix[ lBoneFloatIndex.
-    x + 1] * VSInput.BlendWeight1.xxxx;
-    lLocalWorldMatrix[2] += g_LocalWorldMatrix.
-    Matrix[ lBoneFloatIndex.
-    x + 2] * VSInput.BlendWeight1.xxxx;
+    lLocalWorldMatrix[0] += g_LocalWorldMatrix.Matrix[ lBoneFloatIndex.x + 0] * VSInput.BlendWeight1.xxxx;
+    lLocalWorldMatrix[1] += g_LocalWorldMatrix.Matrix[ lBoneFloatIndex.x + 1] * VSInput.BlendWeight1.xxxx;
+    lLocalWorldMatrix[2] += g_LocalWorldMatrix.Matrix[ lBoneFloatIndex.x + 2] * VSInput.BlendWeight1.xxxx;
 
-    lLocalWorldMatrix[0] += g_LocalWorldMatrix.
-    Matrix[ lBoneFloatIndex.
-    y + 0] * VSInput.BlendWeight1.yyyy;
-    lLocalWorldMatrix[1] += g_LocalWorldMatrix.
-    Matrix[ lBoneFloatIndex.
-    y + 1] * VSInput.BlendWeight1.yyyy;
-    lLocalWorldMatrix[2] += g_LocalWorldMatrix.
-    Matrix[ lBoneFloatIndex.
-    y + 2] * VSInput.BlendWeight1.yyyy;
+    lLocalWorldMatrix[0] += g_LocalWorldMatrix.Matrix[ lBoneFloatIndex.y + 0] * VSInput.BlendWeight1.yyyy;
+    lLocalWorldMatrix[1] += g_LocalWorldMatrix.Matrix[ lBoneFloatIndex.y + 1] * VSInput.BlendWeight1.yyyy;
+    lLocalWorldMatrix[2] += g_LocalWorldMatrix.Matrix[ lBoneFloatIndex.y + 2] * VSInput.BlendWeight1.yyyy;
 
-    lLocalWorldMatrix[0] += g_LocalWorldMatrix.
-    Matrix[ lBoneFloatIndex.
-    z + 0] * VSInput.BlendWeight1.zzzz;
-    lLocalWorldMatrix[1] += g_LocalWorldMatrix.
-    Matrix[ lBoneFloatIndex.
-    z + 1] * VSInput.BlendWeight1.zzzz;
-    lLocalWorldMatrix[2] += g_LocalWorldMatrix.
-    Matrix[ lBoneFloatIndex.
-    z + 2] * VSInput.BlendWeight1.zzzz;
+    lLocalWorldMatrix[0] += g_LocalWorldMatrix.Matrix[ lBoneFloatIndex.z + 0] * VSInput.BlendWeight1.zzzz;
+    lLocalWorldMatrix[1] += g_LocalWorldMatrix.Matrix[ lBoneFloatIndex.z + 1] * VSInput.BlendWeight1.zzzz;
+    lLocalWorldMatrix[2] += g_LocalWorldMatrix.Matrix[ lBoneFloatIndex.z + 2] * VSInput.BlendWeight1.zzzz;
 
-    lLocalWorldMatrix[0] += g_LocalWorldMatrix.
-    Matrix[ lBoneFloatIndex.
-    w + 0] * VSInput.BlendWeight1.wwww;
-    lLocalWorldMatrix[1] += g_LocalWorldMatrix.
-    Matrix[ lBoneFloatIndex.
-    w + 1] * VSInput.BlendWeight1.wwww;
-    lLocalWorldMatrix[2] += g_LocalWorldMatrix.
-    Matrix[ lBoneFloatIndex.
-    w + 2] * VSInput.BlendWeight1.wwww;
+    lLocalWorldMatrix[0] += g_LocalWorldMatrix.Matrix[ lBoneFloatIndex.w + 0] * VSInput.BlendWeight1.wwww;
+    lLocalWorldMatrix[1] += g_LocalWorldMatrix.Matrix[ lBoneFloatIndex.w + 1] * VSInput.BlendWeight1.wwww;
+    lLocalWorldMatrix[2] += g_LocalWorldMatrix.Matrix[ lBoneFloatIndex.w + 2] * VSInput.BlendWeight1.wwww;
 
 #endif // BONE8
 

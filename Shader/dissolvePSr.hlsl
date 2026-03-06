@@ -46,9 +46,7 @@ cbuffer ParamBuffer : register(b6)
 
 Texture2D g_DiffuseMapTexture : register(t0);
 Texture2D g_TextureDissolve : register(t1);
-Texture2D g_SubTexture : register(t2);
 SamplerState g_DiffuseMapSampler : register(s0);
-SamplerState g_SubSampler : register(s1);
 
 PS_OUTPUT main(PS_INPUT PSInput) : SV_TARGET0
 {

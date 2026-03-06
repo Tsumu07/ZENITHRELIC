@@ -69,6 +69,12 @@ private:
     //死亡フラグ
     bool m_isDeadStarted;
 
+    //シェーダー関係
+    int pshandle;
+    int vshandle;
+    int dissolveTexHandle;
+    int modelTexHandle;
+
 public:
     Spider();   //コンストラクタ
     ~Spider();  //デストラクタ

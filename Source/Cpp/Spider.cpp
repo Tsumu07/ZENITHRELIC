@@ -10,6 +10,7 @@
 #include "../Haeder/StageFrame.h"
 #include "../Haeder/FSM.h"
 #include "../Haeder/HitCapsule.h"
+#include "../Haeder/ResourceManeger.h"
 #include "../Master.h"
 #include <math.h>
 #include <string>
@@ -50,6 +51,10 @@ Spider::Spider() : Object()
 ,speed(0.0f)
 ,SpiderR(0.0f)
 ,Invincible(0.0f)
+,pshandle(0)
+,vshandle(0)
+,dissolveTexHandle(0)
+,modelTexHandle(0)
 {
 }
 
@@ -87,6 +92,12 @@ void Spider::Initaliza()
 
     //最初のアニメーション
     ChangeAnimaitonSpider(SpiderAnimetion::SpiderIidel);
+
+    modelTexHandle = Master::mpResourceManager->LoadImageFromFile("Resource/BlackWidow Color.png");
+
+    vshandle = LoadVertexShader("dissolveVS.cso");
+    pshandle = LoadPixelShader("dissolvePS.cso");
+    dissolveTexHandle = Master::mpResourceManager->LoadImageFromFile("トランジション/dissolve.png");
 
     //追いかけるフラグ
     HitPlayer = false;
@@ -396,11 +407,34 @@ void Spider::SpAnimetion()
 void Spider::Draw()
 {
 
-    //3Dモデルの描画クモ
-    MV1DrawModel(mnSpiderModel);
+    if (IsDead())
+    {
+        int fadeCB = Master::mpResourceManager->GetConstBuff("Dissolve");
+        CB_DISSOLVE_PARAM* cb = (CB_DISSOLVE_PARAM*)GetBufferShaderConstantBuffer(fadeCB);
 
-    SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);
+        float t = ((float)(180 - DeleteSpiderCount) / 180);
+        cb->dissolveThreshold = t;
+        cb->dissolveRange = 0.05f;
 
+        UpdateShaderConstantBuffer(fadeCB);
+        MV1SetUseOrigShader(true);
+        SetUseVertexShader(vshandle);
+        SetUsePixelShader(pshandle);
+        SetUseTextureToShader(1, dissolveTexHandle);
+        SetUseTextureToShader(0, modelTexHandle);
+
+        //3Dモデルの描画クモ
+        MV1DrawModel(mnSpiderModel);
+
+        MV1SetUseOrigShader(false);
+    }
+    else
+    {
+        //3Dモデルの描画クモ
+        MV1DrawModel(mnSpiderModel);
+
+        SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);
+    }
 }
 
 /**
