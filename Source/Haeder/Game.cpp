@@ -151,9 +151,7 @@ void Game::Update()
     {
         ChangeVolumeSoundMem(200, InventorySE);
 
-
         PlaySoundMem(InventorySE, DX_PLAYTYPE_BACK);
-
 
         GetDrawScreenSize(&width, &height);
 
@@ -168,6 +166,7 @@ void Game::Update()
     //ƒS[ƒ‹‚µ‚½‚ç
     if (goal->GetHitGoal() && m_goalsubscene == nullptr)
     {
+        StopSoundMem(GameBGM);
         m_goalsubscene = new GoalSubScene();
         m_goalsubscene->Initaliza();
     }

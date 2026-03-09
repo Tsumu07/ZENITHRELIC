@@ -47,6 +47,7 @@ Spider::Spider() : Object()
 ,mfAnimBlendRate(1.0f)
 ,DeleteSpiderCount(0)
 ,SpiderVoise(-1)
+,HitAttackPlayerSE(-1)
 ,attackR(90.0f)
 ,speed(0.0f)
 ,SpiderR(0.0f)
@@ -78,7 +79,8 @@ void Spider::Initaliza()
 	MV1SetScale(mnSpiderModel, VGet(1.0f, 1.0f, 1.0f));
 
     //効果音の読み込み
-    SpiderVoise = LoadSoundMem("Musics/se_voice_mushi04.mp3");
+    SpiderVoise = LoadSoundMem("Musics/SpiderVoice.mp3");
+    HitAttackPlayerSE = LoadSoundMem("Musics/HitAttackPlayer.mp3");
 
     //アニメーションで移動しているフレーム番号を検索する
     int moveAnimFrameIndex = MV1SearchFrame(mnSpiderModel, "root");
@@ -169,6 +171,9 @@ void Spider::Update()
                  player->Damage(60.0f);
 
                  player->SetHitEnemy(true);
+
+                 //SE
+                 PlaySoundMem(HitAttackPlayerSE, DX_PLAYTYPE_BACK);
              }
          }
      }
@@ -446,4 +451,6 @@ void Spider::Finaliza()
     //3Dモデル削除
     MV1DeleteModel(mnSpiderModel);
 
+    DeleteSoundMem(SpiderVoise);
+    DeleteSoundMem(HitAttackPlayerSE);
 }

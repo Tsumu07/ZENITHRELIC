@@ -59,9 +59,9 @@ Player::Player()
 ,AttackSpider(false)
 ,HitEnemy(false)
 ,mfAngle(0.0f)
-,AttackSE(-1)
 ,ColumnSE(-1)
 ,DamageSE(-1)
+,AttackDamageSE(-1)
 {
 }
 
@@ -119,6 +119,10 @@ void Player::Initaliza()
 	m_inventory = new ItemManeger();
 	m_equipped = new EquippedItems();
 
+	//SE
+	ColumnSE = LoadSoundMem("Musics/Column.mp3");
+	DamageSE = LoadSoundMem("Musics/Dame-gi.mp3");
+	AttackDamageSE = LoadSoundMem("Musics/AttackDamage.mp3");
 }
 
 
@@ -232,10 +236,9 @@ void Player::Update()
 					}
 
 					//SE
-
+					PlaySoundMem(ColumnSE, DX_PLAYTYPE_BACK);
 				}
 			}
-
 		}
 
 	}
@@ -271,6 +274,8 @@ void Player::Update()
 				SetHitEnemy(true);
 
 				//SE
+				PlaySoundMem(DamageSE, DX_PLAYTYPE_BACK);
+
 			}
 
 		}
@@ -302,8 +307,11 @@ void Player::Update()
 					}
 
 					//SE
+					PlaySoundMem(AttackDamageSE, DX_PLAYTYPE_BACK);
+
 				}
 			}
+
 		}
 
 	}
@@ -635,6 +643,11 @@ void Player::Finaliza()
 	//3Dモデル削除
 	MV1DeleteModel(mnModelHandle);
 	MV1DeleteModel(mnWeponHandle);
+	
+	DeleteSoundMem(ColumnSE);
+	DeleteSoundMem(DamageSE);
+	DeleteSoundMem(AttackDamageSE);
+
 
 	//エフェクト削除
 	for (DamageEffectCount = 0; DamageEffectCount < 5; DamageEffectCount++)

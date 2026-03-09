@@ -7,6 +7,7 @@ class EquippedItems
 {
 private:
     ItemBase* m_slots[2]; // 2‚Â‚ÌƒXƒƒbƒg
+    int SetItemSE;
 
 public:
     EquippedItems();

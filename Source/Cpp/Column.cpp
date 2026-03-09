@@ -21,6 +21,7 @@ Column::Column()
 ,m_deadTimer(0.0f)
 ,m_startY(0.0f)
 ,m_isDeadStarted(false)
+,ColumnSE(-1)
 {
 }
 
@@ -40,6 +41,7 @@ void Column::Initaliza()
 
     ColumnRotationY = 0.0f;
 
+    ColumnSE = LoadSoundMem("Musics/Collapse.mp3");
 }
 
 //XV
@@ -60,6 +62,9 @@ void Column::Update()
 
             m_startY = GetPos().y;
             m_deadTimer = 0.0f;
+
+            PlaySoundMem(ColumnSE, DX_PLAYTYPE_BACK);
+
         }
 
         m_deadTimer += 1.0f;
@@ -117,7 +122,7 @@ void Column::Update()
             }
 
             ItemDrop* drop = new ItemDrop(itemData);
-            drop->SetPos(VGet(GetPos().x, m_startY,GetPos().z));
+            drop->SetPos(VGet(GetPos().x, m_startY + 70.0f,GetPos().z));
             drop->Initaliza();
             drop->SetTag(500);
 
@@ -139,5 +144,6 @@ void Column::Finaliza()
 {
     //3Dƒ‚ƒfƒ‹íœ
     MV1DeleteModel(mnColumnModelHandle);
+    DeleteSoundMem(ColumnSE);
 
 }

@@ -60,8 +60,9 @@ private:
     //消えるカウントダウン
     float DeleteSpiderCount;
 
-    //クモの断末魔
+    //SE
     int SpiderVoise;
+    int HitAttackPlayerSE;
 
     //プレイヤーに当たったら
     bool HitPlayer;

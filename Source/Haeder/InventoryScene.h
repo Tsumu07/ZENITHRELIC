@@ -1,13 +1,10 @@
 #pragma once
 #include "../Haeder/SceneBase.h"
-#include "../Haeder/Player_UI.h"
 #include "DxLib.h"
 
 class Inventory : public SceneBase
 {
 private:
-
-    //Player_UI* m_player_ui;
 
     //右の頂点
     float TriangleLeftX;
@@ -58,6 +55,10 @@ private:
 
     //メニュー画面の表示
     bool OpenMenu;
+
+    //SE
+    int CursorMusic;
+
 
 public:
     Inventory();   //コンストラクタ

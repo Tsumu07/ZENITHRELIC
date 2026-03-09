@@ -41,6 +41,7 @@ Inventory::Inventory()
 ,SelectY(0.0f)
 ,InputJoycon(false)
 ,OpenMenu(false)
+,CursorMusic(-1)
 {
 }
 
@@ -82,6 +83,9 @@ void Inventory::Initaliza()
 	TitleSelectUI = 0;
 	ExitSelectUI = 0;
 	OpenMenu = false;
+
+	CursorMusic = LoadSoundMem("Musics/poka01.mp3");
+
 }
 
 void Inventory::Update()
@@ -114,6 +118,8 @@ void Inventory::Update()
 
 		if (CheckDownController(PAD_INPUT_2) != 0 || CheckDownKey(KEY_INPUT_SPACE))
 		{
+			PlaySoundMem(CursorMusic, DX_PLAYTYPE_BACK);
+
 			//ゲーム画面
 			if (SelectY >= 175.0f && SelectY <= 185.0f)
 			{
@@ -143,6 +149,8 @@ void Inventory::Update()
 		// カーソル移動
 		if (input.Y <= -500.0f && InputJoycon == false || CheckDownKey(KEY_INPUT_DOWN))
 		{
+			PlaySoundMem(CursorMusic, DX_PLAYTYPE_BACK);
+
 			SelectY += 120.0f;
 			InputJoycon = true;
 
@@ -150,6 +158,8 @@ void Inventory::Update()
 
 		if (input.Y >= 500.0f && InputJoycon == false || CheckDownKey(KEY_INPUT_UP))
 		{
+			PlaySoundMem(CursorMusic, DX_PLAYTYPE_BACK);
+
 			SelectY -= 120.0f;
 			InputJoycon = true;
 
@@ -171,6 +181,8 @@ void Inventory::Update()
 	{
 		if (CheckDownController(PAD_INPUT_1) != 0 || CheckDownKey(KEY_INPUT_Q))
 		{
+			PlaySoundMem(CursorMusic, DX_PLAYTYPE_BACK);
+
 			OpenMenu = true;
 		}
 
@@ -183,6 +195,8 @@ void Inventory::Update()
 		// カーソル移動
 		if (input.Y <= -500.0f && InputJoycon == false || CheckDownKey(KEY_INPUT_DOWN))
 		{
+			PlaySoundMem(CursorMusic, DX_PLAYTYPE_BACK);
+
 			cursor++;
 			InputJoycon = true;
 
@@ -190,6 +204,8 @@ void Inventory::Update()
 
 		if (input.Y >= 500.0f && InputJoycon == false || CheckDownKey(KEY_INPUT_UP))
 		{
+			PlaySoundMem(CursorMusic, DX_PLAYTYPE_BACK);
+
 			cursor--;
 			InputJoycon = true;
 
@@ -208,16 +224,20 @@ void Inventory::Update()
 		// アイテムを装備(スロット1)
 		if (CheckDownController(PAD_INPUT_6) != 0 || CheckDownKey(KEY_INPUT_Z))
 		{
+
 			ItemBase* item = inv->GetItem(cursor);
 
 			if (item)
 			{
 				Play->GetEquippedItems()->SetItemToSlot(1, item);
 
+
 				// カーソル補正
 				if (cursor >= inv->GetItemCount())
 				{
 					cursor = inv->GetItemCount() - 1;
+
+
 				}
 
 			}
@@ -349,5 +369,5 @@ void Inventory::Draw()
 
 void Inventory::Finaliza()
 {
-
+	DeleteSoundMem(CursorMusic);
 }

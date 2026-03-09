@@ -148,19 +148,19 @@ void Stage::Initaliza()
     ButtonMusic = LoadSoundMem("Musics/poka01.mp3");
 
     //置いた音
-    SetSE = LoadSoundMem("Musics/決定ボタンを押す31.mp3");
+    SetSE = LoadSoundMem("Musics/Set.mp3");
 
     //セーブボタン
-    SaveSE = LoadSoundMem("Musics/決定ボタンを押す3.mp3");
+    SaveSE = LoadSoundMem("Musics/Save.mp3");
 
     //セーブ完了
-    SaveCompleted = LoadSoundMem("Musics/決定ボタンを押す8.mp3");
+    SaveCompleted = LoadSoundMem("Musics/SaveCompleted.mp3");
 
     //警告音 
-    WarnSE = LoadSoundMem("Musics/警告音2.mp3");
+    WarnSE = LoadSoundMem("Musics/Warning.mp3");
 
     //消す音
-    DeleteSE = LoadSoundMem("Musics/キャンセル4.mp3");
+    DeleteSE = LoadSoundMem("Musics/Cancel.mp3");
     
     ChangeVolumeSoundMem(170, EditerBGM);
 

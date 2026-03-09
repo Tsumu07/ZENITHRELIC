@@ -75,9 +75,9 @@ private:
     bool NowHit;
     
     //SE
-    int AttackSE;
     int ColumnSE;
     int DamageSE;
+    int AttackDamageSE;
 
 public:
     Player();   //コンストラクタ

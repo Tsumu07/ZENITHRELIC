@@ -6,6 +6,11 @@ EquippedItems::EquippedItems()
 {
     m_slots[0] = nullptr;
     m_slots[1] = nullptr;
+
+    SetItemSE = LoadSoundMem("Musics/ItemSet.mp3");
+
+    ChangeVolumeSoundMem(250, SetItemSE);
+
 }
 
 void EquippedItems::SetItemToSlot(int slot, ItemBase* item)
@@ -41,6 +46,9 @@ void EquippedItems::SetItemToSlot(int slot, ItemBase* item)
 
     // ƒZƒbƒg
     m_slots[slot] = item;
+
+    PlaySoundMem(SetItemSE, DX_PLAYTYPE_BACK);
+
 }
 
 ItemBase* EquippedItems::GetItem(int slot)
@@ -72,6 +80,10 @@ void EquippedItems::Use(int slot, Player* player)
 
 void EquippedItems::ClearSlot(int slot)
 {
-    if (slot < 0 || slot >= 2) return;
+    if (slot < 0 || slot >= 2)
+    {
+        return;
+    }
+
     m_slots[slot] = nullptr;
 }

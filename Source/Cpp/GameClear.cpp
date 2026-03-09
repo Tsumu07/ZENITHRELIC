@@ -63,7 +63,7 @@
      GameClearBGM = LoadSoundMem("Musics/GameClear.mp3");
  
       //ƒ{ƒ^ƒ“
-      ButtonMusic = LoadSoundMem("Musics/poka01.mp3");
+     ButtonMusic = LoadSoundMem("Musics/poka01.mp3");
  
       //BGMÄ¶
      PlaySoundMem(GameClearBGM, DX_PLAYTYPE_LOOP);
@@ -266,8 +266,6 @@
  {
      Master::mpObjectManager->Delete(m_skybox);
      m_skybox = nullptr;
-
-     //ClearDrawScreen();
 
      DeleteSoundMem(GameClearBGM);
  }

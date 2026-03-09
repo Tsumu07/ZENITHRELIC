@@ -36,7 +36,7 @@ void HpItem::UseItem(Player* player)
 
     if (Master::mpObjectManager->GetSoundByTag("HealSE") == -1)
     {
-        Master::mpObjectManager->AddSound("Musics/ステータス治療1.mp3", "HealSE", DX_PLAYTYPE_BACK);
+        Master::mpObjectManager->AddSound("Musics/Heal.mp3", "HealSE", DX_PLAYTYPE_BACK);
     }
 
 }

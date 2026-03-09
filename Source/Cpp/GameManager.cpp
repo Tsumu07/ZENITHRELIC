@@ -69,7 +69,7 @@ void GameManager::Initaliza()
     Master::mpResourceManager->LoadEffectFromFile("Effect/Portal1.efkefc", 5.0f);
 
 
-    Master::mpResourceManager->LoadSoundFromFile("Musics/ステータス治療1.mp3");
+    Master::mpResourceManager->LoadSoundFromFile("Musics/Heal.mp3");
 
     if (Master::mpObjectManager == nullptr)
     {

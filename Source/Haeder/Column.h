@@ -23,6 +23,10 @@ private:
     float m_startY;           // 開始Y座標保存
     bool  m_isDeadStarted;    // 演出開始フラグ
     VECTOR Deadpos;
+
+    //SE
+    int ColumnSE;
+
 public:
 
     Column();   //コンストラクタ

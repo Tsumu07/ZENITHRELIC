@@ -3,6 +3,9 @@
 
 class GoalSubScene : public SubScene
 {
+private:
+	int GoalSE;
+
 public:
 
 	GoalSubScene();

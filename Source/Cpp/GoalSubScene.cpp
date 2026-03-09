@@ -3,6 +3,7 @@
 #include "../Master.h"
 
 GoalSubScene::GoalSubScene()
+:GoalSE(-1)
 {
 }
 
@@ -12,8 +13,13 @@ GoalSubScene::~GoalSubScene()
 
 void GoalSubScene::Initaliza()
 {
+
 	m_timer = 120;
 	m_isEnd = false;
+
+	GoalSE = LoadSoundMem("Musics/Goal.mp3");
+
+	PlaySoundMem(GoalSE, DX_PLAYTYPE_BACK);
 }
 
 void GoalSubScene::Update()
