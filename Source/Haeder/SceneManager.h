@@ -1,7 +1,7 @@
 #pragma once
 #include "SceneBase.h"
 #include "FadeScene.h"
-
+#include "../Haeder/InventoryScene.h"
 enum SceneName
 {
     TitleScene = 0,
@@ -26,6 +26,8 @@ private:
 
     //メニュー画面など
     SceneBase* mpInventoryScene;
+
+    Inventory* mpInventoryScene_price;
 
     //フェードイン、フェードアウト
     FadeScene* mpWipeScene;
@@ -77,4 +79,6 @@ public:
     void SetLastGameScreen(int handle) { m_lastGameScreenHandle = handle;}
 
     int GetLastGameScreen() const { return m_lastGameScreenHandle; }
+
+    Inventory* GetInventoryScene() { return mpInventoryScene_price; }
 };

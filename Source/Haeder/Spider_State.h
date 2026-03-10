@@ -1,10 +1,8 @@
 #pragma once
-#pragma once
 #include"DxLib.h"
 #include <map>
 #include <list>
 #include <vector>
-
 #include "../Haeder/IState.h"
 
 //障害物のデータ
@@ -14,6 +12,7 @@ typedef struct
 	float radius;   // 障害物の半径
 
 }ObstacleData;
+
 
 //状態のリスト
 enum Spider_STATE

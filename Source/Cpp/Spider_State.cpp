@@ -730,7 +730,9 @@ static std::vector<ObstacleData> GetObstaclesFromTags(const std::vector<int>& ta
         for (auto obj : objs)
         {
             if (obj == nullptr)
+            {
                 continue;
+            }
 
             // 各Objectが持つ全ポジションを取得
             const std::vector<VECTOR>& positions = obj->GetPositions();

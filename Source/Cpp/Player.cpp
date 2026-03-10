@@ -58,6 +58,7 @@ Player::Player()
 ,m_equipped(nullptr)
 ,AttackSpider(false)
 ,HitEnemy(false)
+,AnnihilationFlag(false)
 ,mfAngle(0.0f)
 ,ColumnSE(-1)
 ,DamageSE(-1)
@@ -162,7 +163,7 @@ void Player::Update()
 	//柱
 	auto pillars = Master::mpObjectManager->FindsByTag(700);
 
-	//ゴーレム
+	//くも
 	auto Spiders = Master::mpObjectManager->FindsByTag(200);
 
 	//ゴール
@@ -337,8 +338,13 @@ void Player::Update()
 
 	SetInvincible(Invincible);
 
+	if (Spiders.size() == 0)
+	{
+		AnnihilationFlag = true;
+	}
+
 	//ゴール判定
-	if (GetGoal != nullptr)
+	if (GetGoal != nullptr && GetAnnihilation())
 	{
 		//ゴールの当たり判定
 		HitGoal = Capsule::CheckColliisonToHitCapsule(

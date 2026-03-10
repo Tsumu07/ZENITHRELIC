@@ -79,6 +79,9 @@ private:
     int DamageSE;
     int AttackDamageSE;
 
+    //全滅させた
+    bool AnnihilationFlag;
+
 public:
     Player();   //コンストラクタ
     ~Player();  //デストラクタ
@@ -128,6 +131,9 @@ public:
 
     //ゴールに付いたフラグの取得
     bool GetHitGoal() const { return HitGoal; }
+
+    //敵を全滅させたか
+    bool GetAnnihilation() const { return AnnihilationFlag; }
 
     //アイテム選択
     bool SelectItem;

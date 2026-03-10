@@ -10,6 +10,8 @@
 #include "../Haeder/InventoryScene.h"
 #include "../Master.h"
 
+extern Inventory g_inventory;
+
   //コンストラクタ
  GameClear::GameClear()
  :SceneBase()
@@ -116,6 +118,9 @@
      SelectPictureR = LoadGraph("Assets/SelectpictureR.png");
      SelectPictureL = LoadGraph("Assets/SelectpictureL.png");
 
+     Inventory* inv = Master::mpSceneManager->GetInventoryScene();
+
+     m_price = inv->GetTotalAmount();
 
  }
  
@@ -128,7 +133,6 @@
 
      DINPUT_JOYSTATE input;
  
-
      //入力状態を取得
      GetJoypadDirectInputState(DX_INPUT_PAD1, &input);
  
@@ -228,8 +232,6 @@
  //描画
  void GameClear::Draw()
  {
-     //合計金額
-     m_price = g_inventory.GetTotalAmount();
 
      SetUseVertexShader(skyboxVShandle);
 

@@ -66,7 +66,6 @@ void GameManager::Initaliza()
     Master::mpResourceManager->LoadEffectFromFile("Effect/Break.efkefc", 5.0f);
     Master::mpResourceManager->LoadEffectFromFile("Effect/Delete.efkefc", 5.0f);
     Master::mpResourceManager->LoadEffectFromFile("Effect/Delete_Enemy.efkefc", 5.0f);
-    Master::mpResourceManager->LoadEffectFromFile("Effect/Portal1.efkefc", 5.0f);
 
 
     Master::mpResourceManager->LoadSoundFromFile("Musics/Heal.mp3");
@@ -173,6 +172,7 @@ void GameManager::Initaliza()
     FILE* Columnfile;
     ////読み込み
     fopen_s(&Columnfile, filenameColumn, "rb");
+
     if (Columnfile == NULL) {
         perror("ファイルオープンエラー");
         return;
@@ -315,7 +315,7 @@ void GameManager::Initaliza()
             break;
         }
 
-         //ゴーレムの初期化
+         //くもの初期化
          Spider *spider = new Spider();
          spider->Initaliza();
          spider->SetPos(VGet(Spiders.PosiX, Spiders.PosiY, Spiders.PosiZ));
@@ -459,11 +459,9 @@ void GameManager::Draw()
     
 }
 
-
 //終了処理
 void GameManager::Finaliza()
 {    
     Master::mpObjectManager->DeleteAll();
 
 }
-

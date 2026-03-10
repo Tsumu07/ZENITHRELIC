@@ -86,6 +86,22 @@ void Inventory::Initaliza()
 
 	CursorMusic = LoadSoundMem("Musics/poka01.mp3");
 
+	Object* player = Master::mpObjectManager->FindByTag(100);
+	auto Play = dynamic_cast<Player*>(player);
+	ItemManeger* inv = Play->GetInventory();
+
+	int count = inv->GetItemCount();
+
+	for (int i = 0; i < inv->GetItemCount(); i++)
+	{
+		ItemBase* item = inv->GetItem(i);
+
+		TotalAmount += item->GetPrice();
+
+	}
+
+	SetTotalAmount(TotalAmount);
+
 }
 
 void Inventory::Update()
@@ -261,20 +277,8 @@ void Inventory::Update()
 			}
 		}
 
-		TotalAmount = 0;
-
-		for (int i = 0; i < inv->GetItemCount(); i++)
-		{
-			ItemBase* item = inv->GetItem(i);
-
-			TotalAmount += item->GetPrice();
-
-		}
 	}
 
-	//OpenMenuÇ™trueÇÃéû
-
-	g_inventory.SetTotalAmount(TotalAmount);
 }
 
 void Inventory::Draw()
@@ -362,7 +366,7 @@ void Inventory::Draw()
 		}
 
 		char totalamount[32];
-		sprintf_s(totalamount, "çáåvã‡äz  : %d$", TotalAmount);
+		sprintf_s(totalamount, "çáåvã‡äz  : %d$", GetTotalAmount());
 		DrawString(150, 850, totalamount, GetColor(0, 0, 0));
 	}
 }
