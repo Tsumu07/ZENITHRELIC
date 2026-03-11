@@ -21,7 +21,6 @@
 #include "../Haeder/Player_UI.h"
 #include "EffekseerForDXLib.h"
 
-
 //コンストラクタ
 GameManager::GameManager()
 {
@@ -66,7 +65,6 @@ void GameManager::Initaliza()
     Master::mpResourceManager->LoadEffectFromFile("Effect/Break.efkefc", 5.0f);
     Master::mpResourceManager->LoadEffectFromFile("Effect/Delete.efkefc", 5.0f);
     Master::mpResourceManager->LoadEffectFromFile("Effect/Delete_Enemy.efkefc", 5.0f);
-
 
     Master::mpResourceManager->LoadSoundFromFile("Musics/Heal.mp3");
 

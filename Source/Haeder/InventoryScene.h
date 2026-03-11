@@ -69,13 +69,4 @@ public:
     void Draw();       //描画
     void Finaliza();   //終了処理
 
-    //合計金額の設定
-    void SetTotalAmount(int total) { TotalAmount = total; }
-
-    //合計金額の取得
-    int GetTotalAmount()const { return TotalAmount; }
-
 };
-
-// 共通インスタンスを宣言（extern）
-extern Inventory g_inventory;

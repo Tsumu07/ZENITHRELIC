@@ -53,6 +53,7 @@ void Explain::Update()
 //•`‰æ
 void Explain::Draw()
 {
+
     LoadGraphScreen(450.0f, 200.0f, "Assets/‘€ìà–¾.png", true);
 
 }
@@ -60,7 +61,6 @@ void Explain::Draw()
 //I—¹ˆ—
 void Explain::Finaliza()
 {
-    //ClearDrawScreen();
 
     DeleteSoundMem(ExplainBGM);
 

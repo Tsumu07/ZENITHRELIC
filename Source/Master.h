@@ -6,6 +6,7 @@ class GameManager;
 class SceneManager;
 class Stage;
 class ResourceManager;
+class ItemManeger;
 
 //ゲームを管理するクラス
 //誰でもいじれる
@@ -18,6 +19,7 @@ public:
     static Camera* mpCamera;
     static SceneManager* mpSceneManager;
     static ResourceManager* mpResourceManager;
+    static ItemManeger* mpItemManeger;
 
     static void Initialize();
     static void Finalize();

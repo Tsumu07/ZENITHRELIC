@@ -82,6 +82,9 @@ private:
     //全滅させた
     bool AnnihilationFlag;
 
+    //合計金額
+    int TotalAmount;
+
 public:
     Player();   //コンストラクタ
     ~Player();  //デストラクタ

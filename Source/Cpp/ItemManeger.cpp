@@ -3,8 +3,11 @@
 #include "../Haeder/GameManager.h"
 #include "../Haeder/ObujectManager.h"
 #include "../Haeder/Player.h"
+#include "../Haeder/SceneManager.h"
+#include "../Master.h"
 
 ItemManeger::ItemManeger()
+:TotalAmount(0)
 {
 }
 

@@ -8,40 +8,41 @@
 #include "../Haeder/ObujectManager.h"
 #include "../Haeder/ItemBase.h" 
 #include "../Haeder/InventoryScene.h"
+#include "../Haeder/ItemManeger.h"
 #include "../Master.h"
 
 extern Inventory g_inventory;
 
   //コンストラクタ
  GameClear::GameClear()
- :SceneBase()
- ,m_skybox()
- ,skyboxPShandle(0)
- ,skyboxVShandle(0)
- ,SelectpictureR(0.0f)
- ,SelectpictureL(0.0f)
- ,SelectY(0.0f)
- ,ContinueSelectUI(0)
- ,TitleSelectUI(0)
- ,ExitSelectUI(0)
- ,GameClearUI()
- ,LogoX(0.0f)
- ,LogoY(0.0f)
- ,GameClearUIY(0.0f)
- ,MaxRight(0.0f)
- ,MaxLeft(0.0f)
- ,TitleUI(0.0f)
- ,ContinueUI(0.0f)
- ,ExitUI(0.0f)
- ,InputJoycon(false)
- ,ButtonMusic(0)
- ,GameClearBGM(0)
- ,m_price(0)
- ,GameClearLogo(-1)
- ,SelectPictureR(0.0f)
- ,SelectPictureL(0.0f)
- {
- }
+:SceneBase()
+,m_skybox()
+,skyboxPShandle(0)
+,skyboxVShandle(0)
+,SelectpictureR(0.0f)
+,SelectpictureL(0.0f)
+,SelectY(0.0f)
+,ContinueSelectUI(0)
+,TitleSelectUI(0)
+,ExitSelectUI(0)
+,GameClearUI()
+,LogoX(0.0f)
+,LogoY(0.0f)
+,GameClearUIY(0.0f)
+,MaxRight(0.0f)
+,MaxLeft(0.0f)
+,TitleUI(0.0f)
+,ContinueUI(0.0f)
+,ExitUI(0.0f)
+,InputJoycon(false)
+,ButtonMusic(0)
+,GameClearBGM(0)
+,m_price(0)
+,GameClearLogo(-1)
+,SelectPictureR(0.0f)
+,SelectPictureL(0.0f)
+{
+}
  
   //デストラクタ
  GameClear::~GameClear()
@@ -118,9 +119,7 @@ extern Inventory g_inventory;
      SelectPictureR = LoadGraph("Assets/SelectpictureR.png");
      SelectPictureL = LoadGraph("Assets/SelectpictureL.png");
 
-     Inventory* inv = Master::mpSceneManager->GetInventoryScene();
-
-     m_price = inv->GetTotalAmount();
+     m_price = Master::mpItemManeger->GetTotalAmount();
 
  }
  

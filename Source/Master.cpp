@@ -5,12 +5,14 @@
 #include "Haeder/SceneManager.h"
 #include "Haeder/ObujectManager.h"
 #include "Haeder/ResourceManeger.h"
+#include "Haeder/ItemManeger.h"
 
 GameManager* Master::mpGameManager = nullptr;
 Camera* Master::mpCamera = nullptr;
 SceneManager* Master::mpSceneManager = nullptr;
 ObjectManager* Master::mpObjectManager = nullptr;
 ResourceManager* Master::mpResourceManager = nullptr;
+ItemManeger* Master::mpItemManeger = nullptr;
 
 void Master::Initialize()
 {
@@ -19,6 +21,7 @@ void Master::Initialize()
     mpSceneManager = new SceneManager();
     mpObjectManager = new ObjectManager();
     mpResourceManager = new ResourceManager();
+    mpItemManeger = new ItemManeger();
 }
 
 void Master::Finalize()
@@ -29,4 +32,5 @@ void Master::Finalize()
     mpSceneManager = nullptr;
     mpCamera = nullptr;
     mpGameManager = nullptr;
+    mpItemManeger = nullptr;
 }

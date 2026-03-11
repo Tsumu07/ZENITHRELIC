@@ -80,5 +80,5 @@ public:
 
     int GetLastGameScreen() const { return m_lastGameScreenHandle; }
 
-    Inventory* GetInventoryScene() { return mpInventoryScene_price; }
+
 };

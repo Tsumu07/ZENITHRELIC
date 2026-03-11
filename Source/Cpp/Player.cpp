@@ -63,6 +63,7 @@ Player::Player()
 ,ColumnSE(-1)
 ,DamageSE(-1)
 ,AttackDamageSE(-1)
+,TotalAmount(0)
 {
 }
 
@@ -129,6 +130,8 @@ void Player::Initaliza()
 
 void Player::Update()
 {	
+	//
+	TotalAmount = 0;
 
 	//プレイヤーの移動前座標
 	mvPlayerold = GetPos();
@@ -404,6 +407,17 @@ void Player::Update()
 		}
 	}
 
+	//アイテムの合計金額の更新
+	for (int i = 0; i < inv->GetItemCount(); i++)
+	{
+		ItemBase* item = inv->GetItem(i);
+
+		TotalAmount += item->GetPrice();
+
+	}
+
+	Master::mpItemManeger->SetTotalAmount(TotalAmount);
+
 	// 移動中か、移動したい方向がある場合に処理を実行する
 	if (VSize(dir) > 0.001f) // dirはSetDirで正規化された移動方向
 	{
@@ -661,4 +675,3 @@ void Player::Finaliza()
 		DeleteGraph(DamageEffectHandle[DamageEffectCount]);
 	}
 }
-

@@ -11,12 +11,8 @@
 #include "../Master.h"
 #include "Dxlib.h"
 
-//é¿ë‘
-Inventory g_inventory;
-
 Inventory::Inventory()
 :SceneBase()
-//,m_player_ui()
 ,TriangleLeftX(0.0f)
 ,TriangleLeftY(0.0f)
 ,TriangleUnderX(0.0f)
@@ -86,22 +82,7 @@ void Inventory::Initaliza()
 
 	CursorMusic = LoadSoundMem("Musics/poka01.mp3");
 
-	Object* player = Master::mpObjectManager->FindByTag(100);
-	auto Play = dynamic_cast<Player*>(player);
-	ItemManeger* inv = Play->GetInventory();
-
-	int count = inv->GetItemCount();
-
-	for (int i = 0; i < inv->GetItemCount(); i++)
-	{
-		ItemBase* item = inv->GetItem(i);
-
-		TotalAmount += item->GetPrice();
-
-	}
-
-	SetTotalAmount(TotalAmount);
-
+	TotalAmount = Master::mpItemManeger->GetTotalAmount();
 }
 
 void Inventory::Update()
@@ -366,7 +347,7 @@ void Inventory::Draw()
 		}
 
 		char totalamount[32];
-		sprintf_s(totalamount, "çáåvã‡äz  : %d$", GetTotalAmount());
+		sprintf_s(totalamount, "çáåvã‡äz  : %d$", TotalAmount);
 		DrawString(150, 850, totalamount, GetColor(0, 0, 0));
 	}
 }
