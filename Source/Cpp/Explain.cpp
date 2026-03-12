@@ -48,13 +48,15 @@ void Explain::Update()
         Master::mpSceneManager->ChangeScene(SceneName::TitleScene);
 
     }
+
+
 }
 
 //•`‰æ
 void Explain::Draw()
 {
-
     LoadGraphScreen(450.0f, 200.0f, "Assets/‘€ìà–¾.png", true);
+    
 
 }
 

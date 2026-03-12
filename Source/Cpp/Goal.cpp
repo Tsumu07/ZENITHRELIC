@@ -46,6 +46,12 @@ void Goal::Update()
         Master::mpObjectManager->AddEffect("Effect/Portal.efkefc", "Portal", VGet(GetPos().x, GetPos().y + 140.0f, GetPos().z), VGet(0.0f, 0.0f, 0.0f), VGet(15.0f, 15.0f, 15.0f));
     }
 
+    //エフェクト
+    if (Master::mpObjectManager->GetEffectByTag("Light") == -1 && player->GetAnnihilation())
+    {
+        Master::mpObjectManager->AddEffect("Effect/Light.efkefc", "Light", GetPos(), VGet(0.0f, 0.0f, 0.0f), VGet(15.0f, 15.0f, 15.0f));
+    }
+
 }
 
 //描画

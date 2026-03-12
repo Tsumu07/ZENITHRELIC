@@ -11,6 +11,13 @@ private:
     int skyboxPShandle;
     int skyboxVShandle;
 
+    //---画像の読み込み---//
+    int Logo_Handle;
+    int SelectpictureR_Handle;
+    int SelectpictureL_Handle;
+
+    int StageSelect_Handle;
+
     //---UI関係---//
     float SelectpictureR;
     float SelectpictureL;
@@ -43,7 +50,6 @@ private:
     int NomalStageUI;
     int CreatedStageNo1UI;
     int CreatedStageNo2UI;
-    //------------//
     
     //セレクトの制限
     //右
@@ -53,7 +59,6 @@ private:
     float MaxLeft;
 
     bool InputJoycon;
-    //--------//
 
     //ステージ選択
     bool StageSelect;
@@ -69,6 +74,15 @@ private:
     float WarnCount;
     bool WarnFlag;
 
+    //説明
+    bool ExplainFlag;
+    int ExplainSelectUI;
+    int ExplainUI[2];
+
+    //戻る
+    bool BackFlag;
+    int BackSelectUI;
+    int BackUI[2];
 
 public:
     Title();   //コンストラクタ
