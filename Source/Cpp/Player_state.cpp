@@ -32,18 +32,23 @@ void PSIdle::OnExit(Object* parent)
 
 int PSIdle::Update(Object* parent)
 {
-	// キー入力を得る
-	int Pillar = GetJoypadInputState(DX_INPUT_KEY_PAD1);
 
-	// 上下左右の入力でWalk状態へ遷移する
-	int dir_Pillar = PAD_INPUT_LEFT | PAD_INPUT_RIGHT | PAD_INPUT_UP | PAD_INPUT_DOWN;
+	DINPUT_JOYSTATE input;
+	GetJoypadDirectInputState(DX_INPUT_PAD1, &input);
 
-	if (Pillar & dir_Pillar)
+	bool right = (input.X >= 500.0f || CheckHitKey(KEY_INPUT_D));
+	bool left = (input.X <= -500.0f || CheckHitKey(KEY_INPUT_A));
+	bool down = (input.Y >= 500.0f || CheckHitKey(KEY_INPUT_S));
+	bool up = (input.Y <= -500.0f || CheckHitKey(KEY_INPUT_W));
+
+	int Move = right | left | down | up;
+
+	if (Move)
 	{
 		return PLAYER_STATE_WALK;
 	}
 
-	if (CheckDownController(PAD_INPUT_2) != 0 || CheckHitKey(KEY_INPUT_Q))
+	if (CheckDownController(PAD_INPUT_2) != 0 || CheckHitKey(KEY_INPUT_SPACE))
 	{
 		return PLAYER_STATE_ATTACK;
 	}
@@ -90,38 +95,37 @@ void PSWalk::OnExit(Object* parent)
 
 int PSWalk::Update(Object* parent)
 {
-	// キー入力を得る
-	int Pillar = GetJoypadInputState(DX_INPUT_KEY_PAD1);
-
 	VECTOR dir = VGet(0.0f, 0.0f, 0.0f);
 
-	if (Pillar & PAD_INPUT_LEFT)
+	DINPUT_JOYSTATE input;
+	GetJoypadDirectInputState(DX_INPUT_PAD1, &input);
+
+	bool right = (input.X >= 500.0f || CheckHitKey(KEY_INPUT_D));
+	bool left = (input.X <= -500.0f || CheckHitKey(KEY_INPUT_A));
+	bool down = (input.Y >= 500.0f || CheckHitKey(KEY_INPUT_S));
+	bool up = (input.Y <= -500.0f || CheckHitKey(KEY_INPUT_W));
+
+	int Move = right | left | down | up;
+
+	if (left)
 	{
 		dir.x = -1;
 	}
 
-	if (Pillar & PAD_INPUT_RIGHT)
+	if (right)
 	{
 		dir.x = 1;
 	}
-	if (Pillar & PAD_INPUT_UP)
+
+	if (up)
 	{
 		dir.z = 1;
 	}
 
-	if (Pillar & PAD_INPUT_DOWN)
+	if (down)
 	{
 		dir.z = -1;
 	}
-
-
-	//if (CheckHitPillar(Pillar_INPUT_SPACE))
-	//{
-	//	if (Master::mpObjectManager->GetEffectByTag("buffx") == -1)
-	//	{
-	//		Master::mpObjectManager->AddEffect("Effect/Light.efkefc", "buffx", parent->GetPos(), VGet(0.0f, 0.0f, 0.0f), VGet(10.0f, 10.0f, 10.0f));
-	//	}
-	//}
 
 	// プレイヤーの移動方向を正規化してセット
 	if (VSize(dir) > 0.1f)
@@ -150,13 +154,13 @@ int PSWalk::Update(Object* parent)
 	}
 
 	// 入力がなければIdle状態へ遷移する
-	if (Pillar == 0)
+	if (Move == 0)
 	{
 		return PLAYER_STATE_IDLE;
 	}
 
 	//Qキーが押されたらAttack状態へ遷移する
-	if (CheckDownController(PAD_INPUT_2) != 0 || CheckHitKey(KEY_INPUT_Q))
+	if (CheckDownController(PAD_INPUT_2) != 0 || CheckHitKey(KEY_INPUT_SPACE))
 	{
 		return PLAYER_STATE_ATTACK;
 	}

@@ -108,7 +108,7 @@ void Inventory::Update()
 	if (OpenMenu)
 	{
 
-		if (CheckDownController(PAD_INPUT_3) != 0 || CheckDownKey(KEY_INPUT_E))
+		if (CheckDownController(PAD_INPUT_4) != 0 || CheckDownKey(KEY_INPUT_LSHIFT))
 		{
 			OpenMenu = false;
 		}
@@ -176,7 +176,7 @@ void Inventory::Update()
 
 	else
 	{
-		if (CheckDownController(PAD_INPUT_1) != 0 || CheckDownKey(KEY_INPUT_Q))
+		if (CheckDownController(PAD_INPUT_1) != 0 || CheckDownKey(KEY_INPUT_F))
 		{
 			PlaySoundMem(CursorMusic, DX_PLAYTYPE_BACK);
 
@@ -184,7 +184,7 @@ void Inventory::Update()
 		}
 
 		// 閉じる
-		if (CheckDownController(PAD_INPUT_3) != 0 || CheckDownKey(KEY_INPUT_E))
+		if (CheckDownController(PAD_INPUT_4) != 0 || CheckDownKey(KEY_INPUT_LSHIFT))
 		{
 			Master::mpSceneManager->CloseInventory();
 		}
@@ -219,7 +219,7 @@ void Inventory::Update()
 		}
 
 		// アイテムを装備(スロット1)
-		if (CheckDownController(PAD_INPUT_6) != 0 || CheckDownKey(KEY_INPUT_Z))
+		if (CheckDownController(PAD_INPUT_6) != 0 || CheckDownKey(KEY_INPUT_Q))
 		{
 
 			ItemBase* item = inv->GetItem(cursor);
@@ -241,7 +241,7 @@ void Inventory::Update()
 		}
 
 		// アイテムを装備(スロット2)
-		if (CheckDownController(PAD_INPUT_5) != 0 || CheckDownKey(KEY_INPUT_X))
+		if (CheckDownController(PAD_INPUT_5) != 0 || CheckDownKey(KEY_INPUT_E))
 		{
 			ItemBase* item = inv->GetItem(cursor);
 

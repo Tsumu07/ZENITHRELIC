@@ -8,7 +8,8 @@
 
 //コンストラクタ
 Explain::Explain()
-:TriangleLeftX(0.0f)
+:Grap(0)
+,TriangleLeftX(0.0f)
 ,TriangleLeftY(0.0f)
 ,TriangleUnderX(0.0f)
 ,TriangleUnderY(0.0f)
@@ -17,7 +18,7 @@ Explain::Explain()
 ,MaxUp(0.0f)
 ,MaxUnder(0.0f)
 ,InputJoycon(false)
-, ExplainBGM(-1)
+,ExplainBGM(-1)
 {
 }
 
@@ -38,6 +39,7 @@ void Explain::Initaliza()
 
     SetBackgroundColor(0, 0, 100);
 
+    Grap = LoadGraph("Assets/操作説明1.png");
 }
 
 //更新
@@ -55,7 +57,7 @@ void Explain::Update()
 //描画
 void Explain::Draw()
 {
-    LoadGraphScreen(450.0f, 200.0f, "Assets/操作説明.png", true);
+    DrawGraph(0.0f, 0.0f, Grap, true);
     
 
 }

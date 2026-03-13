@@ -381,7 +381,7 @@ void Player::Update()
 	EquippedItems* equip = GetEquippedItems();
 	ItemManeger* inv = GetInventory();
 
-	if (CheckDownController(PAD_INPUT_5) != 0 || CheckDownKey(KEY_INPUT_X))
+	if (CheckDownController(PAD_INPUT_5) != 0 || CheckDownKey(KEY_INPUT_E))
 	{
 		ItemBase* item = equip->GetItem(0);
 
@@ -394,7 +394,7 @@ void Player::Update()
 		}
 	}
 
-	if (CheckDownController(PAD_INPUT_6) != 0 || CheckDownKey(KEY_INPUT_Z))
+	if (CheckDownController(PAD_INPUT_6) != 0 || CheckDownKey(KEY_INPUT_Q))
 	{
 		ItemBase* item = equip->GetItem(1);
 

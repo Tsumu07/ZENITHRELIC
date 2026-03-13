@@ -147,7 +147,7 @@ void Game::Update()
     static int shotCount = 0;
 
     //ƒAƒCƒeƒ€‰æ–Ê
-    if (CheckDownController(PAD_INPUT_3) != 0 || CheckDownKey(KEY_INPUT_E) != 0)
+    if (CheckDownController(PAD_INPUT_4) != 0 || CheckDownKey(KEY_INPUT_LSHIFT) != 0)
     {
         ChangeVolumeSoundMem(200, InventorySE);
 

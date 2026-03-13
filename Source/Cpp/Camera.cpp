@@ -64,22 +64,22 @@ void Camera::Update()
     GetJoypadDirectInputState(DX_INPUT_PAD1, &input);
 
     // ‰ñ“]Šp“x•ÏXˆ—
-    if (input.Rx < 0 || CheckHitKey(KEY_INPUT_A))
+    if (input.Rx < 0 || CheckHitKey(KEY_INPUT_LEFT))
     {
         mfHorizontalAngle += 3.0f;
     }
 
-    if (input.Rx > 0 || CheckHitKey(KEY_INPUT_D))
+    if (input.Rx > 0 || CheckHitKey(KEY_INPUT_RIGHT))
     {
         mfHorizontalAngle -= 3.0f;
     }
 
-    if (input.Ry > 0 || CheckHitKey(KEY_INPUT_W))
+    if (input.Ry > 0 || CheckHitKey(KEY_INPUT_UP))
     {
         mfVerticalAngle -= 3.0f;
     }
 
-    if (input.Ry < 0 || CheckHitKey(KEY_INPUT_S))
+    if (input.Ry < 0 || CheckHitKey(KEY_INPUT_DOWN))
     {
         mfVerticalAngle += 3.0f;
     }

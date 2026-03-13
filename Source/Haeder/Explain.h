@@ -5,6 +5,8 @@ class Explain :public SceneBase
 {
 private:
 
+    int Grap;
+
     //‰E‚Ì’¸“_
     float TriangleLeftX;
     float TriangleLeftY;

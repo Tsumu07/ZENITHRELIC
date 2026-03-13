@@ -310,7 +310,7 @@ void Stage::Update()
     //入力状態を取得
     GetJoypadDirectInputState(DX_INPUT_PAD1, &input);
 
-    if (CheckDownController(PAD_INPUT_3) != 0 || CheckDownKey(KEY_INPUT_Z) != 0)
+    if (CheckDownController(PAD_INPUT_4) != 0 || CheckDownKey(KEY_INPUT_Z) != 0)
     {
         Master::mpSceneManager->ChangeScene(SceneName::TitleScene);
     }
