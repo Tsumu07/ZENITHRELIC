@@ -266,7 +266,7 @@ void Stage::Initaliza()
     //ドア
     GoalSetModel = MV1LoadModel("Resource/PortalSeven.x");
 
-    MV1SetScale(ColumnSetModel, VGet(0.5f, 0.5f, 0.5f));
+    //MV1SetScale(ColumnSetModel, VGet(0.5f, 0.5f, 0.5f));
 
     MV1SetRotationXYZ(PlayerSetModel, VGet(0.0f, DX_PI_F, 0.0f));
 
@@ -310,7 +310,7 @@ void Stage::Update()
     //入力状態を取得
     GetJoypadDirectInputState(DX_INPUT_PAD1, &input);
 
-    if (CheckDownController(PAD_INPUT_4) != 0 || CheckDownKey(KEY_INPUT_Z) != 0)
+    if (CheckDownController(PAD_INPUT_1) != 0 || CheckDownKey(KEY_INPUT_E) != 0)
     {
         Master::mpSceneManager->ChangeScene(SceneName::TitleScene);
     }
@@ -509,7 +509,7 @@ void Stage::Update()
                 MV1SetPosition(GoalSetModel, GoalSetPosition);
 
                 //ドア(回転)
-                if (input.Z != 0 || CheckDownKey(KEY_INPUT_S))
+                if (input.Z != 0 || CheckDownKey(KEY_INPUT_Q))
                 {
                     MV1SetRotationXYZ(GoalSetModel, VGet(0.0f, 0.0f, 0.0f));
 
@@ -534,7 +534,7 @@ void Stage::Update()
                 PlaySoundMem(SetSE, DX_PLAYTYPE_BACK);
 
 
-                if (input.Z >= 1000.0f || CheckHitKey(KEY_INPUT_H))
+                if (input.Z >= 1000.0f || CheckHitKey(KEY_INPUT_Q))
                 {
                     //座標
                     Wall2Position = Position;
@@ -867,7 +867,7 @@ void Stage::Update()
     }
 
     //選択したものを一つ削除
-    if (CheckDownController(PAD_INPUT_4) != 0 || CheckDownKey(KEY_INPUT_X))
+    if (CheckDownController(PAD_INPUT_4) != 0 || CheckDownKey(KEY_INPUT_LSHIFT))
     {
         //SE
         PlaySoundMem(DeleteSE, DX_PLAYTYPE_BACK);
@@ -887,6 +887,14 @@ void Stage::Update()
             if (PointModelRist.size() > 0)
             {
                 PointModelRist.pop_back();
+            }
+        }
+
+        if (ColumnSelect = false)
+        {
+            if (ColumnModelRist.size() > 0)
+            {
+                ColumnModelRist.pop_back();
             }
         }
 
@@ -917,15 +925,15 @@ void Stage::Update()
         }
     }
 
-    //リセット(オブジェクトのみ)
-    if (CheckDownController(PAD_INPUT_9) != 0 || CheckDownKey(KEY_INPUT_E))
-    {
-        PlaySoundMem(DeleteSE, DX_PLAYTYPE_BACK);
+    ////リセット(オブジェクトのみ)
+    //if (CheckDownController(PAD_INPUT_9) != 0 || (KEY_INPUT_E))
+    //{
+    //    PlaySoundMem(DeleteSE, DX_PLAYTYPE_BACK);
 
-        SpiderModelRist.clear();
-        ColumnModelRist.clear();
-        PointModelRist.clear();
-    }
+    //    SpiderModelRist.clear();
+    //    ColumnModelRist.clear();
+    //    PointModelRist.clear();
+    //}
 
     // 移動しているかどうかのフラグを倒す
     MoveFlag = FALSE;
@@ -1211,7 +1219,7 @@ void Stage::Draw()
     }
 
 
-    //カギ
+    //柱
     if (ColumnSet == true)
     {
         for (int i = 0; i < ColumnModelRist.size(); i++)

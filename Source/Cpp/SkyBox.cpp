@@ -26,8 +26,6 @@ SkyBox::~SkyBox()
 
 void SkyBox::Initaliza(void)
 {
-	LoadBox = "Assets/SkyBox.dds";
-
 	graph = Master::mpResourceManager->LoadImageFromFile(LoadBox);
 
 	 width = 20000 / 2;
@@ -220,6 +218,8 @@ void SkyBox::Update(void)
 	case GameClearScene:
 		LoadBox = "Assets/GameClear.dds";
 		break;
+	case ExplainScene:
+		LoadBox = "Assets/SkyBox.dds";
 	default:
 		break;
 	}

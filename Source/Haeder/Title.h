@@ -6,6 +6,13 @@ class Title : public SceneBase
 {
 private:
 
+    //ƒL[“ü—Í
+    bool right;
+    bool left;
+    bool down;
+    bool up;
+    bool enter;
+
     //SkyBoxŠÖŒW
     SkyBox* m_skybox;
     int skyboxPShandle;

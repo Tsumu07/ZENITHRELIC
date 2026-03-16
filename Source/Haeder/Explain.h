@@ -1,35 +1,47 @@
 #pragma once
 #include "SceneBase.h"
+#include "../Haeder/SkyBox.h"
 
 class Explain :public SceneBase
 {
 private:
 
-    int Grap;
+    //SkyBox関係
+    SkyBox* m_skybox;
+    int skyboxPShandle;
+    int skyboxVShandle;
 
-    //右の頂点
-    float TriangleLeftX;
-    float TriangleLeftY;
+    //画像
+    int Controller_Image;
+    int Keyboard_Image;
+    int SelectpictureR_Handle;
+    int SelectpictureL_Handle;
 
-    //下の頂点
-    float TriangleUnderX;
-    float TriangleUnderY;
+    //UI
+    int TitleUIX;
+    int Explain_UIX;
+    int Explain_UIY;
+    int Explain_UI[6];
 
-    //上の頂点
-    float TriangleUpX;
-    float TriangleUpY;
+    int TitleSelect;
+    int ExplainSelect;
 
-    //セレクトの制限
-    //上
-    float MaxUp;
+    //キー入力
+    bool right;
+    bool left;
+    bool enter;
 
-    //下
-    float MaxUnder;
-
-    bool InputJoycon;
+    //カーソルの位置
+    float SelectpictureL;
+    float SelectpictureR;
+    float SelectY;
 
     //BGM
     int ExplainBGM;
+    int ButtonMusic;
+
+    //切り替え
+    bool ExplainFlag;
 
 public:
     Explain();   //コンストラクタ
@@ -39,7 +51,5 @@ public:
     void Update();     //更新
     void Draw();       //描画
     void Finaliza();   //終了処理
-
-
 
 };

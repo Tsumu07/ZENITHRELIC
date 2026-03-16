@@ -14,6 +14,11 @@ Title g_Title;
 //コンストラクタ
 Title::Title()
 :SceneBase()
+,right(false)
+,left(false)
+,down(false)
+,up(false)
+,enter(false)
 ,m_skybox()
 ,skyboxPShandle(0)
 ,skyboxVShandle(0)
@@ -178,11 +183,11 @@ void Title::Update()
     DINPUT_JOYSTATE input;
     GetJoypadDirectInputState(DX_INPUT_PAD1, &input);
 
-    bool right = (input.X >= 500.0f || CheckDownKey(KEY_INPUT_D));
-    bool left = (input.X <= -500.0f || CheckDownKey(KEY_INPUT_A));
-    bool down = (input.Y >= 500.0f || CheckDownKey(KEY_INPUT_S));
-    bool up = (input.Y <= -500.0f || CheckDownKey(KEY_INPUT_W));
-    bool enter = (CheckDownController(PAD_INPUT_2) || CheckDownKey(KEY_INPUT_SPACE));
+    right = (input.X >= 500.0f || CheckDownKey(KEY_INPUT_D));
+    left = (input.X <= -500.0f || CheckDownKey(KEY_INPUT_A));
+    down = (input.Y >= 500.0f || CheckDownKey(KEY_INPUT_S));
+    up = (input.Y <= -500.0f || CheckDownKey(KEY_INPUT_W));
+    enter = (CheckDownController(PAD_INPUT_2) || CheckDownKey(KEY_INPUT_SPACE));
 
     if (input.X == 0)
     {
