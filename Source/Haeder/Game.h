@@ -8,7 +8,12 @@
 class Game : public SceneBase
 {
 private:
+
+    //---SkyBoxŠÖŒW---//
     SkyBox* m_skybox;
+    int SkyboxPShandle;
+    int SkyboxVShandle;
+
     Player_UI* m_player_ui;
     StartSubScene* m_startsubscene;
     GoalSubScene* m_goalsubscene;
@@ -16,19 +21,20 @@ private:
     int m_shadowMap;
     int vshandle;
     int pshandle;
-    int skyboxPShandle;
-    int skyboxVShandle;
 
-    //Inventory‚Ì”wŒi
+    //---Inventory‚Ì”wŒi---//
     int width;
     int height;
     int handle;
 
     bool m_startSubSceneEnd;
 
-    //SE
+    //---BGM---/
     int GameBGM;
     int InventorySE;
+
+    //---ƒL[“ü—Í---//
+    bool InventoryFlag;
 
 public:
     Game();   //ƒRƒ“ƒXƒgƒ‰ƒNƒ^

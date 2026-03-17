@@ -8,39 +8,41 @@ private:
 
     //SkyBox関係
     SkyBox* m_skybox;
-    int skyboxPShandle;
-    int skyboxVShandle;
+    int SkyboxPShandle;
+    int SkyboxVShandle;
 
-    //画像
-    int Controller_Image;
-    int Keyboard_Image;
+    //---画像の読み込み---//
+    int Controller_Handle;
+    int Keyboard_Handle;
     int SelectpictureR_Handle;
     int SelectpictureL_Handle;
 
-    //UI
+    //---UI関係---//
     int TitleUIX;
-    int Explain_UIX;
-    int Explain_UIY;
-    int Explain_UI[6];
+    int ExplainUIX;
+    int ExplainUIY;
+    int ExplainUI[6];
 
     int TitleSelect;
     int ExplainSelect;
+    int Explain_HandleX;
+    int Explain_HandleY;
 
-    //キー入力
-    bool right;
-    bool left;
-    bool enter;
-
-    //カーソルの位置
+    //---カーソルの位置---//
     float SelectpictureL;
     float SelectpictureR;
     float SelectY;
 
-    //BGM
+    //---キー入力---//
+    bool Right;
+    bool Left;
+    bool Decide;
+
+    //---BGM---/
     int ExplainBGM;
     int ButtonMusic;
 
-    //切り替え
+    //---切り替え---//
     bool ExplainFlag;
 
 public:

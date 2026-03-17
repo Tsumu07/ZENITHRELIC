@@ -6,24 +6,17 @@ class Title : public SceneBase
 {
 private:
 
-    //キー入力
-    bool right;
-    bool left;
-    bool down;
-    bool up;
-    bool enter;
-
-    //SkyBox関係
+    //---SkyBox関係---//
     SkyBox* m_skybox;
-    int skyboxPShandle;
-    int skyboxVShandle;
+    int SkyboxPShandle;
+    int SkyboxVShandle;
 
     //---画像の読み込み---//
     int Logo_Handle;
     int SelectpictureR_Handle;
     int SelectpictureL_Handle;
-
     int StageSelect_Handle;
+    int Warn_Handle;
 
     //---UI関係---//
     float SelectpictureR;
@@ -57,8 +50,18 @@ private:
     int NomalStageUI;
     int CreatedStageNo1UI;
     int CreatedStageNo2UI;
+
+    float WarnX;
+    float WarnY;
+
+    //---キー入力---//
+    bool Right;
+    bool Left;
+    bool Down;
+    bool Up;
+    bool Decide;
     
-    //セレクトの制限
+    //---セレクトの制限---//
     //右
     float MaxRight;
 
@@ -67,26 +70,26 @@ private:
 
     bool InputJoycon;
 
-    //ステージ選択
+    //---ステージ選択---//
     bool StageSelect;
 
-    //BGM
+    //---BGM---/
     int ButtonMusic;
     int TitleBGM;
 
-    //保存したステージ番号
+    //---保存したステージ番号---//
     int StageNumber;
 
-    //保存なしの表示
+    //---保存なしの表示---//
     float WarnCount;
     bool WarnFlag;
 
-    //説明
+    //---説明---//
     bool ExplainFlag;
     int ExplainSelectUI;
     int ExplainUI[2];
 
-    //戻る
+    //---戻る---//
     bool BackFlag;
     int BackSelectUI;
     int BackUI[2];

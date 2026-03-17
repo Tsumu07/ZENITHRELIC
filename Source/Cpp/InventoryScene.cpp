@@ -13,21 +13,15 @@
 
 Inventory::Inventory()
 :SceneBase()
-,TriangleLeftX(0.0f)
-,TriangleLeftY(0.0f)
-,TriangleUnderX(0.0f)
-,TriangleUnderY(0.0f)
-,TriangleUpX(0.0f)
-,TriangleUpY(0.0f)
-,MaxUp(0.0f)
-,MaxUnder(0.0f)
-,cursor(0)
-,TotalAmount(0)
-,Background(0)
+,Background(-1)
+,MenuBack(-1)
+,ItemBack(-1)
+,SelectpictureR_Handle(-1)
+,SelectpictureL_Handle(-1)
 ,MenuUI()
-,RetrySelectUI(0)
-,TitleSelectUI(0)
-,ExitSelectUI(0)
+,RetrySelectUI(-1)
+,TitleSelectUI(-1)
+,ExitSelectUI(-1)
 ,MenuUIX(0.0f)
 ,RetryUI(0.0f)
 ,TitleUI(0.0f)
@@ -35,7 +29,12 @@ Inventory::Inventory()
 ,SelectpictureR(0.0f)
 ,SelectpictureL(0.0f)
 ,SelectY(0.0f)
+
 ,InputJoycon(false)
+,MaxUp(0.0f)
+,MaxUnder(0.0f)
+,cursor(-1)
+,TotalAmount(-1)
 ,OpenMenu(false)
 ,CursorMusic(-1)
 {
@@ -57,8 +56,12 @@ void Inventory::Initaliza()
 	//一瞬の取得
 	InputJoycon = false;
 
-	//メニュー
+	//---画像の読み込み---//
 	LoadDivGraph("Assets/GameOverUI.png", 6, 2, 3, 320, 108, MenuUI);
+	MenuBack = LoadGraph("Assets/Menu.png");
+	ItemBack = LoadGraph("Assets/Item.png");
+	SelectpictureR_Handle = LoadGraph("Assets/SelectpictureR.png");
+	SelectpictureL_Handle = LoadGraph("Assets/SelectpictureL.png");
 
 	//一番上
 	MaxUp = 180.0f;
@@ -94,10 +97,19 @@ void Inventory::Update()
 
 	int count = inv->GetItemCount();
 
-	DINPUT_JOYSTATE input;
 
-	//入力状態を取得
+	//--------------------------------
+	// 入力取得
+	//--------------------------------
+	DINPUT_JOYSTATE input;
 	GetJoypadDirectInputState(DX_INPUT_PAD1, &input);
+
+	bool Menu = (CheckDownController(PAD_INPUT_4) != 0 || CheckDownKey(KEY_INPUT_LSHIFT));
+	bool ClaoseMenu = (CheckDownController(PAD_INPUT_1) != 0 || CheckDownKey(KEY_INPUT_F));
+	bool Down = (input.Y >= 500.0f || CheckDownKey(KEY_INPUT_S));
+	bool Up = (input.Y <= -500.0f || CheckDownKey(KEY_INPUT_W));
+
+	bool Decide = (CheckDownController(PAD_INPUT_2) || CheckDownKey(KEY_INPUT_SPACE));
 
 	if (input.Y == 0)
 	{
@@ -108,12 +120,12 @@ void Inventory::Update()
 	if (OpenMenu)
 	{
 
-		if (CheckDownController(PAD_INPUT_4) != 0 || CheckDownKey(KEY_INPUT_LSHIFT))
+		if (Menu)
 		{
 			OpenMenu = false;
 		}
 
-		if (CheckDownController(PAD_INPUT_2) != 0 || CheckDownKey(KEY_INPUT_SPACE))
+		if (Decide)
 		{
 			PlaySoundMem(CursorMusic, DX_PLAYTYPE_BACK);
 
@@ -144,7 +156,7 @@ void Inventory::Update()
 		}
 
 		// カーソル移動
-		if (input.Y <= -500.0f && InputJoycon == false || CheckDownKey(KEY_INPUT_DOWN))
+		if (Down && !InputJoycon)
 		{
 			PlaySoundMem(CursorMusic, DX_PLAYTYPE_BACK);
 
@@ -153,7 +165,7 @@ void Inventory::Update()
 
 		}
 
-		if (input.Y >= 500.0f && InputJoycon == false || CheckDownKey(KEY_INPUT_UP))
+		if (Up && !InputJoycon)
 		{
 			PlaySoundMem(CursorMusic, DX_PLAYTYPE_BACK);
 
@@ -273,11 +285,11 @@ void Inventory::Draw()
 	//メニュー画面
 	if (OpenMenu)
 	{
-		LoadGraphScreen(460, 150, "Assets/Menu.png", true);
+		DrawGraph(460, 150, MenuBack, true);
 
-		LoadGraphScreen(SelectpictureR, SelectY, "Assets/SelectpictureR.png", true);
+		DrawGraph(SelectpictureR, SelectY, SelectpictureR_Handle, true);
 
-		LoadGraphScreen(SelectpictureL, SelectY - 15, "Assets/SelectpictureL.png", true);
+		DrawGraph(SelectpictureL, SelectY - 15, SelectpictureL_Handle, true);
 
 		//UI
 		DrawGraph(MenuUIX, RetryUI, MenuUI[0 + RetrySelectUI], true);
@@ -288,9 +300,19 @@ void Inventory::Draw()
 
 	else
 	{
-		LoadGraphScreen(100, 100, "Assets/Item.png", true);
+		DrawGraph(100, 100, ItemBack, true);
 
-		DrawString(150, 150, "L/Rで装備", GetColor(0, 0, 0));
+		if (GetJoypadNum())
+		{
+			DrawString(150, 150, "Aでメニュー", GetColor(0, 0, 0));
+
+		}
+
+		else
+		{
+			DrawString(150, 150, "Fでメニュー", GetColor(0, 0, 0));
+
+		}
 
 		Object* player = Master::mpObjectManager->FindByTag(100);
 		auto Play = dynamic_cast<Player*>(player);
@@ -355,4 +377,10 @@ void Inventory::Draw()
 void Inventory::Finaliza()
 {
 	DeleteSoundMem(CursorMusic);
+	DeleteGraph(Background);
+	DeleteGraph(MenuBack);
+	DeleteGraph(ItemBack);
+	DeleteGraph(SelectpictureR_Handle);
+	DeleteGraph(SelectpictureL_Handle);
+
 }

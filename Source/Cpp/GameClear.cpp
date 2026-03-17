@@ -17,30 +17,33 @@ extern Inventory g_inventory;
  GameClear::GameClear()
 :SceneBase()
 ,m_skybox()
-,skyboxPShandle(0)
-,skyboxVShandle(0)
+,skyboxPShandle(-1)
+,skyboxVShandle(-1)
 ,SelectpictureR(0.0f)
 ,SelectpictureL(0.0f)
 ,SelectY(0.0f)
-,ContinueSelectUI(0)
-,TitleSelectUI(0)
-,ExitSelectUI(0)
-,GameClearUI()
 ,LogoX(0.0f)
 ,LogoY(0.0f)
 ,GameClearUIY(0.0f)
-,MaxRight(0.0f)
-,MaxLeft(0.0f)
+,GameClearUI()
 ,TitleUI(0.0f)
-,ContinueUI(0.0f)
 ,ExitUI(0.0f)
-,InputJoycon(false)
-,ButtonMusic(0)
-,GameClearBGM(0)
-,m_price(0)
+,ContinueSelectUI(-1)
+,TitleSelectUI(-1)
+,ExitSelectUI(-1)
 ,GameClearLogo(-1)
 ,SelectPictureR(0.0f)
 ,SelectPictureL(0.0f)
+,Right(false)
+,Left(false)
+,Decide(false)
+,MaxRight(0.0f)
+,MaxLeft(0.0f)
+,ContinueUI(0.0f)
+,InputJoycon(false)
+,ButtonMusic(-1)
+,GameClearBGM(-1)
+,m_price(-1)
 {
 }
  
@@ -72,6 +75,9 @@ extern Inventory g_inventory;
      PlaySoundMem(GameClearBGM, DX_PLAYTYPE_LOOP);
   
      LoadDivGraph("Assets/GameClearUI.png", 6, 2, 3, 320, 108, GameClearUI);
+     GameClearLogo = LoadGraph("Assets/GameClear.png");
+     SelectPictureR = LoadGraph("Assets/SelectpictureR.png");
+     SelectPictureL = LoadGraph("Assets/SelectpictureL.png");
 
      //一番右
      MaxRight = 1180.0f;
@@ -115,10 +121,6 @@ extern Inventory g_inventory;
      //SkyBox用ピクセルシェーダーを読み込む
      skyboxPShandle = LoadPixelShader("SkyBoxPS.cso");
 
-     GameClearLogo = LoadGraph("Assets/GameClear.png");
-     SelectPictureR = LoadGraph("Assets/SelectpictureR.png");
-     SelectPictureL = LoadGraph("Assets/SelectpictureL.png");
-
      m_price = Master::mpItemManeger->GetTotalAmount();
 
  }
@@ -126,47 +128,31 @@ extern Inventory g_inventory;
   //更新
  void GameClear::Update()
  {
+     //--------------------------------
+     // UI初期化
+     //--------------------------------
      ContinueSelectUI = 0;
      TitleSelectUI = 0;
      ExitSelectUI = 0;
 
+     //--------------------------------
+     // 入力取得
+     //--------------------------------
      DINPUT_JOYSTATE input;
- 
-     //入力状態を取得
      GetJoypadDirectInputState(DX_INPUT_PAD1, &input);
- 
-     if (input.Y == 0)
+     Right = (input.X >= 500.0f || CheckDownKey(KEY_INPUT_D));
+     Left = (input.X <= -500.0f || CheckDownKey(KEY_INPUT_A));
+     Decide = (CheckDownController(PAD_INPUT_2) || CheckDownKey(KEY_INPUT_SPACE));
+
+     if (input.X == 0)
      {
          InputJoycon = false;
      }
 
-     if (CheckDownController(PAD_INPUT_2) != 0 || CheckDownKey(KEY_INPUT_SPACE))
-     {
-         PlaySoundMem(ButtonMusic, DX_PLAYTYPE_BACK);
-
-         //ゲーム画面
-         if (SelectpictureL >= 35.0f && SelectpictureL <= 45.0f)
-         {
-             Master::mpSceneManager->ChangeScene(SceneName::GameScene);
-
-         }
-
-         //タイトル
-         else if (SelectpictureL >= 600.0f && SelectpictureL <= 610.0f)
-         {
-             Master::mpSceneManager->ChangeScene(SceneName::TitleScene);
-         }
-
-         //終了
-         else if (SelectpictureL >= 1170.0f && SelectpictureL <= 1180.0f)
-         {
-             Master::mpGameManager->EndGameLoop();
-
-         }
-     }
-
-     //右
-     if (input.Y <= -500.0f && InputJoycon == false || CheckDownKey(KEY_INPUT_D))
+     //--------------------------------
+     // 左右移動
+     //--------------------------------
+     if (Right && !InputJoycon)
      {
          PlaySoundMem(ButtonMusic, DX_PLAYTYPE_BACK);
 
@@ -174,55 +160,73 @@ extern Inventory g_inventory;
          SelectpictureL += 570;
 
          InputJoycon = true;
-
      }
 
-     //一番右
-     if (SelectpictureL > MaxRight)
-     {
-         SelectpictureR = 465.0f;
-         SelectpictureL = 40.0f;
-
-     }
-
-     //左
-     if (input.Y >= 500.0f && InputJoycon == false || CheckDownKey(KEY_INPUT_A))
+     if (Left && !InputJoycon)
      {
          PlaySoundMem(ButtonMusic, DX_PLAYTYPE_BACK);
+
          SelectpictureR -= 570;
          SelectpictureL -= 570;
 
          InputJoycon = true;
-
      }
 
-     //一番左
+     //--------------------------------
+     // カーソルループ
+     //--------------------------------
+     if (SelectpictureL > MaxRight)
+     {
+         SelectpictureR = 465.0f;
+         SelectpictureL = 40.0f;
+     }
+
      if (SelectpictureL < MaxLeft)
      {
-         SelectpictureR = 1605;
-         SelectpictureL = 1180;
-
+         SelectpictureR = 1605.0f;
+         SelectpictureL = 1180.0f;
      }
 
-     //カーソル
+     //--------------------------------
+     // 決定入力
+     //--------------------------------
+     if (Decide)
+     {
+         PlaySoundMem(ButtonMusic, DX_PLAYTYPE_BACK);
+
+         if (SelectpictureL >= 35.0f && SelectpictureL <= 45.0f)
+         {
+             Master::mpSceneManager->ChangeScene(SceneName::GameScene);
+         }
+         else if (SelectpictureL >= 600.0f && SelectpictureL <= 610.0f)
+         {
+             Master::mpSceneManager->ChangeScene(SceneName::TitleScene);
+         }
+         else if (SelectpictureL >= 1170.0f && SelectpictureL <= 1180.0f)
+         {
+             Master::mpGameManager->EndGameLoop();
+         }
+     }
+
+     //--------------------------------
+     // UIカーソル
+     //--------------------------------
      if (SelectpictureL >= 38.0f && SelectpictureL <= 45.0f)
      {
          ContinueSelectUI = 1;
-
      }
-
      else if (SelectpictureL >= 600.0f && SelectpictureL <= 610.0f)
      {
          TitleSelectUI = 1;
-
      }
-
      else if (SelectpictureL >= 1170.0f && SelectpictureL <= 1180.0f)
      {
          ExitSelectUI = 1;
-
      }
 
+     //--------------------------------
+     // SkyBox更新
+     //--------------------------------
      m_skybox->Update();
 
 
@@ -269,4 +273,16 @@ extern Inventory g_inventory;
      m_skybox = nullptr;
 
      DeleteSoundMem(GameClearBGM);
+     DeleteSoundMem(ButtonMusic);
+
+     DeleteGraph(GameClearLogo);
+     DeleteGraph(SelectPictureR);
+     DeleteGraph(SelectPictureL);
+
+     //UI画像削除
+     for (int i = 0; i < 6; i++)
+     {
+         DeleteGraph(GameClearUI[i]);
+     }
+
  }

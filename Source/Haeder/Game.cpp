@@ -15,20 +15,21 @@
 //コンストラクタ
 Game::Game()
 :m_skybox()
+,SkyboxPShandle(-1)
+,SkyboxVShandle(-1)
 ,m_player_ui()
 ,m_startsubscene()
 ,m_goalsubscene()
 ,m_shadowMap(-1)
 ,vshandle(-1)
 ,pshandle(-1)
-,skyboxPShandle(-1)
-,skyboxVShandle(-1)
 ,width(-1)
 ,height(-1)
 ,handle(-1)
+,m_startSubSceneEnd(false)
 ,GameBGM(-1)
 ,InventorySE(-1)
-,m_startSubSceneEnd(false)
+,InventoryFlag(false)
 {
 
 }
@@ -64,7 +65,7 @@ void Game::Initaliza()
 
     }
 
-    //プレイヤーのUI
+    //---プレイヤーのUI---//
     {
         m_player_ui = new Player_UI();
         m_player_ui->Initaliza();
@@ -92,13 +93,13 @@ void Game::Initaliza()
     vshandle = LoadVertexShader("DefaultVS.cso");
 
     //SkyBox用頂点シェーダを読み込む
-    skyboxVShandle = LoadVertexShader("SkyBoxVS.cso");
+    SkyboxVShandle = LoadVertexShader("SkyBoxVS.cso");
 
     //ピクセルシェーダーを読み込む
     pshandle = LoadPixelShader("DefaultPS.cso");
 
     //SkyBox用ピクセルシェーダーを読み込む
-    skyboxPShandle = LoadPixelShader("SkyBoxPS.cso");
+    SkyboxPShandle = LoadPixelShader("SkyBoxPS.cso");
 
     InventorySE = LoadSoundMem("Musics/OpenInventory.mp3");
 
@@ -114,10 +115,14 @@ void Game::Initaliza()
 void Game::Update()
 {
 
-    //ゴール
+    //---ゴール---//
     Object* GetPlayer = Master::mpObjectManager->FindByTag(100);
     auto goal = dynamic_cast<Player*>(GetPlayer);
 
+    //--------------------------------
+    // 入力取得
+    //--------------------------------
+    InventoryFlag = (CheckDownController(PAD_INPUT_4) != 0 || CheckDownKey(KEY_INPUT_LSHIFT) != 0);
 
     if (m_startsubscene)
     {
@@ -146,8 +151,8 @@ void Game::Update()
 
     static int shotCount = 0;
 
-    //アイテム画面
-    if (CheckDownController(PAD_INPUT_4) != 0 || CheckDownKey(KEY_INPUT_LSHIFT) != 0)
+    //---アイテム画面---//
+    if (InventoryFlag)
     {
         ChangeVolumeSoundMem(200, InventorySE);
 
@@ -163,7 +168,7 @@ void Game::Update()
         Master::mpSceneManager->OpenInventory();
     }
 
-    //ゴールしたら
+    //---ゴールしたら---//
     if (goal->GetHitGoal() && m_goalsubscene == nullptr)
     {
         StopSoundMem(GameBGM);
@@ -185,21 +190,21 @@ void Game::Draw()
     Master::mpObjectManager->RestoreViewMatrix();
     ClearDrawScreen();
 
-    //シェーダーをセット
+    //---シェーダーをセット---//
     SetUseVertexShader(vshandle);
 
-    //影テクスチャをセット
+    //---影テクスチャをセット---//
     SetUseShadowMap(0, m_shadowMap);
 
     SetUsePixelShader(pshandle);
 
-    //ゲーム描画
+    //---ゲーム描画---//
     Master::mpGameManager->Draw();
 
-    SetUseVertexShader(skyboxVShandle);
+    SetUseVertexShader(SkyboxVShandle);
 
-    // 使用するピクセルシェーダーをセット
-    SetUsePixelShader(skyboxPShandle);
+    //---使用するピクセルシェーダーをセット--//
+    SetUsePixelShader(SkyboxPShandle);
 
     m_skybox->Draw();
 
@@ -212,7 +217,7 @@ void Game::Draw()
 
     else
     {
-        //UI
+        //---UI--//
         m_player_ui->Draw();
 
     }
@@ -222,12 +227,10 @@ void Game::Draw()
         m_goalsubscene->Draw();
     }
 
-
-    // Effekseerエフェクトの描画
+    //---Effekseerエフェクトの描画---//
     DrawEffekseer3D();
 
-
-    //終わったら解除
+    //---終わったら解除---//
     SetUseVertexShader(-1);
     SetUsePixelShader(-1);
     SetUseShadowMap(0, -1);
@@ -241,7 +244,6 @@ void Game::Finaliza()
 {
 
     Master::mpGameManager->Finaliza();
-
 
     DeleteSoundMem(InventorySE);
     DeleteSoundMem(GameBGM);

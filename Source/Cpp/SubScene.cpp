@@ -1,7 +1,7 @@
 #include "../Haeder/SubScene.h"
 
 SubScene::SubScene()
-:m_timer(0)
+:m_timer(-1)
 ,m_isEnd(false)
 {
 }

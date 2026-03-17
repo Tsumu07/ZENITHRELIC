@@ -192,9 +192,6 @@
     <ClCompile Include="Source\Cpp\Field.cpp">
       <Filter>ソース ファイル\Object</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Cpp\SettingExplain.cpp">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Master.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>

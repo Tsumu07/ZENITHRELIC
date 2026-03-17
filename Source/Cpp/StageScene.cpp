@@ -119,8 +119,6 @@ Stage::Stage()
 ,WarnSE(-1)
 ,DeleteSE(-1)
 {
-   
-    
 }
 
 //デストラクタ
@@ -1258,8 +1256,17 @@ void Stage::Draw()
     {
         MV1DrawModel(GoalSetModel);
     }
+    
+    if (GetJoypadNum())
+    {
+        LoadGraphScreen(0.0f, 350.0f, "Assets/StageGuide_Controller.png", true);
+    }
 
-    LoadGraphScreen(0.0f, 350.0f, "Assets/Guide_stage.png", true);
+    else
+    {
+        LoadGraphScreen(0.0f, 350.0f, "Assets/StageGuide_Keyboard.png", true);
+    }
+
 
     //アイコンの表示
     for (int i = 0; i < 6; i++)

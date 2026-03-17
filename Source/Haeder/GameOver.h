@@ -6,10 +6,15 @@ class GameOver :public SceneBase
 {
 private:
 
-    //SkyBox関係
+    //---SkyBox関係---//
     SkyBox* m_skybox;
     int skyboxPShandle;
     int skyboxVShandle;
+
+    //---画像の読み込み---//
+    int GameOverLogo_Handle;
+    int SelectpictureR_Handle;
+    int SelectpictureL_Handle;
 
     //---UI関係---//
     float SelectpictureR;
@@ -19,6 +24,7 @@ private:
     float LogoX;
     float LogoY;
 
+    int GameOverUI[6];
     float GameOverUIY;
 
     float RetryUI;
@@ -27,28 +33,27 @@ private:
 
     float ExitUI;
 
-    int GameOverUI[6];
-
     int RetrySelectUI;
     int TitleSelectUI;
     int ExitSelectUI;
 
-    //------------//
+    //---キー入力---//
+    bool Right;
+    bool Left;
+    bool Decide;
+    bool InputJoycon;
 
-    //セレクトの制限
+    //---セレクトの制限---//
     //右
     float MaxRight;
 
     //左
     float MaxLeft;
 
-    //--------//
-
-    //BGM
+    //---BGM---/
     int GameOverBGM;
     int ButtonMusic;
 
-    bool InputJoycon;
 
 public:
     GameOver();   //コンストラクタ

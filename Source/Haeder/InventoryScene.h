@@ -6,34 +6,14 @@ class Inventory : public SceneBase
 {
 private:
 
-    //右の頂点
-    float TriangleLeftX;
-    float TriangleLeftY;
-
-    //下の頂点
-    float TriangleUnderX;
-    float TriangleUnderY;
-
-    //上の頂点
-    float TriangleUpX;
-    float TriangleUpY;
-
-    //セレクトの制限
-    //上
-    float MaxUp;
-
-    //下
-    float MaxUnder;
-
-    int cursor;
-
-    //合計金額
-    int TotalAmount;
-
-    //背景画像
+    //---画像の読み込み---//
     int Background;
+    int MenuBack;
+    int ItemBack;
+    int SelectpictureR_Handle;
+    int SelectpictureL_Handle;
 
-    //メニューのUI
+    //---UI関係---//
     int MenuUI[6];
     int RetrySelectUI;
     int TitleSelectUI;
@@ -51,14 +31,26 @@ private:
     float SelectpictureL;
     float SelectY;
 
+    //---キー入力---//
     bool InputJoycon;
 
-    //メニュー画面の表示
+    //---セレクトの制限---//
+    //上
+    float MaxUp;
+
+    //下
+    float MaxUnder;
+
+    int cursor;
+
+    //---合計金額---//
+    int TotalAmount;
+
+    //---メニュー画面の表示---//
     bool OpenMenu;
 
-    //SE
+    //---BGM---/
     int CursorMusic;
-
 
 public:
     Inventory();   //コンストラクタ

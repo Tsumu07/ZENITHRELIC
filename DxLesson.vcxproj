@@ -186,7 +186,6 @@
     <ClCompile Include="Source\Cpp\Object.cpp" />
     <ClCompile Include="Source\Cpp\ObjectManager.cpp" />
     <ClCompile Include="Source\Cpp\Player.cpp" />
-    <ClCompile Include="Source\Cpp\SettingExplain.cpp" />
     <ClCompile Include="Source\Cpp\SkyBox.cpp" />
     <ClCompile Include="Source\Cpp\Spider_State.cpp" />
     <ClCompile Include="Source\Cpp\StageFrame.cpp" />

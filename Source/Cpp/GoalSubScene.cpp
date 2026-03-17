@@ -3,7 +3,10 @@
 #include "../Master.h"
 
 GoalSubScene::GoalSubScene()
-:GoalSE(-1)
+:Goal_Handle(-1)
+,GoalX(-1)
+,GoalY(-1)
+,GoalSE(-1)
 {
 }
 
@@ -20,6 +23,11 @@ void GoalSubScene::Initaliza()
 	GoalSE = LoadSoundMem("Musics/Goal.mp3");
 
 	PlaySoundMem(GoalSE, DX_PLAYTYPE_BACK);
+
+	Goal_Handle = LoadGraph("Assets/Clear.png");
+
+	GoalX = 690;
+	GoalY = 100;
 }
 
 void GoalSubScene::Update()
@@ -34,9 +42,12 @@ void GoalSubScene::Update()
 
 void GoalSubScene::Draw()
 {
-	LoadGraphScreen(690, 100, "Assets/Clear.png", true);
+	DrawGraph(GoalX, GoalY, Goal_Handle, true);
 }
 
 void GoalSubScene::Finaliza()
 {
+	DeleteSoundMem(GoalSE);
+
+	DeleteGraph(Goal_Handle);
 }

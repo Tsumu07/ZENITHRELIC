@@ -4,6 +4,15 @@
 class GoalSubScene : public SubScene
 {
 private:
+
+	//---‰æ‘œ‚Ì“Ç‚İ‚İ---//
+	int Goal_Handle;
+
+	//---UI---//
+	int GoalX;
+	int GoalY;
+
+	//---BGM---//
 	int GoalSE;
 
 public:

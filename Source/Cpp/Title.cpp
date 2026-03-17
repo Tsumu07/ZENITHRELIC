@@ -14,53 +14,56 @@ Title g_Title;
 //コンストラクタ
 Title::Title()
 :SceneBase()
-,right(false)
-,left(false)
-,down(false)
-,up(false)
-,enter(false)
 ,m_skybox()
-,skyboxPShandle(0)
-,skyboxVShandle(0)
-,Logo_Handle(0)
-,SelectpictureR_Handle(0)
-,SelectpictureL_Handle(0)
-,StageSelect_Handle(0)
+,SkyboxPShandle(-1)
+,SkyboxVShandle(-1)
+,Logo_Handle(-1)
+,SelectpictureR_Handle(-1)
+,SelectpictureL_Handle(-1)
+,StageSelect_Handle(-1)
+,Warn_Handle(-1)
 ,SelectpictureR(0.0f)
 ,SelectpictureL(0.0f)
 ,SelectY(0.0f)
-,GameSelectUI(0)
-,SettingSelectUI(0)
-,ExitSelectUI(0)
-,NomalStageUI(0)
-,CreatedStageNo1UI(0)
-,CreatedStageNo2UI(0)
-,TitleUI()
-,StageUI()
 ,LogoX(0.0f)
 ,LogoY(0.0f)
 ,TitleUIY(0.0f)
-,MaxRight(0.0f)
-,MaxLeft(0.0f)
 ,GameUI(0.0f)
 ,SettingUI(0.0f)
 ,ExitUI(0.0f)
+,TitleUI()
+,StageUI()
 ,GuideUIX(0.0f)
 ,GuideUIY(0.0f)
 ,PlusMinusUIX(0.0f)
 ,PlusMinusUIY(0.0f)
+,GameSelectUI(-1)
+,SettingSelectUI(-1)
+,ExitSelectUI(-1)
+,NomalStageUI(-1)
+,CreatedStageNo1UI(-1)
+,CreatedStageNo2UI(-1)
+,WarnX(0.0f)
+,WarnY(0.0f)
+,Right(false)
+,Left(false)
+,Down(false)
+,Up(false)
+,Decide(false)
+,MaxRight(0.0f)
+,MaxLeft(0.0f)
 ,InputJoycon(false)
 ,StageSelect(false)
-,ButtonMusic(0)
-,TitleBGM(0)
-,StageNumber(0)
+,ButtonMusic(-1)
+,TitleBGM(-1)
+,StageNumber(-1)
 ,WarnCount(0.0f)
 ,WarnFlag(false)
 ,ExplainFlag(false)
-,ExplainSelectUI(0)
+,ExplainSelectUI(-1)
 ,ExplainUI()
 ,BackFlag(false)
-,BackSelectUI(0)
+,BackSelectUI(-1)
 ,BackUI()
 {
 }
@@ -103,6 +106,7 @@ void Title::Initaliza()
     SelectpictureR_Handle = LoadGraph("Assets/SelectpictureR.png");
     SelectpictureL_Handle = LoadGraph("Assets/SelectpictureL.png");
     StageSelect_Handle = LoadGraph("Assets/StageSelect.png");
+    Warn_Handle = LoadGraph("Assets/Warn.png");
 
     //一番左
     MaxRight = 1180.0f;
@@ -110,7 +114,7 @@ void Title::Initaliza()
     //一番右
     MaxLeft = 40.0f;
 
-    //UI
+    //--UIの初期---//
     LogoX = 480.0f;
     LogoY = 100.0f;
     TitleUIY = 700.0f;
@@ -128,6 +132,9 @@ void Title::Initaliza()
     GameSelectUI = 0;
     SettingSelectUI = 0;
     ExitSelectUI = 0;
+
+    WarnX = 600.0f;
+    WarnY = 180.0f;
 
     //一瞬の取得
     InputJoycon = false;
@@ -152,10 +159,10 @@ void Title::Initaliza()
     }
 
     //SkyBox用頂点シェーダを読み込む
-    skyboxVShandle = LoadVertexShader("SkyBoxVS.cso");
+    SkyboxVShandle = LoadVertexShader("SkyBoxVS.cso");
 
     //SkyBox用ピクセルシェーダーを読み込む
-    skyboxPShandle = LoadPixelShader("SkyBoxPS.cso");
+    SkyboxPShandle = LoadPixelShader("SkyBoxPS.cso");
 
 }
 
@@ -183,11 +190,11 @@ void Title::Update()
     DINPUT_JOYSTATE input;
     GetJoypadDirectInputState(DX_INPUT_PAD1, &input);
 
-    right = (input.X >= 500.0f || CheckDownKey(KEY_INPUT_D));
-    left = (input.X <= -500.0f || CheckDownKey(KEY_INPUT_A));
-    down = (input.Y >= 500.0f || CheckDownKey(KEY_INPUT_S));
-    up = (input.Y <= -500.0f || CheckDownKey(KEY_INPUT_W));
-    enter = (CheckDownController(PAD_INPUT_2) || CheckDownKey(KEY_INPUT_SPACE));
+    Right = (input.X >= 500.0f || CheckDownKey(KEY_INPUT_D));
+    Left = (input.X <= -500.0f || CheckDownKey(KEY_INPUT_A));
+    Down = (input.Y >= 500.0f || CheckDownKey(KEY_INPUT_S));
+    Up = (input.Y <= -500.0f || CheckDownKey(KEY_INPUT_W));
+    Decide = (CheckDownController(PAD_INPUT_2) || CheckDownKey(KEY_INPUT_SPACE));
 
     if (input.X == 0)
     {
@@ -200,12 +207,12 @@ void Title::Update()
     if (!StageSelect)
     {
         //説明カーソル
-        if (!ExplainFlag && down)
+        if (!ExplainFlag && Down)
         {
             ExplainFlag = true;
         }
 
-        if (ExplainFlag && up)
+        if (ExplainFlag && Up)
         {
             ExplainFlag = false;
 
@@ -219,7 +226,7 @@ void Title::Update()
         //--------------------------------
         if (!ExplainFlag)
         {
-            if (right && !InputJoycon)
+            if (Right && !InputJoycon)
             {
                 PlaySoundMem(ButtonMusic, DX_PLAYTYPE_BACK);
 
@@ -229,7 +236,7 @@ void Title::Update()
                 InputJoycon = true;
             }
 
-            if (left && !InputJoycon)
+            if (Left && !InputJoycon)
             {
                 PlaySoundMem(ButtonMusic, DX_PLAYTYPE_BACK);
 
@@ -258,7 +265,7 @@ void Title::Update()
         //--------------------------------
         // 決定入力
         //--------------------------------
-        if (enter)
+        if (Decide)
         {
             PlaySoundMem(ButtonMusic, DX_PLAYTYPE_BACK);
 
@@ -290,12 +297,12 @@ void Title::Update()
     else
     {
         //戻るカーソル
-        if (!BackFlag && down)
+        if (!BackFlag && Down)
         {
             BackFlag = true;
         }
 
-        if (BackFlag && up)
+        if (BackFlag && Up)
         {
             BackFlag = false;
 
@@ -310,7 +317,7 @@ void Title::Update()
         //--------------------------------
         if (!BackFlag)
         {
-            if (right && !InputJoycon)
+            if (Right && !InputJoycon)
             {
                 PlaySoundMem(ButtonMusic, DX_PLAYTYPE_BACK);
 
@@ -320,7 +327,7 @@ void Title::Update()
                 InputJoycon = true;
             }
 
-            if (left && !InputJoycon)
+            if (Left && !InputJoycon)
             {
                 PlaySoundMem(ButtonMusic, DX_PLAYTYPE_BACK);
 
@@ -349,7 +356,7 @@ void Title::Update()
         //--------------------------------
         // 決定
         //--------------------------------
-        if (enter)
+        if (Decide)
         {
             PlaySoundMem(ButtonMusic, DX_PLAYTYPE_BACK);
 
@@ -384,7 +391,7 @@ void Title::Update()
                 g_Title.SetStageNumber(2);
             }
 
-            int stage = GetStageNumber();
+            int stage = g_Title.GetStageNumber();
 
             char filenameplayer[64];
             sprintf_s(filenameplayer, "Player%d.bin", stage);
@@ -474,10 +481,10 @@ void Title::Update()
 void Title::Draw()
 {
 
-    SetUseVertexShader(skyboxVShandle);
+    SetUseVertexShader(SkyboxVShandle);
 
     // 使用するピクセルシェーダーをセット
-    SetUsePixelShader(skyboxPShandle);
+    SetUsePixelShader(SkyboxPShandle);
 
     m_skybox->Draw();
 
@@ -521,7 +528,7 @@ void Title::Draw()
 
     if (WarnFlag == true)
     {
-        LoadGraphScreen(600.0f, 180.0f, "Assets/Warn.png", true);
+        DrawGraph(WarnX, WarnY, Warn_Handle, true);
 
     }
 }
@@ -532,9 +539,13 @@ void Title::Finaliza()
     Master::mpObjectManager->Delete(m_skybox);
     m_skybox = nullptr;
 
-
     DeleteSoundMem(TitleBGM);
     DeleteSoundMem(ButtonMusic);
+
+    DeleteGraph(Logo_Handle);
+    DeleteGraph(SelectpictureR_Handle);
+    DeleteGraph(SelectpictureL_Handle);
+    DeleteGraph(StageSelect_Handle);
 
     //UI画像削除
     for (int i = 0; i < 7; i++)
@@ -552,10 +563,5 @@ void Title::Finaliza()
         DeleteGraph(ExplainUI[i]);
         DeleteGraph(BackUI[i]);
     }
-
-    DeleteGraph(Logo_Handle);
-    DeleteGraph(SelectpictureR_Handle);
-    DeleteGraph(SelectpictureL_Handle);
-    DeleteGraph(StageSelect_Handle);
 
 }

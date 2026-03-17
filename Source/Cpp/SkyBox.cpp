@@ -26,7 +26,10 @@ SkyBox::~SkyBox()
 
 void SkyBox::Initaliza(void)
 {
+
+	LoadBox = "Assets/SkyBox.dds";
 	graph = Master::mpResourceManager->LoadImageFromFile(LoadBox);
+	GetSceneName = Master::mpSceneManager->GetCurrentScene();
 
 	 width = 20000 / 2;
 	 height = 20000 / 2;
@@ -202,26 +205,35 @@ void SkyBox::Initaliza(void)
 void SkyBox::Update(void)
 {	
 	//SkyBox‚ÌØ‚è‘Ö‚¦
-	GetSceneName = Master::mpSceneManager->GetCurrentScene();
+	SceneName Current = Master::mpSceneManager->GetCurrentScene();
 
-	switch (GetSceneName)
+	if (Current != GetSceneName)
 	{
-	case TitleScene:
-		LoadBox = "Assets/SkyBox.dds";
-		break;
-	case GameScene:
-		LoadBox = "Assets/SkyBox.dds";
-		break;
-	case GameOverScene:
-		LoadBox = "Assets/GameOver.dds";
-		break;
-	case GameClearScene:
-		LoadBox = "Assets/GameClear.dds";
-		break;
-	case ExplainScene:
-		LoadBox = "Assets/SkyBox.dds";
-	default:
-		break;
+		GetSceneName = Current;
+
+		switch (GetSceneName)
+		{
+		case TitleScene:
+			LoadBox = "Assets/SkyBox.dds";
+			break;
+		case GameScene:
+			LoadBox = "Assets/SkyBox.dds";
+			break;
+		case GameOverScene:
+			LoadBox = "Assets/GameOver.dds";
+			break;
+		case GameClearScene:
+			LoadBox = "Assets/GameClear.dds";
+			break;
+		case ExplainScene:
+			LoadBox = "Assets/SkyBox.dds";
+			break;
+		default:
+			break;
+		}
+
+		graph = Master::mpResourceManager->LoadImageFromFile(LoadBox);
+
 	}
 
 	const float rotationSpeed = 0.0001f;
@@ -233,12 +245,13 @@ void SkyBox::Update(void)
 	{
 		rotationAngle -= DX_TWO_PI_F;
 	}
+
+
 }
 
 void SkyBox::Draw(void)
 {
 
-	graph = Master::mpResourceManager->LoadImageFromFile(LoadBox);
 	
 	SetLightEnable(FALSE);
 

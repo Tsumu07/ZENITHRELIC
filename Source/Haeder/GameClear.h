@@ -6,7 +6,7 @@ class GameClear :public SceneBase
 {
 private:
 
-    //SkyBox関係
+    //---SkyBox関係---//
     SkyBox* m_skybox;
     int skyboxPShandle;
     int skyboxVShandle;
@@ -20,6 +20,7 @@ private:
     float LogoY;
 
     float GameClearUIY;
+    int GameClearUI[6];
 
     float ContinueUI;
 
@@ -27,7 +28,6 @@ private:
 
     float ExitUI;
 
-    int GameClearUI[6];
 
     int ContinueSelectUI;
     int TitleSelectUI;
@@ -37,7 +37,10 @@ private:
     int SelectPictureR;
     int SelectPictureL;
 
-    //------------//
+    //---キー入力---//
+    bool Right;
+    bool Left;
+    bool Decide;
 
     //セレクトの制限
     //右
@@ -46,15 +49,13 @@ private:
     //左
     float MaxLeft;
 
-    //--------//
-
-    //BGM
+    //---BGM---/
     int GameClearBGM;
     int ButtonMusic;
 
     bool InputJoycon;
 
-    //合計金額
+    //---合計金額---//
     int m_price;
 
 public:

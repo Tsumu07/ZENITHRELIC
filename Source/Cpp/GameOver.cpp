@@ -11,26 +11,32 @@
 GameOver::GameOver()
 :SceneBase()
 ,m_skybox()
-,skyboxPShandle(0)
-,skyboxVShandle(0)
+,skyboxPShandle(-1)
+,skyboxVShandle(-1)
+,GameOverLogo_Handle(-1)
+,SelectpictureR_Handle(-1)
+,SelectpictureL_Handle(-1)
 ,SelectpictureR(0.0f)
 ,SelectpictureL(0.0f)
 ,SelectY(0.0f)
-,RetrySelectUI(0)
-,TitleSelectUI(0)
-,ExitSelectUI(0)
-,GameOverUI()
 ,LogoX(0.0f)
 ,LogoY(0.0f)
+,GameOverUI()
 ,GameOverUIY(0.0f)
+,RetryUI(0.0f)
+,TitleUI(0.0f)
+,ExitUI(0.0f)
+,RetrySelectUI(-1)
+,TitleSelectUI(-1)
+,ExitSelectUI(-1)
+,Right(false)
+,Left(false)
+,Decide(false)
+,InputJoycon(false)
 ,MaxRight(0.0f)
 ,MaxLeft(0.0f)
-,TitleUI(0.0f)
-,RetryUI(0.0f)
-,ExitUI(0.0f)
-,InputJoycon(false)
-,ButtonMusic(0)
-,GameOverBGM(0)
+,ButtonMusic(-1)
+,GameOverBGM(-1)
 {
 }
 
@@ -62,6 +68,9 @@ void GameOver::Initaliza()
     PlaySoundMem(GameOverBGM, DX_PLAYTYPE_LOOP);
 
     LoadDivGraph("Assets/GameOverUI.png", 6, 2, 3, 320, 108, GameOverUI);
+    GameOverLogo_Handle = LoadGraph("Assets/GameOver.png");
+    SelectpictureR_Handle = LoadGraph("Assets/SelectpictureR.png");
+    SelectpictureL_Handle = LoadGraph("Assets/SelectpictureL.png");
 
     //一瞬の取得
     InputJoycon = false;
@@ -110,47 +119,32 @@ void GameOver::Initaliza()
 //更新
 void GameOver::Update()
 {
+    //--------------------------------
+    // UI初期化
+    //--------------------------------
     RetrySelectUI = 0;
     TitleSelectUI = 0;
     ExitSelectUI = 0;
 
+    //--------------------------------
+    // 入力取得
+    //--------------------------------
     DINPUT_JOYSTATE input;
-
-    // 入力状態を取得
     GetJoypadDirectInputState(DX_INPUT_PAD1, &input);
 
-    if (input.Y == 0)
+    Right = (input.X >= 500.0f || CheckDownKey(KEY_INPUT_D));
+    Left = (input.X <= -500.0f || CheckDownKey(KEY_INPUT_A));
+    Decide = (CheckDownController(PAD_INPUT_2) || CheckDownKey(KEY_INPUT_SPACE));
+
+    if (input.X == 0)
     {
         InputJoycon = false;
     }
 
-    if (CheckDownController(PAD_INPUT_2) != 0 || CheckDownKey(KEY_INPUT_SPACE))
-    {
-        PlaySoundMem(ButtonMusic, DX_PLAYTYPE_BACK);
-
-        //ゲーム画面
-        if (SelectpictureL >= 35.0f && SelectpictureL <= 45.0f)
-        {
-            Master::mpSceneManager->ChangeScene(SceneName::GameScene);
-
-        }
-
-        //タイトル
-        else if (SelectpictureL >= 600.0f && SelectpictureL <= 610.0f)
-        {
-            Master::mpSceneManager->ChangeScene(SceneName::TitleScene);
-        }
-
-        //終了
-        else if (SelectpictureL >= 1170.0f && SelectpictureL <= 1180.0f)
-        {
-            Master::mpGameManager->EndGameLoop();
-
-        }
-    }
-
-        //右
-    if (input.Y <= -500.0f && InputJoycon == false || CheckDownKey(KEY_INPUT_D))
+    //--------------------------------
+    // 左右移動
+    //--------------------------------
+    if (Right && !InputJoycon)
     {
         PlaySoundMem(ButtonMusic, DX_PLAYTYPE_BACK);
 
@@ -158,56 +152,77 @@ void GameOver::Update()
         SelectpictureL += 570;
 
         InputJoycon = true;
-
     }
 
-        //一番右
+    if (Left && !InputJoycon)
+    {
+        PlaySoundMem(ButtonMusic, DX_PLAYTYPE_BACK);
+
+        SelectpictureR -= 570;
+        SelectpictureL -= 570;
+
+        InputJoycon = true;
+    }
+
+    //--------------------------------
+    // カーソルループ
+    //--------------------------------
     if (SelectpictureL > MaxRight)
     {
         SelectpictureR = 465.0f;
         SelectpictureL = 40.0f;
-
     }
 
-        //左
-    if (input.Y >= 500.0f && InputJoycon == false || CheckDownKey(KEY_INPUT_A))
-    {
-        PlaySoundMem(ButtonMusic, DX_PLAYTYPE_BACK);
-        SelectpictureR -= 570;
-        SelectpictureL -= 570;
-
-
-        InputJoycon = true;
-
-    }
-
-        //一番左
     if (SelectpictureL < MaxLeft)
     {
-        SelectpictureR = 1605;
-        SelectpictureL = 1180;
-
+        SelectpictureR = 1605.0f;
+        SelectpictureL = 1180.0f;
     }
-    
-    //カーソル
+
+    //--------------------------------
+    // 決定入力
+    //--------------------------------
+    if (Decide)
+    {
+        PlaySoundMem(ButtonMusic, DX_PLAYTYPE_BACK);
+
+        if (SelectpictureL >= 35.0f && SelectpictureL <= 45.0f)
+        {
+            Master::mpSceneManager->ChangeScene(SceneName::GameScene);
+        }
+
+        else if (SelectpictureL >= 600.0f && SelectpictureL <= 610.0f)
+        {
+            Master::mpSceneManager->ChangeScene(SceneName::TitleScene);
+        }
+
+        else if (SelectpictureL >= 1170.0f && SelectpictureL <= 1180.0f)
+        {
+            Master::mpGameManager->EndGameLoop();
+        }
+    }
+
+    //--------------------------------
+    // UIカーソル
+    //--------------------------------
     if (SelectpictureL >= 38.0f && SelectpictureL <= 45.0f)
     {
         RetrySelectUI = 1;
-
     }
 
     else if (SelectpictureL >= 600.0f && SelectpictureL <= 610.0f)
     {
         TitleSelectUI = 1;
-
     }
 
     else if (SelectpictureL >= 1170.0f && SelectpictureL <= 1180.0f)
     {
         ExitSelectUI = 1;
-
     }
 
+    //--------------------------------
+    // SkyBox更新
+    //--------------------------------
     m_skybox->Update();
 
 }
@@ -226,11 +241,9 @@ void GameOver::Draw()
     SetUseVertexShader(-1);
     SetUsePixelShader(-1);
 
-    LoadGraphScreen(LogoX, LogoY, "Assets/GameOver.png", true);
-
-    LoadGraphScreen(SelectpictureR, SelectY, "Assets/SelectpictureR.png", true);
-
-    LoadGraphScreen(SelectpictureL, SelectY - 15, "Assets/SelectpictureL.png", true);
+    DrawGraph(LogoX, LogoY, GameOverLogo_Handle, true);
+    DrawGraph(SelectpictureR, SelectY, SelectpictureR_Handle, true);
+    DrawGraph(SelectpictureL, SelectY - 15, SelectpictureL_Handle, true);
 
     //UI
     DrawGraph(RetryUI, GameOverUIY, GameOverUI[0 + RetrySelectUI], true);
@@ -245,7 +258,16 @@ void GameOver::Finaliza()
     Master::mpObjectManager->Delete(m_skybox);
     m_skybox = nullptr;
 
-    //ClearDrawScreen();
-
     DeleteSoundMem(GameOverBGM);
+    DeleteSoundMem(ButtonMusic);
+
+    DeleteGraph(GameOverLogo_Handle);
+    DeleteGraph(SelectpictureR_Handle);
+    DeleteGraph(SelectpictureL_Handle);
+
+    for (int i = 0; i < 6; i++)
+    {
+        DeleteGraph(GameOverUI[i]);
+    }
+
 }
