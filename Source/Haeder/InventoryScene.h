@@ -32,6 +32,14 @@ private:
     float SelectY;
 
     //---キー入力---//
+    bool Menu;
+    bool ClaoseMenu;
+    bool Down;
+    bool Up;
+    bool Decide;
+    bool Equipment_No1;
+    bool Equipment_No2;
+
     bool InputJoycon;
 
     //---セレクトの制限---//

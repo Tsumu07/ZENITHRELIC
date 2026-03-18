@@ -29,7 +29,13 @@ Inventory::Inventory()
 ,SelectpictureR(0.0f)
 ,SelectpictureL(0.0f)
 ,SelectY(0.0f)
-
+,Menu(false)
+,ClaoseMenu(false)
+,Down(false)
+,Up(false)
+,Decide(false)
+,Equipment_No1(false)
+,Equipment_No2(false)
 ,InputJoycon(false)
 ,MaxUp(0.0f)
 ,MaxUnder(0.0f)
@@ -104,12 +110,13 @@ void Inventory::Update()
 	DINPUT_JOYSTATE input;
 	GetJoypadDirectInputState(DX_INPUT_PAD1, &input);
 
-	bool Menu = (CheckDownController(PAD_INPUT_4) != 0 || CheckDownKey(KEY_INPUT_LSHIFT));
-	bool ClaoseMenu = (CheckDownController(PAD_INPUT_1) != 0 || CheckDownKey(KEY_INPUT_F));
-	bool Down = (input.Y >= 500.0f || CheckDownKey(KEY_INPUT_S));
-	bool Up = (input.Y <= -500.0f || CheckDownKey(KEY_INPUT_W));
-
-	bool Decide = (CheckDownController(PAD_INPUT_2) || CheckDownKey(KEY_INPUT_SPACE));
+	Menu = (CheckDownController(PAD_INPUT_4) != 0 || CheckDownKey(KEY_INPUT_LSHIFT));
+	ClaoseMenu = (CheckDownController(PAD_INPUT_1) != 0 || CheckDownKey(KEY_INPUT_F));
+	Down = (input.Y >= 500.0f || CheckDownKey(KEY_INPUT_S));
+	Up = (input.Y <= -500.0f || CheckDownKey(KEY_INPUT_W));
+	Equipment_No1 = (CheckDownController(PAD_INPUT_6) != 0 || CheckDownKey(KEY_INPUT_Q));
+	Equipment_No2 = (CheckDownController(PAD_INPUT_5) != 0 || CheckDownKey(KEY_INPUT_E));
+	Decide = (CheckDownController(PAD_INPUT_2) || CheckDownKey(KEY_INPUT_SPACE));
 
 	if (input.Y == 0)
 	{
@@ -188,7 +195,7 @@ void Inventory::Update()
 
 	else
 	{
-		if (CheckDownController(PAD_INPUT_1) != 0 || CheckDownKey(KEY_INPUT_F))
+		if (ClaoseMenu)
 		{
 			PlaySoundMem(CursorMusic, DX_PLAYTYPE_BACK);
 
@@ -196,13 +203,13 @@ void Inventory::Update()
 		}
 
 		// 閉じる
-		if (CheckDownController(PAD_INPUT_4) != 0 || CheckDownKey(KEY_INPUT_LSHIFT))
+		if (Menu)
 		{
 			Master::mpSceneManager->CloseInventory();
 		}
 
 		// カーソル移動
-		if (input.Y <= -500.0f && InputJoycon == false || CheckDownKey(KEY_INPUT_DOWN))
+		if (Down || !InputJoycon )
 		{
 			PlaySoundMem(CursorMusic, DX_PLAYTYPE_BACK);
 
@@ -211,7 +218,7 @@ void Inventory::Update()
 
 		}
 
-		if (input.Y >= 500.0f && InputJoycon == false || CheckDownKey(KEY_INPUT_UP))
+		if ( Up || InputJoycon)
 		{
 			PlaySoundMem(CursorMusic, DX_PLAYTYPE_BACK);
 
@@ -231,7 +238,7 @@ void Inventory::Update()
 		}
 
 		// アイテムを装備(スロット1)
-		if (CheckDownController(PAD_INPUT_6) != 0 || CheckDownKey(KEY_INPUT_Q))
+		if (Equipment_No1)
 		{
 
 			ItemBase* item = inv->GetItem(cursor);
@@ -253,7 +260,7 @@ void Inventory::Update()
 		}
 
 		// アイテムを装備(スロット2)
-		if (CheckDownController(PAD_INPUT_5) != 0 || CheckDownKey(KEY_INPUT_E))
+		if (Equipment_No2)
 		{
 			ItemBase* item = inv->GetItem(cursor);
 
