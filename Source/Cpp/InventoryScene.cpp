@@ -110,13 +110,13 @@ void Inventory::Update()
 	DINPUT_JOYSTATE input;
 	GetJoypadDirectInputState(DX_INPUT_PAD1, &input);
 
-	Menu = (CheckDownController(PAD_INPUT_4) != 0 || CheckDownKey(KEY_INPUT_LSHIFT));
-	ClaoseMenu = (CheckDownController(PAD_INPUT_1) != 0 || CheckDownKey(KEY_INPUT_F));
+	Menu = (CheckDownController(PAD_INPUT_4)|| CheckDownKey(KEY_INPUT_LSHIFT));
+	ClaoseMenu = (CheckDownController(PAD_INPUT_1) || CheckDownKey(KEY_INPUT_F));
+	Equipment_No1 = (CheckDownController(PAD_INPUT_6)|| CheckDownKey(KEY_INPUT_Q));
+	Equipment_No2 = (CheckDownController(PAD_INPUT_5)|| CheckDownKey(KEY_INPUT_E));
+	Decide = (CheckDownController(PAD_INPUT_2) || CheckDownKey(KEY_INPUT_SPACE));
 	Down = (input.Y >= 500.0f || CheckDownKey(KEY_INPUT_S));
 	Up = (input.Y <= -500.0f || CheckDownKey(KEY_INPUT_W));
-	Equipment_No1 = (CheckDownController(PAD_INPUT_6) != 0 || CheckDownKey(KEY_INPUT_Q));
-	Equipment_No2 = (CheckDownController(PAD_INPUT_5) != 0 || CheckDownKey(KEY_INPUT_E));
-	Decide = (CheckDownController(PAD_INPUT_2) || CheckDownKey(KEY_INPUT_SPACE));
 
 	if (input.Y == 0)
 	{
@@ -209,7 +209,7 @@ void Inventory::Update()
 		}
 
 		// カーソル移動
-		if (Down || !InputJoycon )
+		if (Down && !InputJoycon )
 		{
 			PlaySoundMem(CursorMusic, DX_PLAYTYPE_BACK);
 
@@ -218,7 +218,7 @@ void Inventory::Update()
 
 		}
 
-		if ( Up || InputJoycon)
+		if (Up && !InputJoycon)
 		{
 			PlaySoundMem(CursorMusic, DX_PLAYTYPE_BACK);
 
@@ -247,7 +247,6 @@ void Inventory::Update()
 			{
 				Play->GetEquippedItems()->SetItemToSlot(1, item);
 
-
 				// カーソル補正
 				if (cursor >= inv->GetItemCount())
 				{
@@ -257,6 +256,7 @@ void Inventory::Update()
 				}
 
 			}
+
 		}
 
 		// アイテムを装備(スロット2)
