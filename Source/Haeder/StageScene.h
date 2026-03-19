@@ -5,12 +5,22 @@
 class Player;
 class Wall;
 
+
 class Stage :public SceneBase
 {
 private:
 
+
+    //---画像の読み込み---//
+    int StageGuide_Controller;
+    int StageGuide_Keyboard;
+    int Save_Handle;
+    int Warn_Handle;
+    int Cursor_Handle;
+
+    //---場所---//
     VECTOR Position;
-    VECTOR PositionOid;
+    VECTOR PositionOld;
     int    MoveFlag;
     float  Angle;
     float  CameraHAngle;
@@ -21,75 +31,92 @@ private:
     int vshandle;
     int pshandle;
 
-    //カーソルの現在地
+    //---カーソルの現在地---//
     int SelectBoxX;
     int SelectBoxY;
     int SelectBoxUnderX;
     int SelectBoxUnderY;
 
-    //追加
+    //---UI---//
     int EditorIcon[6];
     int StageeditorUI[4];
-
-    int Corsol;
-
+    int Cursor;
     int IconUIX;
     int IconUIY;
 
-    //選択の制限
+    //---キー入力---//
+    bool CursorRight;
+    bool CursorLeft;
+    bool Decide;
+    bool Rotation;
+    bool Delete;
+
+    bool MoveRight;
+    bool MoveLeft;
+    bool MoveUp;
+    bool MoveDown;
+
+    bool ComeraRight;
+    bool ComeraLeft;
+    bool ComeraUp;
+    bool ComeraDown;
+
+    bool Back;
+
+    bool SaveJustOpened;
+
+    //---選択の制限---//
     //右
     float MaxRight;
 
     //左
     float MaxLeft;
 
-    //プレイヤーの座標
+    //---プレイヤーの座標---//
     VECTOR PlayerSetPosition;
 
-    //プレイヤーのモデル
+    //---プレイヤーのモデル---//
     int PlayerSetModel;
 
-    //クモの座標
+    //---クモの座標---//
     VECTOR SpiderSetPositon;
 
-    //クモのモデル
+    //---クモのモデル---//
     int SpiderSetModel;
-    std::vector<int> SpiderModelRist;
+    std::vector<int> SpiderModelList;
     std::vector<VECTOR> SpiderModelPosition;
 
-    //ポイントの座標
+    //---ポイントの座標---//
     VECTOR PointSetPosition;
 
-    //ポイントのモデル
+    //---ポイントのモデル---//
     int PointSetModel;
-    std::vector<int> PointModelRist;
+    std::vector<int> PointModelList;
     std::vector<VECTOR> PointModelPosition;
 
-    //柱の座標
+    //---柱の座標---//
     VECTOR ColumnSetPosition;
 
-    //柱のモデル
+    //---柱のモデル---//
     int ColumnSetModel;
-    std::vector<int> ColumnModelRist;
+    std::vector<int> ColumnModelList;
     std::vector<VECTOR> ColumnModelPosition;
 
-    //ゴールの座標
+    //---ゴールの座標---//
     VECTOR GoalSetPosition;
 
-    //ゴールのモデル
+    //---//ゴールのモデル---//
     int GoalSetModel;
 
     float GoalRo;
 
-    //横の壁の座標
+    //---横の壁の座標---//
     VECTOR Wall1Position;
 
     std::vector<Wall*> WallList;
 
-    //回転している
-    bool WallRo;
 
-    //縦の壁の座標
+    //---//縦の壁の座標---//
     VECTOR Wall2Position;
 
     std::vector<Wall*> WallList2;
@@ -99,15 +126,17 @@ private:
     int Line[50];
 
     int Pad;
+    //---回転している---//
+    bool WallRo;
 
-    //移動上限
+    //---移動上限---//
     //左
     const int WINDOW_LEFT = -3500.0f;
     const int WINDOW_RIGHT = 3500.0f;
     const int WINDOW_TOP = 3500.0f;
     const int WINDOW_UNDER = -3500.0f;
 
-    //選んだか
+    //---選んだか---//
     bool PlayerSelect;
     bool WallSelect;
     bool Wall2Select;
@@ -117,7 +146,7 @@ private:
     bool ColumnSelect;
     bool KeepSelect;
 
-    //置いたフラグ
+    //---置いたフラグ---//
     bool PlayerSet;
     bool WallSet;
     bool Wall2Set;
@@ -126,24 +155,24 @@ private:
     bool GoalSet;
     bool ColumnSet;
 
-    //警告フラグ
+    //---警告フラグ---//
     bool PlayerWarn;
     bool ColumnWarn;
     bool GoalWarn;
 
-    //複数保存
+    //---複数保存---//
     bool Save;
 
-    //保存選択
-    int CorsolSave;
+    //---保存選択---//
+    int CursorSave;
 
-    //右
+    //---右---//
     float MaxRightSave;
 
-    //左
+    //---左---//
     float MaxLeftSave;
 
-    //セーブ番号
+    //---セーブ番号---//
     int saveSlot;
 
     int SelectSave_No1;
@@ -154,13 +183,13 @@ private:
 
     int SelsectSaveY;
 
-    //どれくらい表示するか
+    //---どれくらい表示するか---//
     int WarnCount;
 
-    //回転(ドア)
+    //---回転(ゴール)---//
     bool GoalRotation;
 
-    //コントローラの制御
+    //---コントローラの制御---//
     bool InputJoycon;
 
     // 頂点 ＝ VERTEX
@@ -168,7 +197,7 @@ private:
     VERTEX3D vertex[4];
     WORD index[6];
 
-    //BGM
+    //---BGM---//
     int ButtonMusic;
     int EditerBGM;
     int SetSE;
@@ -186,5 +215,6 @@ public:
     void Draw();       //描画
     void Finaliza();   //終了処理
 
+    int CreateObject(int model, std::vector<int>& list, std::vector<VECTOR>& posList, VECTOR pos);
 
 };

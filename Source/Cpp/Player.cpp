@@ -64,6 +64,8 @@ Player::Player()
 ,DamageSE(-1)
 ,AttackDamageSE(-1)
 ,TotalAmount(0)
+,Equipment_No0(false)
+,Equipment_No1(false)
 {
 }
 
@@ -130,30 +132,35 @@ void Player::Initaliza()
 
 void Player::Update()
 {	
-	//
 	TotalAmount = 0;
 
-	//プレイヤーの移動前座標
+	//---プレイヤーの移動前座標---//
 	mvPlayerold = GetPos();
 
-	//FSMを動かす
+	//---FSMを動かす---//
 	Object::Update();
 
-	//プレイヤーの情報を取得
+	//---プレイヤーの情報を取得---//
 	pos = GetPos();
 	dir = GetDir();
 	speed = GetSpeed();
 
-	//次の移動先を計算
+	//---次の移動先を計算---//
 	moveVec = VScale(dir, speed);
 	nextPos = VAdd(pos, moveVec);
 
-	//攻撃範囲
+	//---攻撃範囲---//
 	attackOffset = VScale(GetDir(), 100.0f); // 100前方
 	attackPos = VAdd(GetPos(), attackOffset);
 
-	//攻撃範囲の設定
+	//---攻撃範囲の設定---//
 	SetAttack(attackPos);
+
+	//--------------------------------
+    // 入力取得
+    //--------------------------------
+	Equipment_No0 = (CheckDownController(PAD_INPUT_6) != 0 || CheckDownKey(KEY_INPUT_Q));
+	Equipment_No1 = (CheckDownController(PAD_INPUT_5) != 0 || CheckDownKey(KEY_INPUT_E));
 
 	//--------プレイヤーのカプセル情報--------//
 	//下端
@@ -381,7 +388,7 @@ void Player::Update()
 	EquippedItems* equip = GetEquippedItems();
 	ItemManeger* inv = GetInventory();
 
-	if (CheckDownController(PAD_INPUT_5) != 0 || CheckDownKey(KEY_INPUT_E))
+	if (Equipment_No0)
 	{
 		ItemBase* item = equip->GetItem(0);
 
@@ -394,7 +401,7 @@ void Player::Update()
 		}
 	}
 
-	if (CheckDownController(PAD_INPUT_6) != 0 || CheckDownKey(KEY_INPUT_Q))
+	if (Equipment_No1)
 	{
 		ItemBase* item = equip->GetItem(1);
 

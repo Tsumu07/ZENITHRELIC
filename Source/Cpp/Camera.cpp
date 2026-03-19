@@ -19,6 +19,10 @@ Camera::Camera()
 ,mpPlayer(nullptr)
 ,Pad(0)
 ,input()
+,Right(false)
+,Left(false)
+,Up(false)
+,Down(false)
 {
 
 }
@@ -60,26 +64,34 @@ void Camera::Initaliza(Player *player)
 
 void Camera::Update()
 {
-    // “ü—Íî•ñ‚ğæ“¾
+    //--------------------------------
+    // “ü—Íæ“¾
+    //--------------------------------
     GetJoypadDirectInputState(DX_INPUT_PAD1, &input);
 
-    // ‰ñ“]Šp“x•ÏXˆ—
-    if (input.Rx < 0 || CheckHitKey(KEY_INPUT_LEFT))
-    {
-        mfHorizontalAngle += 3.0f;
-    }
+    //---ˆÚ“®---//
+    Right = (input.Rx > 0 || CheckHitKey(KEY_INPUT_RIGHT));
+    Left = (input.Rx < 0 || CheckHitKey(KEY_INPUT_LEFT));
+    Up = (input.Ry > 0 || CheckHitKey(KEY_INPUT_UP));
+    Down = (input.Ry < 0 || CheckHitKey(KEY_INPUT_DOWN));
 
-    if (input.Rx > 0 || CheckHitKey(KEY_INPUT_RIGHT))
+    // ‰ñ“]Šp“x•ÏXˆ—
+    if (Right)
     {
         mfHorizontalAngle -= 3.0f;
     }
 
-    if (input.Ry > 0 || CheckHitKey(KEY_INPUT_UP))
+    if (Left)
+    {
+        mfHorizontalAngle += 3.0f;
+    }
+
+    if (Up)
     {
         mfVerticalAngle -= 3.0f;
     }
 
-    if (input.Ry < 0 || CheckHitKey(KEY_INPUT_DOWN))
+    if (Down)
     {
         mfVerticalAngle += 3.0f;
     }

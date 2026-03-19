@@ -23,6 +23,7 @@ SceneManager::SceneManager()
 ,IsInventorySceneEnd(false)
 ,m_waitStartSubScene(false)
 ,m_lastGameScreenHandle(-1)
+,m_requestCloseInventory(false)
 {
 }
 
@@ -177,7 +178,14 @@ void SceneManager::UpdateInventoryScene()
     if (mpInventoryScene != nullptr)
     {
         mpInventoryScene->Update();
+    }    
+
+    if (m_requestCloseInventory)
+    {
+        CloseInventory();
+        m_requestCloseInventory = false;
     }
+
 }
 
 void SceneManager::DrawInventoryScene()
@@ -224,6 +232,11 @@ void SceneManager::CloseInventory()
 
     DeleteInventoryScene();
     IsInventorySceneEnd = false;
+}
+
+void SceneManager::RequestCloseInventory()
+{
+    m_requestCloseInventory = true;
 }
 
 //èIóπèàóù

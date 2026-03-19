@@ -13,7 +13,6 @@
 #include <math.h>
 #include <string>
 
-//時間があればカメラアップ
 // 移動速度
 const float MOVESPEED = 100.0f;
 
@@ -30,8 +29,13 @@ const int   LINE_NUM = 50;              //
 
 //コンストラクタ
 Stage::Stage()
-:Position(VGet(0.0f,0.0f,0.0f))
-,PositionOid(VGet(0.0f,0.0f,0.0f))
+:StageGuide_Controller(-1)
+,StageGuide_Keyboard(-1)
+,Save_Handle(-1)
+,Warn_Handle(-1)
+,Cursor_Handle(-1)
+,Position(VGet(0.0f,0.0f,0.0f))
+,PositionOld(VGet(0.0f,0.0f,0.0f))
 ,MoveFlag(-1)
 ,Angle(0.0f)
 ,CameraHAngle(0.0f)
@@ -47,24 +51,39 @@ Stage::Stage()
 ,SelectBoxUnderY(-1)
 ,EditorIcon()
 ,StageeditorUI()
-,Corsol(-1)
+,Cursor(-1)
 ,IconUIX(-1)
 ,IconUIY(-1)
+,CursorRight(false)
+,CursorLeft(false)
+,Decide(false)
+,Rotation(false)
+,Delete(false)
+,MoveRight(false)
+,MoveLeft(false)
+,MoveUp(false)
+,MoveDown(false)
+,ComeraRight(false)
+,ComeraLeft(false)
+,ComeraUp(false)
+,ComeraDown(false)
+,Back(false)
+,SaveJustOpened(false)
 ,MaxRight(0.0f)
 ,MaxLeft(0.0f)
 ,PlayerSetPosition(VGet(0.0f,0.0f,0.0f))
 ,PlayerSetModel(-1)
 ,SpiderSetPositon(VGet(0.0f,0.0f,0.0f))
 ,SpiderSetModel(-1)
-,SpiderModelRist()
+,SpiderModelList()
 ,SpiderModelPosition()
 ,PointSetPosition(VGet(0.0f,0.0f,0.0f))
 ,PointSetModel(-1)
-,PointModelRist()
+,PointModelList()
 ,PointModelPosition()
 ,ColumnSetPosition(VGet(0.0f,0.0f,0.0f))
 ,ColumnSetModel(-1)
-,ColumnModelRist()
+,ColumnModelList()
 ,ColumnModelPosition()
 ,GoalSetPosition(VGet(0.0f,0.0f,0.0f))
 ,GoalSetModel(-1)
@@ -97,7 +116,7 @@ Stage::Stage()
 ,ColumnWarn(false)
 ,GoalWarn(false)
 ,Save(false)
-,CorsolSave(-1)
+,CursorSave(-1)
 ,MaxRightSave(0.0f)
 ,MaxLeftSave(0.0f)
 ,saveSlot(-1)
@@ -129,6 +148,14 @@ Stage::~Stage()
 //初期化
 void Stage::Initaliza()
 {
+
+    //---画像の読み込み---//
+    StageGuide_Controller = LoadGraph("Assets/StageGuide_Controller.png");
+    StageGuide_Keyboard = LoadGraph("Assets/StageGuide_Keyboard.png");
+    Save_Handle = LoadGraph("Assets/Save.png");
+    Warn_Handle = LoadGraph("Assets/Warn.png");
+    Cursor_Handle = LoadGraph("Assets/corsol.png");
+
     SetUseLighting(true);
     SetGlobalAmbientLight(GetColorF(0.0f, 0.0f, 0.0f, 1.0f));
 
@@ -138,7 +165,7 @@ void Stage::Initaliza()
     // ピクセルシェーダーを読み込む
     pshandle = LoadPixelShader("WallPS.cso");
 
-    /////////サウンドの読み込み/////////
+    //---サウンドの読み込み---//
     //BGM
     EditerBGM = LoadSoundMem("Musics/Title.mp3");
 
@@ -166,7 +193,7 @@ void Stage::Initaliza()
     PlaySoundMem(EditerBGM, DX_PLAYTYPE_LOOP);
 
     //カーソル
-    Corsol = 0.0f;
+    Cursor = 0.0f;
 
     IconUIX = 140.0f;
     IconUIY = 0.0f;
@@ -220,7 +247,7 @@ void Stage::Initaliza()
      //---複数保存フラグ
      Save = false;
 
-     CorsolSave = 150.0f;
+     CursorSave = 150.0f;
 
      //選択の制限
      //右
@@ -248,7 +275,7 @@ void Stage::Initaliza()
     //コントローラー
     Pad = DX_INPUT_PAD1;
 
-    //モデル
+    //---モデルの読み込み---//
     //プレイヤー
     PlayerSetModel = MV1LoadModel("Resource/Player.x");
 
@@ -261,10 +288,8 @@ void Stage::Initaliza()
     //柱
     ColumnSetModel = MV1LoadModel("Resource/archway_pillar02.x");
 
-    //ドア
+    //ゴール
     GoalSetModel = MV1LoadModel("Resource/PortalSeven.x");
-
-    //MV1SetScale(ColumnSetModel, VGet(0.5f, 0.5f, 0.5f));
 
     MV1SetRotationXYZ(PlayerSetModel, VGet(0.0f, DX_PI_F, 0.0f));
 
@@ -287,11 +312,14 @@ void Stage::Update()
 {
     SetBackgroundColor(150, 150, 150);
 
+    // 移動ベクトルを初期化
+    MoveVector = VGet(0.0f, 0.0f, 0.0f);
+
     SelectSave_No1 = 0;
     SelectSave_No2 = 0;
 
     //カーソルの通った場所
-    PositionOid = Position;
+    PositionOld = Position;
 
     //常にfalse
     PlayerSelect = false;
@@ -305,99 +333,113 @@ void Stage::Update()
 
     DINPUT_JOYSTATE input;
 
-    //入力状態を取得
+    //--------------------------------
+    // 入力取得
+    //--------------------------------
     GetJoypadDirectInputState(DX_INPUT_PAD1, &input);
-
-    if (CheckDownController(PAD_INPUT_1) != 0 || CheckDownKey(KEY_INPUT_E) != 0)
+    //コントローラの制御
+    if (input.Y == 0 && input.X == 0)
     {
-        Master::mpSceneManager->ChangeScene(SceneName::TitleScene);
+        InputJoycon = false;
     }
+
+    CursorRight = (CheckDownController(PAD_INPUT_6) || CheckDownKey(KEY_INPUT_E));
+    CursorLeft = (CheckDownController(PAD_INPUT_5) || CheckDownKey(KEY_INPUT_Q));
+    Decide = (CheckDownController(PAD_INPUT_2) || CheckDownKey(KEY_INPUT_SPACE));
+    Rotation = (input.Z != 0 || CheckHitKey(KEY_INPUT_F));
+    Delete = (CheckDownController(PAD_INPUT_4) != 0 || CheckDownKey(KEY_INPUT_LSHIFT));
+
+    MoveRight = (input.X >= 500.0f || CheckDownKey(KEY_INPUT_D));
+    MoveLeft = (input.X <= -500.0f || CheckDownKey(KEY_INPUT_A));
+    MoveUp = (input.Y <= -500.0f || CheckDownKey(KEY_INPUT_W));
+    MoveDown = (input.Y >= 500.0f || CheckDownKey(KEY_INPUT_S));
+
+    ComeraRight = (input.Rx > 0 || CheckDownKey(KEY_INPUT_RIGHT));
+    ComeraLeft = (input.Rx < 0 || CheckDownKey(KEY_INPUT_LEFT));
+    ComeraUp = (input.Ry > 0 || CheckDownKey(KEY_INPUT_UP));
+    ComeraDown = (input.Ry < 0 || CheckDownKey(KEY_INPUT_DOWN));
+    Back = (CheckDownController(PAD_INPUT_1)|| CheckDownKey(KEY_INPUT_R));
 
     if (Save == false)
     {
+        if (Back)
+        {
+            Master::mpSceneManager->ChangeScene(SceneName::TitleScene);
+        }
+
         //右
-        if (CheckDownController(PAD_INPUT_6) != 0 || CheckDownKey(KEY_INPUT_D))
+        if (CursorRight)
         {
             PlaySoundMem(ButtonMusic, DX_PLAYTYPE_BACK);
 
-            Corsol += 260.0f;
+            Cursor += 260.0f;
 
             //一番右
-            if (Corsol > MaxRight)
+            if (Cursor > MaxRight)
             {
-                Corsol = MaxLeft;
-
+                Cursor = MaxLeft;
             }
 
         }
 
         //左
-        if (CheckDownController(PAD_INPUT_5) != 0 || CheckDownKey(KEY_INPUT_A))
+        if (CursorLeft)
         {
             PlaySoundMem(ButtonMusic, DX_PLAYTYPE_BACK);
 
-            Corsol -= 260.0f;
+            Cursor -= 260.0f;
 
             //一番左
-            if (Corsol < MaxLeft)
+            if (Cursor < MaxLeft)
             {
-                Corsol = MaxRight;
+                Cursor = MaxRight;
             }
         }
 
-        //選択(三角)
         //プレイヤー
-        if (Corsol >= 0.0f && Corsol < 260.0f)
+        if (Cursor >= 0.0f && Cursor < 260.0f)
         {
             PlayerSelect = true;
         }
 
         //クモ
-        else if (Corsol >= 260.0f && Corsol < 520.0f)
+        else if (Cursor >= 260.0f && Cursor < 520.0f)
         {
             SpiderSelect = true;
         }
 
         //柱
-        else if (Corsol >= 520.0f && Corsol < 780.0f)
+        else if (Cursor >= 520.0f && Cursor < 780.0f)
         {
             ColumnSelect = true;
-
         }
 
         //壁
-        else if (Corsol >= 780.0f && Corsol < 1040.0f)
+        else if (Cursor >= 780.0f && Cursor < 1040.0f)
         {
             WallSelect = true;
-
         }
 
         //ポイント
-        else if (Corsol >= 1040.0f && Corsol < 1300.0f)
+        else if (Cursor >= 1040.0f && Cursor < 1300.0f)
         {
-            //PointSelect = true;
             PointSelect = true;
-
         }
 
         //ドア
-        else if (Corsol >= 1300.0f && Corsol < 1560.0f)
+        else if (Cursor >= 1300.0f && Cursor < 1560.0f)
         {
-            //KEYSelect = true;
             GoalSelect = true;
-
         }
 
         //保存
-        else if (Corsol >= 1560.0f && Corsol < 1820.0f)
+        else if (Cursor >= 1560.0f && Cursor < 1820.0f)
         {
-            //GoalSelect = true;
             KeepSelect = true;
-
         }
 
         //Bボタン(押された瞬間だけ)
-        if (CheckDownController(PAD_INPUT_2) != 0 && Save == false || CheckDownKey(KEY_INPUT_SPACE))
+        if (Decide)
         {
             //プレイヤー(ポジション)
             if (PlayerSelect == true)
@@ -406,7 +448,7 @@ void Stage::Update()
                 PlaySoundMem(SetSE, DX_PLAYTYPE_BACK);
 
                 //カーソルの移動前の座標を取得
-                PlayerSetPosition = PositionOid;
+                PlayerSetPosition = PositionOld;
 
                 MV1SetPosition(PlayerSetModel, PlayerSetPosition);
 
@@ -424,24 +466,14 @@ void Stage::Update()
                 PlaySoundMem(SetSE, DX_PLAYTYPE_BACK);
 
                 //カーソルの移動前の座標を取得
-                SpiderSetPositon = PositionOid;
+                SpiderSetPositon = PositionOld;
 
-                //モデルの量産
-                int Handle = MV1DuplicateModel(SpiderSetModel);
-
-                SpiderModelRist.push_back(Handle);
-
-                //座標
-                SpiderModelPosition.push_back(SpiderSetPositon);
-
-                //クモ
-                MV1SetPosition(Handle, SpiderSetPositon);
+                CreateObject(SpiderSetModel, SpiderModelList, SpiderModelPosition, SpiderSetPositon);
 
                 //表示
                 SpiderSet = true;
 
             }
-
 
             //敵のポイント
             if (PointSelect == true)
@@ -450,18 +482,9 @@ void Stage::Update()
                 PlaySoundMem(SetSE, DX_PLAYTYPE_BACK);
 
                 //カーソルの移動前の座標を取得
-                PointSetPosition = PositionOid;
+                PointSetPosition = PositionOld;
 
-                //モデルの量産
-                int Handle = MV1DuplicateModel(PointSetModel);
-
-                PointModelRist.push_back(Handle);
-
-                //座標
-                PointModelPosition.push_back(VGet(PointSetPosition.x,20.0f,PointSetPosition.z));
-
-                //弾丸アイテム
-                MV1SetPosition(Handle, PointSetPosition);
+                CreateObject(PointSetModel, PointModelList, PointModelPosition, PointSetPosition);
 
                 //表示
                 PointSet = true;
@@ -475,39 +498,28 @@ void Stage::Update()
                 PlaySoundMem(SetSE, DX_PLAYTYPE_BACK);
 
                 //カーソルの移動前の座標を取得
-                ColumnSetPosition = PositionOid;
+                ColumnSetPosition = PositionOld;
 
-                //モデルの量産
-                int Handle = MV1DuplicateModel(ColumnSetModel);
-
-                ColumnModelRist.push_back(Handle);
-
-                //座標
-                ColumnModelPosition.push_back(ColumnSetPosition);
-
-                MV1SetPosition(Handle, ColumnSetPosition);
-
-                MV1SetScale(Handle, VGet(0.5f, 0.5f, 0.5f));
+                CreateObject(ColumnSetModel, ColumnModelList, ColumnModelPosition, ColumnSetPosition);
 
                 //表示
                 ColumnSet = true;
 
-
             }
 
-            //ドア(ポジション)
+            //ゴール(ポジション)
             if (GoalSelect == true)
             {
                 //SE
                 PlaySoundMem(SetSE, DX_PLAYTYPE_BACK);
 
                 //カーソルの移動前の座標を取得
-                GoalSetPosition = PositionOid;
+                GoalSetPosition = PositionOld;
 
                 MV1SetPosition(GoalSetModel, GoalSetPosition);
 
-                //ドア(回転)
-                if (input.Z != 0 || CheckDownKey(KEY_INPUT_Q))
+                //ゴール(回転)
+                if (Rotation)
                 {
                     MV1SetRotationXYZ(GoalSetModel, VGet(0.0f, 0.0f, 0.0f));
 
@@ -531,8 +543,7 @@ void Stage::Update()
                 //SE
                 PlaySoundMem(SetSE, DX_PLAYTYPE_BACK);
 
-
-                if (input.Z >= 1000.0f || CheckHitKey(KEY_INPUT_Q))
+                if (Rotation)
                 {
                     //座標
                     Wall2Position = Position;
@@ -585,7 +596,6 @@ void Stage::Update()
 
             }
 
-
             //保存処理
             if (KeepSelect == true)
             {
@@ -616,73 +626,73 @@ void Stage::Update()
                 ////SE
                 PlaySoundMem(SaveSE, DX_PLAYTYPE_BACK);
                 Save = true;
-
+                SaveJustOpened = true;
             }
         }
     }
 
     if (Save == true)
     {
-        if (input.X == 0)
+
+        if (SaveJustOpened)
         {
-            InputJoycon = false;
+            SaveJustOpened = false;
+            return;
         }
 
         //閉じる
-        if (CheckDownController(PAD_INPUT_3) != 0 || CheckDownKey(KEY_INPUT_E))
+        if (Back)
         {
             Save = false;
         }
 
         //右
-        if (input.X >= 500.0f && InputJoycon == false || CheckDownKey(KEY_INPUT_D))
+        if (MoveRight && !InputJoycon)
         {
             PlaySoundMem(ButtonMusic, DX_PLAYTYPE_BACK);
 
-            CorsolSave += 900.0f;
+            CursorSave += 900.0f;
 
             InputJoycon = true;
 
         }
 
         //一番右
-        if (CorsolSave > MaxRightSave)
+        if (CursorSave > MaxRightSave)
         {
-            CorsolSave = MaxLeftSave;
+            CursorSave = MaxLeftSave;
         }
 
         ////左
-        if (input.X <= -500.0f && InputJoycon == false || CheckDownKey(KEY_INPUT_A))
+        if (MoveLeft && !InputJoycon)
         {
             PlaySoundMem(ButtonMusic, DX_PLAYTYPE_BACK);
-            CorsolSave -= 900.0f;
-
+            CursorSave -= 900.0f;
 
             InputJoycon = true;
 
         }
 
         //一番左
-        if (CorsolSave < MaxLeftSave)
+        if (CursorSave < MaxLeftSave)
         {
-            CorsolSave = MaxRightSave;
+            CursorSave = MaxRightSave;
         }
 
-        if (CorsolSave >= MaxLeftSave && CorsolSave < MaxRightSave)
+        if (CursorSave >= MaxLeftSave && CursorSave < MaxRightSave)
         {
             saveSlot = 1;
             SelectSave_No1 = 1;
         }
 
-        else if (CorsolSave >= MaxRightSave && CorsolSave < MaxRightSave + 10)
+        else if (CursorSave >= MaxRightSave && CursorSave < MaxRightSave + 10)
         {
             saveSlot = 2;
             SelectSave_No2 = 1;
         }
 
-        if (CheckDownController(PAD_INPUT_7) != 0 || CheckDownKey(KEY_INPUT_SPACE))
+        if (Decide)
         {
-
             //SE
             PlaySoundMem(SaveCompleted, DX_PLAYTYPE_BACK);
 
@@ -716,7 +726,7 @@ void Stage::Update()
                 return;
             }
 
-            for (int i = 0; i < SpiderModelRist.size(); i++)
+            for (int i = 0; i < SpiderModelList.size(); i++)
             {
                 Person Spider = { "Spider\n",SpiderModelPosition.at(i).x,0.0f,SpiderModelPosition.at(i).z };
                 fwrite(&Spider, sizeof(Person), 1, Spiderfile);
@@ -737,7 +747,7 @@ void Stage::Update()
                 return;
             }
 
-            for (int i = 0; i < PointModelRist.size(); i++)
+            for (int i = 0; i < PointModelList.size(); i++)
             {
                 Person Pointer = { "Pointer\n",PointModelPosition.at(i).x,200.0f,PointModelPosition.at(i).z };
                 fwrite(&Pointer, sizeof(Person), 1, Pointfile);
@@ -758,7 +768,7 @@ void Stage::Update()
                 return;
             }
 
-            for (int i = 0; i < ColumnModelRist.size(); i++)
+            for (int i = 0; i < ColumnModelList.size(); i++)
             {
                 Person Column = { "Column\n", ColumnModelPosition.at(i).x,3.0f,ColumnModelPosition.at(i).z };
                 fwrite(&Column, sizeof(Person), 1, Columnfile);
@@ -777,7 +787,6 @@ void Stage::Update()
             else
             {
                 GoalRo = 0.0f;
-
             }
 
             char filenamegoal[64];
@@ -865,7 +874,7 @@ void Stage::Update()
     }
 
     //選択したものを一つ削除
-    if (CheckDownController(PAD_INPUT_4) != 0 || CheckDownKey(KEY_INPUT_LSHIFT))
+    if (Delete)
     {
         //SE
         PlaySoundMem(DeleteSE, DX_PLAYTYPE_BACK);
@@ -873,26 +882,26 @@ void Stage::Update()
         //クモの削除
         if (SpiderSelect == true)
         {
-            if (SpiderModelRist.size() > 0)
+            if (SpiderModelList.size() > 0)
             {
-                SpiderModelRist.pop_back();
+                SpiderModelList.pop_back();
             }
         }
 
         //ポイントの削除
         if (PointSelect == true)
         {
-            if (PointModelRist.size() > 0)
+            if (PointModelList.size() > 0)
             {
-                PointModelRist.pop_back();
+                PointModelList.pop_back();
             }
         }
 
-        if (ColumnSelect = false)
+        if (ColumnSelect == true)
         {
-            if (ColumnModelRist.size() > 0)
+            if (ColumnModelList.size() > 0)
             {
-                ColumnModelRist.pop_back();
+                ColumnModelList.pop_back();
             }
         }
 
@@ -923,24 +932,14 @@ void Stage::Update()
         }
     }
 
-    ////リセット(オブジェクトのみ)
-    //if (CheckDownController(PAD_INPUT_9) != 0 || (KEY_INPUT_E))
-    //{
-    //    PlaySoundMem(DeleteSE, DX_PLAYTYPE_BACK);
-
-    //    SpiderModelRist.clear();
-    //    ColumnModelRist.clear();
-    //    PointModelRist.clear();
-    //}
-
     // 移動しているかどうかのフラグを倒す
     MoveFlag = FALSE;
-    //移動処理
 
-    if (Save == false)
+    //移動処理
+    if (!Save)
     {
         //右
-        if (input.X > 0.0f && Position.x < WINDOW_RIGHT && InputJoycon == false)
+        if ( MoveRight && !InputJoycon )
         {
             Angle = -90.0f - CameraHAngle;
             MoveFlag = TRUE;
@@ -949,7 +948,7 @@ void Stage::Update()
         }
 
         //左
-        if (input.X < -500.0f && Position.x > WINDOW_LEFT && InputJoycon == false)
+        if (MoveLeft && !InputJoycon)
         {
             Angle = 90.0f - CameraHAngle;
             MoveFlag = TRUE;
@@ -959,7 +958,7 @@ void Stage::Update()
         }
 
         // 上
-        if (input.Y < -500.0f && Position.z < WINDOW_TOP && InputJoycon == false)
+        if (MoveUp && !InputJoycon)
         {
             Angle = 180.0f - CameraHAngle;
             MoveFlag = TRUE;
@@ -969,7 +968,7 @@ void Stage::Update()
         }
 
         //下
-        if (input.Y > 0.0f && Position.z > WINDOW_UNDER && InputJoycon == false)
+        if (MoveDown && !InputJoycon )
         {
             Angle = 0.0f - CameraHAngle;
             MoveFlag = TRUE;
@@ -978,53 +977,6 @@ void Stage::Update()
 
         }
 
-    }
-
-    //キーボード専用
-    //右
-    if (CheckDownKey(KEY_INPUT_RIGHT)&& Save == false)
-    {
-        Angle = -90.0f - CameraHAngle;
-        MoveFlag = TRUE;
-        MoveVector.x += MOVESPEED;
-        InputJoycon = true;
-        
-    }
-
-    //左
-    if (CheckDownKey(KEY_INPUT_LEFT) && Save == false)
-    {
-        Angle = 90.0f - CameraHAngle;
-        MoveFlag = TRUE;
-        MoveVector.x -= MOVESPEED;
-        InputJoycon = true;
-
-    }
-
-    //上
-    if (CheckDownKey(KEY_INPUT_UP) && Save == false)
-    {
-        Angle = 180.0f - CameraHAngle;
-        MoveFlag = TRUE;
-        MoveVector.z += MOVESPEED;
-        InputJoycon = true;
-
-    }
-
-    //下
-    if (CheckDownKey(KEY_INPUT_DOWN) && Save == false)
-    {
-        Angle = 0.0f - CameraHAngle;
-        MoveFlag = TRUE;
-        MoveVector.z -= MOVESPEED;
-        InputJoycon = true;
-
-    }
-
-    //コントローラの制御
-    if (input.Y == 0 && input.X == 0)
-    {
-        InputJoycon = false;
     }
 
     //フレームアウト
@@ -1067,8 +1019,19 @@ void Stage::Update()
         Position = VAdd(Position, TempMoveVector);
     }
 
+    //右にカメラを動かす
+    if (ComeraRight)
+    {
+        CameraHAngle += CAMERA_ANGLE_SPEED;
+
+        if (CameraHAngle >= 180.0f)
+        {
+            CameraHAngle -= 360.0f;
+        }
+    }
+
     //左にカメラを動かす
-    if (input.Rx < 0 || CheckDownKey(KEY_INPUT_N))
+    if (ComeraLeft)
     {
         CameraHAngle -= CAMERA_ANGLE_SPEED;
 
@@ -1078,20 +1041,11 @@ void Stage::Update()
         }
     }
 
-    //右にカメラを動かす
-    if (input.Rx > 0 || CheckDownKey(KEY_INPUT_M))
-    {
-        CameraHAngle += CAMERA_ANGLE_SPEED;
-        if (CameraHAngle >= 180.0f)
-        {
-            CameraHAngle -= 360.0f;
-        }
-    }
-
     //上にカメラを動かす
-    if (input.Ry > 0)
+    if (ComeraUp)
     {
         CameraVAngle += CAMERA_ANGLE_SPEED;
+
         if (CameraVAngle >= 80.0f)
         {
             CameraVAngle = 80.0f;
@@ -1099,17 +1053,15 @@ void Stage::Update()
     }
 
     //下にカメラを動かす
-    if (input.Ry < 0)
+    if (ComeraDown)
     {
         CameraVAngle -= CAMERA_ANGLE_SPEED;
+
         if (CameraVAngle <= 0.0f)
         {
             CameraVAngle = 0.0f;
         }
     }
-
-    // 移動ベクトルを初期化
-    MoveVector = VGet(0.0f, 0.0f, 0.0f);
 
     // カメラの位置と向きを設定
     {
@@ -1201,18 +1153,18 @@ void Stage::Draw()
     //クモの座標
     if (SpiderSet == true)
     {
-        for (int i = 0; i < SpiderModelRist.size(); i++)
+        for (int i = 0; i < SpiderModelList.size(); i++)
         {
-            MV1DrawModel(SpiderModelRist.at(i));
+            MV1DrawModel(SpiderModelList.at(i));
         }
     }
 
     //ポイント
     if (PointSet == true)
     {
-        for (int i = 0; i < PointModelRist.size(); i++)
+        for (int i = 0; i < PointModelList.size(); i++)
         {
-            MV1DrawModel(PointModelRist.at(i));
+            MV1DrawModel(PointModelList.at(i));
         }
     }
 
@@ -1220,9 +1172,9 @@ void Stage::Draw()
     //柱
     if (ColumnSet == true)
     {
-        for (int i = 0; i < ColumnModelRist.size(); i++)
+        for (int i = 0; i < ColumnModelList.size(); i++)
         {
-            MV1DrawModel(ColumnModelRist.at(i));
+            MV1DrawModel(ColumnModelList.at(i));
         }
 
     }
@@ -1259,12 +1211,12 @@ void Stage::Draw()
     
     if (GetJoypadNum())
     {
-        LoadGraphScreen(0.0f, 350.0f, "Assets/StageGuide_Controller.png", true);
+        DrawGraph(0.0f, 350.0f, StageGuide_Controller, true);
     }
 
     else
     {
-        LoadGraphScreen(0.0f, 350.0f, "Assets/StageGuide_Keyboard.png", true);
+        DrawGraph(0.0f, 350.0f, StageGuide_Keyboard, true);
     }
 
 
@@ -1274,7 +1226,7 @@ void Stage::Draw()
         DrawGraph(IconUIX + i * 260, IconUIY, EditorIcon[i], true);
     }
 
-    LoadGraphScreen(1700.0f, 30.0f, "Assets/Save.png", true);
+    DrawGraph(1700.0f, 30.0f, Save_Handle, true);
 
     //出す場所
     DrawSphere3D(Position, 30.0f, 8, GetColor(255, 0, 0), GetColor(255, 0, 0), true);
@@ -1282,29 +1234,35 @@ void Stage::Draw()
     //警告表示
     if (PlayerWarn == true)
     {  
-        LoadGraphScreen(650.0f, 180.0f, "Assets/Warn.png", true);
+        DrawGraph(650.0f, 180.0f, Warn_Handle, true);
     }
 
     if (GoalWarn == true)
     {
-        LoadGraphScreen(650.0f, 180.0f, "Assets/Warn.png", true);
+        DrawGraph(650.0f, 180.0f, Warn_Handle, true);
     }
 
     if (Save == true)
     {
         DrawGraph(SelectSave_No1X, SelsectSaveY, StageeditorUI[0 + SelectSave_No1], true);
         DrawGraph(SelectSave_No2X, SelsectSaveY, StageeditorUI[2 + SelectSave_No2], true);
-        LoadGraphScreen(CorsolSave, SelsectSaveY, "Assets/corsol.png", true);
+        DrawGraph(CursorSave, SelsectSaveY, Cursor_Handle, true);
         
     }
 
-    LoadGraphScreen(Corsol, 10.0f, "Assets/corsol.png", true);
+    DrawGraph(Cursor, 10.0f, Cursor_Handle, true);
 
 }
 
 //終了処理
 void Stage::Finaliza()
 {
+    DeleteGraph(StageGuide_Controller);
+    DeleteGraph(StageGuide_Keyboard);
+    DeleteGraph(Save_Handle);
+    DeleteGraph(Warn_Handle);
+    DeleteGraph(Cursor_Handle);
+
     DeleteSoundMem(EditerBGM);
     DeleteSoundMem(ButtonMusic);
     DeleteSoundMem(SetSE);
@@ -1313,7 +1271,27 @@ void Stage::Finaliza()
     DeleteSoundMem(WarnSE);
     DeleteSoundMem(DeleteSE);
 
+    MV1DeleteModel(PlayerSetModel);
+    MV1DeleteModel(SpiderSetModel);
+    MV1DeleteModel(PointSetModel);
+    MV1DeleteModel(ColumnSetModel);
+    MV1DeleteModel(GoalSetModel);
+
     Master::mpObjectManager->SetDeleteFlagAll();
+}
 
+int Stage::CreateObject(int model, std::vector<int>& list, std::vector<VECTOR>& posList, VECTOR pos)
+{
+    int handle = MV1DuplicateModel(model);
+    list.push_back(handle);
+    posList.push_back(pos);
 
+    MV1SetPosition(handle, pos);
+
+    if (ColumnSelect)
+    {
+        MV1SetScale(handle, VGet(0.5f, 0.5f, 0.5f));
+
+    }
+    return handle;
 }

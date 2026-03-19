@@ -29,6 +29,16 @@ private:
 	VECTOR attackOffset;
 	VECTOR attackPos;
 
+	//---キー入力系---//
+	bool Right;
+	bool Left;
+	bool Up;
+	bool Down;
+	bool Attack;
+	bool PickItem;
+
+	int Move;
+
 public:
 	PSIdle() = default;
 	~PSIdle() = default;
@@ -44,6 +54,16 @@ class PSWalk : public IState
 private:
 	VECTOR attackOffset;
 	VECTOR attackPos;
+
+	//---キー入力系---//
+	bool Right;
+	bool Left;
+	bool Up;
+	bool Down;
+	bool Attack;
+	bool PickItem;
+
+	int Move;
 
 public:
 	PSWalk() = default;

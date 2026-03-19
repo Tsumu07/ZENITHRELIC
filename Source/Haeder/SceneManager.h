@@ -45,6 +45,8 @@ private:
 
     bool m_waitStartSubScene;
 
+    bool m_requestCloseInventory;
+
 public:
     SceneManager();   //コンストラクタ
     ~SceneManager();  //デストラクタ
@@ -80,5 +82,6 @@ public:
 
     int GetLastGameScreen() const { return m_lastGameScreenHandle; }
 
+    void RequestCloseInventory();
 
 };

@@ -57,16 +57,16 @@ private:
     const float CHARA_PLAY_BLEND_SPEED = 0.5f;
     ///////////////
 
-    // プレイヤーの現在のY軸回転角度（ラジアン）を保持
+    //---プレイヤーの現在のY軸回転角度(ラジアン)を保持---//
     float mfAngle; 
 
-    // 目標とする移動方向を保持するための変数
+    //---目標とする移動方向を保持するための変数---//
     VECTOR mvTargetMoveDirection;
 
-    //敵に当たったら
+    //---敵に当たったら---//
     bool HitEnemy;
 
-    //エフェクト
+    //---エフェクト---//
     int DamageEffectLoadGraph;
     int DamageEffectHandle[5];
     int DamageEffectCount;
@@ -74,16 +74,20 @@ private:
     bool DamageEffetFlag;
     bool NowHit;
     
-    //SE
+    //---SE---//
     int ColumnSE;
     int DamageSE;
     int AttackDamageSE;
 
-    //全滅させた
+    //---全滅させた---//
     bool AnnihilationFlag;
 
-    //合計金額
+    //---合計金額---//
     int TotalAmount;
+
+    //---キー入力系---//
+    bool Equipment_No0;
+    bool Equipment_No1;
 
 public:
     Player();   //コンストラクタ

@@ -10,7 +10,7 @@
 Player_UI::Player_UI()
 :LoadShader(-1)
 ,Frame(0)
-,SlotHandle(-1)
+,Slot_Handle(-1)
 ,PlayerHp(0.0f)
 ,PlayerMaxHp(0.0f)
 ,PlayerHpOld(0.0f)
@@ -73,7 +73,7 @@ void Player_UI::Initaliza()
 	//HPゲージ用シェーダー読み込み
 	LoadShader = LoadPixelShader("gaugePS.cso");
 
-	SlotHandle = LoadGraph("Assets/Slot.png");
+	Slot_Handle = LoadGraph("Assets/Slot.png");
 
 }
 
@@ -134,8 +134,8 @@ void Player_UI::Draw()
 	SetUsePixelShader(-1);
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
-	DrawGraph(1400, 840, SlotHandle, true);
-	DrawGraph(1600, 840, SlotHandle, true);
+	DrawGraph(1400, 840, Slot_Handle, true);
+	DrawGraph(1600, 840, Slot_Handle, true);
 
 	auto player = dynamic_cast<Player*>(GetPlayer);
 	EquippedItems* equip = player->GetEquippedItems();
@@ -145,13 +145,14 @@ void Player_UI::Draw()
 
 	if (item0)
 	{
-		DrawGraph(1730, 890, item0->GetIcon(), true);
+		DrawGraph(1530, 890, item0->GetIcon(), true);
 	}
 
 	if (item1)
 	{
-		DrawGraph(1530, 890, item1->GetIcon(), true);
+		DrawGraph(1730, 890, item1->GetIcon(), true);
 	}
+
 
 	SetUseZBufferFlag(TRUE); //Zバッファ有効
 

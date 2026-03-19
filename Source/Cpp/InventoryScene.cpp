@@ -18,6 +18,7 @@ Inventory::Inventory()
 ,ItemBack(-1)
 ,SelectpictureR_Handle(-1)
 ,SelectpictureL_Handle(-1)
+,Slot_Handle(-1)
 ,MenuUI()
 ,RetrySelectUI(-1)
 ,TitleSelectUI(-1)
@@ -30,12 +31,12 @@ Inventory::Inventory()
 ,SelectpictureL(0.0f)
 ,SelectY(0.0f)
 ,Menu(false)
-,ClaoseMenu(false)
+,CloseMenu(false)
 ,Down(false)
 ,Up(false)
 ,Decide(false)
+,Equipment_No0(false)
 ,Equipment_No1(false)
-,Equipment_No2(false)
 ,InputJoycon(false)
 ,MaxUp(0.0f)
 ,MaxUnder(0.0f)
@@ -68,6 +69,7 @@ void Inventory::Initaliza()
 	ItemBack = LoadGraph("Assets/Item.png");
 	SelectpictureR_Handle = LoadGraph("Assets/SelectpictureR.png");
 	SelectpictureL_Handle = LoadGraph("Assets/SelectpictureL.png");
+	Slot_Handle = LoadGraph("Assets/Slot.png");
 
 	//一番上
 	MaxUp = 180.0f;
@@ -110,10 +112,10 @@ void Inventory::Update()
 	DINPUT_JOYSTATE input;
 	GetJoypadDirectInputState(DX_INPUT_PAD1, &input);
 
-	Menu = (CheckDownController(PAD_INPUT_4)|| CheckDownKey(KEY_INPUT_LSHIFT));
-	ClaoseMenu = (CheckDownController(PAD_INPUT_1) || CheckDownKey(KEY_INPUT_F));
-	Equipment_No1 = (CheckDownController(PAD_INPUT_6)|| CheckDownKey(KEY_INPUT_Q));
-	Equipment_No2 = (CheckDownController(PAD_INPUT_5)|| CheckDownKey(KEY_INPUT_E));
+	CloseMenu = (CheckDownController(PAD_INPUT_4)|| CheckDownKey(KEY_INPUT_LSHIFT));
+	Menu = (CheckDownController(PAD_INPUT_1) || CheckDownKey(KEY_INPUT_F));
+	Equipment_No0 = (CheckDownController(PAD_INPUT_6)|| CheckDownKey(KEY_INPUT_Q));
+	Equipment_No1 = (CheckDownController(PAD_INPUT_5)|| CheckDownKey(KEY_INPUT_E));
 	Decide = (CheckDownController(PAD_INPUT_2) || CheckDownKey(KEY_INPUT_SPACE));
 	Down = (input.Y >= 500.0f || CheckDownKey(KEY_INPUT_S));
 	Up = (input.Y <= -500.0f || CheckDownKey(KEY_INPUT_W));
@@ -127,7 +129,7 @@ void Inventory::Update()
 	if (OpenMenu)
 	{
 
-		if (Menu)
+		if (CloseMenu)
 		{
 			OpenMenu = false;
 		}
@@ -140,7 +142,7 @@ void Inventory::Update()
 			if (SelectY >= 175.0f && SelectY <= 185.0f)
 			{
 				Master::mpSceneManager->ChangeScene(SceneName::GameScene);
-				Master::mpSceneManager->CloseInventory();
+				Master::mpSceneManager->RequestCloseInventory();
 				OpenMenu = false;
 
 			}
@@ -149,7 +151,7 @@ void Inventory::Update()
 			else if (SelectY >= 295.0f && SelectY <= 305.0f)
 			{
 				Master::mpSceneManager->ChangeScene(SceneName::TitleScene);
-				Master::mpSceneManager->CloseInventory();
+				Master::mpSceneManager->RequestCloseInventory();
 				OpenMenu = false;
 			}
 
@@ -195,7 +197,7 @@ void Inventory::Update()
 
 	else
 	{
-		if (ClaoseMenu)
+		if (Menu)
 		{
 			PlaySoundMem(CursorMusic, DX_PLAYTYPE_BACK);
 
@@ -203,9 +205,10 @@ void Inventory::Update()
 		}
 
 		// 閉じる
-		if (Menu)
+		if (CloseMenu)
 		{
-			Master::mpSceneManager->CloseInventory();
+			Master::mpSceneManager->RequestCloseInventory();
+			return;
 		}
 
 		// カーソル移動
@@ -237,15 +240,15 @@ void Inventory::Update()
 			cursor = 0;
 		}
 
-		// アイテムを装備(スロット1)
-		if (Equipment_No1)
+		// アイテムを装備(スロット0)
+		if (Equipment_No0)
 		{
 
 			ItemBase* item = inv->GetItem(cursor);
 
 			if (item)
 			{
-				Play->GetEquippedItems()->SetItemToSlot(1, item);
+				Play->GetEquippedItems()->SetItemToSlot(0, item);
 
 				// カーソル補正
 				if (cursor >= inv->GetItemCount())
@@ -259,14 +262,14 @@ void Inventory::Update()
 
 		}
 
-		// アイテムを装備(スロット2)
-		if (Equipment_No2)
+		// アイテムを装備(スロット1)
+		if (Equipment_No1)
 		{
 			ItemBase* item = inv->GetItem(cursor);
 
 			if (item)
 			{
-				Play->GetEquippedItems()->SetItemToSlot(0, item);
+				Play->GetEquippedItems()->SetItemToSlot(1, item);
 
 				// カーソル補正
 				if (cursor >= inv->GetItemCount())
@@ -365,14 +368,17 @@ void Inventory::Draw()
 		ItemBase* item0 = equip->GetItem(0);
 		ItemBase* item1 = equip->GetItem(1);
 
+		DrawGraph(1400, 840, Slot_Handle, true);
+		DrawGraph(1600, 840, Slot_Handle, true);
+
 		if (item0)
 		{
-			DrawGraph(1730, 890, item0->GetIcon(), true);
+			DrawGraph(1530, 890, item0->GetIcon(), true);
 		}
 
 		if (item1)
 		{
-			DrawGraph(1530, 890, item1->GetIcon(), true);
+			DrawGraph(1730, 890, item1->GetIcon(), true);
 		}
 
 		char totalamount[32];
@@ -389,5 +395,5 @@ void Inventory::Finaliza()
 	DeleteGraph(ItemBack);
 	DeleteGraph(SelectpictureR_Handle);
 	DeleteGraph(SelectpictureL_Handle);
-
+	DeleteGraph(Slot_Handle);
 }

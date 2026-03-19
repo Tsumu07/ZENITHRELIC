@@ -23,6 +23,12 @@ private:
     int Pad;
     DINPUT_JOYSTATE input;
 
+    //---ƒL[“ü—ÍŒn---//
+    bool Right;
+    bool Left;
+    bool Up;
+    bool Down;
+
 
 public:
     Camera();

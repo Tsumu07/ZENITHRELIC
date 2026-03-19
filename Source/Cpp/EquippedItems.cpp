@@ -16,7 +16,7 @@ EquippedItems::EquippedItems()
 void EquippedItems::SetItemToSlot(int slot, ItemBase* item)
 {
     //境界チェック（ここで不正なindexを完全に遮断する）
-    if (slot < 0 || slot > 2)
+    if (slot < 0 || slot >= 2)
     {
         return;
     }
@@ -53,7 +53,7 @@ void EquippedItems::SetItemToSlot(int slot, ItemBase* item)
 
 ItemBase* EquippedItems::GetItem(int slot)
 {
-    if (slot < 0 || slot > 2)
+    if (slot < 0 || slot >= 2)
     {
         return nullptr;
     }
@@ -63,7 +63,7 @@ ItemBase* EquippedItems::GetItem(int slot)
 
 void EquippedItems::Use(int slot, Player* player)
 {
-    if (slot < 0 || slot > 2)
+    if (slot < 0 || slot >= 2)
     {
         return;
     }
@@ -80,7 +80,7 @@ void EquippedItems::Use(int slot, Player* player)
 
 void EquippedItems::ClearSlot(int slot)
 {
-    if (slot < 0 || slot > 2)
+    if (slot < 0 || slot >= 2)
     {
         return;
     }

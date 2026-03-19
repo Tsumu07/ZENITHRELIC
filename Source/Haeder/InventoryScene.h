@@ -12,6 +12,7 @@ private:
     int ItemBack;
     int SelectpictureR_Handle;
     int SelectpictureL_Handle;
+    int Slot_Handle;
 
     //---UIä÷åW---//
     int MenuUI[6];
@@ -33,12 +34,12 @@ private:
 
     //---ÉLÅ[ì¸óÕ---//
     bool Menu;
-    bool ClaoseMenu;
+    bool CloseMenu;
     bool Down;
     bool Up;
     bool Decide;
+    bool Equipment_No0;
     bool Equipment_No1;
-    bool Equipment_No2;
 
     bool InputJoycon;
 

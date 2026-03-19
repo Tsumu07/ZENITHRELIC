@@ -33,27 +33,37 @@ void PSIdle::OnExit(Object* parent)
 int PSIdle::Update(Object* parent)
 {
 
+	//--------------------------------
+    // ì¸óÕéÊìæ
+    //--------------------------------
 	DINPUT_JOYSTATE input;
 	GetJoypadDirectInputState(DX_INPUT_PAD1, &input);
 
-	bool right = (input.X >= 500.0f || CheckHitKey(KEY_INPUT_D));
-	bool left = (input.X <= -500.0f || CheckHitKey(KEY_INPUT_A));
-	bool down = (input.Y >= 500.0f || CheckHitKey(KEY_INPUT_S));
-	bool up = (input.Y <= -500.0f || CheckHitKey(KEY_INPUT_W));
+	//---à⁄ìÆ---//
+	Right = (input.X >= 500.0f || CheckHitKey(KEY_INPUT_D));
+	Left = (input.X <= -500.0f || CheckHitKey(KEY_INPUT_A));
+	Up = (input.Y <= -500.0f || CheckHitKey(KEY_INPUT_W));
+	Down = (input.Y >= 500.0f || CheckHitKey(KEY_INPUT_S));
 
-	int Move = right | left | down | up;
+	Move = Right | Left | Down | Up;
+
+	//---çUåÇ---//
+	Attack = (CheckDownController(PAD_INPUT_2) != 0 || CheckHitKey(KEY_INPUT_SPACE));
+
+	//---èEÇ§---//
+	PickItem = (CheckDownController(PAD_INPUT_1) != 0 || CheckHitKey(KEY_INPUT_R));
 
 	if (Move)
 	{
 		return PLAYER_STATE_WALK;
 	}
 
-	if (CheckDownController(PAD_INPUT_2) != 0 || CheckHitKey(KEY_INPUT_SPACE))
+	if (Attack)
 	{
 		return PLAYER_STATE_ATTACK;
 	}
 
-	if (CheckDownController(PAD_INPUT_1) != 0 || CheckHitKey(KEY_INPUT_R))
+	if (PickItem)
 	{
 		return PLAYER_STATE_PICKITEM;
 	}
@@ -97,32 +107,42 @@ int PSWalk::Update(Object* parent)
 {
 	VECTOR dir = VGet(0.0f, 0.0f, 0.0f);
 
+	//--------------------------------
+    // ì¸óÕéÊìæ
+    //--------------------------------
 	DINPUT_JOYSTATE input;
 	GetJoypadDirectInputState(DX_INPUT_PAD1, &input);
 
-	bool right = (input.X >= 500.0f || CheckHitKey(KEY_INPUT_D));
-	bool left = (input.X <= -500.0f || CheckHitKey(KEY_INPUT_A));
-	bool down = (input.Y >= 500.0f || CheckHitKey(KEY_INPUT_S));
-	bool up = (input.Y <= -500.0f || CheckHitKey(KEY_INPUT_W));
+	//---à⁄ìÆ---//
+	Right = (input.X >= 500.0f || CheckHitKey(KEY_INPUT_D));
+	Left = (input.X <= -500.0f || CheckHitKey(KEY_INPUT_A));
+	Up = (input.Y <= -500.0f || CheckHitKey(KEY_INPUT_W));
+	Down = (input.Y >= 500.0f || CheckHitKey(KEY_INPUT_S));
 
-	int Move = right | left | down | up;
+	Move = Right | Left | Down | Up;
 
-	if (left)
-	{
-		dir.x = -1;
-	}
+	//---çUåÇ---//
+	Attack = (CheckDownController(PAD_INPUT_2) != 0 || CheckHitKey(KEY_INPUT_SPACE));
 
-	if (right)
+	//---èEÇ§---//
+	PickItem = (CheckDownController(PAD_INPUT_1) != 0 || CheckHitKey(KEY_INPUT_R));
+
+	if (Right)
 	{
 		dir.x = 1;
 	}
 
-	if (up)
+	if (Left)
+	{
+		dir.x = -1;
+	}
+
+	if (Up)
 	{
 		dir.z = 1;
 	}
 
-	if (down)
+	if (Down)
 	{
 		dir.z = -1;
 	}
@@ -160,12 +180,12 @@ int PSWalk::Update(Object* parent)
 	}
 
 	//QÉLÅ[Ç™âüÇ≥ÇÍÇΩÇÁAttackèÛë‘Ç÷ëJà⁄Ç∑ÇÈ
-	if (CheckDownController(PAD_INPUT_2) != 0 || CheckHitKey(KEY_INPUT_SPACE))
+	if (Attack)
 	{
 		return PLAYER_STATE_ATTACK;
 	}
 
-	if (CheckDownController(PAD_INPUT_1) != 0 || CheckHitKey(KEY_INPUT_R))
+	if (PickItem)
 	{
 		return PLAYER_STATE_PICKITEM;
 	}
