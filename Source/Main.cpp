@@ -16,8 +16,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	LPSTR lpCmdLine, int nCmdShow)
 {
 	// ウインドウモードで起動
-	ChangeWindowMode(true);
-	//ChangeWindowMode(false);
+	ChangeWindowMode(false);
 
 	SetFullScreenResolutionMode(DX_FSRESOLUTIONMODE_MAXIMUM);
 
