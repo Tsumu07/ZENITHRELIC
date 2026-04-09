@@ -113,7 +113,6 @@ public:
 
     //ƒJƒvƒZƒ‹î•ñ
     VECTOR SpiderBottom;
-    VECTOR SpiderTop;
     float  SpiderR;
 
     //“–‚½‚è”»’è

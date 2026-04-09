@@ -72,7 +72,7 @@ int GSMovePatrol::Update(Object* parent)
             float distance = VSize(VSub(player->GetPos(), PointsRist[i]));
 
             //範囲内にプレイヤーがいたら滞在時間を加算
-            if (distance < 200.0f)
+            if (distance < 300.0f)
             {
                 stayTimes[i] += deltaTime;
             }
@@ -101,6 +101,7 @@ int GSMovePatrol::Update(Object* parent)
     {
         goal = PointsRist[targetIndex];
         g_ri.pos = goal;
+        g_ri.pos.y = 0.0f;
 
         //ポイントに向かう
         return Spider_STATE_MOVE_POINT;
@@ -140,6 +141,8 @@ int GSMovePatrol::Update(Object* parent)
             // targetIndex が設定されて次のフレームで切り替わる
             goal = PointsRist[randomIndex];
             g_ri.pos = goal;
+            g_ri.pos.y = 0.0f;
+
             return Spider_STATE_MOVE_POINT;
         }
 
@@ -166,6 +169,8 @@ void GSMovePoint::OnEnter(Object* parent)
 
     //ゴールをセット
     goal = g_ri.pos;
+    g_ri.pos.y = 0.0f;
+
     m_path.clear();
     m_pathIndex = 0;
     m_repathTimer = 0.0f;
@@ -215,7 +220,7 @@ int GSMovePoint::Update(Object* parent)
 
             float distance = VSize(VSub(player->GetPos(), patrolPoints[i]));
 
-            if (distance < 200.0f)
+            if (distance < 300.0f)
             {
                 stayTimes[i] += deltaTime;
             }
@@ -228,7 +233,10 @@ int GSMovePoint::Update(Object* parent)
             if (stayTimes[i] >= stayThreshold)
             {
                 g_ri.pos = patrolPoints[i];  // 目的地をセット
+                g_ri.pos.y = 0.0f;
+
                 goal = g_ri.pos;
+
                 stayTimes[i] = 0.0f;
             }
         }
@@ -364,7 +372,7 @@ int GSChase::Update(Object* parent)
 {
     parent->SetSpeed(3.0f);
 
-    //ゴーレムのポジション
+    //クモのポジション
     VECTOR SpiderPos = parent->GetPos();
 
     //プレイヤーのObjectを取得
@@ -579,6 +587,7 @@ int GSReturn::Update(Object* parent)
     {
         goal = ReturnpatrolPoints[nearestIdx];
         g_ri.pos = goal;
+        g_ri.pos.y = 0.0f;
 
         return Spider_STATE_MOVE_POINT;
     }

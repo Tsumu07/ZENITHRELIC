@@ -71,7 +71,9 @@ bool Capsule::ResolveWallCollision(float radius, float height,int stageFrameTag,
         }
 
         VECTOR normal = v[0].norm;
+
         VECTOR p2w = VSub(pos, v[0].pos);
+
         if (VDot(p2w, normal) < 0.0f)
         {
             normal = VScale(normal, -1.0f);

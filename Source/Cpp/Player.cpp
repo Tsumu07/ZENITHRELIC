@@ -307,7 +307,7 @@ void Player::Update()
 				if (!spider->IsDead())
 				{
 					//ダメージを与える
-					spider->Damage(100.0f);
+					spider->Damage(200.0f);
 
 					spider->SetHitPlayer(true);
 

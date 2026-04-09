@@ -150,7 +150,7 @@ void GameManager::Initaliza()
         //ポイントの初期化
         Point* points = new Point();
         points->Initaliza();
-        points->SetPos(VGet(point.PosiX,200.0f, point.PosiZ));
+        points->SetPos(VGet(point.PosiX, 200.0f, point.PosiZ));
         //敵にポジションリストを渡す
         points->SetPosRist(VGet(point.PosiX, point.PosiY, point.PosiZ));
         points->SetRadius(64.0f);

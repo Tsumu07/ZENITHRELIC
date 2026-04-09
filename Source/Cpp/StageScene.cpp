@@ -24,7 +24,7 @@ const float CAMERA_LOOK_AT_HEIGHT = 400.0f;
 // カメラと注視点の距離
 const float CAMERA_LOOK_AT_DISTANCE = 1150.0f;
 
-const float LINE_AREA_AIZE = 7000.0f;  //!<ラインを描く範囲
+const float LINE_AREA_AIZE = 7000.0f;   //!<ラインを描く範囲
 const int   LINE_NUM = 50;              //
 
 //コンストラクタ
@@ -713,7 +713,7 @@ void Stage::Update()
             fwrite(&player, sizeof(Person), 1, playerfile);
             fclose(playerfile);
 
-            //ゴーレムの情報
+            //クモの情報
             //書き込み
             char filenameSpider[64];
             sprintf_s(filenameSpider, "Spider%d.bin", saveSlot);
@@ -908,27 +908,37 @@ void Stage::Update()
         //左右の壁の削除
         if (WallSelect == true)
         {
-            if (WallList.size() > 0)
+            if (Rotation)
             {
-                Wall* W = WallList.back();
+                if (WallList2.size() > 0)
+                {
+                    Wall* W = WallList2.back();
 
-                W->SetDeleteFlag(true);
+                    W->SetDeleteFlag(true);
 
-                WallList.pop_back();
+                    WallList2.pop_back();
+                }
+
             }
+
+            else
+            {
+                if (WallList.size() > 0)
+                {
+                    Wall* W = WallList.back();
+
+                    W->SetDeleteFlag(true);
+
+                    WallList.pop_back();
+                }
+
+            }
+
         }
 
         //上下の壁の削除
         if (Wall2Select == true)
         {
-            if (WallList2.size() > 0)
-            {
-                Wall* W = WallList2.back();
-
-                W->SetDeleteFlag(true);
-
-                WallList2.pop_back();
-            }
         }
     }
 

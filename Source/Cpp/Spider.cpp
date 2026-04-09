@@ -29,7 +29,6 @@ Spider::Spider() : Object()
 ,pos(VGet(0.0f,0.0f,0.0f))
 ,nextPos(VGet(0.0f,0.0f,0.0f))
 ,SpiderBottom(VGet(0.0f,0.0f,0.0f))
-,SpiderTop(VGet(0.0f,0.0f,0.0f))
 ,attackOffset(VGet(0.0f, 0.0f, 0.0f))
 ,attackPos(VGet(0.0f, 0.0f, 0.0f))
 ,moveVec(VGet(0.0f,0.0f,0.0f))
@@ -75,7 +74,7 @@ void Spider::Initaliza()
     //敵の読み込み
     mnSpiderModel = MV1LoadModel("Resource/Spider.x");
 
-	//3Dモデルの大きさ(プレイヤー)
+	//3Dモデルの大きさ(クモ)
 	MV1SetScale(mnSpiderModel, VGet(1.0f, 1.0f, 1.0f));
 
     //効果音の読み込み
@@ -116,7 +115,6 @@ void Spider::Initaliza()
 */
 void Spider::Update()
 {
-
      //クモの移動前
      mvPositionSter = GetPos();
 
@@ -132,8 +130,6 @@ void Spider::Update()
      nextPos = VAdd(pos, moveVec);
 
      SpiderBottom = VAdd(nextPos, VGet(0.0f, 0.0f, 0.0f));
-
-     SpiderTop = VAdd(nextPos, VGet(0.0f, 180.0f, 0.0f));
 
 	 SpiderR = GetRadius();
 
@@ -181,7 +177,6 @@ void Spider::Update()
      //壁の当たり判定
      float radius = 65.0f;
      float height = 200.0f;
-     VECTOR pos = GetPos();
 
      for (int i = 0; i < 2; i++)
      {
@@ -294,8 +289,7 @@ void Spider::Update()
     //アニメーション処理
     SpAnimetion();
 
-    MV1SetPosition(mnSpiderModel, GetPos());
-
+    MV1SetPosition(mnSpiderModel, pos);
 
 }
 
@@ -433,6 +427,7 @@ void Spider::Draw()
 
         MV1SetUseOrigShader(false);
     }
+
     else
     {
         //3Dモデルの描画クモ
