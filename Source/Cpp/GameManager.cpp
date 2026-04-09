@@ -31,17 +31,12 @@ GameManager::GameManager()
 
 }
 
-
 //デストラクタ
-
 GameManager::~GameManager()
 {
-
 }
 
-
 //初期化
-
 void GameManager::Initaliza()
 {
 

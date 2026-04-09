@@ -112,7 +112,7 @@ void SkyBox::Initaliza(void)
 	vertex[11].dif = GetColorU8(255, 255, 255, 255);//”’‚ğİ’è‚·‚é
 	vertex[11].u = 1.0f;
 	vertex[11].v = 1.0f;
-
+	
 	//— –Ê
 	//¶ã
 	vertex[12].pos = VGet(width, height, depth);//’¸“_À•W

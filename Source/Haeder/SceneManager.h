@@ -27,8 +27,6 @@ private:
     //メニュー画面など
     SceneBase* mpInventoryScene;
 
-    Inventory* mpInventoryScene_price;
-
     //フェードイン、フェードアウト
     FadeScene* mpWipeScene;
     
