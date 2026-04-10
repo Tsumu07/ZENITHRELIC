@@ -61,7 +61,7 @@ int GSMovePatrol::Update(Object* parent)
         return Spider_STATE_CHASE;
     }
 
-    //ゴーレムの行動目標がまだ決まっていない場合
+    //クモの行動目標がまだ決まっていない場合
     if (targetIndex == -1)
     {
 

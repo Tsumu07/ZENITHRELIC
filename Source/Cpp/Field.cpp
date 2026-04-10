@@ -21,7 +21,6 @@ void Field::Initaliza()
 {
 
 	floorhandle = LoadGraph("Assets/floor_No2.png");
-	//floornormalhandle = LoadGraph("Assets/NomalMap_floor.png");
 
     SetTextureAddressModeUV(DX_TEXADDRESS_WRAP, DX_TEXADDRESS_WRAP);
 

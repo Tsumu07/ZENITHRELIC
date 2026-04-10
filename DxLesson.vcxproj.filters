@@ -159,9 +159,6 @@
     <ClCompile Include="Source\Cpp\HitCapsule.cpp">
       <Filter>ソース ファイル\Hit</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Cpp\Triangle.cpp">
-      <Filter>ソース ファイル\Hit</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Cpp\Object.cpp">
       <Filter>ソース ファイル\Object</Filter>
     </ClCompile>
@@ -243,9 +240,6 @@
       <Filter>ヘッダー ファイル\Hit</Filter>
     </ClInclude>
     <ClInclude Include="Source\Haeder\HitCapsule.h">
-      <Filter>ヘッダー ファイル\Hit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\Triangle.h">
       <Filter>ヘッダー ファイル\Hit</Filter>
     </ClInclude>
     <ClInclude Include="Source\Haeder\Config.h">

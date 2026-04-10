@@ -1,5 +1,6 @@
 #include "../Haeder/Colliison.h"
 
+//----‹…“¯Žm‚Ì“–‚½‚è”»’è----
 bool Collision::CheckSphereToSphere(
     VECTOR centerPosition1,
     float radius1,

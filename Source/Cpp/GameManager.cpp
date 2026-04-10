@@ -24,11 +24,9 @@
 //コンストラクタ
 GameManager::GameManager()
 {
-
     end = false;
 
     GameLoop = true;
-
 }
 
 //デストラクタ

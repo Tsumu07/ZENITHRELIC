@@ -193,7 +193,6 @@
     <ClCompile Include="Source\Cpp\StartSubScene.cpp" />
     <ClCompile Include="Source\Cpp\SubScene.cpp" />
     <ClCompile Include="Source\Cpp\Title.cpp" />
-    <ClCompile Include="Source\Cpp\Triangle.cpp" />
     <ClCompile Include="Source\Cpp\Wall.cpp" />
     <ClCompile Include="Source\Cpp\ItemManeger.cpp" />
     <ClCompile Include="Source\Cpp\FadeScene.cpp" />
@@ -246,7 +245,6 @@
     <ClInclude Include="Source\Haeder\StartSubScene.h" />
     <ClInclude Include="Source\Haeder\SubScene.h" />
     <ClInclude Include="Source\Haeder\Title.h" />
-    <ClInclude Include="Source\Haeder\Triangle.h" />
     <ClInclude Include="Source\Haeder\Wall.h" />
     <ClInclude Include="Source\Haeder\FadeScene.h" />
     <ClInclude Include="Source\Master.h" />

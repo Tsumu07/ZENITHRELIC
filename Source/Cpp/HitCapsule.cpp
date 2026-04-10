@@ -6,6 +6,7 @@
 #include "../Haeder/ObujectManager.h"
 #include "../Master.h"
 
+//----カプセル同士の当たり判定----
 bool Capsule::CheckCapsuleToHitCapsule(
     VECTOR centerPosition1,
     VECTOR centerPosition2,
@@ -13,11 +14,11 @@ bool Capsule::CheckCapsuleToHitCapsule(
     VECTOR centerPosition3,
     VECTOR centerPosition4,
     float Cap2R)
-
 {
     return HitCheck_Capsule_Capsule(centerPosition1, centerPosition2, Cap1R, centerPosition3, centerPosition4, Cap2R);
 }
 
+//----球とカプセルの当たり判定----
 bool Capsule::CheckColliisonToHitCapsule(
     VECTOR SphereCenterPos,
     float  SphereR,
@@ -28,6 +29,7 @@ bool Capsule::CheckColliisonToHitCapsule(
     return HitCheck_Sphere_Capsule(SphereCenterPos, SphereR, CapPos1, CapPos2, CapR);
 }
 
+//StageFrame,壁と球の当たり判定
 bool Capsule::ResolveWallCollision(float radius, float height,int stageFrameTag, int wallTag, VECTOR& pos, VECTOR& moveVec)
 {
 

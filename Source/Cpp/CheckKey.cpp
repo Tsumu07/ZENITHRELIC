@@ -35,7 +35,7 @@ int CheckDownController(int KeyCode)
 
 }
 
-// 0 キーは押されていない／1 キーを押した瞬間
+//0 キーは押されていない／1 キーを押した瞬間
 //キーボード専用
 int CheckDownKey(int KeyCode)
 {

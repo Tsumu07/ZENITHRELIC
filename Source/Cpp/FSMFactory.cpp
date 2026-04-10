@@ -9,6 +9,7 @@ FSM* FSMFactory::Create(std::string name, Object* obj)
 {
 	FSM* fsm = nullptr;
 
+	//----プレイヤー----
 	if (name == "Player")
 	{
 		fsm = new FSM();
@@ -22,6 +23,7 @@ FSM* FSMFactory::Create(std::string name, Object* obj)
 		fsm->SetCurrentState(PLAYER_STATE_IDLE, obj);
 	}
 
+	//----スパイダー----
 	else if (name == "Spider")
 	{			
 		fsm = new FSM();

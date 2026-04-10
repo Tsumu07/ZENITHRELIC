@@ -662,7 +662,6 @@ void Player::Draw()
 
 	}
 
-
 }
 
 void Player::Finaliza()
@@ -674,7 +673,6 @@ void Player::Finaliza()
 	DeleteSoundMem(ColumnSE);
 	DeleteSoundMem(DamageSE);
 	DeleteSoundMem(AttackDamageSE);
-
 
 	//エフェクト削除
 	for (DamageEffectCount = 0; DamageEffectCount < 5; DamageEffectCount++)
