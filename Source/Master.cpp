@@ -33,4 +33,5 @@ void Master::Finalize()
     mpCamera = nullptr;
     mpGameManager = nullptr;
     mpItemManeger = nullptr;
+    mpGameManager = nullptr;
 }

@@ -29,7 +29,7 @@ void FadeScene::Initaliza()
 {   
 
     // フェード用シェーダー読み込み
-    LoadShaderFade = LoadPixelShader("wipePS.cso");
+    LoadShaderFade = LoadPixelShader("cso/wipePS.cso");
 
     FadeSceneTexture = LoadGraph("トランジション/pipo-tr002.png");
 

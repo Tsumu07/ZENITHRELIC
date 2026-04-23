@@ -90,16 +90,16 @@ void Game::Initaliza()
     SetMaterialParam(material);
 
     //頂点シェーダーを読み込む
-    vshandle = LoadVertexShader("DefaultVS.cso");
+    vshandle = LoadVertexShader("cso/DefaultVS.cso");
 
     //SkyBox用頂点シェーダを読み込む
-    SkyboxVShandle = LoadVertexShader("SkyBoxVS.cso");
+    SkyboxVShandle = LoadVertexShader("cso/SkyBoxVS.cso");
 
     //ピクセルシェーダーを読み込む
-    pshandle = LoadPixelShader("DefaultPS.cso");
+    pshandle = LoadPixelShader("cso/DefaultPS.cso");
 
     //SkyBox用ピクセルシェーダーを読み込む
-    SkyboxPShandle = LoadPixelShader("SkyBoxPS.cso");
+    SkyboxPShandle = LoadPixelShader("cso/SkyBoxPS.cso");
 
     InventorySE = LoadSoundMem("Musics/OpenInventory.mp3");
 
@@ -247,6 +247,7 @@ void Game::Finaliza()
 
     DeleteSoundMem(InventorySE);
     DeleteSoundMem(GameBGM);
+
 
 }
 

@@ -96,8 +96,8 @@ void Spider::Initaliza()
 
     modelTexHandle = Master::mpResourceManager->LoadImageFromFile("Resource/BlackWidow Color.png");
 
-    vshandle = LoadVertexShader("dissolveVS.cso");
-    pshandle = LoadPixelShader("dissolvePS.cso");
+    vshandle = LoadVertexShader("cso/dissolveVS.cso");
+    pshandle = LoadPixelShader("cso/dissolvePS.cso");
     dissolveTexHandle = Master::mpResourceManager->LoadImageFromFile("トランジション/dissolve.png");
 
     //追いかけるフラグ

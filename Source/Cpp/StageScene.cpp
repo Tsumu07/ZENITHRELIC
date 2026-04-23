@@ -160,10 +160,10 @@ void Stage::Initaliza()
     SetGlobalAmbientLight(GetColorF(0.0f, 0.0f, 0.0f, 1.0f));
 
     // 頂点シェーダーを読み込む
-    vshandle = LoadVertexShader("DefaultVS.cso");
+    vshandle = LoadVertexShader("cso/DefaultVS.cso");
 
     // ピクセルシェーダーを読み込む
-    pshandle = LoadPixelShader("WallPS.cso");
+    pshandle = LoadPixelShader("cso/WallPS.cso");
 
     //---サウンドの読み込み---//
     //BGM

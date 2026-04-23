@@ -95,10 +95,10 @@ void Explain::Initaliza()
     }
 
     //SkyBox用頂点シェーダを読み込む
-    SkyboxVShandle = LoadVertexShader("SkyBoxVS.cso");
+    SkyboxVShandle = LoadVertexShader("cso/SkyBoxVS.cso");
 
     //SkyBox用ピクセルシェーダーを読み込む
-    SkyboxPShandle = LoadPixelShader("SkyBoxPS.cso");
+    SkyboxPShandle = LoadPixelShader("cso/SkyBoxPS.cso");
 
 }
 

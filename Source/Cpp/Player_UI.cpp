@@ -71,7 +71,7 @@ void Player_UI::Initaliza()
 	m_indices[5] = 2;
 
 	//HPゲージ用シェーダー読み込み
-	LoadShader = LoadPixelShader("gaugePS.cso");
+	LoadShader = LoadPixelShader("cso/gaugePS.cso");
 
 	Slot_Handle = LoadGraph("Assets/Slot.png");
 

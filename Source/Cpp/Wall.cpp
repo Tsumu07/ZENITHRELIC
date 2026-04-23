@@ -79,7 +79,7 @@ Wall::Wall(const char* texFront, const char* texSide, VECTOR center, float halfX
 ,hSide(-1)
 ,drawFlag(0)
 {
-    m_wallShader = LoadPixelShader("WallPS.cso");
+    m_wallShader = LoadPixelShader("cso/WallPS.cso");
 
     SetPosRist(center);
 
