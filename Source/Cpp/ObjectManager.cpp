@@ -104,6 +104,10 @@ void ObjectManager::Draw()
 //終了処理
 void ObjectManager::Finaliza()
 {
+    DeleteAll();
+
+    effectList.clear();
+    soundList.clear();
 }
 
 //オブジェクト追加
