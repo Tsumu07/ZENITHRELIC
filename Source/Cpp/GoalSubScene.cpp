@@ -1,5 +1,5 @@
-#include "../Haeder/GoalSubScene.h"
-#include "../Haeder/SceneManager.h"
+#include "../Header/GoalSubScene.h"
+#include "../Header/SceneManager.h"
 #include "../Master.h"
 
 GoalSubScene::GoalSubScene()

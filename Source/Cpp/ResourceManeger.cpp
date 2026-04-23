@@ -1,4 +1,4 @@
-#include "../Haeder/ResourceManeger.h"
+#include "../Header/ResourceManeger.h"
 #include <cassert>
 #include "DxLib.h"
 #include "EffekseerForDXLib.h"

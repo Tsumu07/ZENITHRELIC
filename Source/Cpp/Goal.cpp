@@ -1,11 +1,11 @@
 #include "DxLib.h"
-#include "../Haeder/Goal.h"
-#include "../Haeder/GameManager.h"
-#include "../Haeder/ObujectManager.h"
-#include "../Haeder/Object.h"
+#include "../Header/Goal.h"
+#include "../Header/GameManager.h"
+#include "../Header/ObujectManager.h"
+#include "../Header/Object.h"
 #include "../Master.h"
 #include <math.h>
-#include "../Haeder/Player.h"
+#include "../Header/Player.h"
 
 //コンストラクタ
 Goal::Goal()

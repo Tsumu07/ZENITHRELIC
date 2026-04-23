@@ -1,11 +1,11 @@
 #include "Dxlib.h"
-#include "../Haeder/Title.h"
-#include "../Haeder/SceneBase.h"
-#include "../Haeder/SceneManager.h"
-#include "../Haeder/GameManager.h"
-#include "../Haeder/CheckKey.h"
-#include "../Haeder/ResourceManeger.h"
-#include "../Haeder/ObujectManager.h"
+#include "../Header/Title.h"
+#include "../Header/SceneBase.h"
+#include "../Header/SceneManager.h"
+#include "../Header/GameManager.h"
+#include "../Header/CheckKey.h"
+#include "../Header/ResourceManeger.h"
+#include "../Header/ObujectManager.h"
 #include "../Master.h"
 
 // À‘Ì‚ğì¬
@@ -394,7 +394,7 @@ void Title::Update()
             int stage = g_Title.GetStageNumber();
 
             char filenameplayer[64];
-            sprintf_s(filenameplayer, "Player%d.bin", stage);
+            sprintf_s(filenameplayer, "Stage Information/Player%d.bin", stage);
 
             FILE* playerfile;
             fopen_s(&playerfile, filenameplayer, "rb");

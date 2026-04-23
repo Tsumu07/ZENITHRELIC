@@ -1,11 +1,11 @@
 #include "DxLib.h"
-#include "../Haeder/Column.h"
-#include "../Haeder/GameManager.h"
-#include "../Haeder/ObujectManager.h"
-#include "../Haeder/Object.h"
-#include "../Haeder/HpItem.h"
-#include "../Haeder/ItemDrop.h"
-#include "../Haeder/ItemBase.h"
+#include "../Header/Column.h"
+#include "../Header/GameManager.h"
+#include "../Header/ObujectManager.h"
+#include "../Header/Object.h"
+#include "../Header/HpItem.h"
+#include "../Header/ItemDrop.h"
+#include "../Header/ItemBase.h"
 #include "../Master.h"
 #include <math.h>
 

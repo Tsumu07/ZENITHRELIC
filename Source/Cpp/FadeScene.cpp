@@ -1,7 +1,7 @@
-#include "../Haeder/FadeScene.h"
-#include "../Haeder/ResourceManeger.h"
+#include "../Header/FadeScene.h"
+#include "../Header/ResourceManeger.h"
 #include "../Master.h"
-#include "../Haeder/SceneManager.h"
+#include "../Header/SceneManager.h"
 #include "DxLib.h"
 
 FadeScene::FadeScene()

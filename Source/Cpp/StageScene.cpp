@@ -1,14 +1,14 @@
 ﻿#include "Dxlib.h"
-#include "../Haeder/StageScene.h"
-#include "../Haeder/SceneBase.h"
-#include "../Haeder/SceneManager.h"
-#include "../Haeder/GameManager.h"
-#include "../Haeder/ResourceManeger.h"
-#include "../Haeder/ObujectManager.h"
-#include "../Haeder/CheckKey.h"
-#include "../Haeder/Object.h"
-#include "../Haeder/Player.h"
-#include "../Haeder/Wall.h"
+#include "../Header/StageScene.h"
+#include "../Header/SceneBase.h"
+#include "../Header/SceneManager.h"
+#include "../Header/GameManager.h"
+#include "../Header/ResourceManeger.h"
+#include "../Header/ObujectManager.h"
+#include "../Header/CheckKey.h"
+#include "../Header/Object.h"
+#include "../Header/Player.h"
+#include "../Header/Wall.h"
 #include "../Master.h"
 #include <math.h>
 #include <string>
@@ -700,7 +700,7 @@ void Stage::Update()
             //プレイヤーの情報
             //書き込み
             char filenameplayer[64];
-            sprintf_s(filenameplayer, "Player%d.bin", saveSlot);
+            sprintf_s(filenameplayer, "Stage Information/Player%d.bin", saveSlot);
 
             FILE* playerfile;
             if (fopen_s(&playerfile, filenameplayer, "wb") != 0)
@@ -716,7 +716,7 @@ void Stage::Update()
             //クモの情報
             //書き込み
             char filenameSpider[64];
-            sprintf_s(filenameSpider, "Spider%d.bin", saveSlot);
+            sprintf_s(filenameSpider, "Stage Information/Spider%d.bin", saveSlot);
 
             FILE* Spiderfile;
             fopen_s(&Spiderfile, filenameSpider, "wb");
@@ -737,7 +737,7 @@ void Stage::Update()
             //敵の巡回ポインタの情報
             //書き込み
             char filenamePoint[64];
-            sprintf_s(filenamePoint, "Point%d.bin", saveSlot);
+            sprintf_s(filenamePoint, "Stage Information/Point%d.bin", saveSlot);
 
             FILE* Pointfile;
             fopen_s(&Pointfile, filenamePoint, "wb");
@@ -758,7 +758,7 @@ void Stage::Update()
             //壊せる柱の情報
             //書き込み
             char filenameColumn[64];
-            sprintf_s(filenameColumn, "Column%d.bin", saveSlot);
+            sprintf_s(filenameColumn, "Stage Information/Column%d.bin", saveSlot);
 
             FILE* Columnfile;
             fopen_s(&Columnfile, filenameColumn, "wb");
@@ -790,7 +790,7 @@ void Stage::Update()
             }
 
             char filenamegoal[64];
-            sprintf_s(filenamegoal, "Goal%d.bin", saveSlot);
+            sprintf_s(filenamegoal, "Stage Information/Goal%d.bin", saveSlot);
 
             FILE* goalfile;
             if (fopen_s(&goalfile, filenamegoal, "wb") != 0)
@@ -806,7 +806,7 @@ void Stage::Update()
             //縦長の障害物の情報
             //書き込み
             char filenamesidewall[64];
-            sprintf_s(filenamesidewall, "Sidewall%d.bin", saveSlot);
+            sprintf_s(filenamesidewall, "Stage Information/Sidewall%d.bin", saveSlot);
 
             FILE* sidewallfile;
             fopen_s(&sidewallfile, filenamesidewall, "wb");
@@ -832,7 +832,7 @@ void Stage::Update()
             //横幅の障害物
             //書き込み
             char filenameverticalwall[64];
-            sprintf_s(filenameverticalwall, "Verticalwall%d.bin", saveSlot);
+            sprintf_s(filenameverticalwall, "Stage Information/Verticalwall%d.bin", saveSlot);
 
             FILE* verticalwallfile;
             fopen_s(&verticalwallfile, filenameverticalwall, "wb");

@@ -1,8 +1,8 @@
-#include "../Haeder/ItemDrop.h"
-#include "../Haeder/ObujectManager.h"
-#include "../Haeder/GameManager.h"
-#include "../Haeder/ItemManeger.h"
-#include "../Haeder/Player.h"
+#include "../Header/ItemDrop.h"
+#include "../Header/ObujectManager.h"
+#include "../Header/GameManager.h"
+#include "../Header/ItemManeger.h"
+#include "../Header/Player.h"
 #include "../Master.h"
 #include "DxLib.h"
 

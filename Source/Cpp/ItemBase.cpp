@@ -1,4 +1,4 @@
-#include "../Haeder/ItemBase.h"
+#include "../Header/ItemBase.h"
 
 ItemBase::ItemBase()
 : m_price(0)

@@ -155,12 +155,16 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用</AdditionalLibraryDirectories>
+      <LinkTimeCodeGeneration>
+      </LinkTimeCodeGeneration>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\Cpp\Camera.cpp" />
     <ClCompile Include="Source\Cpp\CheckKey.cpp" />
+    <ClCompile Include="Source\Cpp\Colliison.cpp" />
     <ClCompile Include="Source\Cpp\Column.cpp" />
+    <ClCompile Include="Source\Cpp\Game.cpp" />
     <ClCompile Include="Source\Cpp\Goal.cpp" />
     <ClCompile Include="Source\Cpp\EquippedItems.cpp" />
     <ClCompile Include="Source\Cpp\Explain.cpp" />
@@ -181,6 +185,7 @@
     <ClCompile Include="Source\Cpp\Point.cpp" />
     <ClCompile Include="Source\Cpp\ResourceManeger.cpp" />
     <ClCompile Include="Source\Cpp\SceneBase.cpp" />
+    <ClCompile Include="Source\Cpp\SceneManager.cpp" />
     <ClCompile Include="Source\Cpp\Spider.cpp" />
     <ClCompile Include="Source\Cpp\GameManager.cpp" />
     <ClCompile Include="Source\Cpp\Object.cpp" />
@@ -196,10 +201,9 @@
     <ClCompile Include="Source\Cpp\Wall.cpp" />
     <ClCompile Include="Source\Cpp\ItemManeger.cpp" />
     <ClCompile Include="Source\Cpp\FadeScene.cpp" />
-    <ClCompile Include="Source\Haeder\Colliison.cpp" />
-    <ClCompile Include="Source\Haeder\Game.cpp" />
-    <ClCompile Include="Source\Haeder\SceneManager.cpp" />
-    <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="Source\Main.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Source\Master.cpp" />
   </ItemGroup>
   <ItemGroup>

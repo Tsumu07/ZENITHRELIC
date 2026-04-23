@@ -1,9 +1,9 @@
 #include "DxLib.h"
 #include "EffekseerForDXLib.h"
-#include "../Haeder/ObujectManager.h"
-#include "../Haeder/Object.h"
-#include "../Haeder/GameManager.h"
-#include "../Haeder/ResourceManeger.h"
+#include "../Header/ObujectManager.h"
+#include "../Header/Object.h"
+#include "../Header/GameManager.h"
+#include "../Header/ResourceManeger.h"
 #include "../Master.h"
 #include <cassert>
 

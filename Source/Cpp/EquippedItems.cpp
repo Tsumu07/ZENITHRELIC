@@ -1,6 +1,6 @@
-#include "../Haeder/EquippedItems.h"
-#include "../Haeder/ItemBase.h"
-#include "../Haeder/Player.h"
+#include "../Header/EquippedItems.h"
+#include "../Header/ItemBase.h"
+#include "../Header/Player.h"
 
 EquippedItems::EquippedItems()
 {

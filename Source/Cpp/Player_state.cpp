@@ -1,10 +1,10 @@
-#include "../Haeder/Player_state.h"
-#include "../Haeder/GameManager.h"
-#include "../Haeder/ObujectManager.h"
-#include "../Haeder/Camera.h"
-#include "../Haeder/Player.h"
+#include "../Header/Player_state.h"
+#include "../Header/GameManager.h"
+#include "../Header/ObujectManager.h"
+#include "../Header/Camera.h"
+#include "../Header/Player.h"
 #include "../Master.h"
-#include "../Haeder/CheckKey.h"
+#include "../Header/CheckKey.h"
 #include "DxLib.h"
 #include <cmath>
 

@@ -1,8 +1,8 @@
-#include "../Haeder/HpItem.h"
-#include "../Haeder/Player.h"
-#include "../Haeder/ObujectManager.h"
-#include "../Haeder/GameManager.h"
-#include "../Haeder/Object.h"
+#include "../Header/HpItem.h"
+#include "../Header/Player.h"
+#include "../Header/ObujectManager.h"
+#include "../Header/GameManager.h"
+#include "../Header/Object.h"
 #include "../Master.h"
 
 HpItem::HpItem()

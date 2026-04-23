@@ -1,6 +1,6 @@
 ﻿#include "DxLib.h"
-#include "../Haeder/Wall.h"
-#include "../Haeder/Pathfinding.h"
+#include "../Header/Wall.h"
+#include "../Header/Pathfinding.h"
 
 static void CalcTBN4(VERTEX3DSHADER* vertices, VECTOR faceNormal)
 {

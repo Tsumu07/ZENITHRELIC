@@ -1,12 +1,12 @@
-#include "../Haeder/HitCapsule.h"
-#include "../Haeder/Player.h"
-#include "../Haeder/GameManager.h"
-#include "../Haeder/StageFrame.h"
-#include "../Haeder/Wall.h"
-#include "../Haeder/ObujectManager.h"
+#include "../Header/HitCapsule.h"
+#include "../Header/Player.h"
+#include "../Header/GameManager.h"
+#include "../Header/StageFrame.h"
+#include "../Header/Wall.h"
+#include "../Header/ObujectManager.h"
 #include "../Master.h"
 
-//----カプセル同士の当たり判定----
+//----カプセル同士の当たり判定----//
 bool Capsule::CheckCapsuleToHitCapsule(
     VECTOR centerPosition1,
     VECTOR centerPosition2,
@@ -18,7 +18,7 @@ bool Capsule::CheckCapsuleToHitCapsule(
     return HitCheck_Capsule_Capsule(centerPosition1, centerPosition2, Cap1R, centerPosition3, centerPosition4, Cap2R);
 }
 
-//----球とカプセルの当たり判定----
+//----球とカプセルの当たり判定----//
 bool Capsule::CheckColliisonToHitCapsule(
     VECTOR SphereCenterPos,
     float  SphereR,
@@ -29,7 +29,7 @@ bool Capsule::CheckColliisonToHitCapsule(
     return HitCheck_Sphere_Capsule(SphereCenterPos, SphereR, CapPos1, CapPos2, CapR);
 }
 
-//StageFrame,壁と球の当たり判定
+//----StageFrame,壁と球の当たり判定----//
 bool Capsule::ResolveWallCollision(float radius, float height,int stageFrameTag, int wallTag, VECTOR& pos, VECTOR& moveVec)
 {
 
@@ -55,16 +55,16 @@ bool Capsule::ResolveWallCollision(float radius, float height,int stageFrameTag,
             continue;
         }
 
-        const auto& v = stageframe->GetVertex();
+        const auto& frame = stageframe->GetVertex();
 
         bool hitA = HitCheck_Capsule_Triangle(
             nextCapStart, nextCapEnd, radius,
-            v[0].pos, v[1].pos, v[2].pos
+            frame[0].pos, frame[1].pos, frame[2].pos
         );
 
         bool hitB = HitCheck_Capsule_Triangle(
             nextCapStart, nextCapEnd, radius,
-            v[0].pos, v[2].pos, v[3].pos
+            frame[0].pos, frame[2].pos, frame[3].pos
         );
 
         if (!hitA && !hitB)
@@ -72,9 +72,9 @@ bool Capsule::ResolveWallCollision(float radius, float height,int stageFrameTag,
             continue;
         }
 
-        VECTOR normal = v[0].norm;
+        VECTOR normal = frame[0].norm;
 
-        VECTOR p2w = VSub(pos, v[0].pos);
+        VECTOR p2w = VSub(pos, frame[0].pos);
 
         if (VDot(p2w, normal) < 0.0f)
         {

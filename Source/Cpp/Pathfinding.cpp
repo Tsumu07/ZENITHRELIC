@@ -1,4 +1,4 @@
-#include "../Haeder/Pathfinding.h"
+#include "../Header/Pathfinding.h"
 
 //-----------------------------------------------
 // À•W•ÏŠ·

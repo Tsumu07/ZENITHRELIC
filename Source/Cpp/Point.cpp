@@ -1,8 +1,8 @@
 #include "DxLib.h"
-#include "../Haeder/Point.h"
-#include "../Haeder/GameManager.h"
-#include "../Haeder/ObujectManager.h"
-#include "../Haeder/Object.h"
+#include "../Header/Point.h"
+#include "../Header/GameManager.h"
+#include "../Header/ObujectManager.h"
+#include "../Header/Object.h"
 #include <math.h>
 
 //コンストラクタ

@@ -1,10 +1,10 @@
 #include "Dxlib.h"
-#include "../Haeder/Explain.h"
-#include "../Haeder/SceneBase.h"
-#include "../Haeder/SceneManager.h"
-#include "../Haeder/GameManager.h"
-#include "../Haeder/CheckKey.h"
-#include "../Haeder/ObujectManager.h"
+#include "../Header/Explain.h"
+#include "../Header/SceneBase.h"
+#include "../Header/SceneManager.h"
+#include "../Header/GameManager.h"
+#include "../Header/CheckKey.h"
+#include "../Header/ObujectManager.h"
 #include "../Master.h"
 
 //コンストラクタ

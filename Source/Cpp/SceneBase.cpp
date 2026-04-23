@@ -1,5 +1,5 @@
 #include "DxLib.h"
-#include "../Haeder/SceneBase.h"
+#include "../Header/SceneBase.h"
 
 //コンストラクタ
 SceneBase::SceneBase()

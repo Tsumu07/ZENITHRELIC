@@ -1,0 +1,246 @@
+#include "Dxlib.h"
+#include "../Header//SceneManager.h"
+#include "../Header/GameManager.h"
+#include "../Header/Title.h"
+#include "../Header/Config.h"
+#include "../Header/GameClear.h"
+#include "../Header/GameOver.h"
+#include "../Header/Game.h"
+#include "../Header/StageScene.h"
+#include "../Header/Explain.h"
+#include "../Header/LoadingScreen.h"
+#include "../Header/InventoryScene.h"
+#include "../Header/FadeScene.h"
+
+//コンストラクタ
+SceneManager::SceneManager()
+:mpScene(nullptr)
+,mpInventoryScene(nullptr)
+,mpWipeScene(nullptr)
+,m_nextScene(SceneNone)
+,m_currentScene(SceneNone)
+,m_isSceneChanging(false)
+,IsInventorySceneEnd(false)
+,m_waitStartSubScene(false)
+,m_lastGameScreenHandle(-1)
+,m_requestCloseInventory(false)
+{
+}
+
+//デストラクタ
+SceneManager::~SceneManager()
+{
+}
+
+//初期化
+void SceneManager::Initaliza()
+{
+    //初期シーン設定
+    mpScene = new Title();
+    mpScene->Initaliza();
+
+    m_isSceneChanging = false;
+    m_currentScene = TitleScene;
+
+    // フェードイン開始
+    mpWipeScene = new FadeScene();
+    mpWipeScene->Initaliza();
+    mpWipeScene->SetFadeMode(1);
+
+    m_waitStartSubScene = false;
+
+}
+
+//シーン切り替え処理
+void SceneManager::ChangeScene(SceneName Scene)
+{
+
+    if (m_isSceneChanging)
+    {
+        return;
+    }
+
+    m_nextScene = Scene;
+    m_isSceneChanging = true;
+
+    // フェードアウト開始
+    mpWipeScene->SetFadeMode(2);
+}
+
+
+//更新
+void SceneManager::Update()
+{
+
+    // フェード中
+    if (mpWipeScene->GetFadeMode() != 0)
+    {
+        mpWipeScene->Update();
+
+        // FadeOut 完了
+        if (mpWipeScene->GetFadeMode() == 3 && m_isSceneChanging)
+        {
+            // 旧シーン破棄
+            if (mpScene)
+            {
+                mpScene->Finaliza();
+                delete mpScene;
+                mpScene = nullptr;
+            }
+
+            // 次シーン生成
+            switch (m_nextScene)
+            {
+            case TitleScene:
+                mpScene = new Title();
+                break;
+            case StageScene:
+                mpScene = new Stage();
+                break;
+            case ExplainScene:
+                mpScene = new Explain();
+                break;
+            case GameScene:
+                mpScene = new Game();
+                break;
+            case GameOverScene:
+                mpScene = new GameOver();
+                break;
+            case GameClearScene:
+                mpScene = new GameClear();
+                break;
+            default: break;
+            }
+
+            if (mpScene)
+            {
+                mpScene->Initaliza();
+                m_currentScene = m_nextScene;
+            }
+
+            m_waitStartSubScene = true;
+            m_isSceneChanging = false;
+        }
+
+    }
+
+    if (m_waitStartSubScene)
+    {
+        Game* game = dynamic_cast<Game*>(mpScene);
+
+        if (game)
+        {
+            // GameだけStartSubScene待ち
+            if (game->IsStartSubSceneEnd())
+            {
+                mpWipeScene->SetFadeMode(1);
+                m_waitStartSubScene = false;
+            }
+        }
+
+        else
+        {
+            // Game以外は即フェードイン
+            mpWipeScene->SetFadeMode(1);
+            m_waitStartSubScene = false;
+        }
+    }
+
+    // 通常更新
+    if (mpScene)
+    {
+        mpScene->Update();
+    }
+
+}
+
+//描画
+void SceneManager::Draw()
+{
+    ClearDrawScreen();
+
+    if (mpScene)
+    {
+        mpScene->Draw();
+    }
+
+    // フェードは最前面
+    if (mpWipeScene->GetFadeMode() != 0)
+    {
+        mpWipeScene->Draw();
+    }
+
+    ScreenFlip();
+}
+
+void SceneManager::UpdateInventoryScene()
+{
+    if (mpInventoryScene != nullptr)
+    {
+        mpInventoryScene->Update();
+    }    
+
+    if (m_requestCloseInventory)
+    {
+        CloseInventory();
+        m_requestCloseInventory = false;
+    }
+
+}
+
+void SceneManager::DrawInventoryScene()
+{
+    if (mpInventoryScene != nullptr)
+    {
+        mpInventoryScene->Draw();
+    }
+
+}
+
+void SceneManager::DeleteInventoryScene()
+{
+    if (mpInventoryScene != nullptr)
+    {
+        delete mpInventoryScene;
+
+        mpInventoryScene = nullptr;
+    }
+
+}
+
+void SceneManager::OpenInventory()
+{
+    // 既存のメニューがあるなら破棄
+    DeleteInventoryScene();
+
+    // InventoryScene をメニューシーンとして開く
+    mpInventoryScene = new Inventory();
+
+    mpInventoryScene->Initaliza();
+
+}
+
+void SceneManager::CloseInventory()
+{
+    int handle = m_lastGameScreenHandle;
+
+    if (handle != -1)
+    {
+        DeleteGraph(handle);
+        m_lastGameScreenHandle = -1;
+    }
+
+    DeleteInventoryScene();
+    IsInventorySceneEnd = false;
+}
+
+void SceneManager::RequestCloseInventory()
+{
+    m_requestCloseInventory = true;
+}
+
+//終了処理
+void SceneManager::Finaliza()
+{
+   
+}

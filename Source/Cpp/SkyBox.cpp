@@ -1,8 +1,8 @@
-#include "../Haeder/SkyBox.h"
-#include "../Haeder/GameManager.h"
-#include "../Haeder/ResourceManeger.h"
-#include "../Haeder/ObujectManager.h"
-#include "../Haeder/SceneManager.h"
+#include "../Header/SkyBox.h"
+#include "../Header/GameManager.h"
+#include "../Header/ResourceManeger.h"
+#include "../Header/ObujectManager.h"
+#include "../Header/SceneManager.h"
 #include "../Master.h"
 
 SkyBox::SkyBox()

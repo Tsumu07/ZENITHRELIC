@@ -1,10 +1,10 @@
 #include "DxLib.h"
-#include "../Haeder/Player.h"
-#include "../Haeder/Player_UI.h"
-#include "../Haeder/ObujectManager.h"
-#include "../Haeder/ResourceManeger.h"
-#include "../Haeder/ItemBase.h"
-#include "../Haeder/EquippedItems.h"
+#include "../Header/Player.h"
+#include "../Header/Player_UI.h"
+#include "../Header/ObujectManager.h"
+#include "../Header/ResourceManeger.h"
+#include "../Header/ItemBase.h"
+#include "../Header/EquippedItems.h"
 #include "../Master.h"
 
 Player_UI::Player_UI()

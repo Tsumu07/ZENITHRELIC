@@ -1,5 +1,5 @@
 #include "DxLib.h"
-#include "../Haeder/StageFrame.h"
+#include "../Header/StageFrame.h"
 
 //˜g
 StageFrame::StageFrame(VECTOR  position, VECTOR topLeft, VECTOR bottomRigh)

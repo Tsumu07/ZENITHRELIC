@@ -1,7 +1,7 @@
-#include "../Haeder/FSMFactory.h"
-#include "../Haeder/Player_state.h"
-#include "../Haeder/Spider_State.h"
-#include "../Haeder/GameManager.h"
+#include "../Header/FSMFactory.h"
+#include "../Header/Player_state.h"
+#include "../Header/Spider_State.h"
+#include "../Header/GameManager.h"
 
 using namespace std;
 
@@ -9,7 +9,7 @@ FSM* FSMFactory::Create(std::string name, Object* obj)
 {
 	FSM* fsm = nullptr;
 
-	//----プレイヤー----
+	//----プレイヤー----//
 	if (name == "Player")
 	{
 		fsm = new FSM();
@@ -23,7 +23,7 @@ FSM* FSMFactory::Create(std::string name, Object* obj)
 		fsm->SetCurrentState(PLAYER_STATE_IDLE, obj);
 	}
 
-	//----スパイダー----
+	//----スパイダー----//
 	else if (name == "Spider")
 	{			
 		fsm = new FSM();

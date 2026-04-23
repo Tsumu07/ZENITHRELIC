@@ -1,24 +1,24 @@
 #include "DxLib.h"
-#include "../Haeder/GameManager.h"
-#include "../Haeder/ObujectManager.h"
-#include "../Haeder/Player.h"
-#include "../Haeder/Spider.h"
-#include "../Haeder/Camera.h"
-#include "../Haeder/HpItem.h"
-#include "../Haeder/Column.h"
-#include "../Haeder/Wall.h"
-#include "../Haeder/Goal.h"
-#include "../Haeder/StageFrame.h"
-#include "../Haeder/LoadingScreen.h"
-#include "../Haeder/Title.h"
-#include "../Haeder/Point.h"
-#include "../Haeder/Field.h"
-#include "../Haeder/Spider_state.h"
-#include "../Haeder/FSMFactory.h"
-#include "../Haeder/ResourceManeger.h"
-#include "../Haeder/Game.h"
+#include "../Header/GameManager.h"
+#include "../Header/ObujectManager.h"
+#include "../Header/Player.h"
+#include "../Header/Spider.h"
+#include "../Header/Camera.h"
+#include "../Header/HpItem.h"
+#include "../Header/Column.h"
+#include "../Header/Wall.h"
+#include "../Header/Goal.h"
+#include "../Header/StageFrame.h"
+#include "../Header/LoadingScreen.h"
+#include "../Header/Title.h"
+#include "../Header/Point.h"
+#include "../Header/Field.h"
+#include "../Header/Spider_state.h"
+#include "../Header/FSMFactory.h"
+#include "../Header/ResourceManeger.h"
+#include "../Header/Game.h"
 #include "../Master.h"
-#include "../Haeder/Player_UI.h"
+#include "../Header/Player_UI.h"
 #include "EffekseerForDXLib.h"
 
 //コンストラクタ
@@ -86,7 +86,7 @@ void GameManager::Initaliza()
 
     //オブジェクト分用意
     char filenameplayer[64];
-    sprintf_s(filenameplayer, "Player%d.bin", stage);
+    sprintf_s(filenameplayer, "Stage Information/Player%d.bin", stage);
 
     FILE *playerfile;
     fopen_s(&playerfile, filenameplayer, "rb");
@@ -118,7 +118,7 @@ void GameManager::Initaliza()
 
     ////ポイントの情報
     char filenamepoint[64];
-    sprintf_s(filenamepoint, "Point%d.bin", stage);
+    sprintf_s(filenamepoint, "Stage Information/Point%d.bin", stage);
 
     FILE* filepoint;
     fopen_s(&filepoint, filenamepoint, "rb");
@@ -158,7 +158,7 @@ void GameManager::Initaliza()
 
     //柱の情報
     char filenameColumn[64];
-    sprintf_s(filenameColumn, "Column%d.bin", stage);
+    sprintf_s(filenameColumn, "Stage Information/Column%d.bin", stage);
 
     FILE* Columnfile;
     ////読み込み
@@ -198,7 +198,7 @@ void GameManager::Initaliza()
 
     //壁の情報
     char filenamesidewall[64];
-    sprintf_s(filenamesidewall, "Sidewall%d.bin", stage);
+    sprintf_s(filenamesidewall, "Stage Information/Sidewall%d.bin", stage);
 
     FILE* filesidewall;
     fopen_s(&filesidewall, filenamesidewall, "rb");
@@ -242,7 +242,7 @@ void GameManager::Initaliza()
 
     //横
     char filenameverticalwall[64];
-    sprintf_s(filenameverticalwall, "Verticalwall%d.bin", stage);
+    sprintf_s(filenameverticalwall, "Stage Information/Verticalwall%d.bin", stage);
 
     FILE* fileverticalwall;
     fopen_s(&fileverticalwall, filenameverticalwall, "rb");
@@ -285,7 +285,7 @@ void GameManager::Initaliza()
 
     //くもの情報
     char filenameSpider[64];
-    sprintf_s(filenameSpider, "Spider%d.bin", stage);
+    sprintf_s(filenameSpider, "Stage Information/Spider%d.bin", stage);
 
     FILE *fileSpider;
     fopen_s(&fileSpider, filenameSpider, "rb");
@@ -325,7 +325,7 @@ void GameManager::Initaliza()
 
     //ゴールの情報
     char filenamegoal[64];
-    sprintf_s(filenamegoal, "Goal%d.bin", stage);
+    sprintf_s(filenamegoal, "Stage Information/Goal%d.bin", stage);
 
     FILE* goalfile;
 

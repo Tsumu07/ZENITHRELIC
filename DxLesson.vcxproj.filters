@@ -102,9 +102,6 @@
     <ClCompile Include="Source\Cpp\ResourceManeger.cpp">
       <Filter>ソース ファイル\Manager</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Haeder\SceneManager.cpp">
-      <Filter>ソース ファイル\Manager</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Cpp\GameManager.cpp">
       <Filter>ソース ファイル\Manager</Filter>
     </ClCompile>
@@ -153,9 +150,6 @@
     <ClCompile Include="Source\Cpp\Point.cpp">
       <Filter>ソース ファイル\Object\Obstacle</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Haeder\Colliison.cpp">
-      <Filter>ソース ファイル\Hit</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Cpp\HitCapsule.cpp">
       <Filter>ソース ファイル\Hit</Filter>
     </ClCompile>
@@ -176,9 +170,6 @@
     </ClCompile>
     <ClCompile Include="Source\Cpp\ItemDrop.cpp">
       <Filter>ソース ファイル\Object\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Haeder\Game.cpp">
-      <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Source\Cpp\Pathfinding.cpp">
       <Filter>ソース ファイル\Object\Enemy</Filter>
@@ -212,6 +203,15 @@
     </ClCompile>
     <ClCompile Include="Source\Cpp\GoalSubScene.cpp">
       <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\Colliison.cpp">
+      <Filter>ソース ファイル\Hit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\Game.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\SceneManager.cpp">
+      <Filter>ソース ファイル\Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

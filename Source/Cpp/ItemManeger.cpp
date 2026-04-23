@@ -1,9 +1,9 @@
-#include "../Haeder/ItemManeger.h"
-#include "../Haeder/ItemBase.h"
-#include "../Haeder/GameManager.h"
-#include "../Haeder/ObujectManager.h"
-#include "../Haeder/Player.h"
-#include "../Haeder/SceneManager.h"
+#include "../Header/ItemManeger.h"
+#include "../Header/ItemBase.h"
+#include "../Header/GameManager.h"
+#include "../Header/ObujectManager.h"
+#include "../Header/Player.h"
+#include "../Header/SceneManager.h"
 #include "../Master.h"
 
 ItemManeger::ItemManeger()
@@ -14,9 +14,9 @@ ItemManeger::ItemManeger()
 ItemManeger::~ItemManeger()
 {
     // ƒƒ‚ƒŠ‰ğ•ú
-    for (auto i : m_items)
+    for (auto memory : m_items)
     {
-        delete i;
+        delete memory;
     }
 
     m_items.clear();

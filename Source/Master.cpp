@@ -1,11 +1,11 @@
 #include "DxLib.h"
 #include "../Source/Master.h"
-#include "Haeder/GameManager.h"
-#include "Haeder/Camera.h"
-#include "Haeder/SceneManager.h"
-#include "Haeder/ObujectManager.h"
-#include "Haeder/ResourceManeger.h"
-#include "Haeder/ItemManeger.h"
+#include "Header/GameManager.h"
+#include "Header/Camera.h"
+#include "Header/SceneManager.h"
+#include "Header/ObujectManager.h"
+#include "Header/ResourceManeger.h"
+#include "Header/ItemManeger.h"
 
 GameManager* Master::mpGameManager = nullptr;
 Camera* Master::mpCamera = nullptr;

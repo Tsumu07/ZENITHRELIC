@@ -1,4 +1,4 @@
-﻿#include "../Haeder/CheckKey.h"
+﻿#include "../Header/CheckKey.h"
 #include "DxLib.h"
 
 //DXLibに存在しないので自作

@@ -1,7 +1,7 @@
-#include "../Haeder/ObujectManager.h"
-#include "../Haeder/Object.h"
-#include "../Haeder/GameManager.h"
-#include "../Haeder/FSM.h"
+#include "../Header/ObujectManager.h"
+#include "../Header/Object.h"
+#include "../Header/GameManager.h"
+#include "../Header/FSM.h"
 #include "../Master.h"
 #include <cassert>
 
