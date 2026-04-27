@@ -102,7 +102,7 @@ void Camera::Update()
         mfHorizontalAngle -= 360.0f;
     }
 
-    if (mfHorizontalAngle < -180.0f)
+    else if (mfHorizontalAngle < -180.0f)
     {
         mfHorizontalAngle += 360.0f;
     }
@@ -112,7 +112,7 @@ void Camera::Update()
         mfVerticalAngle = 80.0f;
     }
 
-    if (mfVerticalAngle < 5.0f)
+    else if (mfVerticalAngle < 5.0f)
     {
         mfVerticalAngle = 5.0f; // ­‚µ‰ºŒÀ‚ðã‚°‚é
     }

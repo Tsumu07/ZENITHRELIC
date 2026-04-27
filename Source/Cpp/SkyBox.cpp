@@ -21,7 +21,6 @@ rotationAngle(0.0f)
 
 SkyBox::~SkyBox()
 {
-
 }
 
 void SkyBox::Initaliza(void)
