@@ -22,7 +22,7 @@ int CheckDownController(int KeyCode)
 
 	int ControllerState = GetJoypadInputState(DX_INPUT_PAD1);
 	
-	//前回キーが押されておらず、かつ、現在キーが押されていたら「キーを押した瞬間」とする
+	//前回キーが押されておらず、かつ、現在キーが押されていたら「キーを押した瞬間」
 	if (CheckKey::ControlleBuffer[KeyCode / 16] == 0 && ControllerState & KeyCode)
 	{
 		result = 1;
