@@ -1572,8 +1572,8 @@ PS_OUTPUT main(PS_INPUT PSInput) : SV_TARGET0
     outDiffuse = PSOutput.Color0;
         
     //ƒfƒBƒ]ƒ‹ƒu
-    float dissolveValue = g_TextureDissolve.Sample(g_DiffuseMapSampler, PSInput.TexCoords0_1.xy);
-    
+    float dissolveValue = g_TextureDissolve.Sample(g_DiffuseMapSampler, PSInput.TexCoords0_1.xy).r;
+	
     float threshold = dissolveThreshold * (1.0f + dissolveRange) - dissolveRange;
     
     float rate = saturate((dissolveValue - threshold) / dissolveRange);
