@@ -40,7 +40,8 @@ private:
     //---UI---//
     int EditorIcon[6];
     int StageeditorUI[4];
-    int Cursor;
+    float CursorX;
+    float CursorY;
     int IconUIX;
     int IconUIY;
 

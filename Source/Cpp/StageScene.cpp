@@ -51,7 +51,8 @@ Stage::Stage()
 ,SelectBoxUnderY(-1)
 ,EditorIcon()
 ,StageeditorUI()
-,Cursor(-1)
+,CursorX(0.0f)
+,CursorY(0.0f)
 ,IconUIX(-1)
 ,IconUIY(-1)
 ,CursorRight(false)
@@ -193,10 +194,12 @@ void Stage::Initaliza()
     PlaySoundMem(EditerBGM, DX_PLAYTYPE_LOOP);
 
     //カーソル
-    Cursor = 0.0f;
+    CursorX = 0.0f;
+    CursorY = 60.0f;
 
+    //アイコン
     IconUIX = 140.0f;
-    IconUIY = 0.0f;
+    IconUIY = 50.0f;
 
     //右
     MaxRight = 1560.0f;
@@ -293,7 +296,7 @@ void Stage::Initaliza()
 
     MV1SetRotationXYZ(PlayerSetModel, VGet(0.0f, DX_PI_F, 0.0f));
 
-    LoadDivGraph("Assets/stageIcon.png", 6, 6, 1, 142, 150, EditorIcon);
+    LoadDivGraph("Assets/stageIcon.png", 6, 6, 1, 141.3f, 133, EditorIcon);
     LoadDivGraph("Assets/StageeditorUI.png", 4, 2, 2, 355, 117, StageeditorUI);
     saveSlot = 0;
 
@@ -372,12 +375,12 @@ void Stage::Update()
         {
             PlaySoundMem(ButtonMusic, DX_PLAYTYPE_BACK);
 
-            Cursor += 260.0f;
+            CursorX += 260.0f;
 
             //一番右
-            if (Cursor > MaxRight)
+            if (CursorX > MaxRight)
             {
-                Cursor = MaxLeft;
+                CursorX = MaxLeft;
             }
 
         }
@@ -387,53 +390,53 @@ void Stage::Update()
         {
             PlaySoundMem(ButtonMusic, DX_PLAYTYPE_BACK);
 
-            Cursor -= 260.0f;
+            CursorX -= 260.0f;
 
             //一番左
-            if (Cursor < MaxLeft)
+            if (CursorX < MaxLeft)
             {
-                Cursor = MaxRight;
+                CursorX = MaxRight;
             }
         }
 
         //プレイヤー
-        if (Cursor >= 0.0f && Cursor < 260.0f)
+        if (CursorX >= 0.0f && CursorX < 260.0f)
         {
             PlayerSelect = true;
         }
 
         //クモ
-        else if (Cursor >= 260.0f && Cursor < 520.0f)
+        else if (CursorX >= 260.0f && CursorX < 520.0f)
         {
             SpiderSelect = true;
         }
 
         //柱
-        else if (Cursor >= 520.0f && Cursor < 780.0f)
+        else if (CursorX >= 520.0f && CursorX < 780.0f)
         {
             ColumnSelect = true;
         }
 
         //壁
-        else if (Cursor >= 780.0f && Cursor < 1040.0f)
+        else if (CursorX >= 780.0f && CursorX < 1040.0f)
         {
             WallSelect = true;
         }
 
         //ポイント
-        else if (Cursor >= 1040.0f && Cursor < 1300.0f)
+        else if (CursorX >= 1040.0f && CursorX < 1300.0f)
         {
             PointSelect = true;
         }
 
         //ドア
-        else if (Cursor >= 1300.0f && Cursor < 1560.0f)
+        else if (CursorX >= 1300.0f && CursorX < 1560.0f)
         {
             GoalSelect = true;
         }
 
         //保存
-        else if (Cursor >= 1560.0f && Cursor < 1820.0f)
+        else if (CursorX >= 1560.0f && CursorX < 1820.0f)
         {
             KeepSelect = true;
         }
@@ -1221,12 +1224,12 @@ void Stage::Draw()
     
     if (GetJoypadNum())
     {
-        DrawGraph(0.0f, 350.0f, StageGuide_Controller, true);
+        DrawGraph(20.0f, 350.0f, StageGuide_Controller, true);
     }
 
     else
     {
-        DrawGraph(0.0f, 350.0f, StageGuide_Keyboard, true);
+        DrawGraph(20.0f, 350.0f, StageGuide_Keyboard, true);
     }
 
 
@@ -1236,7 +1239,7 @@ void Stage::Draw()
         DrawGraph(IconUIX + i * 260, IconUIY, EditorIcon[i], true);
     }
 
-    DrawGraph(1700.0f, 30.0f, Save_Handle, true);
+    DrawGraph(1700.0f, 70.0f, Save_Handle, true);
 
     //出す場所
     DrawSphere3D(Position, 30.0f, 8, GetColor(255, 0, 0), GetColor(255, 0, 0), true);
@@ -1260,7 +1263,7 @@ void Stage::Draw()
         
     }
 
-    DrawGraph(Cursor, 10.0f, Cursor_Handle, true);
+    DrawGraph(CursorX, CursorY, Cursor_Handle, true);
 
 }
 

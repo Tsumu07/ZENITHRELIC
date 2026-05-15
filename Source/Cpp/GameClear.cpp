@@ -67,7 +67,7 @@ extern Inventory g_inventory;
      /////////サウンドの読み込み/////////
      //BGN
      GameClearBGM = LoadSoundMem("Musics/GameClear.mp3");
- 
+
       //ボタン
      ButtonMusic = LoadSoundMem("Musics/poka01.mp3");
  

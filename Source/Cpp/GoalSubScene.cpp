@@ -26,7 +26,7 @@ void GoalSubScene::Initaliza()
 
 	Goal_Handle = LoadGraph("Assets/Clear.png");
 
-	GoalX = 690;
+	GoalX = 535;
 	GoalY = 100;
 }
 
