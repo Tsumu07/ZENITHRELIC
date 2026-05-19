@@ -44,6 +44,7 @@ Inventory::Inventory()
 ,TotalAmount(-1)
 ,OpenMenu(false)
 ,CursorMusic(-1)
+,m_explainFontHandle(-1)
 {
 }
 
@@ -62,6 +63,9 @@ void Inventory::Initaliza()
 
 	//一瞬の取得
 	InputJoycon = false;
+
+	//フォントの指定
+	m_explainFontHandle = CreateFontToHandle("游明朝", 15, 3, DX_FONTTYPE_ANTIALIASING);
 
 	//---画像の読み込み---//
 	LoadDivGraph("Assets/GameOverUI.png", 6, 2, 3, 320, 108, MenuUI);
@@ -314,14 +318,12 @@ void Inventory::Draw()
 
 		if (GetJoypadNum())
 		{
-			DrawString(150, 150, "Aでメニュー", GetColor(0, 0, 0));
-
+			DrawStringToHandle(150, 150, "Aでメニュー", GetColor(0, 0, 0), m_explainFontHandle);
 		}
 
 		else
 		{
-			DrawString(150, 150, "Fでメニュー", GetColor(0, 0, 0));
-
+			DrawStringToHandle(150, 150, "Fでメニュー", GetColor(0, 0, 0), m_explainFontHandle);
 		}
 
 		Object* player = Master::mpObjectManager->FindByTag(100);
@@ -339,13 +341,14 @@ void Inventory::Draw()
 			{
 				DrawBox(140, y - 5, 550, y + 25, GetColor(50, 50, 255), FALSE);
 
-				DrawString(150, 800, item->GetExplain().c_str(), GetColor(0, 0, 0));
+				DrawStringToHandle(150, 800, item->GetExplain().c_str(), GetColor(0, 0, 0), m_explainFontHandle);
 			}
 
-			DrawString(150, y, item->GetName().c_str(), GetColor(0, 0, 0));
+			DrawStringToHandle(150, y, item->GetName().c_str(), GetColor(0, 0, 0), m_explainFontHandle);
+
 			char price[32];
-			sprintf_s(price, " : %d", item->GetPrice());
-			DrawString(350, y, price, GetColor(0, 0, 0));
+			sprintf_s(price, " ： %d", item->GetPrice());
+			DrawStringToHandle(350, y, price, GetColor(0, 0, 0), m_explainFontHandle);
 
 			EquippedItems* equip = Play->GetEquippedItems();
 
@@ -382,14 +385,16 @@ void Inventory::Draw()
 		}
 
 		char totalamount[32];
-		sprintf_s(totalamount, "合計金額  : %d$", TotalAmount);
-		DrawString(150, 850, totalamount, GetColor(0, 0, 0));
+		sprintf_s(totalamount, "合計金額  ： %d$", TotalAmount);
+
+		DrawStringToHandle(150, 850, totalamount, GetColor(0, 0, 0), m_explainFontHandle);
 	}
 }
 
 void Inventory::Finaliza()
 {
 	DeleteSoundMem(CursorMusic);
+	DeleteFontToHandle(m_explainFontHandle);
 	DeleteGraph(Background);
 	DeleteGraph(MenuBack);
 	DeleteGraph(ItemBack);

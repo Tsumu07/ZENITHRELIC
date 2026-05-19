@@ -54,8 +54,8 @@ void Camera::Initaliza(Player *player)
    SetBackgroundColor(0, 0, 0);
 
     //Zバッファに書き込む準備
-    SetUseZBufferFlag(true);
-    SetWriteZBufferFlag(true);
+    SetUseZBufferFlag(TRUE);
+    SetWriteZBufferFlag(TRUE);
 
     //コントローラー
     Pad = DX_INPUT_KEY_PAD1;

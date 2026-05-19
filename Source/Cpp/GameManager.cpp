@@ -222,12 +222,12 @@ void GameManager::Initaliza()
 
         //‰Šú‰»
         Wall* wall = new Wall(
-            "Assets/sideWall.jpg",
-            "Assets/newWall.jpg",
+            "Assets/Side.jpg",
+            "Assets/Wall.jpg",
             VGet(sidewall.x, 0.0f, sidewall.z),
             sidewall.sizeX, sidewall.sizeY, sidewall.sizeZ,
-            "Assets/Side.png",
-            "Assets/NormalMap.png"
+            "Assets/NomalMap_Side.png",
+            "Assets/NormalMap_Wall.png"
         );
 
         wall->SetRadius(140.0f);
@@ -266,12 +266,12 @@ void GameManager::Initaliza()
 
         //‰Šú‰»
         Wall* wall2 = new Wall(
-            "Assets/newWall.jpg",
-            "Assets/sideWall.jpg",
+            "Assets/Wall.jpg",
+            "Assets/Side.jpg",
             VGet(verticalwall.x, 0.0, verticalwall.z),
             verticalwall.sizeX, verticalwall.sizeY, verticalwall.sizeZ,
-            "Assets/NormalMap.png",
-            "Assets/Side.png"
+            "Assets/NormalMap_Wall.png",
+            "Assets/NomalMap_Side.png"
             );
 
         wall2->SetRadius(140.0f);

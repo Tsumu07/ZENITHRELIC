@@ -61,6 +61,8 @@ private:
     //---BGM---/
     int CursorMusic;
 
+    int m_explainFontHandle;
+
 public:
     Inventory();   //コンストラクタ
     ~Inventory();  //デストラクタ

@@ -20,7 +20,7 @@ Field::~Field()
 void Field::Initaliza()
 {
 
-	floorhandle = LoadGraph("Assets/floor_No2.png");
+	floorhandle = LoadGraph("Assets/Floor.png");
 
     SetTextureAddressModeUV(DX_TEXADDRESS_WRAP, DX_TEXADDRESS_WRAP);
 

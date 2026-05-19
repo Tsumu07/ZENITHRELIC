@@ -23,13 +23,12 @@ void HpItem::UseItem(Player* player)
         return;
     }
 
-
+    //使用後の処理
     EffectPos = player->GetPos();
 
     player->AddHp(50);
     
     //エフェクト
-   
     Master::mpObjectManager->AddEffect("Effect/HP.efkefc", "HP", EffectPos, VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
 
     Master::mpObjectManager->UpdateEffect("HP", EffectPos, VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));

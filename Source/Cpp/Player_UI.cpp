@@ -11,6 +11,7 @@ Player_UI::Player_UI()
 :LoadShader(-1)
 ,Frame(0)
 ,Slot_Handle(-1)
+,HPbar_Handle(-1)
 ,PlayerHp(0.0f)
 ,PlayerMaxHp(0.0f)
 ,PlayerHpOld(0.0f)
@@ -36,28 +37,28 @@ void Player_UI::Initaliza()
 	Frame = 0;
 
 	// 左上
-	m_vertices[0].pos = VGet(20.0f, 20.0f, 0.0f);
+	m_vertices[0].pos = VGet(35.0f, 33.0f, 0.0f);
 	m_vertices[0].u = 0.0f;
 	m_vertices[0].v = 0.0f;
 	m_vertices[0].dif = GetColorU8(255, 255, 255, 255);
 	m_vertices[0].rhw = 1.0f;
 
 	// 右上
-	m_vertices[1].pos = VGet(590.0f, 20.0f, 0.0f);
+	m_vertices[1].pos = VGet(590.0f, 33.0f, 0.0f);
 	m_vertices[1].u = 1.0f;
 	m_vertices[1].v = 0.0f;
 	m_vertices[1].dif = GetColorU8(255, 255, 255, 255);
 	m_vertices[1].rhw = 1.0f;
 
 	// 左下
-	m_vertices[2].pos = VGet(20.0f, 50.0f, 0.0f);
+	m_vertices[2].pos = VGet(35.0f, 80.0f, 0.0f);
 	m_vertices[2].u = 0.0f;
 	m_vertices[2].v = 1.0f;
 	m_vertices[2].dif = GetColorU8(255, 255, 255, 255);
 	m_vertices[2].rhw = 1.0f;
 
 	// 右下
-	m_vertices[3].pos = VGet(590.0f, 50.0f, 0.0f);
+	m_vertices[3].pos = VGet(590.0f, 80.0f, 0.0f);
 	m_vertices[3].u = 1.0f;
 	m_vertices[3].v = 1.0f;
 	m_vertices[3].dif = GetColorU8(255, 255, 255, 255);
@@ -70,11 +71,13 @@ void Player_UI::Initaliza()
 	m_indices[4] = 3;
 	m_indices[5] = 2;
 
-	//HPゲージ用シェーダー読み込み
+	//HPbar用シェーダー読み込み
 	LoadShader = LoadPixelShader("cso/gaugePS.cso");
 
 	Slot_Handle = LoadGraph("Assets/Slot.png");
 
+	//HPbar画像読み込み
+	HPbar_Handle = LoadGraph("Assets/HPbar.png");
 }
 
 void Player_UI::Update()
@@ -133,6 +136,7 @@ void Player_UI::Draw()
 
 	SetUsePixelShader(-1);
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+	SetUseZBufferFlag(TRUE); //Zバッファ有効
 
 	DrawGraph(1400, 840, Slot_Handle, true);
 	DrawGraph(1600, 840, Slot_Handle, true);
@@ -148,13 +152,12 @@ void Player_UI::Draw()
 		DrawGraph(1530, 890, item0->GetIcon(), true);
 	}
 
-	if (item1)
+	else if (item1)
 	{
 		DrawGraph(1730, 890, item1->GetIcon(), true);
 	}
 
-
-	SetUseZBufferFlag(TRUE); //Zバッファ有効
+	DrawGraph(20.0f, 15.0f, HPbar_Handle, true);
 
 }
 

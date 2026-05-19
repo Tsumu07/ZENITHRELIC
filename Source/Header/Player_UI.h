@@ -8,6 +8,7 @@ private:
     int LoadShader;
     int Frame;
     int Slot_Handle;
+    int HPbar_Handle;
 
     float PlayerHp;
     float PlayerMaxHp;

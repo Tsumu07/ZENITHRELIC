@@ -220,8 +220,8 @@ void Stage::Initaliza()
     // カメラのクリッピング距離を設定
     SetCameraNearFar(1.0f, 3500.0f);
 
-    SetUseZBufferFlag(true);
-    SetWriteZBufferFlag(true);
+    SetUseZBufferFlag(TRUE);
+    SetWriteZBufferFlag(TRUE);
 
     //選んだか
      PlayerSelect = false;
@@ -553,14 +553,14 @@ void Stage::Update()
 
                     //上下
                     Wall* wall2 = new Wall(
-                        "Assets/newWall.jpg",
-                        "Assets/sideWall.jpg",
+                        "Assets/Wall.jpg",
+                        "Assets/Side.jpg",
                         Wall2Position,
                         250.0f,   // 半X（横幅）
                         150.0f,   // 半Y（高さ）
                         30.0f,     // 半Z（厚み)
-                        "Assets/Side.png",
-                        "Assets/NormalMap.png"
+                        "Assets/NomalMap_Side.png",
+                        "Assets/NormalMap_Wall.png"
                     );
 
                     wall2->SetTag(2500);
@@ -579,14 +579,14 @@ void Stage::Update()
 
                     //左右
                     Wall* wall1 = new Wall(
-                        "Assets/sideWall.jpg",
-                        "Assets/newWall.jpg",
+                        "Assets/Side.jpg",
+                        "Assets/Wall.jpg",
                         Wall1Position,
                         30.0f,    // 半サイズ X（厚み）
                         150.0f,   // 半サイズ Y（高さ）
                         250.0f,    // 半サイズ Z（奥行き）
-                        "Assets/Side.png",
-                        "Assets/NormalMap.png"
+                        "Assets/NomalMap_Side.png",
+                        "Assets/NormalMap_Wall.png"
                     );
 
                     wall1->SetTag(1500);

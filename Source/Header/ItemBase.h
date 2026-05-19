@@ -35,6 +35,6 @@ public:
     // 半径（拾う時の当たり判定）
     virtual float GetPickupRadius() const;
 
-        //アイテムの値段
+    //アイテムの値段
     int GetPrice() const;
 };
