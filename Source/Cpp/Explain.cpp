@@ -64,7 +64,7 @@ void Explain::Initaliza()
     //BGMçƒê∂
     PlaySoundMem(ExplainBGM, DX_PLAYTYPE_LOOP);
 
-    LoadDivGraph("Assets/Explain_Title.png", 6, 2, 3, 181, 67, ExplainUI);
+    LoadDivGraph("Assets/Explain_Title.png", 6, 2, 3, 173, 61, ExplainUI);
         
     Controller_Handle = LoadGraph("Assets/Explain_Controller.png");
 

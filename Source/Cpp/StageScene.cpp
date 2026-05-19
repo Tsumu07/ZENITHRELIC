@@ -560,7 +560,7 @@ void Stage::Update()
                         150.0f,   // 半Y（高さ）
                         30.0f,     // 半Z（厚み)
                         "Assets/Side.png",
-                        "Assets/NormalMap_No3.png"
+                        "Assets/NormalMap.png"
                     );
 
                     wall2->SetTag(2500);
@@ -586,7 +586,7 @@ void Stage::Update()
                         150.0f,   // 半サイズ Y（高さ）
                         250.0f,    // 半サイズ Z（奥行き）
                         "Assets/Side.png",
-                        "Assets/NormalMap_No3.png"
+                        "Assets/NormalMap.png"
                     );
 
                     wall1->SetTag(1500);

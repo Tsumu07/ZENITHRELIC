@@ -227,7 +227,7 @@ void GameManager::Initaliza()
             VGet(sidewall.x, 0.0f, sidewall.z),
             sidewall.sizeX, sidewall.sizeY, sidewall.sizeZ,
             "Assets/Side.png",
-            "Assets/NormalMap_No3.png"
+            "Assets/NormalMap.png"
         );
 
         wall->SetRadius(140.0f);
@@ -270,7 +270,7 @@ void GameManager::Initaliza()
             "Assets/sideWall.jpg",
             VGet(verticalwall.x, 0.0, verticalwall.z),
             verticalwall.sizeX, verticalwall.sizeY, verticalwall.sizeZ,
-            "Assets/NormalMap_No3.png",
+            "Assets/NormalMap.png",
             "Assets/Side.png"
             );
 
