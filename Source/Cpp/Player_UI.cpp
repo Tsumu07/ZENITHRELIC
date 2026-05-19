@@ -164,5 +164,5 @@ void Player_UI::Draw()
 void Player_UI::Finaliza()
 {
 	DeleteShader(LoadShader);
-
+	DeleteGraph(HPbar_Handle);
 }
