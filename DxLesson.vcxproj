@@ -160,6 +160,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Cpp\AttackItem.cpp" />
     <ClCompile Include="Source\Cpp\Camera.cpp" />
     <ClCompile Include="Source\Cpp\CheckKey.cpp" />
     <ClCompile Include="Source\Cpp\Colliison.cpp" />
@@ -207,6 +208,7 @@
     <ClCompile Include="Source\Master.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Header\AttackItem.h" />
     <ClInclude Include="Source\Header\Camera.h" />
     <ClInclude Include="Source\Header\CheckKey.h" />
     <ClInclude Include="Source\Header\Colliison.h" />

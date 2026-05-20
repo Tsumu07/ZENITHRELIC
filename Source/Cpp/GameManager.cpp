@@ -4,7 +4,6 @@
 #include "../Header/Player.h"
 #include "../Header/Spider.h"
 #include "../Header/Camera.h"
-#include "../Header/HpItem.h"
 #include "../Header/Column.h"
 #include "../Header/Wall.h"
 #include "../Header/Goal.h"

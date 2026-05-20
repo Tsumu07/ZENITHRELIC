@@ -213,6 +213,9 @@
     <ClCompile Include="Source\Cpp\SceneManager.cpp">
       <Filter>ソース ファイル\Manager</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Cpp\AttackItem.cpp">
+      <Filter>ソース ファイル\Object\Item</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Master.h">
@@ -349,6 +352,9 @@
     </ClInclude>
     <ClInclude Include="Source\Header\Title.h">
       <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\AttackItem.h">
+      <Filter>ヘッダー ファイル\Object\Item</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
