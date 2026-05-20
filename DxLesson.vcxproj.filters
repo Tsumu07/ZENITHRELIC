@@ -215,139 +215,139 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Haeder\FSM.h">
-      <Filter>ヘッダー ファイル\FSM</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\FSMFactory.h">
-      <Filter>ヘッダー ファイル\FSM</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\CheckKey.h">
-      <Filter>ヘッダー ファイル\Controller</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\GameManager.h">
-      <Filter>ヘッダー ファイル\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\ObujectManager.h">
-      <Filter>ヘッダー ファイル\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\ResourceManeger.h">
-      <Filter>ヘッダー ファイル\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\SceneManager.h">
-      <Filter>ヘッダー ファイル\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\Colliison.h">
-      <Filter>ヘッダー ファイル\Hit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\HitCapsule.h">
-      <Filter>ヘッダー ファイル\Hit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\Config.h">
-      <Filter>ヘッダー ファイル\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\Explain.h">
-      <Filter>ヘッダー ファイル\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\GameClear.h">
-      <Filter>ヘッダー ファイル\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\GameOver.h">
-      <Filter>ヘッダー ファイル\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\SceneBase.h">
-      <Filter>ヘッダー ファイル\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\StageScene.h">
-      <Filter>ヘッダー ファイル\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\Title.h">
-      <Filter>ヘッダー ファイル\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\Spider.h">
-      <Filter>ヘッダー ファイル\Object\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\HpItem.h">
-      <Filter>ヘッダー ファイル\Object\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\Goal.h">
-      <Filter>ヘッダー ファイル\Object\Goal</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\Point.h">
-      <Filter>ヘッダー ファイル\Object\Obstacle</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\StageFrame.h">
-      <Filter>ヘッダー ファイル\Object\Obstacle</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\Wall.h">
-      <Filter>ヘッダー ファイル\Object\Obstacle</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\Player.h">
-      <Filter>ヘッダー ファイル\Object\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\Player_state.h">
-      <Filter>ヘッダー ファイル\Object\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\Camera.h">
-      <Filter>ヘッダー ファイル\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\IState.h">
-      <Filter>ヘッダー ファイル\FSM</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\Pathfinding.h">
-      <Filter>ヘッダー ファイル\Object\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\Object.h">
-      <Filter>ヘッダー ファイル\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\ItemBase.h">
-      <Filter>ヘッダー ファイル\Object\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\ItemManeger.h">
-      <Filter>ヘッダー ファイル\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\EquippedItems.h">
-      <Filter>ヘッダー ファイル\Object\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\InventoryScene.h">
-      <Filter>ヘッダー ファイル\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\ItemDrop.h">
-      <Filter>ヘッダー ファイル\Object\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\Game.h">
-      <Filter>ヘッダー ファイル\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\Field.h">
-      <Filter>ヘッダー ファイル\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\SkyBox.h">
-      <Filter>ヘッダー ファイル\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Haeder\SettingExplain.h">
-      <Filter>ヘッダー ファイル\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Master.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Haeder\FadeScene.h">
-      <Filter>ヘッダー ファイル\Scene</Filter>
+    <ClInclude Include="Source\Header\CheckKey.h">
+      <Filter>ヘッダー ファイル\Controller</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Haeder\Player_UI.h">
-      <Filter>ヘッダー ファイル\Object\Player</Filter>
+    <ClInclude Include="Source\Header\FSM.h">
+      <Filter>ヘッダー ファイル\FSM</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Haeder\Column.h">
-      <Filter>ヘッダー ファイル\Object\Obstacle</Filter>
+    <ClInclude Include="Source\Header\FSMFactory.h">
+      <Filter>ヘッダー ファイル\FSM</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Haeder\Spider_State.h">
+    <ClInclude Include="Source\Header\IState.h">
+      <Filter>ヘッダー ファイル\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\Colliison.h">
+      <Filter>ヘッダー ファイル\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\HitCapsule.h">
+      <Filter>ヘッダー ファイル\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\GameManager.h">
+      <Filter>ヘッダー ファイル\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\ItemManeger.h">
+      <Filter>ヘッダー ファイル\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\ObujectManager.h">
+      <Filter>ヘッダー ファイル\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\ResourceManeger.h">
+      <Filter>ヘッダー ファイル\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\SceneManager.h">
+      <Filter>ヘッダー ファイル\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\Pathfinding.h">
       <Filter>ヘッダー ファイル\Object\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Haeder\SubScene.h">
+    <ClInclude Include="Source\Header\Spider.h">
+      <Filter>ヘッダー ファイル\Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\Spider_State.h">
+      <Filter>ヘッダー ファイル\Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\Goal.h">
+      <Filter>ヘッダー ファイル\Object\Goal</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\EquippedItems.h">
+      <Filter>ヘッダー ファイル\Object\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\HpItem.h">
+      <Filter>ヘッダー ファイル\Object\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\ItemBase.h">
+      <Filter>ヘッダー ファイル\Object\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\ItemDrop.h">
+      <Filter>ヘッダー ファイル\Object\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\Column.h">
+      <Filter>ヘッダー ファイル\Object\Obstacle</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\Point.h">
+      <Filter>ヘッダー ファイル\Object\Obstacle</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\StageFrame.h">
+      <Filter>ヘッダー ファイル\Object\Obstacle</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\Wall.h">
+      <Filter>ヘッダー ファイル\Object\Obstacle</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\Player.h">
+      <Filter>ヘッダー ファイル\Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\Player_state.h">
+      <Filter>ヘッダー ファイル\Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\Player_UI.h">
+      <Filter>ヘッダー ファイル\Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\Camera.h">
+      <Filter>ヘッダー ファイル\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\Field.h">
+      <Filter>ヘッダー ファイル\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\Object.h">
+      <Filter>ヘッダー ファイル\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\SkyBox.h">
+      <Filter>ヘッダー ファイル\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\Config.h">
       <Filter>ヘッダー ファイル\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Haeder\StartSubScene.h">
+    <ClInclude Include="Source\Header\Explain.h">
       <Filter>ヘッダー ファイル\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Haeder\GoalSubScene.h">
+    <ClInclude Include="Source\Header\FadeScene.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\Game.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\GameClear.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\GameOver.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\GoalSubScene.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\InventoryScene.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\SceneBase.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\SettingExplain.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\StageScene.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\StartSubScene.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\SubScene.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\Title.h">
       <Filter>ヘッダー ファイル\Scene</Filter>
     </ClInclude>
   </ItemGroup>
