@@ -171,7 +171,7 @@ void Stage::Initaliza()
     EditerBGM = LoadSoundMem("Musics/Title.mp3");
 
     //ボタン
-    ButtonMusic = LoadSoundMem("Musics/poka01.mp3");
+    ButtonMusic = LoadSoundMem("Musics/Button.mp3");
 
     //置いた音
     SetSE = LoadSoundMem("Musics/Set.mp3");

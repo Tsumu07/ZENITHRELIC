@@ -13,6 +13,8 @@ public:
 	ItemManeger();
 	~ItemManeger();
 
+    void Update(ItemBase* item);
+
     void AddItem(ItemBase* item);    // アイテムを追加
     int GetItemCount() const;        // 所持数取得
     ItemBase* GetItem(int index);    // アイテム取得

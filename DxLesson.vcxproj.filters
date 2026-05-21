@@ -216,6 +216,9 @@
     <ClCompile Include="Source\Cpp\AttackItem.cpp">
       <Filter>ソース ファイル\Object\Item</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Cpp\SpeedItem.cpp">
+      <Filter>ソース ファイル\Object\Item</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Master.h">
@@ -354,6 +357,9 @@
       <Filter>ヘッダー ファイル\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Source\Header\AttackItem.h">
+      <Filter>ヘッダー ファイル\Object\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\SpeedItem.h">
       <Filter>ヘッダー ファイル\Object\Item</Filter>
     </ClInclude>
   </ItemGroup>

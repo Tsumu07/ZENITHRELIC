@@ -10,6 +10,9 @@ private:
 
     int modelHandle;
 
+    //SE
+    int PickupSE;
+
 public:
     // コンストラクタは itemData の所有権を受け取る（nullptr を許す）
     ItemDrop(ItemBase* data);

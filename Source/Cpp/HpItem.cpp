@@ -10,7 +10,7 @@ HpItem::HpItem()
 {
     
     m_price = 150;
-    m_iconHandle = LoadGraph("Assets/Hp_Icon.png");
+    m_iconHandle = LoadGraph("Assets/HpItem.png");
     m_modelHandle = MV1LoadModel("Resource/bottle_green.x");
     MV1SetScale(m_modelHandle, VGet(30.0f, 30.0f, 30.0f));
 
@@ -35,7 +35,7 @@ void HpItem::UseItem(Player* player)
 
     if (Master::mpObjectManager->GetSoundByTag("HealSE") == -1)
     {
-        Master::mpObjectManager->AddSound("Musics/Heal.mp3", "HealSE", DX_PLAYTYPE_BACK);
+        Master::mpObjectManager->AddSound("Musics/HealSE.mp3", "HealSE", DX_PLAYTYPE_BACK);
     }
 
 }

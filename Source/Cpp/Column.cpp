@@ -4,6 +4,8 @@
 #include "../Header/ObujectManager.h"
 #include "../Header/Object.h"
 #include "../Header/HpItem.h"
+#include "../Header/AttackItem.h"
+#include "../Header/SpeedItem.h"
 #include "../Header/ItemDrop.h"
 #include "../Header/ItemBase.h"
 #include "../Master.h"
@@ -41,6 +43,7 @@ void Column::Initaliza()
 
     ColumnRotationY = 0.0f;
 
+    //SE
     ColumnSE = LoadSoundMem("Musics/Collapse.mp3");
 }
 
@@ -101,7 +104,7 @@ void Column::Update()
             DeleteColumnCount = 0.0f;
 
             // --- アイテム生成 --- //
-            ItemRandom = GetRand(0); // 0,1,2のランダム
+            ItemRandom = GetRand(2);
             ItemBase* itemData = nullptr;
 
             switch (ItemRandom)
@@ -111,12 +114,15 @@ void Column::Update()
                 itemData = new HpItem();
                 break;
             }
-
             case 1:
             {
-                // アイテム追加
+                itemData = new AttackItem();
                 break;
             }
+            case 2:
+                itemData = new SpeedItem();
+                break;
+
             default:
                 break;
             }

@@ -1,1534 +1,3472 @@
 ﻿0:ChangeWindowMode実行 
 0:ウインドウモードフラグが立てられました
-4:ＤＸライブラリの初期化処理開始
-5:	システムの情報を出力します
-5:		ＤＸライブラリ Ver3.24b
-5:		論理プロセッサの数 : 20
-6:		ＯＳ  Windows11 ( Build 26200  )
-106:		現時点のＣＰＵ動作速度：大体3.59GHz
-106:		ＭＭＸ命令を使用します
-106:		ＳＳＥ命令が使用可能です
-107:		ＳＳＥ２命令が使用可能です
-107:		ＣＰＵベンダ：GenuineIntel
-109:		ＣＰＵ名：12th Gen Intel(R) Core(TM) i7-12700KF
-109:	ＣＯＭの初期化... 成功
-189:	非同期読み込み処理の初期化...成功
-190:	ファイルアクセス処理の初期化...成功
-191:	メモリ総量:32560.35MB  空きメモリ領域:10860.54MB 
-191:	タイマーの精度を検査します
-191:	精度結果 更新回数 マルチメディアタイマー：0  パフォーマンスカウンター：60
-192:	 パフォーマンスカウンターを使用します タイマー精度 : 10000.000000 KHz 
-192:	 
-193:	ソフトの二重起動検査... 二重起動はされていませんでした
-193:	ウインドウクラスを登録します... 登録に成功しました
-194:	ウインドウモード起動用のウインドウを作成します
-194:	ディスプレイ情報のセットアップ開始
-195:		モニターの数：1  ディスプレイデバイスの数：4
-196:		No.0  モニター名：\\.\DISPLAY1　1920x1080　32bit　60Hz  96x96dpi
-203:	ディスプレイ情報のセットアップ完了
-203:	ウインドウ矩形 ( -16, -50 )-( 1920, 1069 )
-207:	ウインドウの作成に成功しました
-207:	ウインドウを表示します
-247:	ＩＭＥを無効にしました
-251:	ウインドウスタイルをウインドウモード用に変更します... 完了
-297:	XInput DLL の読み込み中... 成功
-300:	DirectInput関係初期化処理
-300:		DirectInput8 の取得を試みます...成功
-381:			引き続き初期化処理... 初期化成功
-383:		ジョイパッドの初期化... 
-384:			XInput 対応コントローラーのチェックを開始します
-384:				XInput 対応コントローラー No.0 をチェック
-384:				XInput 対応コントローラー No.0 の接続は確認できませんでした
-384:				XInput 対応コントローラー No.1 をチェック
-385:				XInput 対応コントローラー No.1 の接続は確認できませんでした
-385:				XInput 対応コントローラー No.2 をチェック
-385:				XInput 対応コントローラー No.2 の接続は確認できませんでした
-386:				XInput 対応コントローラー No.3 をチェック
-386:				XInput 対応コントローラー No.3 の接続は確認できませんでした
-387:			XInput 対応コントローラーのチェック完了
-387:			DirectInput 対応ジョイパッドの列挙を開始します
-427:			DirectInput 対応ジョイパッドの列挙終了
-428:		ジョイパッドの初期化は正常に終了しました
-428:		マウスデバイスの初期化... 初期化成功
-428:		キーボードデバイスの初期化... 初期化成功
-432:	DirectInput 関連の初期化は正常に終了しました
-434:	WASAPI の初期化を行います
-511:		デバイス名 : Realtek Digital Output (Realtek(R) Audio)
-654:		デフォルト遅延時間 : 10.000 ms
-655:		最小遅延時間       : 3.000 ms
-655:		遅延時間           : 10.000 ms
-697:		チャンネル数  　   : 8 ch
-697:		量子化ビット深度   : 32 bit
-698:		有効ビット深度　   : 32 bit
-699:		サンプリングレート : 48000 Hz
-699:		データ形式         : 浮動小数点型
-772:		動作モード         : 共有モード
-772:	WASAPI の初期化は正常に終了しました
-777:	d3d11.dll の読み込み.... 成功
-857:	dxgi.dll の読み込み.... 成功
-858:	API CreateDXGIFactory2 のアドレスを取得します.... 成功
-858:	IDXGIFactory2 を作成します.... 成功
-871:	API CreateDXGIFactory6 のアドレスを取得します.... 成功
-872:	IDXGIAdapter を列挙
-872:		Adapter No.0 Desc:NVIDIA GeForce RTX 3070  VRAM:8018MB
-872:			Output Device No.0 Name:\\.\DISPLAY1 ( 0, 0 )-( 1920, 1080 )
-873:		Adapter No.1 Desc:Microsoft Basic Render Driver  VRAM:0MB
-873:	API D3D11CreateDevice のアドレスを取得します.... 成功
-874:	IDXGIAdapter を取得します.... 成功
-874:	IDXGIAdapter1 を取得します.... 成功
-875:	IDXGIAdapter2 を取得します.... 成功
-875:	IDXGIAdapter3 を取得します.... 成功
-875:	IDXGIAdapter4 を取得します.... 成功
-876:	Direct3D 11 FeatureLevel 11_0 以上を対象とします
-876:	ID3D11Device オブジェクトを取得します.... 成功
-1043:	IDXGIDevice1 を取得します.... 成功
-1044:	IDXGIDevice1->SetMaximunFrameLatency( 1 ); を実行しました
-1044:	[ウインドウモード 1920x1080 ( 0, 0 )-( 1920, 1080 )]
-1045:	IDXGISwapChain2 を作成します.... 成功
-1046:	IDXGIFactory2->CreateSwapChainForHwnd の戻り値：0x00000000
-1046:	IDXGIOutput を取得します.... 成功
-1047:	Graphics Device:NVIDIA GeForce RTX 3070
-1047:	画面のフォーマットは DXGI_FORMAT_R8G8B8A8_UNORM です
-1047:	16bit Zバッファフォーマットは DXGI_FORMAT_D16_UNORM です
-1047:	24bit Zバッファフォーマットは DXGI_FORMAT_D24_UNORM_S8_UINT です
-1047:	32bit Zバッファフォーマットは DXGI_FORMAT_D32_FLOAT です
-1048:	16bit カラーフォーマットは DXGI_FORMAT_B5G6R5_UNORM です
-1048:	32bit カラーフォーマットは DXGI_FORMAT_B8G8R8X8_UNORM です
-1048:	アルファ付き 16bit カラーフォーマットは DXGI_FORMAT_B4G4R4A4_UNORM です
-1048:	アルファ付き 32bit カラーフォーマットは DXGI_FORMAT_R8G8B8A8_UNORM です
-1048:	アルファテスト用 16bit カラーフォーマットは DXGI_FORMAT_B5G5R5A1_UNORM です
-1049:	アルファテスト用 32bit カラーフォーマットは DXGI_FORMAT_R8G8B8A8_UNORM です
-1049:	ＤＸＴ１テクスチャフォーマットは DXGI_FORMAT_BC1_UNORM です
-1049:	ＤＸＴ２テクスチャフォーマットは使えません
-1049:	ＤＸＴ３テクスチャフォーマットは DXGI_FORMAT_BC2_UNORM です
-1049:	ＤＸＴ４テクスチャフォーマットは使えません
-1049:	ＤＸＴ５テクスチャフォーマットは DXGI_FORMAT_BC3_UNORM です
-1051:	BC7_UNORM テクスチャフォーマットは DXGI_FORMAT_BC7_UNORM です
-1051:	BC7_UNORM_SRGB テクスチャフォーマットは DXGI_FORMAT_BC7_UNORM_SRGB です
-1051:	ABGR 整数 16 ビット型カラーフォーマットは DXGI_FORMAT_R16G16B16A16_UNORM です
-1051:	ABGR 浮動小数点 16 ビット型カラーフォーマットは DXGI_FORMAT_R16G16B16A16_FLOAT です
-1051:	ABGR 浮動小数点 32 ビット型カラーフォーマットは DXGI_FORMAT_R32G32B32A32_FLOAT です
-1052:	１チャンネル整数 8 ビット型カラーフォーマットは DXGI_FORMAT_R8_UNORM です
-1052:	１チャンネル整数 16 ビット型カラーフォーマットは DXGI_FORMAT_R16_UNORM です
-1052:	１チャンネル浮動小数点 16 ビット型カラーフォーマットは DXGI_FORMAT_R16_FLOAT です
-1052:	１チャンネル浮動小数点 32 ビット型カラーフォーマットは DXGI_FORMAT_R32_FLOAT です
-1053:	２チャンネル整数 8 ビット型カラーフォーマットは DXGI_FORMAT_R8G8_UNORM です
-1053:	２チャンネル整数 16 ビット型カラーフォーマットは DXGI_FORMAT_R16G16_UNORM です
-1053:	２チャンネル浮動小数点 16 ビット型カラーフォーマットは DXGI_FORMAT_R16G16_FLOAT です
-1053:	２チャンネル浮動小数点 32 ビット型カラーフォーマットは DXGI_FORMAT_R32G32_FLOAT です
-1054:	描画用 16bit カラーフォーマットは DXGI_FORMAT_B5G6R5_UNORM です
-1054:	描画用 32bit カラーフォーマットは DXGI_FORMAT_B8G8R8X8_UNORM です
-1055:	描画用アルファ付き 32bit カラーフォーマットは DXGI_FORMAT_R8G8B8A8_UNORM です
-1055:	描画用 ABGR 整数 16 ビット型カラーフォーマットは DXGI_FORMAT_R16G16B16A16_UNORM です
-1055:	描画用 ABGR 浮動小数点 16 ビット型カラーフォーマットは DXGI_FORMAT_R16G16B16A16_FLOAT です
-1055:	描画用 ABGR 浮動小数点 32 ビット型カラーフォーマットは DXGI_FORMAT_R32G32B32A32_FLOAT です
-1056:	描画用１チャンネル整数 8 ビット型カラーフォーマットは DXGI_FORMAT_R8_UNORM です
-1056:	描画用１チャンネル整数 16 ビット型カラーフォーマットは DXGI_FORMAT_R16_UNORM です
-1056:	描画用１チャンネル浮動小数点 16 ビット型カラーフォーマットは DXGI_FORMAT_R16_FLOAT です
-1056:	描画用１チャンネル浮動小数点 32 ビット型カラーフォーマットは DXGI_FORMAT_R32_FLOAT です
-1057:	描画用２チャンネル整数 8 ビット型カラーフォーマットは DXGI_FORMAT_R8G8_UNORM です
-1057:	描画用２チャンネル整数 16 ビット型カラーフォーマットは DXGI_FORMAT_R16G16_UNORM です
-1057:	描画用２チャンネル浮動小数点 16 ビット型カラーフォーマットは DXGI_FORMAT_R16G16_FLOAT です
-1057:	描画用２チャンネル浮動小数点 32 ビット型カラーフォーマットは DXGI_FORMAT_R32G32_FLOAT です
-1058:	使用する機能レベル:D3D_FEATURE_LEVEL_11_1
-1058:	同時にレンダリングできるバッファの数:8
-1058:	最大テクスチャサイズ　幅:16384 高さ:16384
-1058:	標準描画用の頂点バッファの作成.... 成功
-1059:	シェーダーコード関係の初期化.... 成功
-1070:	各種シェーダー用定数バッファの作成.... 成功
-1071:	各種 ID3D11InputLayout の作成.... 成功
-1082:	画像の単純転送処理の初期化... 成功
-1083:	深度バッファを作成します.... 成功
-1085:	フォントの初期化を行います
-1088:	フォントの初期化は正常に終了しました
-1171:	文字コードバッファの初期化を行います... 完了しました
-1188:ＤＸライブラリの初期化処理終了
-7218:File Open Error : C:\Users\student3\Desktop\ZENITH_RELIC\Musics\Heal.mp3
-7218:Sound File Load Error : C:\Users\student3\Desktop\ZENITH_RELIC\Musics\Heal.mp3
-13852:ID3D11BlendState の作成に失敗しました　箇所３
+0:ＤＸライブラリの初期化処理開始
+0:	システムの情報を出力します
+0:		ＤＸライブラリ Ver3.24b
+0:		論理プロセッサの数 : 20
+0:		ＯＳ  Windows11 ( Build 26200  )
+105:		現時点のＣＰＵ動作速度：大体3.63GHz
+105:		ＭＭＸ命令を使用します
+105:		ＳＳＥ命令が使用可能です
+105:		ＳＳＥ２命令が使用可能です
+106:		ＣＰＵベンダ：GenuineIntel
+107:		ＣＰＵ名：12th Gen Intel(R) Core(TM) i7-12700KF
+107:	ＣＯＭの初期化... 成功
+182:	非同期読み込み処理の初期化...成功
+182:	ファイルアクセス処理の初期化...成功
+183:	メモリ総量:32560.35MB  空きメモリ領域:4805.44MB 
+183:	タイマーの精度を検査します
+184:	精度結果 更新回数 マルチメディアタイマー：0  パフォーマンスカウンター：60
+184:	 パフォーマンスカウンターを使用します タイマー精度 : 10000.000000 KHz 
+184:	 
+185:	ソフトの二重起動検査... 二重起動はされていませんでした
+185:	ウインドウクラスを登録します... 登録に成功しました
+186:	ウインドウモード起動用のウインドウを作成します
+186:	ディスプレイ情報のセットアップ開始
+187:		モニターの数：1  ディスプレイデバイスの数：4
+187:		No.0  モニター名：\\.\DISPLAY1　1920x1080　32bit　60Hz  96x96dpi
+193:	ディスプレイ情報のセットアップ完了
+193:	ウインドウ矩形 ( -16, -50 )-( 1920, 1069 )
+196:	ウインドウの作成に成功しました
+196:	ウインドウを表示します
+214:	ＩＭＥを無効にしました
+215:	ウインドウスタイルをウインドウモード用に変更します... 完了
+244:	XInput DLL の読み込み中... 成功
+248:	DirectInput関係初期化処理
+248:		DirectInput8 の取得を試みます...成功
+332:			引き続き初期化処理... 初期化成功
+333:		ジョイパッドの初期化... 
+334:			XInput 対応コントローラーのチェックを開始します
+334:				XInput 対応コントローラー No.0 をチェック
+334:				XInput 対応コントローラー No.0 の接続は確認できませんでした
+334:				XInput 対応コントローラー No.1 をチェック
+335:				XInput 対応コントローラー No.1 の接続は確認できませんでした
+335:				XInput 対応コントローラー No.2 をチェック
+335:				XInput 対応コントローラー No.2 の接続は確認できませんでした
+335:				XInput 対応コントローラー No.3 をチェック
+336:				XInput 対応コントローラー No.3 の接続は確認できませんでした
+336:			XInput 対応コントローラーのチェック完了
+336:			DirectInput 対応ジョイパッドの列挙を開始します
+375:			DirectInput 対応ジョイパッドの列挙終了
+375:		ジョイパッドの初期化は正常に終了しました
+376:		マウスデバイスの初期化... 初期化成功
+376:		キーボードデバイスの初期化... 初期化成功
+379:	DirectInput 関連の初期化は正常に終了しました
+382:	WASAPI の初期化を行います
+460:		デバイス名 : ヘッドフォン (Realtek(R) Audio)
+608:		デフォルト遅延時間 : 10.000 ms
+608:		最小遅延時間       : 3.000 ms
+608:		遅延時間           : 10.000 ms
+614:		チャンネル数  　   : 8 ch
+614:		量子化ビット深度   : 32 bit
+614:		有効ビット深度　   : 32 bit
+614:		サンプリングレート : 48000 Hz
+615:		データ形式         : 浮動小数点型
+678:		動作モード         : 共有モード
+678:	WASAPI の初期化は正常に終了しました
+681:	d3d11.dll の読み込み.... 成功
+752:	dxgi.dll の読み込み.... 成功
+752:	API CreateDXGIFactory2 のアドレスを取得します.... 成功
+753:	IDXGIFactory2 を作成します.... 成功
+769:	API CreateDXGIFactory6 のアドレスを取得します.... 成功
+770:	IDXGIAdapter を列挙
+770:		Adapter No.0 Desc:NVIDIA GeForce RTX 3070  VRAM:8018MB
+770:			Output Device No.0 Name:\\.\DISPLAY1 ( 0, 0 )-( 1920, 1080 )
+771:		Adapter No.1 Desc:Microsoft Basic Render Driver  VRAM:0MB
+771:	API D3D11CreateDevice のアドレスを取得します.... 成功
+771:	IDXGIAdapter を取得します.... 成功
+772:	IDXGIAdapter1 を取得します.... 成功
+772:	IDXGIAdapter2 を取得します.... 成功
+772:	IDXGIAdapter3 を取得します.... 成功
+773:	IDXGIAdapter4 を取得します.... 成功
+773:	Direct3D 11 FeatureLevel 11_0 以上を対象とします
+773:	ID3D11Device オブジェクトを取得します.... 成功
+915:	IDXGIDevice1 を取得します.... 成功
+916:	IDXGIDevice1->SetMaximunFrameLatency( 1 ); を実行しました
+917:	[ウインドウモード 1920x1080 ( 0, 0 )-( 1920, 1080 )]
+917:	IDXGISwapChain2 を作成します.... 成功
+919:	IDXGIFactory2->CreateSwapChainForHwnd の戻り値：0x00000000
+919:	IDXGIOutput を取得します.... 成功
+920:	Graphics Device:NVIDIA GeForce RTX 3070
+920:	画面のフォーマットは DXGI_FORMAT_R8G8B8A8_UNORM です
+920:	16bit Zバッファフォーマットは DXGI_FORMAT_D16_UNORM です
+920:	24bit Zバッファフォーマットは DXGI_FORMAT_D24_UNORM_S8_UINT です
+920:	32bit Zバッファフォーマットは DXGI_FORMAT_D32_FLOAT です
+921:	16bit カラーフォーマットは DXGI_FORMAT_B5G6R5_UNORM です
+921:	32bit カラーフォーマットは DXGI_FORMAT_B8G8R8X8_UNORM です
+921:	アルファ付き 16bit カラーフォーマットは DXGI_FORMAT_B4G4R4A4_UNORM です
+921:	アルファ付き 32bit カラーフォーマットは DXGI_FORMAT_R8G8B8A8_UNORM です
+921:	アルファテスト用 16bit カラーフォーマットは DXGI_FORMAT_B5G5R5A1_UNORM です
+922:	アルファテスト用 32bit カラーフォーマットは DXGI_FORMAT_R8G8B8A8_UNORM です
+922:	ＤＸＴ１テクスチャフォーマットは DXGI_FORMAT_BC1_UNORM です
+922:	ＤＸＴ２テクスチャフォーマットは使えません
+922:	ＤＸＴ３テクスチャフォーマットは DXGI_FORMAT_BC2_UNORM です
+922:	ＤＸＴ４テクスチャフォーマットは使えません
+922:	ＤＸＴ５テクスチャフォーマットは DXGI_FORMAT_BC3_UNORM です
+922:	BC7_UNORM テクスチャフォーマットは DXGI_FORMAT_BC7_UNORM です
+922:	BC7_UNORM_SRGB テクスチャフォーマットは DXGI_FORMAT_BC7_UNORM_SRGB です
+922:	ABGR 整数 16 ビット型カラーフォーマットは DXGI_FORMAT_R16G16B16A16_UNORM です
+923:	ABGR 浮動小数点 16 ビット型カラーフォーマットは DXGI_FORMAT_R16G16B16A16_FLOAT です
+923:	ABGR 浮動小数点 32 ビット型カラーフォーマットは DXGI_FORMAT_R32G32B32A32_FLOAT です
+923:	１チャンネル整数 8 ビット型カラーフォーマットは DXGI_FORMAT_R8_UNORM です
+923:	１チャンネル整数 16 ビット型カラーフォーマットは DXGI_FORMAT_R16_UNORM です
+923:	１チャンネル浮動小数点 16 ビット型カラーフォーマットは DXGI_FORMAT_R16_FLOAT です
+923:	１チャンネル浮動小数点 32 ビット型カラーフォーマットは DXGI_FORMAT_R32_FLOAT です
+924:	２チャンネル整数 8 ビット型カラーフォーマットは DXGI_FORMAT_R8G8_UNORM です
+924:	２チャンネル整数 16 ビット型カラーフォーマットは DXGI_FORMAT_R16G16_UNORM です
+924:	２チャンネル浮動小数点 16 ビット型カラーフォーマットは DXGI_FORMAT_R16G16_FLOAT です
+924:	２チャンネル浮動小数点 32 ビット型カラーフォーマットは DXGI_FORMAT_R32G32_FLOAT です
+925:	描画用 16bit カラーフォーマットは DXGI_FORMAT_B5G6R5_UNORM です
+925:	描画用 32bit カラーフォーマットは DXGI_FORMAT_B8G8R8X8_UNORM です
+925:	描画用アルファ付き 32bit カラーフォーマットは DXGI_FORMAT_R8G8B8A8_UNORM です
+925:	描画用 ABGR 整数 16 ビット型カラーフォーマットは DXGI_FORMAT_R16G16B16A16_UNORM です
+925:	描画用 ABGR 浮動小数点 16 ビット型カラーフォーマットは DXGI_FORMAT_R16G16B16A16_FLOAT です
+925:	描画用 ABGR 浮動小数点 32 ビット型カラーフォーマットは DXGI_FORMAT_R32G32B32A32_FLOAT です
+926:	描画用１チャンネル整数 8 ビット型カラーフォーマットは DXGI_FORMAT_R8_UNORM です
+926:	描画用１チャンネル整数 16 ビット型カラーフォーマットは DXGI_FORMAT_R16_UNORM です
+926:	描画用１チャンネル浮動小数点 16 ビット型カラーフォーマットは DXGI_FORMAT_R16_FLOAT です
+926:	描画用１チャンネル浮動小数点 32 ビット型カラーフォーマットは DXGI_FORMAT_R32_FLOAT です
+926:	描画用２チャンネル整数 8 ビット型カラーフォーマットは DXGI_FORMAT_R8G8_UNORM です
+927:	描画用２チャンネル整数 16 ビット型カラーフォーマットは DXGI_FORMAT_R16G16_UNORM です
+927:	描画用２チャンネル浮動小数点 16 ビット型カラーフォーマットは DXGI_FORMAT_R16G16_FLOAT です
+927:	描画用２チャンネル浮動小数点 32 ビット型カラーフォーマットは DXGI_FORMAT_R32G32_FLOAT です
+928:	使用する機能レベル:D3D_FEATURE_LEVEL_11_1
+928:	同時にレンダリングできるバッファの数:8
+928:	最大テクスチャサイズ　幅:16384 高さ:16384
+928:	標準描画用の頂点バッファの作成.... 成功
+929:	シェーダーコード関係の初期化.... 成功
+940:	各種シェーダー用定数バッファの作成.... 成功
+940:	各種 ID3D11InputLayout の作成.... 成功
+951:	画像の単純転送処理の初期化... 成功
+952:	深度バッファを作成します.... 成功
+955:	フォントの初期化を行います
+958:	フォントの初期化は正常に終了しました
+1033:	文字コードバッファの初期化を行います... 完了しました
+1053:ＤＸライブラリの初期化処理終了
+12360:ID3D11BlendState の作成に失敗しました　箇所３
 
-13871:ID3D11BlendState の作成に失敗しました　箇所３
+12379:ID3D11BlendState の作成に失敗しました　箇所３
 
-13888:ID3D11BlendState の作成に失敗しました　箇所３
+12395:ID3D11BlendState の作成に失敗しました　箇所３
 
-13904:ID3D11BlendState の作成に失敗しました　箇所３
+12412:ID3D11BlendState の作成に失敗しました　箇所３
 
-13921:ID3D11BlendState の作成に失敗しました　箇所３
+12429:ID3D11BlendState の作成に失敗しました　箇所３
 
-13938:ID3D11BlendState の作成に失敗しました　箇所３
+12445:ID3D11BlendState の作成に失敗しました　箇所３
 
-13955:ID3D11BlendState の作成に失敗しました　箇所３
+12463:ID3D11BlendState の作成に失敗しました　箇所３
 
-13972:ID3D11BlendState の作成に失敗しました　箇所３
+12480:ID3D11BlendState の作成に失敗しました　箇所３
 
-13989:ID3D11BlendState の作成に失敗しました　箇所３
+12498:ID3D11BlendState の作成に失敗しました　箇所３
 
-14006:ID3D11BlendState の作成に失敗しました　箇所３
+12514:ID3D11BlendState の作成に失敗しました　箇所３
 
-14023:ID3D11BlendState の作成に失敗しました　箇所３
+12531:ID3D11BlendState の作成に失敗しました　箇所３
 
-14039:ID3D11BlendState の作成に失敗しました　箇所３
+12548:ID3D11BlendState の作成に失敗しました　箇所３
 
-14057:ID3D11BlendState の作成に失敗しました　箇所３
+12565:ID3D11BlendState の作成に失敗しました　箇所３
 
-14074:ID3D11BlendState の作成に失敗しました　箇所３
+12582:ID3D11BlendState の作成に失敗しました　箇所３
 
-14091:ID3D11BlendState の作成に失敗しました　箇所３
+12598:ID3D11BlendState の作成に失敗しました　箇所３
 
-14108:ID3D11BlendState の作成に失敗しました　箇所３
+12615:ID3D11BlendState の作成に失敗しました　箇所３
 
-14125:ID3D11BlendState の作成に失敗しました　箇所３
+12633:ID3D11BlendState の作成に失敗しました　箇所３
 
-14142:ID3D11BlendState の作成に失敗しました　箇所３
+12650:ID3D11BlendState の作成に失敗しました　箇所３
 
-14159:ID3D11BlendState の作成に失敗しました　箇所３
+12667:ID3D11BlendState の作成に失敗しました　箇所３
 
-14176:ID3D11BlendState の作成に失敗しました　箇所３
+12684:ID3D11BlendState の作成に失敗しました　箇所３
 
-14193:ID3D11BlendState の作成に失敗しました　箇所３
+12701:ID3D11BlendState の作成に失敗しました　箇所３
 
-14210:ID3D11BlendState の作成に失敗しました　箇所３
+12718:ID3D11BlendState の作成に失敗しました　箇所３
 
-14232:ID3D11BlendState の作成に失敗しました　箇所３
+12739:ID3D11BlendState の作成に失敗しました　箇所３
 
-14244:ID3D11BlendState の作成に失敗しました　箇所３
+12752:ID3D11BlendState の作成に失敗しました　箇所３
 
-14262:ID3D11BlendState の作成に失敗しました　箇所３
+12769:ID3D11BlendState の作成に失敗しました　箇所３
+
+12789:ID3D11BlendState の作成に失敗しました　箇所３
+
+12803:ID3D11BlendState の作成に失敗しました　箇所３
+
+12820:ID3D11BlendState の作成に失敗しました　箇所３
+
+12841:ID3D11BlendState の作成に失敗しました　箇所３
+
+12854:ID3D11BlendState の作成に失敗しました　箇所３
+
+12871:ID3D11BlendState の作成に失敗しました　箇所３
+
+12892:ID3D11BlendState の作成に失敗しました　箇所３
+
+12906:ID3D11BlendState の作成に失敗しました　箇所３
+
+12922:ID3D11BlendState の作成に失敗しました　箇所３
+
+12943:ID3D11BlendState の作成に失敗しました　箇所３
+
+12956:ID3D11BlendState の作成に失敗しました　箇所３
+
+12973:ID3D11BlendState の作成に失敗しました　箇所３
+
+12994:ID3D11BlendState の作成に失敗しました　箇所３
+
+13007:ID3D11BlendState の作成に失敗しました　箇所３
+
+13024:ID3D11BlendState の作成に失敗しました　箇所３
+
+13045:ID3D11BlendState の作成に失敗しました　箇所３
+
+13058:ID3D11BlendState の作成に失敗しました　箇所３
+
+13075:ID3D11BlendState の作成に失敗しました　箇所３
+
+13096:ID3D11BlendState の作成に失敗しました　箇所３
+
+13109:ID3D11BlendState の作成に失敗しました　箇所３
+
+13126:ID3D11BlendState の作成に失敗しました　箇所３
+
+13147:ID3D11BlendState の作成に失敗しました　箇所３
+
+13161:ID3D11BlendState の作成に失敗しました　箇所３
+
+13178:ID3D11BlendState の作成に失敗しました　箇所３
+
+13199:ID3D11BlendState の作成に失敗しました　箇所３
+
+13213:ID3D11BlendState の作成に失敗しました　箇所３
+
+13230:ID3D11BlendState の作成に失敗しました　箇所３
+
+13251:ID3D11BlendState の作成に失敗しました　箇所３
+
+13264:ID3D11BlendState の作成に失敗しました　箇所３
+
+13281:ID3D11BlendState の作成に失敗しました　箇所３
+
+13302:ID3D11BlendState の作成に失敗しました　箇所３
+
+13315:ID3D11BlendState の作成に失敗しました　箇所３
+
+13332:ID3D11BlendState の作成に失敗しました　箇所３
+
+13352:ID3D11BlendState の作成に失敗しました　箇所３
+
+13366:ID3D11BlendState の作成に失敗しました　箇所３
+
+13383:ID3D11BlendState の作成に失敗しました　箇所３
+
+13404:ID3D11BlendState の作成に失敗しました　箇所３
+
+13417:ID3D11BlendState の作成に失敗しました　箇所３
+
+13434:ID3D11BlendState の作成に失敗しました　箇所３
+
+13455:ID3D11BlendState の作成に失敗しました　箇所３
+
+13468:ID3D11BlendState の作成に失敗しました　箇所３
+
+13485:ID3D11BlendState の作成に失敗しました　箇所３
+
+13506:ID3D11BlendState の作成に失敗しました　箇所３
+
+13518:ID3D11BlendState の作成に失敗しました　箇所３
+
+13535:ID3D11BlendState の作成に失敗しました　箇所３
+
+13558:ID3D11BlendState の作成に失敗しました　箇所３
+
+13570:ID3D11BlendState の作成に失敗しました　箇所３
+
+13587:ID3D11BlendState の作成に失敗しました　箇所３
+
+13608:ID3D11BlendState の作成に失敗しました　箇所３
+
+13621:ID3D11BlendState の作成に失敗しました　箇所３
+
+13638:ID3D11BlendState の作成に失敗しました　箇所３
+
+13658:ID3D11BlendState の作成に失敗しました　箇所３
+
+13672:ID3D11BlendState の作成に失敗しました　箇所３
+
+13689:ID3D11BlendState の作成に失敗しました　箇所３
+
+13709:ID3D11BlendState の作成に失敗しました　箇所３
+
+13723:ID3D11BlendState の作成に失敗しました　箇所３
+
+13740:ID3D11BlendState の作成に失敗しました　箇所３
+
+13760:ID3D11BlendState の作成に失敗しました　箇所３
+
+13774:ID3D11BlendState の作成に失敗しました　箇所３
+
+13791:ID3D11BlendState の作成に失敗しました　箇所３
+
+13812:ID3D11BlendState の作成に失敗しました　箇所３
+
+13825:ID3D11BlendState の作成に失敗しました　箇所３
+
+13842:ID3D11BlendState の作成に失敗しました　箇所３
+
+13863:ID3D11BlendState の作成に失敗しました　箇所３
+
+13875:ID3D11BlendState の作成に失敗しました　箇所３
+
+13893:ID3D11BlendState の作成に失敗しました　箇所３
+
+13914:ID3D11BlendState の作成に失敗しました　箇所３
+
+13927:ID3D11BlendState の作成に失敗しました　箇所３
+
+13944:ID3D11BlendState の作成に失敗しました　箇所３
+
+13965:ID3D11BlendState の作成に失敗しました　箇所３
+
+13978:ID3D11BlendState の作成に失敗しました　箇所３
+
+13995:ID3D11BlendState の作成に失敗しました　箇所３
+
+14015:ID3D11BlendState の作成に失敗しました　箇所３
+
+14029:ID3D11BlendState の作成に失敗しました　箇所３
+
+14046:ID3D11BlendState の作成に失敗しました　箇所３
+
+14066:ID3D11BlendState の作成に失敗しました　箇所３
+
+14080:ID3D11BlendState の作成に失敗しました　箇所３
+
+14097:ID3D11BlendState の作成に失敗しました　箇所３
+
+14117:ID3D11BlendState の作成に失敗しました　箇所３
+
+14131:ID3D11BlendState の作成に失敗しました　箇所３
+
+14148:ID3D11BlendState の作成に失敗しました　箇所３
+
+14169:ID3D11BlendState の作成に失敗しました　箇所３
+
+14182:ID3D11BlendState の作成に失敗しました　箇所３
+
+14199:ID3D11BlendState の作成に失敗しました　箇所３
+
+14219:ID3D11BlendState の作成に失敗しました　箇所３
+
+14233:ID3D11BlendState の作成に失敗しました　箇所３
+
+14250:ID3D11BlendState の作成に失敗しました　箇所３
+
+14270:ID3D11BlendState の作成に失敗しました　箇所３
 
 14284:ID3D11BlendState の作成に失敗しました　箇所３
 
-14296:ID3D11BlendState の作成に失敗しました　箇所３
+14301:ID3D11BlendState の作成に失敗しました　箇所３
 
-14314:ID3D11BlendState の作成に失敗しました　箇所３
+14321:ID3D11BlendState の作成に失敗しました　箇所３
 
-14336:ID3D11BlendState の作成に失敗しました　箇所３
+14335:ID3D11BlendState の作成に失敗しました　箇所３
 
-14348:ID3D11BlendState の作成に失敗しました　箇所３
+14352:ID3D11BlendState の作成に失敗しました　箇所３
 
-14365:ID3D11BlendState の作成に失敗しました　箇所３
+14373:ID3D11BlendState の作成に失敗しました　箇所３
 
 14386:ID3D11BlendState の作成に失敗しました　箇所３
 
-14399:ID3D11BlendState の作成に失敗しました　箇所３
+14403:ID3D11BlendState の作成に失敗しました　箇所３
 
-14416:ID3D11BlendState の作成に失敗しました　箇所３
+14424:ID3D11BlendState の作成に失敗しました　箇所３
 
-14438:ID3D11BlendState の作成に失敗しました　箇所３
+14437:ID3D11BlendState の作成に失敗しました　箇所３
 
-14450:ID3D11BlendState の作成に失敗しました　箇所３
+14454:ID3D11BlendState の作成に失敗しました　箇所３
 
-14467:ID3D11BlendState の作成に失敗しました　箇所３
+14474:ID3D11BlendState の作成に失敗しました　箇所３
 
 14488:ID3D11BlendState の作成に失敗しました　箇所３
 
-14502:ID3D11BlendState の作成に失敗しました　箇所３
+14505:ID3D11BlendState の作成に失敗しました　箇所３
 
-14519:ID3D11BlendState の作成に失敗しました　箇所３
+14525:ID3D11BlendState の作成に失敗しました　箇所３
 
-14541:ID3D11BlendState の作成に失敗しました　箇所３
+14539:ID3D11BlendState の作成に失敗しました　箇所３
 
-14553:ID3D11BlendState の作成に失敗しました　箇所３
+14555:ID3D11BlendState の作成に失敗しました　箇所３
 
-14570:ID3D11BlendState の作成に失敗しました　箇所３
+14577:ID3D11BlendState の作成に失敗しました　箇所３
 
-14592:ID3D11BlendState の作成に失敗しました　箇所３
+14590:ID3D11BlendState の作成に失敗しました　箇所３
 
-14604:ID3D11BlendState の作成に失敗しました　箇所３
+14607:ID3D11BlendState の作成に失敗しました　箇所３
 
-14621:ID3D11BlendState の作成に失敗しました　箇所３
+14627:ID3D11BlendState の作成に失敗しました　箇所３
 
-14642:ID3D11BlendState の作成に失敗しました　箇所３
+14641:ID3D11BlendState の作成に失敗しました　箇所３
 
-14655:ID3D11BlendState の作成に失敗しました　箇所３
+14658:ID3D11BlendState の作成に失敗しました　箇所３
 
-14672:ID3D11BlendState の作成に失敗しました　箇所３
+14678:ID3D11BlendState の作成に失敗しました　箇所３
 
-14694:ID3D11BlendState の作成に失敗しました　箇所３
+14692:ID3D11BlendState の作成に失敗しました　箇所３
 
-14706:ID3D11BlendState の作成に失敗しました　箇所３
+14710:ID3D11BlendState の作成に失敗しました　箇所３
 
-14723:ID3D11BlendState の作成に失敗しました　箇所３
+14728:ID3D11BlendState の作成に失敗しました　箇所３
 
-14745:ID3D11BlendState の作成に失敗しました　箇所３
+14743:ID3D11BlendState の作成に失敗しました　箇所３
 
-14757:ID3D11BlendState の作成に失敗しました　箇所３
+14760:ID3D11BlendState の作成に失敗しました　箇所３
 
-14774:ID3D11BlendState の作成に失敗しました　箇所３
+14780:ID3D11BlendState の作成に失敗しました　箇所３
 
-14795:ID3D11BlendState の作成に失敗しました　箇所３
+14794:ID3D11BlendState の作成に失敗しました　箇所３
 
-14808:ID3D11BlendState の作成に失敗しました　箇所３
+14811:ID3D11BlendState の作成に失敗しました　箇所３
 
-14825:ID3D11BlendState の作成に失敗しました　箇所３
+14831:ID3D11BlendState の作成に失敗しました　箇所３
 
-14846:ID3D11BlendState の作成に失敗しました　箇所３
+14845:ID3D11BlendState の作成に失敗しました　箇所３
 
-14859:ID3D11BlendState の作成に失敗しました　箇所３
+14862:ID3D11BlendState の作成に失敗しました　箇所３
 
-14876:ID3D11BlendState の作成に失敗しました　箇所３
+14883:ID3D11BlendState の作成に失敗しました　箇所３
 
-14897:ID3D11BlendState の作成に失敗しました　箇所３
+14896:ID3D11BlendState の作成に失敗しました　箇所３
 
-14909:ID3D11BlendState の作成に失敗しました　箇所３
+14914:ID3D11BlendState の作成に失敗しました　箇所３
 
-14927:ID3D11BlendState の作成に失敗しました　箇所３
+14934:ID3D11BlendState の作成に失敗しました　箇所３
 
 14948:ID3D11BlendState の作成に失敗しました　箇所３
 
-14961:ID3D11BlendState の作成に失敗しました　箇所３
+14965:ID3D11BlendState の作成に失敗しました　箇所３
 
-14978:ID3D11BlendState の作成に失敗しました　箇所３
+14985:ID3D11BlendState の作成に失敗しました　箇所３
 
 14999:ID3D11BlendState の作成に失敗しました　箇所３
 
-15012:ID3D11BlendState の作成に失敗しました　箇所３
+15016:ID3D11BlendState の作成に失敗しました　箇所３
 
-15029:ID3D11BlendState の作成に失敗しました　箇所３
+15037:ID3D11BlendState の作成に失敗しました　箇所３
 
-15050:ID3D11BlendState の作成に失敗しました　箇所３
+15051:ID3D11BlendState の作成に失敗しました　箇所３
 
-15063:ID3D11BlendState の作成に失敗しました　箇所３
+15068:ID3D11BlendState の作成に失敗しました　箇所３
 
-15079:ID3D11BlendState の作成に失敗しました　箇所３
+15088:ID3D11BlendState の作成に失敗しました　箇所３
 
-15101:ID3D11BlendState の作成に失敗しました　箇所３
+15102:ID3D11BlendState の作成に失敗しました　箇所３
 
-15114:ID3D11BlendState の作成に失敗しました　箇所３
+15119:ID3D11BlendState の作成に失敗しました　箇所３
 
-15130:ID3D11BlendState の作成に失敗しました　箇所３
+15140:ID3D11BlendState の作成に失敗しました　箇所３
 
-15151:ID3D11BlendState の作成に失敗しました　箇所３
+15153:ID3D11BlendState の作成に失敗しました　箇所３
 
-15165:ID3D11BlendState の作成に失敗しました　箇所３
+15169:ID3D11BlendState の作成に失敗しました　箇所３
 
-15182:ID3D11BlendState の作成に失敗しました　箇所３
+15191:ID3D11BlendState の作成に失敗しました　箇所３
 
-15203:ID3D11BlendState の作成に失敗しました　箇所３
+15204:ID3D11BlendState の作成に失敗しました　箇所３
 
-15216:ID3D11BlendState の作成に失敗しました　箇所３
+15221:ID3D11BlendState の作成に失敗しました　箇所３
 
-15234:ID3D11BlendState の作成に失敗しました　箇所３
+15242:ID3D11BlendState の作成に失敗しました　箇所３
 
 15255:ID3D11BlendState の作成に失敗しました　箇所３
 
-15268:ID3D11BlendState の作成に失敗しました　箇所３
+15272:ID3D11BlendState の作成に失敗しました　箇所３
 
-15285:ID3D11BlendState の作成に失敗しました　箇所３
+15292:ID3D11BlendState の作成に失敗しました　箇所３
 
-15306:ID3D11BlendState の作成に失敗しました　箇所３
+15305:ID3D11BlendState の作成に失敗しました　箇所３
 
-15319:ID3D11BlendState の作成に失敗しました　箇所３
+15323:ID3D11BlendState の作成に失敗しました　箇所３
 
-15336:ID3D11BlendState の作成に失敗しました　箇所３
+15343:ID3D11BlendState の作成に失敗しました　箇所３
 
-15358:ID3D11BlendState の作成に失敗しました　箇所３
+15357:ID3D11BlendState の作成に失敗しました　箇所３
 
-15371:ID3D11BlendState の作成に失敗しました　箇所３
+15373:ID3D11BlendState の作成に失敗しました　箇所３
 
-15388:ID3D11BlendState の作成に失敗しました　箇所３
+15394:ID3D11BlendState の作成に失敗しました　箇所３
 
-15409:ID3D11BlendState の作成に失敗しました　箇所３
+15408:ID3D11BlendState の作成に失敗しました　箇所３
 
-15422:ID3D11BlendState の作成に失敗しました　箇所３
+15424:ID3D11BlendState の作成に失敗しました　箇所３
 
-15439:ID3D11BlendState の作成に失敗しました　箇所３
+15445:ID3D11BlendState の作成に失敗しました　箇所３
 
-15461:ID3D11BlendState の作成に失敗しました　箇所３
+15459:ID3D11BlendState の作成に失敗しました　箇所３
 
-15473:ID3D11BlendState の作成に失敗しました　箇所３
+15475:ID3D11BlendState の作成に失敗しました　箇所３
 
-15490:ID3D11BlendState の作成に失敗しました　箇所３
+15496:ID3D11BlendState の作成に失敗しました　箇所３
 
-15511:ID3D11BlendState の作成に失敗しました　箇所３
+15510:ID3D11BlendState の作成に失敗しました　箇所３
 
-15524:ID3D11BlendState の作成に失敗しました　箇所３
+15527:ID3D11BlendState の作成に失敗しました　箇所３
 
-15542:ID3D11BlendState の作成に失敗しました　箇所３
+15547:ID3D11BlendState の作成に失敗しました　箇所３
 
-15563:ID3D11BlendState の作成に失敗しました　箇所３
+15561:ID3D11BlendState の作成に失敗しました　箇所３
 
-15576:ID3D11BlendState の作成に失敗しました　箇所３
+15578:ID3D11BlendState の作成に失敗しました　箇所３
 
-15593:ID3D11BlendState の作成に失敗しました　箇所３
+15599:ID3D11BlendState の作成に失敗しました　箇所３
 
-15614:ID3D11BlendState の作成に失敗しました　箇所３
+15612:ID3D11BlendState の作成に失敗しました　箇所３
 
-15627:ID3D11BlendState の作成に失敗しました　箇所３
+15628:ID3D11BlendState の作成に失敗しました　箇所３
 
-15644:ID3D11BlendState の作成に失敗しました　箇所３
+15648:ID3D11BlendState の作成に失敗しました　箇所３
 
-15666:ID3D11BlendState の作成に失敗しました　箇所３
+15663:ID3D11BlendState の作成に失敗しました　箇所３
 
-15679:ID3D11BlendState の作成に失敗しました　箇所３
+15680:ID3D11BlendState の作成に失敗しました　箇所３
 
-15696:ID3D11BlendState の作成に失敗しました　箇所３
+15700:ID3D11BlendState の作成に失敗しました　箇所３
 
-15717:ID3D11BlendState の作成に失敗しました　箇所３
+15714:ID3D11BlendState の作成に失敗しました　箇所３
 
 15731:ID3D11BlendState の作成に失敗しました　箇所３
 
-15748:ID3D11BlendState の作成に失敗しました　箇所３
+15751:ID3D11BlendState の作成に失敗しました　箇所３
 
-15768:ID3D11BlendState の作成に失敗しました　箇所３
+15765:ID3D11BlendState の作成に失敗しました　箇所３
 
 15782:ID3D11BlendState の作成に失敗しました　箇所３
 
-15799:ID3D11BlendState の作成に失敗しました　箇所３
+15802:ID3D11BlendState の作成に失敗しました　箇所３
 
-15820:ID3D11BlendState の作成に失敗しました　箇所３
+15816:ID3D11BlendState の作成に失敗しました　箇所３
 
 15833:ID3D11BlendState の作成に失敗しました　箇所３
 
-15850:ID3D11BlendState の作成に失敗しました　箇所３
+15853:ID3D11BlendState の作成に失敗しました　箇所３
 
-15871:ID3D11BlendState の作成に失敗しました　箇所３
+15868:ID3D11BlendState の作成に失敗しました　箇所３
 
 15884:ID3D11BlendState の作成に失敗しました　箇所３
 
-15901:ID3D11BlendState の作成に失敗しました　箇所３
+15904:ID3D11BlendState の作成に失敗しました　箇所３
 
-15922:ID3D11BlendState の作成に失敗しました　箇所３
+15917:ID3D11BlendState の作成に失敗しました　箇所３
 
 15935:ID3D11BlendState の作成に失敗しました　箇所３
 
-15952:ID3D11BlendState の作成に失敗しました　箇所３
+15955:ID3D11BlendState の作成に失敗しました　箇所３
 
-15974:ID3D11BlendState の作成に失敗しました　箇所３
+15968:ID3D11BlendState の作成に失敗しました　箇所３
 
-15986:ID3D11BlendState の作成に失敗しました　箇所３
+15987:ID3D11BlendState の作成に失敗しました　箇所３
 
-16003:ID3D11BlendState の作成に失敗しました　箇所３
+16007:ID3D11BlendState の作成に失敗しました　箇所３
 
-16025:ID3D11BlendState の作成に失敗しました　箇所３
+16021:ID3D11BlendState の作成に失敗しました　箇所３
 
-16037:ID3D11BlendState の作成に失敗しました　箇所３
+16038:ID3D11BlendState の作成に失敗しました　箇所３
 
-16054:ID3D11BlendState の作成に失敗しました　箇所３
+16058:ID3D11BlendState の作成に失敗しました　箇所３
 
-16075:ID3D11BlendState の作成に失敗しました　箇所３
+16072:ID3D11BlendState の作成に失敗しました　箇所３
 
-16088:ID3D11BlendState の作成に失敗しました　箇所３
+16089:ID3D11BlendState の作成に失敗しました　箇所３
 
-16105:ID3D11BlendState の作成に失敗しました　箇所３
+16110:ID3D11BlendState の作成に失敗しました　箇所３
 
-16127:ID3D11BlendState の作成に失敗しました　箇所３
+16123:ID3D11BlendState の作成に失敗しました　箇所３
 
 16139:ID3D11BlendState の作成に失敗しました　箇所３
 
-16156:ID3D11BlendState の作成に失敗しました　箇所３
+16161:ID3D11BlendState の作成に失敗しました　箇所３
 
-16177:ID3D11BlendState の作成に失敗しました　箇所３
+16174:ID3D11BlendState の作成に失敗しました　箇所３
 
-16190:ID3D11BlendState の作成に失敗しました　箇所３
+16191:ID3D11BlendState の作成に失敗しました　箇所３
 
-16207:ID3D11BlendState の作成に失敗しました　箇所３
+16211:ID3D11BlendState の作成に失敗しました　箇所３
 
-16228:ID3D11BlendState の作成に失敗しました　箇所３
+16225:ID3D11BlendState の作成に失敗しました　箇所３
 
 16242:ID3D11BlendState の作成に失敗しました　箇所３
 
-16259:ID3D11BlendState の作成に失敗しました　箇所３
+16262:ID3D11BlendState の作成に失敗しました　箇所３
 
-16280:ID3D11BlendState の作成に失敗しました　箇所３
+16275:ID3D11BlendState の作成に失敗しました　箇所３
 
 16293:ID3D11BlendState の作成に失敗しました　箇所３
 
-16310:ID3D11BlendState の作成に失敗しました　箇所３
+16312:ID3D11BlendState の作成に失敗しました　箇所３
 
-16331:ID3D11BlendState の作成に失敗しました　箇所３
+16327:ID3D11BlendState の作成に失敗しました　箇所３
 
 16344:ID3D11BlendState の作成に失敗しました　箇所３
 
-16361:ID3D11BlendState の作成に失敗しました　箇所３
+16364:ID3D11BlendState の作成に失敗しました　箇所３
 
-16382:ID3D11BlendState の作成に失敗しました　箇所３
+16378:ID3D11BlendState の作成に失敗しました　箇所３
 
 16395:ID3D11BlendState の作成に失敗しました　箇所３
 
-16412:ID3D11BlendState の作成に失敗しました　箇所３
+16415:ID3D11BlendState の作成に失敗しました　箇所３
 
-16432:ID3D11BlendState の作成に失敗しました　箇所３
+16429:ID3D11BlendState の作成に失敗しました　箇所３
 
 16446:ID3D11BlendState の作成に失敗しました　箇所３
 
-16463:ID3D11BlendState の作成に失敗しました　箇所３
+16466:ID3D11BlendState の作成に失敗しました　箇所３
 
-16484:ID3D11BlendState の作成に失敗しました　箇所３
+16479:ID3D11BlendState の作成に失敗しました　箇所３
 
-16497:ID3D11BlendState の作成に失敗しました　箇所３
+16498:ID3D11BlendState の作成に失敗しました　箇所３
 
-16514:ID3D11BlendState の作成に失敗しました　箇所３
+16517:ID3D11BlendState の作成に失敗しました　箇所３
 
-16535:ID3D11BlendState の作成に失敗しました　箇所３
+16531:ID3D11BlendState の作成に失敗しました　箇所３
 
 16548:ID3D11BlendState の作成に失敗しました　箇所３
 
-16566:ID3D11BlendState の作成に失敗しました　箇所３
+16568:ID3D11BlendState の作成に失敗しました　箇所３
 
-16585:ID3D11BlendState の作成に失敗しました　箇所３
+16582:ID3D11BlendState の作成に失敗しました　箇所３
 
 16599:ID3D11BlendState の作成に失敗しました　箇所３
 
-16616:ID3D11BlendState の作成に失敗しました　箇所３
+16618:ID3D11BlendState の作成に失敗しました　箇所３
 
-16638:ID3D11BlendState の作成に失敗しました　箇所３
+16633:ID3D11BlendState の作成に失敗しました　箇所３
 
 16650:ID3D11BlendState の作成に失敗しました　箇所３
 
-16667:ID3D11BlendState の作成に失敗しました　箇所３
+16670:ID3D11BlendState の作成に失敗しました　箇所３
 
-16688:ID3D11BlendState の作成に失敗しました　箇所３
+16684:ID3D11BlendState の作成に失敗しました　箇所３
 
-16702:ID3D11BlendState の作成に失敗しました　箇所３
+16701:ID3D11BlendState の作成に失敗しました　箇所３
 
-16718:ID3D11BlendState の作成に失敗しました　箇所３
+16721:ID3D11BlendState の作成に失敗しました　箇所３
 
-16739:ID3D11BlendState の作成に失敗しました　箇所３
+16735:ID3D11BlendState の作成に失敗しました　箇所３
 
-16751:ID3D11BlendState の作成に失敗しました　箇所３
+16752:ID3D11BlendState の作成に失敗しました　箇所３
 
-16769:ID3D11BlendState の作成に失敗しました　箇所３
+16772:ID3D11BlendState の作成に失敗しました　箇所３
 
-16789:ID3D11BlendState の作成に失敗しました　箇所３
+16786:ID3D11BlendState の作成に失敗しました　箇所３
 
 16803:ID3D11BlendState の作成に失敗しました　箇所３
 
-16821:ID3D11BlendState の作成に失敗しました　箇所３
+16824:ID3D11BlendState の作成に失敗しました　箇所３
 
-16841:ID3D11BlendState の作成に失敗しました　箇所３
+16838:ID3D11BlendState の作成に失敗しました　箇所３
 
 16855:ID3D11BlendState の作成に失敗しました　箇所３
 
-16872:ID3D11BlendState の作成に失敗しました　箇所３
+16875:ID3D11BlendState の作成に失敗しました　箇所３
 
-16894:ID3D11BlendState の作成に失敗しました　箇所３
+16890:ID3D11BlendState の作成に失敗しました　箇所３
 
-16907:ID3D11BlendState の作成に失敗しました　箇所３
+16906:ID3D11BlendState の作成に失敗しました　箇所３
 
-16923:ID3D11BlendState の作成に失敗しました　箇所３
+16926:ID3D11BlendState の作成に失敗しました　箇所３
 
-16944:ID3D11BlendState の作成に失敗しました　箇所３
+16940:ID3D11BlendState の作成に失敗しました　箇所３
 
 16957:ID3D11BlendState の作成に失敗しました　箇所３
 
-16974:ID3D11BlendState の作成に失敗しました　箇所３
+16978:ID3D11BlendState の作成に失敗しました　箇所３
 
-17001:ID3D11BlendState の作成に失敗しました　箇所３
+16991:ID3D11BlendState の作成に失敗しました　箇所３
 
-17014:ID3D11BlendState の作成に失敗しました　箇所３
+17009:ID3D11BlendState の作成に失敗しました　箇所３
 
-17030:ID3D11BlendState の作成に失敗しました　箇所３
+17028:ID3D11BlendState の作成に失敗しました　箇所３
 
-17051:ID3D11BlendState の作成に失敗しました　箇所３
+17043:ID3D11BlendState の作成に失敗しました　箇所３
 
-17065:ID3D11BlendState の作成に失敗しました　箇所３
+17060:ID3D11BlendState の作成に失敗しました　箇所３
 
-17082:ID3D11BlendState の作成に失敗しました　箇所３
+17080:ID3D11BlendState の作成に失敗しました　箇所３
 
-17102:ID3D11BlendState の作成に失敗しました　箇所３
+17094:ID3D11BlendState の作成に失敗しました　箇所３
 
-17116:ID3D11BlendState の作成に失敗しました　箇所３
+17111:ID3D11BlendState の作成に失敗しました　箇所３
 
-17133:ID3D11BlendState の作成に失敗しました　箇所３
+17131:ID3D11BlendState の作成に失敗しました　箇所３
 
-17156:ID3D11BlendState の作成に失敗しました　箇所３
+17145:ID3D11BlendState の作成に失敗しました　箇所３
 
-17169:ID3D11BlendState の作成に失敗しました　箇所３
+17162:ID3D11BlendState の作成に失敗しました　箇所３
 
-17186:ID3D11BlendState の作成に失敗しました　箇所３
+17182:ID3D11BlendState の作成に失敗しました　箇所３
 
-17207:ID3D11BlendState の作成に失敗しました　箇所３
+17197:ID3D11BlendState の作成に失敗しました　箇所３
 
-17220:ID3D11BlendState の作成に失敗しました　箇所３
+17213:ID3D11BlendState の作成に失敗しました　箇所３
 
-17237:ID3D11BlendState の作成に失敗しました　箇所３
+17233:ID3D11BlendState の作成に失敗しました　箇所３
 
-17258:ID3D11BlendState の作成に失敗しました　箇所３
+17247:ID3D11BlendState の作成に失敗しました　箇所３
 
-17271:ID3D11BlendState の作成に失敗しました　箇所３
+17264:ID3D11BlendState の作成に失敗しました　箇所３
 
-17288:ID3D11BlendState の作成に失敗しました　箇所３
+17284:ID3D11BlendState の作成に失敗しました　箇所３
 
-17314:ID3D11BlendState の作成に失敗しました　箇所３
+17297:ID3D11BlendState の作成に失敗しました　箇所３
 
-17322:ID3D11BlendState の作成に失敗しました　箇所３
+17315:ID3D11BlendState の作成に失敗しました　箇所３
 
-17343:ID3D11BlendState の作成に失敗しました　箇所３
+17335:ID3D11BlendState の作成に失敗しました　箇所３
 
-17363:ID3D11BlendState の作成に失敗しました　箇所３
+17349:ID3D11BlendState の作成に失敗しました　箇所３
 
-17377:ID3D11BlendState の作成に失敗しました　箇所３
+17366:ID3D11BlendState の作成に失敗しました　箇所３
 
-17394:ID3D11BlendState の作成に失敗しました　箇所３
+17385:ID3D11BlendState の作成に失敗しました　箇所３
 
-17419:ID3D11BlendState の作成に失敗しました　箇所３
+17401:ID3D11BlendState の作成に失敗しました　箇所３
 
-17433:ID3D11BlendState の作成に失敗しました　箇所３
+17417:ID3D11BlendState の作成に失敗しました　箇所３
 
-17448:ID3D11BlendState の作成に失敗しました　箇所３
+17435:ID3D11BlendState の作成に失敗しました　箇所３
 
-17471:ID3D11BlendState の作成に失敗しました　箇所３
+17451:ID3D11BlendState の作成に失敗しました　箇所３
 
-17480:ID3D11BlendState の作成に失敗しました　箇所３
+17468:ID3D11BlendState の作成に失敗しました　箇所３
 
-17497:ID3D11BlendState の作成に失敗しました　箇所３
+17487:ID3D11BlendState の作成に失敗しました　箇所３
+
+17502:ID3D11BlendState の作成に失敗しました　箇所３
 
 17518:ID3D11BlendState の作成に失敗しました　箇所３
 
-17531:ID3D11BlendState の作成に失敗しました　箇所３
+17537:ID3D11BlendState の作成に失敗しました　箇所３
 
-17548:ID3D11BlendState の作成に失敗しました　箇所３
+17553:ID3D11BlendState の作成に失敗しました　箇所３
 
 17570:ID3D11BlendState の作成に失敗しました　箇所３
 
-17583:ID3D11BlendState の作成に失敗しました　箇所３
+17589:ID3D11BlendState の作成に失敗しました　箇所３
 
-17599:ID3D11BlendState の作成に失敗しました　箇所３
+17604:ID3D11BlendState の作成に失敗しました　箇所３
 
-17620:ID3D11BlendState の作成に失敗しました　箇所３
+17621:ID3D11BlendState の作成に失敗しました　箇所３
 
-17633:ID3D11BlendState の作成に失敗しました　箇所３
+17639:ID3D11BlendState の作成に失敗しました　箇所３
 
-17651:ID3D11BlendState の作成に失敗しました　箇所３
+17655:ID3D11BlendState の作成に失敗しました　箇所３
 
-17670:ID3D11BlendState の作成に失敗しました　箇所３
+17672:ID3D11BlendState の作成に失敗しました　箇所３
 
-17684:ID3D11BlendState の作成に失敗しました　箇所３
+17690:ID3D11BlendState の作成に失敗しました　箇所３
 
-17701:ID3D11BlendState の作成に失敗しました　箇所３
+17706:ID3D11BlendState の作成に失敗しました　箇所３
 
-17722:ID3D11BlendState の作成に失敗しました　箇所３
+17723:ID3D11BlendState の作成に失敗しました　箇所３
 
-17735:ID3D11BlendState の作成に失敗しました　箇所３
+17743:ID3D11BlendState の作成に失敗しました　箇所３
 
-17752:ID3D11BlendState の作成に失敗しました　箇所３
+17757:ID3D11BlendState の作成に失敗しました　箇所３
 
-17773:ID3D11BlendState の作成に失敗しました　箇所３
+17775:ID3D11BlendState の作成に失敗しました　箇所３
 
-17786:ID3D11BlendState の作成に失敗しました　箇所３
+17794:ID3D11BlendState の作成に失敗しました　箇所３
 
-17804:ID3D11BlendState の作成に失敗しました　箇所３
+17809:ID3D11BlendState の作成に失敗しました　箇所３
 
 17825:ID3D11BlendState の作成に失敗しました　箇所３
 
-17837:ID3D11BlendState の作成に失敗しました　箇所３
+17844:ID3D11BlendState の作成に失敗しました　箇所３
 
-17854:ID3D11BlendState の作成に失敗しました　箇所３
+17860:ID3D11BlendState の作成に失敗しました　箇所３
 
-17875:ID3D11BlendState の作成に失敗しました　箇所３
+17877:ID3D11BlendState の作成に失敗しました　箇所３
 
-17888:ID3D11BlendState の作成に失敗しました　箇所３
+17895:ID3D11BlendState の作成に失敗しました　箇所３
 
-17905:ID3D11BlendState の作成に失敗しました　箇所３
+17911:ID3D11BlendState の作成に失敗しました　箇所３
 
-17926:ID3D11BlendState の作成に失敗しました　箇所３
+17928:ID3D11BlendState の作成に失敗しました　箇所３
 
-17939:ID3D11BlendState の作成に失敗しました　箇所３
+17947:ID3D11BlendState の作成に失敗しました　箇所３
 
-17956:ID3D11BlendState の作成に失敗しました　箇所３
+17962:ID3D11BlendState の作成に失敗しました　箇所３
 
-17976:ID3D11BlendState の作成に失敗しました　箇所３
+17979:ID3D11BlendState の作成に失敗しました　箇所３
 
-17989:ID3D11BlendState の作成に失敗しました　箇所３
+17998:ID3D11BlendState の作成に失敗しました　箇所３
 
-18007:ID3D11BlendState の作成に失敗しました　箇所３
+18013:ID3D11BlendState の作成に失敗しました　箇所３
 
-18028:ID3D11BlendState の作成に失敗しました　箇所３
+18030:ID3D11BlendState の作成に失敗しました　箇所３
 
-18042:ID3D11BlendState の作成に失敗しました　箇所３
+18049:ID3D11BlendState の作成に失敗しました　箇所３
 
-18060:ID3D11BlendState の作成に失敗しました　箇所３
+18066:ID3D11BlendState の作成に失敗しました　箇所３
 
-18080:ID3D11BlendState の作成に失敗しました　箇所３
+18082:ID3D11BlendState の作成に失敗しました　箇所３
 
-18094:ID3D11BlendState の作成に失敗しました　箇所３
+18099:ID3D11BlendState の作成に失敗しました　箇所３
 
-18112:ID3D11BlendState の作成に失敗しました　箇所３
+18117:ID3D11BlendState の作成に失敗しました　箇所３
 
 18132:ID3D11BlendState の作成に失敗しました　箇所３
 
-18145:ID3D11BlendState の作成に失敗しました　箇所３
+18152:ID3D11BlendState の作成に失敗しました　箇所３
 
-18162:ID3D11BlendState の作成に失敗しました　箇所３
+18168:ID3D11BlendState の作成に失敗しました　箇所３
 
-18181:ID3D11BlendState の作成に失敗しました　箇所３
+18183:ID3D11BlendState の作成に失敗しました　箇所３
 
-18196:ID3D11BlendState の作成に失敗しました　箇所３
+18201:ID3D11BlendState の作成に失敗しました　箇所３
 
-18213:ID3D11BlendState の作成に失敗しました　箇所３
+18219:ID3D11BlendState の作成に失敗しました　箇所３
 
-18232:ID3D11BlendState の作成に失敗しました　箇所３
+18234:ID3D11BlendState の作成に失敗しました　箇所３
 
-18247:ID3D11BlendState の作成に失敗しました　箇所３
+18253:ID3D11BlendState の作成に失敗しました　箇所３
 
-18264:ID3D11BlendState の作成に失敗しました　箇所３
+18269:ID3D11BlendState の作成に失敗しました　箇所３
 
-18283:ID3D11BlendState の作成に失敗しました　箇所３
+18285:ID3D11BlendState の作成に失敗しました　箇所３
 
-18298:ID3D11BlendState の作成に失敗しました　箇所３
+18303:ID3D11BlendState の作成に失敗しました　箇所３
 
-18315:ID3D11BlendState の作成に失敗しました　箇所３
+18321:ID3D11BlendState の作成に失敗しました　箇所３
 
-18334:ID3D11BlendState の作成に失敗しました　箇所３
+18336:ID3D11BlendState の作成に失敗しました　箇所３
 
-18349:ID3D11BlendState の作成に失敗しました　箇所３
+18354:ID3D11BlendState の作成に失敗しました　箇所３
 
-18366:ID3D11BlendState の作成に失敗しました　箇所３
+18372:ID3D11BlendState の作成に失敗しました　箇所３
 
-18385:ID3D11BlendState の作成に失敗しました　箇所３
+18387:ID3D11BlendState の作成に失敗しました　箇所３
 
-18400:ID3D11BlendState の作成に失敗しました　箇所３
+18405:ID3D11BlendState の作成に失敗しました　箇所３
 
-18417:ID3D11BlendState の作成に失敗しました　箇所３
+18423:ID3D11BlendState の作成に失敗しました　箇所３
 
-18436:ID3D11BlendState の作成に失敗しました　箇所３
+18438:ID3D11BlendState の作成に失敗しました　箇所３
 
-18452:ID3D11BlendState の作成に失敗しました　箇所３
+18456:ID3D11BlendState の作成に失敗しました　箇所３
 
-18469:ID3D11BlendState の作成に失敗しました　箇所３
+18475:ID3D11BlendState の作成に失敗しました　箇所３
 
 18488:ID3D11BlendState の作成に失敗しました　箇所３
 
-18503:ID3D11BlendState の作成に失敗しました　箇所３
+18508:ID3D11BlendState の作成に失敗しました　箇所３
 
-18521:ID3D11BlendState の作成に失敗しました　箇所３
+18525:ID3D11BlendState の作成に失敗しました　箇所３
 
-18539:ID3D11BlendState の作成に失敗しました　箇所３
+18540:ID3D11BlendState の作成に失敗しました　箇所３
 
-18554:ID3D11BlendState の作成に失敗しました　箇所３
+18559:ID3D11BlendState の作成に失敗しました　箇所３
 
-18572:ID3D11BlendState の作成に失敗しました　箇所３
+18575:ID3D11BlendState の作成に失敗しました　箇所３
 
-18590:ID3D11BlendState の作成に失敗しました　箇所３
+18591:ID3D11BlendState の作成に失敗しました　箇所３
 
-18605:ID3D11BlendState の作成に失敗しました　箇所３
+18610:ID3D11BlendState の作成に失敗しました　箇所３
 
-18622:ID3D11BlendState の作成に失敗しました　箇所３
+18627:ID3D11BlendState の作成に失敗しました　箇所３
 
 18642:ID3D11BlendState の作成に失敗しました　箇所３
 
-18656:ID3D11BlendState の作成に失敗しました　箇所３
+18661:ID3D11BlendState の作成に失敗しました　箇所３
 
-18673:ID3D11BlendState の作成に失敗しました　箇所３
+18679:ID3D11BlendState の作成に失敗しました　箇所３
 
-18692:ID3D11BlendState の作成に失敗しました　箇所３
+18693:ID3D11BlendState の作成に失敗しました　箇所３
 
-18712:ID3D11BlendState の作成に失敗しました　箇所３
+18711:ID3D11BlendState の作成に失敗しました　箇所３
 
 18729:ID3D11BlendState の作成に失敗しました　箇所３
 
-18749:ID3D11BlendState の作成に失敗しました　箇所３
+18744:ID3D11BlendState の作成に失敗しました　箇所３
 
-18763:ID3D11BlendState の作成に失敗しました　箇所３
+18762:ID3D11BlendState の作成に失敗しました　箇所３
 
 18780:ID3D11BlendState の作成に失敗しました　箇所３
 
-18799:ID3D11BlendState の作成に失敗しました　箇所３
+18795:ID3D11BlendState の作成に失敗しました　箇所３
 
 18814:ID3D11BlendState の作成に失敗しました　箇所３
 
 18831:ID3D11BlendState の作成に失敗しました　箇所３
 
-18854:ID3D11BlendState の作成に失敗しました　箇所３
+18846:ID3D11BlendState の作成に失敗しました　箇所３
 
-18868:ID3D11BlendState の作成に失敗しました　箇所３
+18864:ID3D11BlendState の作成に失敗しました　箇所３
 
-18884:ID3D11BlendState の作成に失敗しました　箇所３
+18882:ID3D11BlendState の作成に失敗しました　箇所３
 
-18903:ID3D11BlendState の作成に失敗しました　箇所３
+18898:ID3D11BlendState の作成に失敗しました　箇所３
 
-18918:ID3D11BlendState の作成に失敗しました　箇所３
+18915:ID3D11BlendState の作成に失敗しました　箇所３
 
-18935:ID3D11BlendState の作成に失敗しました　箇所３
+18933:ID3D11BlendState の作成に失敗しました　箇所３
 
-18954:ID3D11BlendState の作成に失敗しました　箇所３
+18948:ID3D11BlendState の作成に失敗しました　箇所３
 
-18969:ID3D11BlendState の作成に失敗しました　箇所３
+18966:ID3D11BlendState の作成に失敗しました　箇所３
 
-18986:ID3D11BlendState の作成に失敗しました　箇所３
+18984:ID3D11BlendState の作成に失敗しました　箇所３
 
-19005:ID3D11BlendState の作成に失敗しました　箇所３
+18999:ID3D11BlendState の作成に失敗しました　箇所３
 
-19024:ID3D11BlendState の作成に失敗しました　箇所３
+19018:ID3D11BlendState の作成に失敗しました　箇所３
 
-19040:ID3D11BlendState の作成に失敗しました　箇所３
+19035:ID3D11BlendState の作成に失敗しました　箇所３
 
-19059:ID3D11BlendState の作成に失敗しました　箇所３
+19050:ID3D11BlendState の作成に失敗しました　箇所３
 
-19074:ID3D11BlendState の作成に失敗しました　箇所３
+19069:ID3D11BlendState の作成に失敗しました　箇所３
 
-19091:ID3D11BlendState の作成に失敗しました　箇所３
+19086:ID3D11BlendState の作成に失敗しました　箇所３
 
-19110:ID3D11BlendState の作成に失敗しました　箇所３
+19101:ID3D11BlendState の作成に失敗しました　箇所３
 
-19125:ID3D11BlendState の作成に失敗しました　箇所３
+19119:ID3D11BlendState の作成に失敗しました　箇所３
 
-19144:ID3D11BlendState の作成に失敗しました　箇所３
+19137:ID3D11BlendState の作成に失敗しました　箇所３
 
-19162:ID3D11BlendState の作成に失敗しました　箇所３
+19152:ID3D11BlendState の作成に失敗しました　箇所３
 
-19176:ID3D11BlendState の作成に失敗しました　箇所３
+19171:ID3D11BlendState の作成に失敗しました　箇所３
 
-19197:ID3D11BlendState の作成に失敗しました　箇所３
+19189:ID3D11BlendState の作成に失敗しました　箇所３
 
-19212:ID3D11BlendState の作成に失敗しました　箇所３
+19203:ID3D11BlendState の作成に失敗しました　箇所３
 
-19227:ID3D11BlendState の作成に失敗しました　箇所３
+19222:ID3D11BlendState の作成に失敗しました　箇所３
 
-19244:ID3D11BlendState の作成に失敗しました　箇所３
+19240:ID3D11BlendState の作成に失敗しました　箇所３
 
-19263:ID3D11BlendState の作成に失敗しました　箇所３
+19254:ID3D11BlendState の作成に失敗しました　箇所３
 
-19278:ID3D11BlendState の作成に失敗しました　箇所３
+19271:ID3D11BlendState の作成に失敗しました　箇所３
 
-19295:ID3D11BlendState の作成に失敗しました　箇所３
+19290:ID3D11BlendState の作成に失敗しました　箇所３
 
-19314:ID3D11BlendState の作成に失敗しました　箇所３
+19305:ID3D11BlendState の作成に失敗しました　箇所３
 
-19329:ID3D11BlendState の作成に失敗しました　箇所３
+19322:ID3D11BlendState の作成に失敗しました　箇所３
 
-19346:ID3D11BlendState の作成に失敗しました　箇所３
+19340:ID3D11BlendState の作成に失敗しました　箇所３
 
-19365:ID3D11BlendState の作成に失敗しました　箇所３
+19355:ID3D11BlendState の作成に失敗しました　箇所３
 
-19380:ID3D11BlendState の作成に失敗しました　箇所３
+19373:ID3D11BlendState の作成に失敗しました　箇所３
 
-19397:ID3D11BlendState の作成に失敗しました　箇所３
+19392:ID3D11BlendState の作成に失敗しました　箇所３
 
-19416:ID3D11BlendState の作成に失敗しました　箇所３
+19407:ID3D11BlendState の作成に失敗しました　箇所３
 
-19431:ID3D11BlendState の作成に失敗しました　箇所３
+19424:ID3D11BlendState の作成に失敗しました　箇所３
 
-19448:ID3D11BlendState の作成に失敗しました　箇所３
+19443:ID3D11BlendState の作成に失敗しました　箇所３
 
-19467:ID3D11BlendState の作成に失敗しました　箇所３
+19458:ID3D11BlendState の作成に失敗しました　箇所３
 
-19482:ID3D11BlendState の作成に失敗しました　箇所３
+19475:ID3D11BlendState の作成に失敗しました　箇所３
 
-19499:ID3D11BlendState の作成に失敗しました　箇所３
+19494:ID3D11BlendState の作成に失敗しました　箇所３
 
-19518:ID3D11BlendState の作成に失敗しました　箇所３
+19510:ID3D11BlendState の作成に失敗しました　箇所３
 
-19533:ID3D11BlendState の作成に失敗しました　箇所３
+19526:ID3D11BlendState の作成に失敗しました　箇所３
 
-19551:ID3D11BlendState の作成に失敗しました　箇所３
+19545:ID3D11BlendState の作成に失敗しました　箇所３
 
-19569:ID3D11BlendState の作成に失敗しました　箇所３
+19560:ID3D11BlendState の作成に失敗しました　箇所３
 
-19586:ID3D11BlendState の作成に失敗しました　箇所３
+19578:ID3D11BlendState の作成に失敗しました　箇所３
 
-19601:ID3D11BlendState の作成に失敗しました　箇所３
+19596:ID3D11BlendState の作成に失敗しました　箇所３
 
-19620:ID3D11BlendState の作成に失敗しました　箇所３
+19611:ID3D11BlendState の作成に失敗しました　箇所３
 
-19637:ID3D11BlendState の作成に失敗しました　箇所３
+19628:ID3D11BlendState の作成に失敗しました　箇所３
 
-19652:ID3D11BlendState の作成に失敗しました　箇所３
+19647:ID3D11BlendState の作成に失敗しました　箇所３
 
-19672:ID3D11BlendState の作成に失敗しました　箇所３
+19662:ID3D11BlendState の作成に失敗しました　箇所３
 
-19688:ID3D11BlendState の作成に失敗しました　箇所３
+19678:ID3D11BlendState の作成に失敗しました　箇所３
 
-19703:ID3D11BlendState の作成に失敗しました　箇所３
+19698:ID3D11BlendState の作成に失敗しました　箇所３
 
-19723:ID3D11BlendState の作成に失敗しました　箇所３
+19713:ID3D11BlendState の作成に失敗しました　箇所３
 
-19739:ID3D11BlendState の作成に失敗しました　箇所３
+19730:ID3D11BlendState の作成に失敗しました　箇所３
 
-19754:ID3D11BlendState の作成に失敗しました　箇所３
+19748:ID3D11BlendState の作成に失敗しました　箇所３
 
-19772:ID3D11BlendState の作成に失敗しました　箇所３
+19765:ID3D11BlendState の作成に失敗しました　箇所３
 
-19790:ID3D11BlendState の作成に失敗しました　箇所３
+19781:ID3D11BlendState の作成に失敗しました　箇所３
 
-19805:ID3D11BlendState の作成に失敗しました　箇所３
+19800:ID3D11BlendState の作成に失敗しました　箇所３
 
-19824:ID3D11BlendState の作成に失敗しました　箇所３
+19815:ID3D11BlendState の作成に失敗しました　箇所３
 
-19841:ID3D11BlendState の作成に失敗しました　箇所３
+19832:ID3D11BlendState の作成に失敗しました　箇所３
 
-19856:ID3D11BlendState の作成に失敗しました　箇所３
+19849:ID3D11BlendState の作成に失敗しました　箇所３
 
-19875:ID3D11BlendState の作成に失敗しました　箇所３
+19867:ID3D11BlendState の作成に失敗しました　箇所３
 
-19891:ID3D11BlendState の作成に失敗しました　箇所３
+19883:ID3D11BlendState の作成に失敗しました　箇所３
 
-19907:ID3D11BlendState の作成に失敗しました　箇所３
+19901:ID3D11BlendState の作成に失敗しました　箇所３
 
-19926:ID3D11BlendState の作成に失敗しました　箇所３
+19918:ID3D11BlendState の作成に失敗しました　箇所３
 
-19948:ID3D11BlendState の作成に失敗しました　箇所３
+19935:ID3D11BlendState の作成に失敗しました　箇所３
 
-19958:ID3D11BlendState の作成に失敗しました　箇所３
+19952:ID3D11BlendState の作成に失敗しました　箇所３
 
-19977:ID3D11BlendState の作成に失敗しました　箇所３
+19968:ID3D11BlendState の作成に失敗しました　箇所３
 
-19993:ID3D11BlendState の作成に失敗しました　箇所３
+19988:ID3D11BlendState の作成に失敗しました　箇所３
 
-20009:ID3D11BlendState の作成に失敗しました　箇所３
+20003:ID3D11BlendState の作成に失敗しました　箇所３
 
-20028:ID3D11BlendState の作成に失敗しました　箇所３
+20020:ID3D11BlendState の作成に失敗しました　箇所３
 
-20045:ID3D11BlendState の作成に失敗しました　箇所３
+20040:ID3D11BlendState の作成に失敗しました　箇所３
 
-20060:ID3D11BlendState の作成に失敗しました　箇所３
+20055:ID3D11BlendState の作成に失敗しました　箇所３
 
-20079:ID3D11BlendState の作成に失敗しました　箇所３
+20071:ID3D11BlendState の作成に失敗しました　箇所３
 
-20096:ID3D11BlendState の作成に失敗しました　箇所３
+20091:ID3D11BlendState の作成に失敗しました　箇所３
 
-20111:ID3D11BlendState の作成に失敗しました　箇所３
+20105:ID3D11BlendState の作成に失敗しました　箇所３
 
-20130:ID3D11BlendState の作成に失敗しました　箇所３
+20123:ID3D11BlendState の作成に失敗しました　箇所３
 
-20147:ID3D11BlendState の作成に失敗しました　箇所３
+20142:ID3D11BlendState の作成に失敗しました　箇所３
 
-20162:ID3D11BlendState の作成に失敗しました　箇所３
+20157:ID3D11BlendState の作成に失敗しました　箇所３
 
-20181:ID3D11BlendState の作成に失敗しました　箇所３
+20174:ID3D11BlendState の作成に失敗しました　箇所３
 
-20197:ID3D11BlendState の作成に失敗しました　箇所３
+20193:ID3D11BlendState の作成に失敗しました　箇所３
 
-20213:ID3D11BlendState の作成に失敗しました　箇所３
+20208:ID3D11BlendState の作成に失敗しました　箇所３
 
-20232:ID3D11BlendState の作成に失敗しました　箇所３
+20225:ID3D11BlendState の作成に失敗しました　箇所３
 
-20249:ID3D11BlendState の作成に失敗しました　箇所３
+20244:ID3D11BlendState の作成に失敗しました　箇所３
 
-20264:ID3D11BlendState の作成に失敗しました　箇所３
+20260:ID3D11BlendState の作成に失敗しました　箇所３
 
-20283:ID3D11BlendState の作成に失敗しました　箇所３
+20276:ID3D11BlendState の作成に失敗しました　箇所３
 
-20299:ID3D11BlendState の作成に失敗しました　箇所３
+20295:ID3D11BlendState の作成に失敗しました　箇所３
 
-20315:ID3D11BlendState の作成に失敗しました　箇所３
+20310:ID3D11BlendState の作成に失敗しました　箇所３
 
-20334:ID3D11BlendState の作成に失敗しました　箇所３
+20327:ID3D11BlendState の作成に失敗しました　箇所３
 
-20350:ID3D11BlendState の作成に失敗しました　箇所３
+20346:ID3D11BlendState の作成に失敗しました　箇所３
 
-20366:ID3D11BlendState の作成に失敗しました　箇所３
+20360:ID3D11BlendState の作成に失敗しました　箇所３
 
-20385:ID3D11BlendState の作成に失敗しました　箇所３
+20378:ID3D11BlendState の作成に失敗しました　箇所３
 
-20402:ID3D11BlendState の作成に失敗しました　箇所３
+20397:ID3D11BlendState の作成に失敗しました　箇所３
 
-20417:ID3D11BlendState の作成に失敗しました　箇所３
+20412:ID3D11BlendState の作成に失敗しました　箇所３
 
-20436:ID3D11BlendState の作成に失敗しました　箇所３
+20429:ID3D11BlendState の作成に失敗しました　箇所３
 
-20454:ID3D11BlendState の作成に失敗しました　箇所３
+20448:ID3D11BlendState の作成に失敗しました　箇所３
 
-20469:ID3D11BlendState の作成に失敗しました　箇所３
+20463:ID3D11BlendState の作成に失敗しました　箇所３
 
-20488:ID3D11BlendState の作成に失敗しました　箇所３
+20480:ID3D11BlendState の作成に失敗しました　箇所３
 
-20505:ID3D11BlendState の作成に失敗しました　箇所３
+20499:ID3D11BlendState の作成に失敗しました　箇所３
 
-20521:ID3D11BlendState の作成に失敗しました　箇所３
+20514:ID3D11BlendState の作成に失敗しました　箇所３
 
-20539:ID3D11BlendState の作成に失敗しました　箇所３
+20531:ID3D11BlendState の作成に失敗しました　箇所３
 
-20556:ID3D11BlendState の作成に失敗しました　箇所３
+20551:ID3D11BlendState の作成に失敗しました　箇所３
 
-20572:ID3D11BlendState の作成に失敗しました　箇所３
+20566:ID3D11BlendState の作成に失敗しました　箇所３
 
-20590:ID3D11BlendState の作成に失敗しました　箇所３
+20583:ID3D11BlendState の作成に失敗しました　箇所３
 
-20607:ID3D11BlendState の作成に失敗しました　箇所３
+20603:ID3D11BlendState の作成に失敗しました　箇所３
 
-20622:ID3D11BlendState の作成に失敗しました　箇所３
+20617:ID3D11BlendState の作成に失敗しました　箇所３
 
-20641:ID3D11BlendState の作成に失敗しました　箇所３
+20634:ID3D11BlendState の作成に失敗しました　箇所３
 
-20658:ID3D11BlendState の作成に失敗しました　箇所３
+20653:ID3D11BlendState の作成に失敗しました　箇所３
 
-20673:ID3D11BlendState の作成に失敗しました　箇所３
+20668:ID3D11BlendState の作成に失敗しました　箇所３
 
-20691:ID3D11BlendState の作成に失敗しました　箇所３
+20685:ID3D11BlendState の作成に失敗しました　箇所３
 
-20709:ID3D11BlendState の作成に失敗しました　箇所３
+20704:ID3D11BlendState の作成に失敗しました　箇所３
 
-20724:ID3D11BlendState の作成に失敗しました　箇所３
+20719:ID3D11BlendState の作成に失敗しました　箇所３
 
-20742:ID3D11BlendState の作成に失敗しました　箇所３
+20737:ID3D11BlendState の作成に失敗しました　箇所３
 
-20760:ID3D11BlendState の作成に失敗しました　箇所３
+20757:ID3D11BlendState の作成に失敗しました　箇所３
 
-20775:ID3D11BlendState の作成に失敗しました　箇所３
+20771:ID3D11BlendState の作成に失敗しました　箇所３
 
-20793:ID3D11BlendState の作成に失敗しました　箇所３
+20788:ID3D11BlendState の作成に失敗しました　箇所３
 
-20811:ID3D11BlendState の作成に失敗しました　箇所３
+20807:ID3D11BlendState の作成に失敗しました　箇所３
 
-20826:ID3D11BlendState の作成に失敗しました　箇所３
+20822:ID3D11BlendState の作成に失敗しました　箇所３
 
-20845:ID3D11BlendState の作成に失敗しました　箇所３
+20839:ID3D11BlendState の作成に失敗しました　箇所３
 
-20861:ID3D11BlendState の作成に失敗しました　箇所３
+20859:ID3D11BlendState の作成に失敗しました　箇所３
 
-20877:ID3D11BlendState の作成に失敗しました　箇所３
+20873:ID3D11BlendState の作成に失敗しました　箇所３
 
-20896:ID3D11BlendState の作成に失敗しました　箇所３
+20890:ID3D11BlendState の作成に失敗しました　箇所３
 
-20914:ID3D11BlendState の作成に失敗しました　箇所３
+20909:ID3D11BlendState の作成に失敗しました　箇所３
 
-20929:ID3D11BlendState の作成に失敗しました　箇所３
+20925:ID3D11BlendState の作成に失敗しました　箇所３
 
-20948:ID3D11BlendState の作成に失敗しました　箇所３
+20942:ID3D11BlendState の作成に失敗しました　箇所３
 
-20965:ID3D11BlendState の作成に失敗しました　箇所３
+20961:ID3D11BlendState の作成に失敗しました　箇所３
 
-20980:ID3D11BlendState の作成に失敗しました　箇所３
+20976:ID3D11BlendState の作成に失敗しました　箇所３
 
-20999:ID3D11BlendState の作成に失敗しました　箇所３
+20993:ID3D11BlendState の作成に失敗しました　箇所３
 
-21016:ID3D11BlendState の作成に失敗しました　箇所３
+21012:ID3D11BlendState の作成に失敗しました　箇所３
 
-21031:ID3D11BlendState の作成に失敗しました　箇所３
+21027:ID3D11BlendState の作成に失敗しました　箇所３
 
-21050:ID3D11BlendState の作成に失敗しました　箇所３
+21044:ID3D11BlendState の作成に失敗しました　箇所３
 
-21067:ID3D11BlendState の作成に失敗しました　箇所３
+21063:ID3D11BlendState の作成に失敗しました　箇所３
 
-21082:ID3D11BlendState の作成に失敗しました　箇所３
+21078:ID3D11BlendState の作成に失敗しました　箇所３
 
-21101:ID3D11BlendState の作成に失敗しました　箇所３
+21095:ID3D11BlendState の作成に失敗しました　箇所３
 
-21118:ID3D11BlendState の作成に失敗しました　箇所３
+21114:ID3D11BlendState の作成に失敗しました　箇所３
 
-21133:ID3D11BlendState の作成に失敗しました　箇所３
+21129:ID3D11BlendState の作成に失敗しました　箇所３
 
-21151:ID3D11BlendState の作成に失敗しました　箇所３
+21146:ID3D11BlendState の作成に失敗しました　箇所３
 
-21169:ID3D11BlendState の作成に失敗しました　箇所３
+21165:ID3D11BlendState の作成に失敗しました　箇所３
 
-21184:ID3D11BlendState の作成に失敗しました　箇所３
+21180:ID3D11BlendState の作成に失敗しました　箇所３
 
-21204:ID3D11BlendState の作成に失敗しました　箇所３
+21197:ID3D11BlendState の作成に失敗しました　箇所３
 
-21221:ID3D11BlendState の作成に失敗しました　箇所３
+21216:ID3D11BlendState の作成に失敗しました　箇所３
 
-21236:ID3D11BlendState の作成に失敗しました　箇所３
+21231:ID3D11BlendState の作成に失敗しました　箇所３
 
-21255:ID3D11BlendState の作成に失敗しました　箇所３
+21248:ID3D11BlendState の作成に失敗しました　箇所３
 
-21272:ID3D11BlendState の作成に失敗しました　箇所３
+21268:ID3D11BlendState の作成に失敗しました　箇所３
 
-21287:ID3D11BlendState の作成に失敗しました　箇所３
+21282:ID3D11BlendState の作成に失敗しました　箇所３
 
-21306:ID3D11BlendState の作成に失敗しました　箇所３
+21299:ID3D11BlendState の作成に失敗しました　箇所３
 
-21324:ID3D11BlendState の作成に失敗しました　箇所３
+21318:ID3D11BlendState の作成に失敗しました　箇所３
 
-21339:ID3D11BlendState の作成に失敗しました　箇所３
+21333:ID3D11BlendState の作成に失敗しました　箇所３
 
-21357:ID3D11BlendState の作成に失敗しました　箇所３
+21351:ID3D11BlendState の作成に失敗しました　箇所３
 
-21375:ID3D11BlendState の作成に失敗しました　箇所３
+21371:ID3D11BlendState の作成に失敗しました　箇所３
 
-21390:ID3D11BlendState の作成に失敗しました　箇所３
+21385:ID3D11BlendState の作成に失敗しました　箇所３
 
-21409:ID3D11BlendState の作成に失敗しました　箇所３
+21403:ID3D11BlendState の作成に失敗しました　箇所３
 
-21426:ID3D11BlendState の作成に失敗しました　箇所３
+21422:ID3D11BlendState の作成に失敗しました　箇所３
 
-21442:ID3D11BlendState の作成に失敗しました　箇所３
+21437:ID3D11BlendState の作成に失敗しました　箇所３
 
-21459:ID3D11BlendState の作成に失敗しました　箇所３
+21454:ID3D11BlendState の作成に失敗しました　箇所３
 
-21478:ID3D11BlendState の作成に失敗しました　箇所３
+21473:ID3D11BlendState の作成に失敗しました　箇所３
 
-21493:ID3D11BlendState の作成に失敗しました　箇所３
+21488:ID3D11BlendState の作成に失敗しました　箇所３
 
-21512:ID3D11BlendState の作成に失敗しました　箇所３
+21505:ID3D11BlendState の作成に失敗しました　箇所３
 
-21529:ID3D11BlendState の作成に失敗しました　箇所３
+21524:ID3D11BlendState の作成に失敗しました　箇所３
 
-21544:ID3D11BlendState の作成に失敗しました　箇所３
+21539:ID3D11BlendState の作成に失敗しました　箇所３
 
-21562:ID3D11BlendState の作成に失敗しました　箇所３
+21555:ID3D11BlendState の作成に失敗しました　箇所３
 
-21580:ID3D11BlendState の作成に失敗しました　箇所３
+21575:ID3D11BlendState の作成に失敗しました　箇所３
 
-21595:ID3D11BlendState の作成に失敗しました　箇所３
+21590:ID3D11BlendState の作成に失敗しました　箇所３
 
-21614:ID3D11BlendState の作成に失敗しました　箇所３
+21607:ID3D11BlendState の作成に失敗しました　箇所３
 
-21631:ID3D11BlendState の作成に失敗しました　箇所３
+21626:ID3D11BlendState の作成に失敗しました　箇所３
 
-21646:ID3D11BlendState の作成に失敗しました　箇所３
+21641:ID3D11BlendState の作成に失敗しました　箇所３
 
-21665:ID3D11BlendState の作成に失敗しました　箇所３
+21658:ID3D11BlendState の作成に失敗しました　箇所３
 
-21682:ID3D11BlendState の作成に失敗しました　箇所３
+21678:ID3D11BlendState の作成に失敗しました　箇所３
 
-21697:ID3D11BlendState の作成に失敗しました　箇所３
+21692:ID3D11BlendState の作成に失敗しました　箇所３
 
-21716:ID3D11BlendState の作成に失敗しました　箇所３
+21708:ID3D11BlendState の作成に失敗しました　箇所３
 
-21732:ID3D11BlendState の作成に失敗しました　箇所３
+21728:ID3D11BlendState の作成に失敗しました　箇所３
 
-21748:ID3D11BlendState の作成に失敗しました　箇所３
+21743:ID3D11BlendState の作成に失敗しました　箇所３
 
-21767:ID3D11BlendState の作成に失敗しました　箇所３
+21760:ID3D11BlendState の作成に失敗しました　箇所３
 
-21783:ID3D11BlendState の作成に失敗しました　箇所３
+21780:ID3D11BlendState の作成に失敗しました　箇所３
 
-21799:ID3D11BlendState の作成に失敗しました　箇所３
+21794:ID3D11BlendState の作成に失敗しました　箇所３
 
-21818:ID3D11BlendState の作成に失敗しました　箇所３
+21811:ID3D11BlendState の作成に失敗しました　箇所３
 
-21835:ID3D11BlendState の作成に失敗しました　箇所３
+21830:ID3D11BlendState の作成に失敗しました　箇所３
 
-21850:ID3D11BlendState の作成に失敗しました　箇所３
+21845:ID3D11BlendState の作成に失敗しました　箇所３
 
-21868:ID3D11BlendState の作成に失敗しました　箇所３
+21862:ID3D11BlendState の作成に失敗しました　箇所３
 
-21886:ID3D11BlendState の作成に失敗しました　箇所３
+21882:ID3D11BlendState の作成に失敗しました　箇所３
 
-21902:ID3D11BlendState の作成に失敗しました　箇所３
+21896:ID3D11BlendState の作成に失敗しました　箇所３
 
-21921:ID3D11BlendState の作成に失敗しました　箇所３
+21913:ID3D11BlendState の作成に失敗しました　箇所３
 
-21938:ID3D11BlendState の作成に失敗しました　箇所３
+21932:ID3D11BlendState の作成に失敗しました　箇所３
 
-21953:ID3D11BlendState の作成に失敗しました　箇所３
+21947:ID3D11BlendState の作成に失敗しました　箇所３
 
-21972:ID3D11BlendState の作成に失敗しました　箇所３
+21964:ID3D11BlendState の作成に失敗しました　箇所３
 
-21989:ID3D11BlendState の作成に失敗しました　箇所３
+21983:ID3D11BlendState の作成に失敗しました　箇所３
 
-22004:ID3D11BlendState の作成に失敗しました　箇所３
+21998:ID3D11BlendState の作成に失敗しました　箇所３
 
-22024:ID3D11BlendState の作成に失敗しました　箇所３
+22015:ID3D11BlendState の作成に失敗しました　箇所３
 
-22041:ID3D11BlendState の作成に失敗しました　箇所３
+22034:ID3D11BlendState の作成に失敗しました　箇所３
 
-22057:ID3D11BlendState の作成に失敗しました　箇所３
+22049:ID3D11BlendState の作成に失敗しました　箇所３
 
-22075:ID3D11BlendState の作成に失敗しました　箇所３
+22065:ID3D11BlendState の作成に失敗しました　箇所３
 
-22092:ID3D11BlendState の作成に失敗しました　箇所３
+22085:ID3D11BlendState の作成に失敗しました　箇所３
 
-22107:ID3D11BlendState の作成に失敗しました　箇所３
+22101:ID3D11BlendState の作成に失敗しました　箇所３
 
-22126:ID3D11BlendState の作成に失敗しました　箇所３
+22117:ID3D11BlendState の作成に失敗しました　箇所３
 
-22143:ID3D11BlendState の作成に失敗しました　箇所３
+22135:ID3D11BlendState の作成に失敗しました　箇所３
 
-22157:ID3D11BlendState の作成に失敗しました　箇所３
+22151:ID3D11BlendState の作成に失敗しました　箇所３
 
-22177:ID3D11BlendState の作成に失敗しました　箇所３
+22168:ID3D11BlendState の作成に失敗しました　箇所３
 
-22194:ID3D11BlendState の作成に失敗しました　箇所３
+22187:ID3D11BlendState の作成に失敗しました　箇所３
 
-22209:ID3D11BlendState の作成に失敗しました　箇所３
+22202:ID3D11BlendState の作成に失敗しました　箇所３
 
-22227:ID3D11BlendState の作成に失敗しました　箇所３
+22219:ID3D11BlendState の作成に失敗しました　箇所３
 
-22245:ID3D11BlendState の作成に失敗しました　箇所３
+22237:ID3D11BlendState の作成に失敗しました　箇所３
 
-22260:ID3D11BlendState の作成に失敗しました　箇所３
+22253:ID3D11BlendState の作成に失敗しました　箇所３
 
-22279:ID3D11BlendState の作成に失敗しました　箇所３
+22270:ID3D11BlendState の作成に失敗しました　箇所３
 
-22296:ID3D11BlendState の作成に失敗しました　箇所３
+22290:ID3D11BlendState の作成に失敗しました　箇所３
 
-22311:ID3D11BlendState の作成に失敗しました　箇所３
+22304:ID3D11BlendState の作成に失敗しました　箇所３
 
-22329:ID3D11BlendState の作成に失敗しました　箇所３
+22321:ID3D11BlendState の作成に失敗しました　箇所３
 
-22347:ID3D11BlendState の作成に失敗しました　箇所３
+22340:ID3D11BlendState の作成に失敗しました　箇所３
 
-22362:ID3D11BlendState の作成に失敗しました　箇所３
+22355:ID3D11BlendState の作成に失敗しました　箇所３
 
-22381:ID3D11BlendState の作成に失敗しました　箇所３
+22372:ID3D11BlendState の作成に失敗しました　箇所３
 
-22398:ID3D11BlendState の作成に失敗しました　箇所３
+22390:ID3D11BlendState の作成に失敗しました　箇所３
 
-22413:ID3D11BlendState の作成に失敗しました　箇所３
+22406:ID3D11BlendState の作成に失敗しました　箇所３
 
-22432:ID3D11BlendState の作成に失敗しました　箇所３
+22423:ID3D11BlendState の作成に失敗しました　箇所３
 
-22449:ID3D11BlendState の作成に失敗しました　箇所３
+22442:ID3D11BlendState の作成に失敗しました　箇所３
 
-22464:ID3D11BlendState の作成に失敗しました　箇所３
+22457:ID3D11BlendState の作成に失敗しました　箇所３
 
-22482:ID3D11BlendState の作成に失敗しました　箇所３
+22474:ID3D11BlendState の作成に失敗しました　箇所３
 
-22500:ID3D11BlendState の作成に失敗しました　箇所３
+22493:ID3D11BlendState の作成に失敗しました　箇所３
 
-22515:ID3D11BlendState の作成に失敗しました　箇所３
+22508:ID3D11BlendState の作成に失敗しました　箇所３
 
-22534:ID3D11BlendState の作成に失敗しました　箇所３
+22525:ID3D11BlendState の作成に失敗しました　箇所３
 
-22550:ID3D11BlendState の作成に失敗しました　箇所３
+22544:ID3D11BlendState の作成に失敗しました　箇所３
 
-22566:ID3D11BlendState の作成に失敗しました　箇所３
+22558:ID3D11BlendState の作成に失敗しました　箇所３
 
-22585:ID3D11BlendState の作成に失敗しました　箇所３
+22576:ID3D11BlendState の作成に失敗しました　箇所３
 
-22602:ID3D11BlendState の作成に失敗しました　箇所３
+22595:ID3D11BlendState の作成に失敗しました　箇所３
 
-22617:ID3D11BlendState の作成に失敗しました　箇所３
+22610:ID3D11BlendState の作成に失敗しました　箇所３
 
-22636:ID3D11BlendState の作成に失敗しました　箇所３
+22626:ID3D11BlendState の作成に失敗しました　箇所３
 
-22654:ID3D11BlendState の作成に失敗しました　箇所３
+22646:ID3D11BlendState の作成に失敗しました　箇所３
 
-22669:ID3D11BlendState の作成に失敗しました　箇所３
+22661:ID3D11BlendState の作成に失敗しました　箇所３
 
-22687:ID3D11BlendState の作成に失敗しました　箇所３
+22678:ID3D11BlendState の作成に失敗しました　箇所３
 
-22705:ID3D11BlendState の作成に失敗しました　箇所３
+22697:ID3D11BlendState の作成に失敗しました　箇所３
 
-22720:ID3D11BlendState の作成に失敗しました　箇所３
+22712:ID3D11BlendState の作成に失敗しました　箇所３
 
-22739:ID3D11BlendState の作成に失敗しました　箇所３
+22729:ID3D11BlendState の作成に失敗しました　箇所３
 
-22756:ID3D11BlendState の作成に失敗しました　箇所３
+22748:ID3D11BlendState の作成に失敗しました　箇所３
 
-22771:ID3D11BlendState の作成に失敗しました　箇所３
+22763:ID3D11BlendState の作成に失敗しました　箇所３
 
-22790:ID3D11BlendState の作成に失敗しました　箇所３
+22780:ID3D11BlendState の作成に失敗しました　箇所３
 
-22807:ID3D11BlendState の作成に失敗しました　箇所３
+22798:ID3D11BlendState の作成に失敗しました　箇所３
 
-22822:ID3D11BlendState の作成に失敗しました　箇所３
+22815:ID3D11BlendState の作成に失敗しました　箇所３
 
-22841:ID3D11BlendState の作成に失敗しました　箇所３
+22832:ID3D11BlendState の作成に失敗しました　箇所３
 
-22857:ID3D11BlendState の作成に失敗しました　箇所３
+22851:ID3D11BlendState の作成に失敗しました　箇所３
 
-22873:ID3D11BlendState の作成に失敗しました　箇所３
+22866:ID3D11BlendState の作成に失敗しました　箇所３
 
-22892:ID3D11BlendState の作成に失敗しました　箇所３
+22883:ID3D11BlendState の作成に失敗しました　箇所３
 
-22909:ID3D11BlendState の作成に失敗しました　箇所３
+22902:ID3D11BlendState の作成に失敗しました　箇所３
 
-22924:ID3D11BlendState の作成に失敗しました　箇所３
+22917:ID3D11BlendState の作成に失敗しました　箇所３
 
-22943:ID3D11BlendState の作成に失敗しました　箇所３
+22934:ID3D11BlendState の作成に失敗しました　箇所３
 
-22960:ID3D11BlendState の作成に失敗しました　箇所３
+22953:ID3D11BlendState の作成に失敗しました　箇所３
 
-22975:ID3D11BlendState の作成に失敗しました　箇所３
+22972:ID3D11BlendState の作成に失敗しました　箇所３
 
-22994:ID3D11BlendState の作成に失敗しました　箇所３
+22988:ID3D11BlendState の作成に失敗しました　箇所３
 
-23011:ID3D11BlendState の作成に失敗しました　箇所３
+23007:ID3D11BlendState の作成に失敗しました　箇所３
 
-23026:ID3D11BlendState の作成に失敗しました　箇所３
+23022:ID3D11BlendState の作成に失敗しました　箇所３
 
-23044:ID3D11BlendState の作成に失敗しました　箇所３
+23039:ID3D11BlendState の作成に失敗しました　箇所３
 
-23062:ID3D11BlendState の作成に失敗しました　箇所３
+23057:ID3D11BlendState の作成に失敗しました　箇所３
 
-23077:ID3D11BlendState の作成に失敗しました　箇所３
+23073:ID3D11BlendState の作成に失敗しました　箇所３
 
-23095:ID3D11BlendState の作成に失敗しました　箇所３
+23090:ID3D11BlendState の作成に失敗しました　箇所３
 
 23113:ID3D11BlendState の作成に失敗しました　箇所３
 
-23128:ID3D11BlendState の作成に失敗しました　箇所３
+23124:ID3D11BlendState の作成に失敗しました　箇所３
 
-23146:ID3D11BlendState の作成に失敗しました　箇所３
+23142:ID3D11BlendState の作成に失敗しました　箇所３
 
-23163:ID3D11BlendState の作成に失敗しました　箇所３
+23161:ID3D11BlendState の作成に失敗しました　箇所３
 
-23179:ID3D11BlendState の作成に失敗しました　箇所３
+23176:ID3D11BlendState の作成に失敗しました　箇所３
 
-23198:ID3D11BlendState の作成に失敗しました　箇所３
+23193:ID3D11BlendState の作成に失敗しました　箇所３
 
-23215:ID3D11BlendState の作成に失敗しました　箇所３
+23212:ID3D11BlendState の作成に失敗しました　箇所３
 
-23230:ID3D11BlendState の作成に失敗しました　箇所３
+23227:ID3D11BlendState の作成に失敗しました　箇所３
 
-23248:ID3D11BlendState の作成に失敗しました　箇所３
+23244:ID3D11BlendState の作成に失敗しました　箇所３
 
-23266:ID3D11BlendState の作成に失敗しました　箇所３
+23263:ID3D11BlendState の作成に失敗しました　箇所３
 
-23281:ID3D11BlendState の作成に失敗しました　箇所３
+23280:ID3D11BlendState の作成に失敗しました　箇所３
 
-23299:ID3D11BlendState の作成に失敗しました　箇所３
+23297:ID3D11BlendState の作成に失敗しました　箇所３
 
-23317:ID3D11BlendState の作成に失敗しました　箇所３
+23316:ID3D11BlendState の作成に失敗しました　箇所３
 
-23332:ID3D11BlendState の作成に失敗しました　箇所３
+23330:ID3D11BlendState の作成に失敗しました　箇所３
 
-23351:ID3D11BlendState の作成に失敗しました　箇所３
+23348:ID3D11BlendState の作成に失敗しました　箇所３
 
-23368:ID3D11BlendState の作成に失敗しました　箇所３
+23366:ID3D11BlendState の作成に失敗しました　箇所３
 
-23477:ID3D11BlendState の作成に失敗しました　箇所３
+23381:ID3D11BlendState の作成に失敗しました　箇所３
 
-27314:ID3D11BlendState の作成に失敗しました　箇所３
+23401:ID3D11BlendState の作成に失敗しました　箇所３
 
-27332:ID3D11BlendState の作成に失敗しました　箇所３
+23416:ID3D11BlendState の作成に失敗しました　箇所３
 
-27346:ID3D11BlendState の作成に失敗しました　箇所３
+23437:ID3D11BlendState の作成に失敗しました　箇所３
 
-27364:ID3D11BlendState の作成に失敗しました　箇所３
+23454:ID3D11BlendState の作成に失敗しました　箇所３
 
-27381:ID3D11BlendState の作成に失敗しました　箇所３
+23473:ID3D11BlendState の作成に失敗しました　箇所３
 
-27406:ID3D11BlendState の作成に失敗しました　箇所３
+23488:ID3D11BlendState の作成に失敗しました　箇所３
 
-27424:ID3D11BlendState の作成に失敗しました　箇所３
+23505:ID3D11BlendState の作成に失敗しました　箇所３
 
-27457:ID3D11BlendState の作成に失敗しました　箇所３
+23524:ID3D11BlendState の作成に失敗しました　箇所３
 
-27473:ID3D11BlendState の作成に失敗しました　箇所３
+23539:ID3D11BlendState の作成に失敗しました　箇所３
 
-27506:ID3D11BlendState の作成に失敗しました　箇所３
+23557:ID3D11BlendState の作成に失敗しました　箇所３
 
-27523:ID3D11BlendState の作成に失敗しました　箇所３
+23579:ID3D11BlendState の作成に失敗しました　箇所３
 
-27539:ID3D11BlendState の作成に失敗しました　箇所３
+23590:ID3D11BlendState の作成に失敗しました　箇所３
 
-27558:ID3D11BlendState の作成に失敗しました　箇所３
+23607:ID3D11BlendState の作成に失敗しました　箇所３
 
-27578:ID3D11BlendState の作成に失敗しました　箇所３
+23626:ID3D11BlendState の作成に失敗しました　箇所３
 
-27594:ID3D11BlendState の作成に失敗しました　箇所３
+23641:ID3D11BlendState の作成に失敗しました　箇所３
 
-27614:ID3D11BlendState の作成に失敗しました　箇所３
+23658:ID3D11BlendState の作成に失敗しました　箇所３
 
-27631:ID3D11BlendState の作成に失敗しました　箇所３
+23677:ID3D11BlendState の作成に失敗しました　箇所３
 
-27646:ID3D11BlendState の作成に失敗しました　箇所３
+23692:ID3D11BlendState の作成に失敗しました　箇所３
 
-27665:ID3D11BlendState の作成に失敗しました　箇所３
+23710:ID3D11BlendState の作成に失敗しました　箇所３
 
-27681:ID3D11BlendState の作成に失敗しました　箇所３
+23730:ID3D11BlendState の作成に失敗しました　箇所３
 
-27697:ID3D11BlendState の作成に失敗しました　箇所３
+23745:ID3D11BlendState の作成に失敗しました　箇所３
 
-27716:ID3D11BlendState の作成に失敗しました　箇所３
+23762:ID3D11BlendState の作成に失敗しました　箇所３
 
-27733:ID3D11BlendState の作成に失敗しました　箇所３
+23781:ID3D11BlendState の作成に失敗しました　箇所３
 
-27748:ID3D11BlendState の作成に失敗しました　箇所３
+23796:ID3D11BlendState の作成に失敗しました　箇所３
 
-27766:ID3D11BlendState の作成に失敗しました　箇所３
+23813:ID3D11BlendState の作成に失敗しました　箇所３
 
-27784:ID3D11BlendState の作成に失敗しました　箇所３
+23832:ID3D11BlendState の作成に失敗しました　箇所３
 
-27799:ID3D11BlendState の作成に失敗しました　箇所３
+23848:ID3D11BlendState の作成に失敗しました　箇所３
 
-27817:ID3D11BlendState の作成に失敗しました　箇所３
+23864:ID3D11BlendState の作成に失敗しました　箇所３
 
-27835:ID3D11BlendState の作成に失敗しました　箇所３
+23883:ID3D11BlendState の作成に失敗しました　箇所３
 
-27850:ID3D11BlendState の作成に失敗しました　箇所３
+23899:ID3D11BlendState の作成に失敗しました　箇所３
 
-27869:ID3D11BlendState の作成に失敗しました　箇所３
+23916:ID3D11BlendState の作成に失敗しました　箇所３
 
-27886:ID3D11BlendState の作成に失敗しました　箇所３
+23935:ID3D11BlendState の作成に失敗しました　箇所３
 
-27902:ID3D11BlendState の作成に失敗しました　箇所３
+23951:ID3D11BlendState の作成に失敗しました　箇所３
 
-27921:ID3D11BlendState の作成に失敗しました　箇所３
+23967:ID3D11BlendState の作成に失敗しました　箇所３
 
-27938:ID3D11BlendState の作成に失敗しました　箇所３
+23987:ID3D11BlendState の作成に失敗しました　箇所３
 
-27953:ID3D11BlendState の作成に失敗しました　箇所３
+24002:ID3D11BlendState の作成に失敗しました　箇所３
 
-27972:ID3D11BlendState の作成に失敗しました　箇所３
+24019:ID3D11BlendState の作成に失敗しました　箇所３
 
-27989:ID3D11BlendState の作成に失敗しました　箇所３
+24038:ID3D11BlendState の作成に失敗しました　箇所３
 
-28004:ID3D11BlendState の作成に失敗しました　箇所３
+24053:ID3D11BlendState の作成に失敗しました　箇所３
 
-28022:ID3D11BlendState の作成に失敗しました　箇所３
+24070:ID3D11BlendState の作成に失敗しました　箇所３
 
-28040:ID3D11BlendState の作成に失敗しました　箇所３
+24089:ID3D11BlendState の作成に失敗しました　箇所３
 
-28055:ID3D11BlendState の作成に失敗しました　箇所３
+24104:ID3D11BlendState の作成に失敗しました　箇所３
 
-28074:ID3D11BlendState の作成に失敗しました　箇所３
+24122:ID3D11BlendState の作成に失敗しました　箇所３
 
-28091:ID3D11BlendState の作成に失敗しました　箇所３
+24140:ID3D11BlendState の作成に失敗しました　箇所３
 
-28106:ID3D11BlendState の作成に失敗しました　箇所３
+24155:ID3D11BlendState の作成に失敗しました　箇所３
 
-28125:ID3D11BlendState の作成に失敗しました　箇所３
+24172:ID3D11BlendState の作成に失敗しました　箇所３
 
-28142:ID3D11BlendState の作成に失敗しました　箇所３
+24191:ID3D11BlendState の作成に失敗しました　箇所３
 
-28157:ID3D11BlendState の作成に失敗しました　箇所３
+24205:ID3D11BlendState の作成に失敗しました　箇所３
 
-28174:ID3D11BlendState の作成に失敗しました　箇所３
+24223:ID3D11BlendState の作成に失敗しました　箇所３
 
-28194:ID3D11BlendState の作成に失敗しました　箇所３
+24242:ID3D11BlendState の作成に失敗しました　箇所３
 
-28209:ID3D11BlendState の作成に失敗しました　箇所３
+24257:ID3D11BlendState の作成に失敗しました　箇所３
 
-28226:ID3D11BlendState の作成に失敗しました　箇所３
+24274:ID3D11BlendState の作成に失敗しました　箇所３
 
-28245:ID3D11BlendState の作成に失敗しました　箇所３
+24293:ID3D11BlendState の作成に失敗しました　箇所３
 
-28260:ID3D11BlendState の作成に失敗しました　箇所３
+24308:ID3D11BlendState の作成に失敗しました　箇所３
 
-28277:ID3D11BlendState の作成に失敗しました　箇所３
+24325:ID3D11BlendState の作成に失敗しました　箇所３
 
-28296:ID3D11BlendState の作成に失敗しました　箇所３
+24344:ID3D11BlendState の作成に失敗しました　箇所３
 
-28312:ID3D11BlendState の作成に失敗しました　箇所３
+24359:ID3D11BlendState の作成に失敗しました　箇所３
 
-28329:ID3D11BlendState の作成に失敗しました　箇所３
+24378:ID3D11BlendState の作成に失敗しました　箇所３
 
-28348:ID3D11BlendState の作成に失敗しました　箇所３
+24396:ID3D11BlendState の作成に失敗しました　箇所３
 
-28363:ID3D11BlendState の作成に失敗しました　箇所３
+24411:ID3D11BlendState の作成に失敗しました　箇所３
 
-28380:ID3D11BlendState の作成に失敗しました　箇所３
+24428:ID3D11BlendState の作成に失敗しました　箇所３
 
-28399:ID3D11BlendState の作成に失敗しました　箇所３
+24446:ID3D11BlendState の作成に失敗しました　箇所３
 
-28414:ID3D11BlendState の作成に失敗しました　箇所３
+24462:ID3D11BlendState の作成に失敗しました　箇所３
 
-28431:ID3D11BlendState の作成に失敗しました　箇所３
+24480:ID3D11BlendState の作成に失敗しました　箇所３
 
-28450:ID3D11BlendState の作成に失敗しました　箇所３
+24498:ID3D11BlendState の作成に失敗しました　箇所３
 
-28464:ID3D11BlendState の作成に失敗しました　箇所３
+24514:ID3D11BlendState の作成に失敗しました　箇所３
 
-28482:ID3D11BlendState の作成に失敗しました　箇所３
+24531:ID3D11BlendState の作成に失敗しました　箇所３
 
-28501:ID3D11BlendState の作成に失敗しました　箇所３
+24550:ID3D11BlendState の作成に失敗しました　箇所３
 
-28516:ID3D11BlendState の作成に失敗しました　箇所３
+24565:ID3D11BlendState の作成に失敗しました　箇所３
 
-28533:ID3D11BlendState の作成に失敗しました　箇所３
+24582:ID3D11BlendState の作成に失敗しました　箇所３
 
-28551:ID3D11BlendState の作成に失敗しました　箇所３
+24604:ID3D11BlendState の作成に失敗しました　箇所３
 
-28567:ID3D11BlendState の作成に失敗しました　箇所３
+24615:ID3D11BlendState の作成に失敗しました　箇所３
 
-28584:ID3D11BlendState の作成に失敗しました　箇所３
+24633:ID3D11BlendState の作成に失敗しました　箇所３
 
-28602:ID3D11BlendState の作成に失敗しました　箇所３
+24651:ID3D11BlendState の作成に失敗しました　箇所３
 
-28618:ID3D11BlendState の作成に失敗しました　箇所３
+24667:ID3D11BlendState の作成に失敗しました　箇所３
 
-28635:ID3D11BlendState の作成に失敗しました　箇所３
+24685:ID3D11BlendState の作成に失敗しました　箇所３
 
-28653:ID3D11BlendState の作成に失敗しました　箇所３
+24703:ID3D11BlendState の作成に失敗しました　箇所３
 
-28669:ID3D11BlendState の作成に失敗しました　箇所３
+24718:ID3D11BlendState の作成に失敗しました　箇所３
 
-28686:ID3D11BlendState の作成に失敗しました　箇所３
+24736:ID3D11BlendState の作成に失敗しました　箇所３
 
-28705:ID3D11BlendState の作成に失敗しました　箇所３
+24755:ID3D11BlendState の作成に失敗しました　箇所３
 
-28720:ID3D11BlendState の作成に失敗しました　箇所３
+24770:ID3D11BlendState の作成に失敗しました　箇所３
 
-28737:ID3D11BlendState の作成に失敗しました　箇所３
+24787:ID3D11BlendState の作成に失敗しました　箇所３
 
-28756:ID3D11BlendState の作成に失敗しました　箇所３
+24806:ID3D11BlendState の作成に失敗しました　箇所３
 
-28772:ID3D11BlendState の作成に失敗しました　箇所３
+24825:ID3D11BlendState の作成に失敗しました　箇所３
 
-28789:ID3D11BlendState の作成に失敗しました　箇所３
+24841:ID3D11BlendState の作成に失敗しました　箇所３
 
-28807:ID3D11BlendState の作成に失敗しました　箇所３
+24858:ID3D11BlendState の作成に失敗しました　箇所３
 
-28823:ID3D11BlendState の作成に失敗しました　箇所３
+24873:ID3D11BlendState の作成に失敗しました　箇所３
 
-28840:ID3D11BlendState の作成に失敗しました　箇所３
+24891:ID3D11BlendState の作成に失敗しました　箇所３
 
-28859:ID3D11BlendState の作成に失敗しました　箇所３
+24909:ID3D11BlendState の作成に失敗しました　箇所３
 
-28874:ID3D11BlendState の作成に失敗しました　箇所３
+24925:ID3D11BlendState の作成に失敗しました　箇所３
 
-28894:ID3D11BlendState の作成に失敗しました　箇所３
+24942:ID3D11BlendState の作成に失敗しました　箇所３
 
-28909:ID3D11BlendState の作成に失敗しました　箇所３
+24961:ID3D11BlendState の作成に失敗しました　箇所３
 
-28925:ID3D11BlendState の作成に失敗しました　箇所３
+24975:ID3D11BlendState の作成に失敗しました　箇所３
 
-28944:ID3D11BlendState の作成に失敗しました　箇所３
+24993:ID3D11BlendState の作成に失敗しました　箇所３
 
-28961:ID3D11BlendState の作成に失敗しました　箇所３
+25012:ID3D11BlendState の作成に失敗しました　箇所３
 
-28976:ID3D11BlendState の作成に失敗しました　箇所３
+25028:ID3D11BlendState の作成に失敗しました　箇所３
 
-28995:ID3D11BlendState の作成に失敗しました　箇所３
+25048:ID3D11BlendState の作成に失敗しました　箇所３
 
-29012:ID3D11BlendState の作成に失敗しました　箇所３
+25065:ID3D11BlendState の作成に失敗しました　箇所３
 
-29027:ID3D11BlendState の作成に失敗しました　箇所３
+25082:ID3D11BlendState の作成に失敗しました　箇所３
 
-29046:ID3D11BlendState の作成に失敗しました　箇所３
+25099:ID3D11BlendState の作成に失敗しました　箇所３
 
-29062:ID3D11BlendState の作成に失敗しました　箇所３
+25118:ID3D11BlendState の作成に失敗しました　箇所３
 
-29078:ID3D11BlendState の作成に失敗しました　箇所３
+25133:ID3D11BlendState の作成に失敗しました　箇所３
 
-29097:ID3D11BlendState の作成に失敗しました　箇所３
+25150:ID3D11BlendState の作成に失敗しました　箇所３
 
-29114:ID3D11BlendState の作成に失敗しました　箇所３
+25169:ID3D11BlendState の作成に失敗しました　箇所３
 
-29129:ID3D11BlendState の作成に失敗しました　箇所３
+25184:ID3D11BlendState の作成に失敗しました　箇所３
 
-29148:ID3D11BlendState の作成に失敗しました　箇所３
+25201:ID3D11BlendState の作成に失敗しました　箇所３
 
-29165:ID3D11BlendState の作成に失敗しました　箇所３
+25220:ID3D11BlendState の作成に失敗しました　箇所３
 
-29179:ID3D11BlendState の作成に失敗しました　箇所３
+25235:ID3D11BlendState の作成に失敗しました　箇所３
 
-29199:ID3D11BlendState の作成に失敗しました　箇所３
+25252:ID3D11BlendState の作成に失敗しました　箇所３
 
-29216:ID3D11BlendState の作成に失敗しました　箇所３
+25271:ID3D11BlendState の作成に失敗しました　箇所３
 
-29231:ID3D11BlendState の作成に失敗しました　箇所３
+25285:ID3D11BlendState の作成に失敗しました　箇所３
 
-29250:ID3D11BlendState の作成に失敗しました　箇所３
+25303:ID3D11BlendState の作成に失敗しました　箇所３
 
-29266:ID3D11BlendState の作成に失敗しました　箇所３
+25322:ID3D11BlendState の作成に失敗しました　箇所３
 
-29282:ID3D11BlendState の作成に失敗しました　箇所３
+25343:ID3D11BlendState の作成に失敗しました　箇所３
 
-29301:ID3D11BlendState の作成に失敗しました　箇所３
+25354:ID3D11BlendState の作成に失敗しました　箇所３
 
-29317:ID3D11BlendState の作成に失敗しました　箇所３
+25372:ID3D11BlendState の作成に失敗しました　箇所３
 
-29333:ID3D11BlendState の作成に失敗しました　箇所３
+25388:ID3D11BlendState の作成に失敗しました　箇所３
 
-29352:ID3D11BlendState の作成に失敗しました　箇所３
+25405:ID3D11BlendState の作成に失敗しました　箇所３
 
-29368:ID3D11BlendState の作成に失敗しました　箇所３
+25424:ID3D11BlendState の作成に失敗しました　箇所３
 
-29384:ID3D11BlendState の作成に失敗しました　箇所３
+25438:ID3D11BlendState の作成に失敗しました　箇所３
 
-29404:ID3D11BlendState の作成に失敗しました　箇所３
+25456:ID3D11BlendState の作成に失敗しました　箇所３
 
-29419:ID3D11BlendState の作成に失敗しました　箇所３
+25475:ID3D11BlendState の作成に失敗しました　箇所３
 
-29435:ID3D11BlendState の作成に失敗しました　箇所３
+25490:ID3D11BlendState の作成に失敗しました　箇所３
 
-29454:ID3D11BlendState の作成に失敗しました　箇所３
+25507:ID3D11BlendState の作成に失敗しました　箇所３
 
-29471:ID3D11BlendState の作成に失敗しました　箇所３
+25525:ID3D11BlendState の作成に失敗しました　箇所３
 
-29486:ID3D11BlendState の作成に失敗しました　箇所３
+25541:ID3D11BlendState の作成に失敗しました　箇所３
 
-29511:フォントの初期化を行います
-29512:フォントの初期化は正常に終了しました
-29571:d3d11.dll の解放 1
-29571:dxgi.dll の解放 1
-29572:Direct3D11 のオブジェクト数を出力
-29572:Direct3D11 のオブジェクト合計数 : 0
-29574:DirectInput 関連の終了処理... 完了
-29574:サウンド関連の終了処理... 完了
-29591:ウィンドウ関連の終了処理... ウインドウを閉じようとしています
-29595:ウインドウが破棄されようとしています
-29596:ソフトを終了する準備が整いました
-29662:完了
-29668:ＣＯＭを終了... 完了
-29668:
-29670:Alloc memory dump
-29670:	Total size:0(0.000kb)  Alloc num:0
-29670:
+25558:ID3D11BlendState の作成に失敗しました　箇所３
+
+25577:ID3D11BlendState の作成に失敗しました　箇所３
+
+25593:ID3D11BlendState の作成に失敗しました　箇所３
+
+25608:ID3D11BlendState の作成に失敗しました　箇所３
+
+25627:ID3D11BlendState の作成に失敗しました　箇所３
+
+25643:ID3D11BlendState の作成に失敗しました　箇所３
+
+25660:ID3D11BlendState の作成に失敗しました　箇所３
+
+25679:ID3D11BlendState の作成に失敗しました　箇所３
+
+25695:ID3D11BlendState の作成に失敗しました　箇所３
+
+25712:ID3D11BlendState の作成に失敗しました　箇所３
+
+25730:ID3D11BlendState の作成に失敗しました　箇所３
+
+25745:ID3D11BlendState の作成に失敗しました　箇所３
+
+25763:ID3D11BlendState の作成に失敗しました　箇所３
+
+25781:ID3D11BlendState の作成に失敗しました　箇所３
+
+25797:ID3D11BlendState の作成に失敗しました　箇所３
+
+25813:ID3D11BlendState の作成に失敗しました　箇所３
+
+25832:ID3D11BlendState の作成に失敗しました　箇所３
+
+25848:ID3D11BlendState の作成に失敗しました　箇所３
+
+25864:ID3D11BlendState の作成に失敗しました　箇所３
+
+25883:ID3D11BlendState の作成に失敗しました　箇所３
+
+25899:ID3D11BlendState の作成に失敗しました　箇所３
+
+25915:ID3D11BlendState の作成に失敗しました　箇所３
+
+25934:ID3D11BlendState の作成に失敗しました　箇所３
+
+25950:ID3D11BlendState の作成に失敗しました　箇所３
+
+25967:ID3D11BlendState の作成に失敗しました　箇所３
+
+25985:ID3D11BlendState の作成に失敗しました　箇所３
+
+26000:ID3D11BlendState の作成に失敗しました　箇所３
+
+26017:ID3D11BlendState の作成に失敗しました　箇所３
+
+26036:ID3D11BlendState の作成に失敗しました　箇所３
+
+26052:ID3D11BlendState の作成に失敗しました　箇所３
+
+26068:ID3D11BlendState の作成に失敗しました　箇所３
+
+26088:ID3D11BlendState の作成に失敗しました　箇所３
+
+26103:ID3D11BlendState の作成に失敗しました　箇所３
+
+26121:ID3D11BlendState の作成に失敗しました　箇所３
+
+26140:ID3D11BlendState の作成に失敗しました　箇所３
+
+26155:ID3D11BlendState の作成に失敗しました　箇所３
+
+26172:ID3D11BlendState の作成に失敗しました　箇所３
+
+26191:ID3D11BlendState の作成に失敗しました　箇所３
+
+26207:ID3D11BlendState の作成に失敗しました　箇所３
+
+26223:ID3D11BlendState の作成に失敗しました　箇所３
+
+26242:ID3D11BlendState の作成に失敗しました　箇所３
+
+26258:ID3D11BlendState の作成に失敗しました　箇所３
+
+26274:ID3D11BlendState の作成に失敗しました　箇所３
+
+26293:ID3D11BlendState の作成に失敗しました　箇所３
+
+26309:ID3D11BlendState の作成に失敗しました　箇所３
+
+26325:ID3D11BlendState の作成に失敗しました　箇所３
+
+26344:ID3D11BlendState の作成に失敗しました　箇所３
+
+26358:ID3D11BlendState の作成に失敗しました　箇所３
+
+26377:ID3D11BlendState の作成に失敗しました　箇所３
+
+26395:ID3D11BlendState の作成に失敗しました　箇所３
+
+26410:ID3D11BlendState の作成に失敗しました　箇所３
+
+26427:ID3D11BlendState の作成に失敗しました　箇所３
+
+26446:ID3D11BlendState の作成に失敗しました　箇所３
+
+26462:ID3D11BlendState の作成に失敗しました　箇所３
+
+26479:ID3D11BlendState の作成に失敗しました　箇所３
+
+26497:ID3D11BlendState の作成に失敗しました　箇所３
+
+26513:ID3D11BlendState の作成に失敗しました　箇所３
+
+26530:ID3D11BlendState の作成に失敗しました　箇所３
+
+26548:ID3D11BlendState の作成に失敗しました　箇所３
+
+26563:ID3D11BlendState の作成に失敗しました　箇所３
+
+26580:ID3D11BlendState の作成に失敗しました　箇所３
+
+26599:ID3D11BlendState の作成に失敗しました　箇所３
+
+26614:ID3D11BlendState の作成に失敗しました　箇所３
+
+26631:ID3D11BlendState の作成に失敗しました　箇所３
+
+26651:ID3D11BlendState の作成に失敗しました　箇所３
+
+26665:ID3D11BlendState の作成に失敗しました　箇所３
+
+26682:ID3D11BlendState の作成に失敗しました　箇所３
+
+26700:ID3D11BlendState の作成に失敗しました　箇所３
+
+26715:ID3D11BlendState の作成に失敗しました　箇所３
+
+26733:ID3D11BlendState の作成に失敗しました　箇所３
+
+26752:ID3D11BlendState の作成に失敗しました　箇所３
+
+26767:ID3D11BlendState の作成に失敗しました　箇所３
+
+26784:ID3D11BlendState の作成に失敗しました　箇所３
+
+26803:ID3D11BlendState の作成に失敗しました　箇所３
+
+26818:ID3D11BlendState の作成に失敗しました　箇所３
+
+26835:ID3D11BlendState の作成に失敗しました　箇所３
+
+26853:ID3D11BlendState の作成に失敗しました　箇所３
+
+26869:ID3D11BlendState の作成に失敗しました　箇所３
+
+26886:ID3D11BlendState の作成に失敗しました　箇所３
+
+26905:ID3D11BlendState の作成に失敗しました　箇所３
+
+26920:ID3D11BlendState の作成に失敗しました　箇所３
+
+26937:ID3D11BlendState の作成に失敗しました　箇所３
+
+26955:ID3D11BlendState の作成に失敗しました　箇所３
+
+26971:ID3D11BlendState の作成に失敗しました　箇所３
+
+26988:ID3D11BlendState の作成に失敗しました　箇所３
+
+27007:ID3D11BlendState の作成に失敗しました　箇所３
+
+27022:ID3D11BlendState の作成に失敗しました　箇所３
+
+27039:ID3D11BlendState の作成に失敗しました　箇所３
+
+27058:ID3D11BlendState の作成に失敗しました　箇所３
+
+27073:ID3D11BlendState の作成に失敗しました　箇所３
+
+27090:ID3D11BlendState の作成に失敗しました　箇所３
+
+27108:ID3D11BlendState の作成に失敗しました　箇所３
+
+27124:ID3D11BlendState の作成に失敗しました　箇所３
+
+27141:ID3D11BlendState の作成に失敗しました　箇所３
+
+27159:ID3D11BlendState の作成に失敗しました　箇所３
+
+27175:ID3D11BlendState の作成に失敗しました　箇所３
+
+27192:ID3D11BlendState の作成に失敗しました　箇所３
+
+27210:ID3D11BlendState の作成に失敗しました　箇所３
+
+27226:ID3D11BlendState の作成に失敗しました　箇所３
+
+27243:ID3D11BlendState の作成に失敗しました　箇所３
+
+27261:ID3D11BlendState の作成に失敗しました　箇所３
+
+27277:ID3D11BlendState の作成に失敗しました　箇所３
+
+27294:ID3D11BlendState の作成に失敗しました　箇所３
+
+27312:ID3D11BlendState の作成に失敗しました　箇所３
+
+27328:ID3D11BlendState の作成に失敗しました　箇所３
+
+27345:ID3D11BlendState の作成に失敗しました　箇所３
+
+27363:ID3D11BlendState の作成に失敗しました　箇所３
+
+27380:ID3D11BlendState の作成に失敗しました　箇所３
+
+27397:ID3D11BlendState の作成に失敗しました　箇所３
+
+27415:ID3D11BlendState の作成に失敗しました　箇所３
+
+27431:ID3D11BlendState の作成に失敗しました　箇所３
+
+27448:ID3D11BlendState の作成に失敗しました　箇所３
+
+27466:ID3D11BlendState の作成に失敗しました　箇所３
+
+27482:ID3D11BlendState の作成に失敗しました　箇所３
+
+27499:ID3D11BlendState の作成に失敗しました　箇所３
+
+27518:ID3D11BlendState の作成に失敗しました　箇所３
+
+27534:ID3D11BlendState の作成に失敗しました　箇所３
+
+27551:ID3D11BlendState の作成に失敗しました　箇所３
+
+27570:ID3D11BlendState の作成に失敗しました　箇所３
+
+27585:ID3D11BlendState の作成に失敗しました　箇所３
+
+27602:ID3D11BlendState の作成に失敗しました　箇所３
+
+27619:ID3D11BlendState の作成に失敗しました　箇所３
+
+27636:ID3D11BlendState の作成に失敗しました　箇所３
+
+27653:ID3D11BlendState の作成に失敗しました　箇所３
+
+27670:ID3D11BlendState の作成に失敗しました　箇所３
+
+27687:ID3D11BlendState の作成に失敗しました　箇所３
+
+27704:ID3D11BlendState の作成に失敗しました　箇所３
+
+27721:ID3D11BlendState の作成に失敗しました　箇所３
+
+27738:ID3D11BlendState の作成に失敗しました　箇所３
+
+27755:ID3D11BlendState の作成に失敗しました　箇所３
+
+27773:ID3D11BlendState の作成に失敗しました　箇所３
+
+27791:ID3D11BlendState の作成に失敗しました　箇所３
+
+27808:ID3D11BlendState の作成に失敗しました　箇所３
+
+27825:ID3D11BlendState の作成に失敗しました　箇所３
+
+27843:ID3D11BlendState の作成に失敗しました　箇所３
+
+27859:ID3D11BlendState の作成に失敗しました　箇所３
+
+27875:ID3D11BlendState の作成に失敗しました　箇所３
+
+27893:ID3D11BlendState の作成に失敗しました　箇所３
+
+27910:ID3D11BlendState の作成に失敗しました　箇所３
+
+27926:ID3D11BlendState の作成に失敗しました　箇所３
+
+27944:ID3D11BlendState の作成に失敗しました　箇所３
+
+27961:ID3D11BlendState の作成に失敗しました　箇所３
+
+27977:ID3D11BlendState の作成に失敗しました　箇所３
+
+27994:ID3D11BlendState の作成に失敗しました　箇所３
+
+28012:ID3D11BlendState の作成に失敗しました　箇所３
+
+28029:ID3D11BlendState の作成に失敗しました　箇所３
+
+28046:ID3D11BlendState の作成に失敗しました　箇所３
+
+28063:ID3D11BlendState の作成に失敗しました　箇所３
+
+28080:ID3D11BlendState の作成に失敗しました　箇所３
+
+28097:ID3D11BlendState の作成に失敗しました　箇所３
+
+28114:ID3D11BlendState の作成に失敗しました　箇所３
+
+28131:ID3D11BlendState の作成に失敗しました　箇所３
+
+28148:ID3D11BlendState の作成に失敗しました　箇所３
+
+28165:ID3D11BlendState の作成に失敗しました　箇所３
+
+28182:ID3D11BlendState の作成に失敗しました　箇所３
+
+28199:ID3D11BlendState の作成に失敗しました　箇所３
+
+28216:ID3D11BlendState の作成に失敗しました　箇所３
+
+28233:ID3D11BlendState の作成に失敗しました　箇所３
+
+28250:ID3D11BlendState の作成に失敗しました　箇所３
+
+28267:ID3D11BlendState の作成に失敗しました　箇所３
+
+28284:ID3D11BlendState の作成に失敗しました　箇所３
+
+28301:ID3D11BlendState の作成に失敗しました　箇所３
+
+28320:ID3D11BlendState の作成に失敗しました　箇所３
+
+28335:ID3D11BlendState の作成に失敗しました　箇所３
+
+28352:ID3D11BlendState の作成に失敗しました　箇所３
+
+28371:ID3D11BlendState の作成に失敗しました　箇所３
+
+28385:ID3D11BlendState の作成に失敗しました　箇所３
+
+28403:ID3D11BlendState の作成に失敗しました　箇所３
+
+28422:ID3D11BlendState の作成に失敗しました　箇所３
+
+28437:ID3D11BlendState の作成に失敗しました　箇所３
+
+28454:ID3D11BlendState の作成に失敗しました　箇所３
+
+28473:ID3D11BlendState の作成に失敗しました　箇所３
+
+28488:ID3D11BlendState の作成に失敗しました　箇所３
+
+28505:ID3D11BlendState の作成に失敗しました　箇所３
+
+28524:ID3D11BlendState の作成に失敗しました　箇所３
+
+28539:ID3D11BlendState の作成に失敗しました　箇所３
+
+28555:ID3D11BlendState の作成に失敗しました　箇所３
+
+28575:ID3D11BlendState の作成に失敗しました　箇所３
+
+28590:ID3D11BlendState の作成に失敗しました　箇所３
+
+28608:ID3D11BlendState の作成に失敗しました　箇所３
+
+28626:ID3D11BlendState の作成に失敗しました　箇所３
+
+28641:ID3D11BlendState の作成に失敗しました　箇所３
+
+28658:ID3D11BlendState の作成に失敗しました　箇所３
+
+28678:ID3D11BlendState の作成に失敗しました　箇所３
+
+28692:ID3D11BlendState の作成に失敗しました　箇所３
+
+28710:ID3D11BlendState の作成に失敗しました　箇所３
+
+28730:ID3D11BlendState の作成に失敗しました　箇所３
+
+28743:ID3D11BlendState の作成に失敗しました　箇所３
+
+28760:ID3D11BlendState の作成に失敗しました　箇所３
+
+28780:ID3D11BlendState の作成に失敗しました　箇所３
+
+28794:ID3D11BlendState の作成に失敗しました　箇所３
+
+28811:ID3D11BlendState の作成に失敗しました　箇所３
+
+28830:ID3D11BlendState の作成に失敗しました　箇所３
+
+28845:ID3D11BlendState の作成に失敗しました　箇所３
+
+28862:ID3D11BlendState の作成に失敗しました　箇所３
+
+28881:ID3D11BlendState の作成に失敗しました　箇所３
+
+28895:ID3D11BlendState の作成に失敗しました　箇所３
+
+28913:ID3D11BlendState の作成に失敗しました　箇所３
+
+28932:ID3D11BlendState の作成に失敗しました　箇所３
+
+28947:ID3D11BlendState の作成に失敗しました　箇所３
+
+28964:ID3D11BlendState の作成に失敗しました　箇所３
+
+28983:ID3D11BlendState の作成に失敗しました　箇所３
+
+28998:ID3D11BlendState の作成に失敗しました　箇所３
+
+29015:ID3D11BlendState の作成に失敗しました　箇所３
+
+29034:ID3D11BlendState の作成に失敗しました　箇所３
+
+29048:ID3D11BlendState の作成に失敗しました　箇所３
+
+29066:ID3D11BlendState の作成に失敗しました　箇所３
+
+29085:ID3D11BlendState の作成に失敗しました　箇所３
+
+29100:ID3D11BlendState の作成に失敗しました　箇所３
+
+29117:ID3D11BlendState の作成に失敗しました　箇所３
+
+29136:ID3D11BlendState の作成に失敗しました　箇所３
+
+29151:ID3D11BlendState の作成に失敗しました　箇所３
+
+29168:ID3D11BlendState の作成に失敗しました　箇所３
+
+29188:ID3D11BlendState の作成に失敗しました　箇所３
+
+29202:ID3D11BlendState の作成に失敗しました　箇所３
+
+29219:ID3D11BlendState の作成に失敗しました　箇所３
+
+29239:ID3D11BlendState の作成に失敗しました　箇所３
+
+29253:ID3D11BlendState の作成に失敗しました　箇所３
+
+29270:ID3D11BlendState の作成に失敗しました　箇所３
+
+29289:ID3D11BlendState の作成に失敗しました　箇所３
+
+29304:ID3D11BlendState の作成に失敗しました　箇所３
+
+29321:ID3D11BlendState の作成に失敗しました　箇所３
+
+29340:ID3D11BlendState の作成に失敗しました　箇所３
+
+29355:ID3D11BlendState の作成に失敗しました　箇所３
+
+29372:ID3D11BlendState の作成に失敗しました　箇所３
+
+29391:ID3D11BlendState の作成に失敗しました　箇所３
+
+29406:ID3D11BlendState の作成に失敗しました　箇所３
+
+29423:ID3D11BlendState の作成に失敗しました　箇所３
+
+29442:ID3D11BlendState の作成に失敗しました　箇所３
+
+29457:ID3D11BlendState の作成に失敗しました　箇所３
+
+29474:ID3D11BlendState の作成に失敗しました　箇所３
+
+29493:ID3D11BlendState の作成に失敗しました　箇所３
+
+29508:ID3D11BlendState の作成に失敗しました　箇所３
+
+29525:ID3D11BlendState の作成に失敗しました　箇所３
+
+29544:ID3D11BlendState の作成に失敗しました　箇所３
+
+29559:ID3D11BlendState の作成に失敗しました　箇所３
+
+29575:ID3D11BlendState の作成に失敗しました　箇所３
+
+29595:ID3D11BlendState の作成に失敗しました　箇所３
+
+29610:ID3D11BlendState の作成に失敗しました　箇所３
+
+29627:ID3D11BlendState の作成に失敗しました　箇所３
+
+29646:ID3D11BlendState の作成に失敗しました　箇所３
+
+29661:ID3D11BlendState の作成に失敗しました　箇所３
+
+29678:ID3D11BlendState の作成に失敗しました　箇所３
+
+29697:ID3D11BlendState の作成に失敗しました　箇所３
+
+29712:ID3D11BlendState の作成に失敗しました　箇所３
+
+29729:ID3D11BlendState の作成に失敗しました　箇所３
+
+29747:ID3D11BlendState の作成に失敗しました　箇所３
+
+29763:ID3D11BlendState の作成に失敗しました　箇所３
+
+29781:ID3D11BlendState の作成に失敗しました　箇所３
+
+29799:ID3D11BlendState の作成に失敗しました　箇所３
+
+29814:ID3D11BlendState の作成に失敗しました　箇所３
+
+29831:ID3D11BlendState の作成に失敗しました　箇所３
+
+29850:ID3D11BlendState の作成に失敗しました　箇所３
+
+29864:ID3D11BlendState の作成に失敗しました　箇所３
+
+29882:ID3D11BlendState の作成に失敗しました　箇所３
+
+29901:ID3D11BlendState の作成に失敗しました　箇所３
+
+29916:ID3D11BlendState の作成に失敗しました　箇所３
+
+29933:ID3D11BlendState の作成に失敗しました　箇所３
+
+29952:ID3D11BlendState の作成に失敗しました　箇所３
+
+29968:ID3D11BlendState の作成に失敗しました　箇所３
+
+29984:ID3D11BlendState の作成に失敗しました　箇所３
+
+30003:ID3D11BlendState の作成に失敗しました　箇所３
+
+30018:ID3D11BlendState の作成に失敗しました　箇所３
+
+30034:ID3D11BlendState の作成に失敗しました　箇所３
+
+30054:ID3D11BlendState の作成に失敗しました　箇所３
+
+30069:ID3D11BlendState の作成に失敗しました　箇所３
+
+30086:ID3D11BlendState の作成に失敗しました　箇所３
+
+30105:ID3D11BlendState の作成に失敗しました　箇所３
+
+30120:ID3D11BlendState の作成に失敗しました　箇所３
+
+30138:ID3D11BlendState の作成に失敗しました　箇所３
+
+30156:ID3D11BlendState の作成に失敗しました　箇所３
+
+30171:ID3D11BlendState の作成に失敗しました　箇所３
+
+30189:ID3D11BlendState の作成に失敗しました　箇所３
+
+30206:ID3D11BlendState の作成に失敗しました　箇所３
+
+30222:ID3D11BlendState の作成に失敗しました　箇所３
+
+30238:ID3D11BlendState の作成に失敗しました　箇所３
+
+30259:ID3D11BlendState の作成に失敗しました　箇所３
+
+30274:ID3D11BlendState の作成に失敗しました　箇所３
+
+30291:ID3D11BlendState の作成に失敗しました　箇所３
+
+30310:ID3D11BlendState の作成に失敗しました　箇所３
+
+30325:ID3D11BlendState の作成に失敗しました　箇所３
+
+30342:ID3D11BlendState の作成に失敗しました　箇所３
+
+30361:ID3D11BlendState の作成に失敗しました　箇所３
+
+30376:ID3D11BlendState の作成に失敗しました　箇所３
+
+30393:ID3D11BlendState の作成に失敗しました　箇所３
+
+30412:ID3D11BlendState の作成に失敗しました　箇所３
+
+30427:ID3D11BlendState の作成に失敗しました　箇所３
+
+30444:ID3D11BlendState の作成に失敗しました　箇所３
+
+30463:ID3D11BlendState の作成に失敗しました　箇所３
+
+30478:ID3D11BlendState の作成に失敗しました　箇所３
+
+30495:ID3D11BlendState の作成に失敗しました　箇所３
+
+30514:ID3D11BlendState の作成に失敗しました　箇所３
+
+30529:ID3D11BlendState の作成に失敗しました　箇所３
+
+30546:ID3D11BlendState の作成に失敗しました　箇所３
+
+30565:ID3D11BlendState の作成に失敗しました　箇所３
+
+30580:ID3D11BlendState の作成に失敗しました　箇所３
+
+30598:ID3D11BlendState の作成に失敗しました　箇所３
+
+30617:ID3D11BlendState の作成に失敗しました　箇所３
+
+30632:ID3D11BlendState の作成に失敗しました　箇所３
+
+30650:ID3D11BlendState の作成に失敗しました　箇所３
+
+30667:ID3D11BlendState の作成に失敗しました　箇所３
+
+30683:ID3D11BlendState の作成に失敗しました　箇所３
+
+30700:ID3D11BlendState の作成に失敗しました　箇所３
+
+30721:ID3D11BlendState の作成に失敗しました　箇所３
+
+30734:ID3D11BlendState の作成に失敗しました　箇所３
+
+30751:ID3D11BlendState の作成に失敗しました　箇所３
+
+30770:ID3D11BlendState の作成に失敗しました　箇所３
+
+30785:ID3D11BlendState の作成に失敗しました　箇所３
+
+30802:ID3D11BlendState の作成に失敗しました　箇所３
+
+30822:ID3D11BlendState の作成に失敗しました　箇所３
+
+30836:ID3D11BlendState の作成に失敗しました　箇所３
+
+30853:ID3D11BlendState の作成に失敗しました　箇所３
+
+30872:ID3D11BlendState の作成に失敗しました　箇所３
+
+30887:ID3D11BlendState の作成に失敗しました　箇所３
+
+30904:ID3D11BlendState の作成に失敗しました　箇所３
+
+30924:ID3D11BlendState の作成に失敗しました　箇所３
+
+30938:ID3D11BlendState の作成に失敗しました　箇所３
+
+30955:ID3D11BlendState の作成に失敗しました　箇所３
+
+30974:ID3D11BlendState の作成に失敗しました　箇所３
+
+30989:ID3D11BlendState の作成に失敗しました　箇所３
+
+31006:ID3D11BlendState の作成に失敗しました　箇所３
+
+31025:ID3D11BlendState の作成に失敗しました　箇所３
+
+31040:ID3D11BlendState の作成に失敗しました　箇所３
+
+31057:ID3D11BlendState の作成に失敗しました　箇所３
+
+31076:ID3D11BlendState の作成に失敗しました　箇所３
+
+31091:ID3D11BlendState の作成に失敗しました　箇所３
+
+31108:ID3D11BlendState の作成に失敗しました　箇所３
+
+31127:ID3D11BlendState の作成に失敗しました　箇所３
+
+31142:ID3D11BlendState の作成に失敗しました　箇所３
+
+31158:ID3D11BlendState の作成に失敗しました　箇所３
+
+31178:ID3D11BlendState の作成に失敗しました　箇所３
+
+31193:ID3D11BlendState の作成に失敗しました　箇所３
+
+31210:ID3D11BlendState の作成に失敗しました　箇所３
+
+31229:ID3D11BlendState の作成に失敗しました　箇所３
+
+31244:ID3D11BlendState の作成に失敗しました　箇所３
+
+31261:ID3D11BlendState の作成に失敗しました　箇所３
+
+31281:ID3D11BlendState の作成に失敗しました　箇所３
+
+31295:ID3D11BlendState の作成に失敗しました　箇所３
+
+31312:ID3D11BlendState の作成に失敗しました　箇所３
+
+31331:ID3D11BlendState の作成に失敗しました　箇所３
+
+31346:ID3D11BlendState の作成に失敗しました　箇所３
+
+31363:ID3D11BlendState の作成に失敗しました　箇所３
+
+31382:ID3D11BlendState の作成に失敗しました　箇所３
+
+31398:ID3D11BlendState の作成に失敗しました　箇所３
+
+31414:ID3D11BlendState の作成に失敗しました　箇所３
+
+31433:ID3D11BlendState の作成に失敗しました　箇所３
+
+31448:ID3D11BlendState の作成に失敗しました　箇所３
+
+31465:ID3D11BlendState の作成に失敗しました　箇所３
+
+31483:ID3D11BlendState の作成に失敗しました　箇所３
+
+31499:ID3D11BlendState の作成に失敗しました　箇所３
+
+31516:ID3D11BlendState の作成に失敗しました　箇所３
+
+31535:ID3D11BlendState の作成に失敗しました　箇所３
+
+31550:ID3D11BlendState の作成に失敗しました　箇所３
+
+31567:ID3D11BlendState の作成に失敗しました　箇所３
+
+31586:ID3D11BlendState の作成に失敗しました　箇所３
+
+31601:ID3D11BlendState の作成に失敗しました　箇所３
+
+31618:ID3D11BlendState の作成に失敗しました　箇所３
+
+31637:ID3D11BlendState の作成に失敗しました　箇所３
+
+31652:ID3D11BlendState の作成に失敗しました　箇所３
+
+31669:ID3D11BlendState の作成に失敗しました　箇所３
+
+31688:ID3D11BlendState の作成に失敗しました　箇所３
+
+31703:ID3D11BlendState の作成に失敗しました　箇所３
+
+31720:ID3D11BlendState の作成に失敗しました　箇所３
+
+31739:ID3D11BlendState の作成に失敗しました　箇所３
+
+31754:ID3D11BlendState の作成に失敗しました　箇所３
+
+31771:ID3D11BlendState の作成に失敗しました　箇所３
+
+31790:ID3D11BlendState の作成に失敗しました　箇所３
+
+31805:ID3D11BlendState の作成に失敗しました　箇所３
+
+31822:ID3D11BlendState の作成に失敗しました　箇所３
+
+31840:ID3D11BlendState の作成に失敗しました　箇所３
+
+31856:ID3D11BlendState の作成に失敗しました　箇所３
+
+31873:ID3D11BlendState の作成に失敗しました　箇所３
+
+31892:ID3D11BlendState の作成に失敗しました　箇所３
+
+31907:ID3D11BlendState の作成に失敗しました　箇所３
+
+31924:ID3D11BlendState の作成に失敗しました　箇所３
+
+31943:ID3D11BlendState の作成に失敗しました　箇所３
+
+31958:ID3D11BlendState の作成に失敗しました　箇所３
+
+31975:ID3D11BlendState の作成に失敗しました　箇所３
+
+31994:ID3D11BlendState の作成に失敗しました　箇所３
+
+32009:ID3D11BlendState の作成に失敗しました　箇所３
+
+32027:ID3D11BlendState の作成に失敗しました　箇所３
+
+32045:ID3D11BlendState の作成に失敗しました　箇所３
+
+32060:ID3D11BlendState の作成に失敗しました　箇所３
+
+32078:ID3D11BlendState の作成に失敗しました　箇所３
+
+32095:ID3D11BlendState の作成に失敗しました　箇所３
+
+32111:ID3D11BlendState の作成に失敗しました　箇所３
+
+32128:ID3D11BlendState の作成に失敗しました　箇所３
+
+32147:ID3D11BlendState の作成に失敗しました　箇所３
+
+32162:ID3D11BlendState の作成に失敗しました　箇所３
+
+32180:ID3D11BlendState の作成に失敗しました　箇所３
+
+32198:ID3D11BlendState の作成に失敗しました　箇所３
+
+32213:ID3D11BlendState の作成に失敗しました　箇所３
+
+32231:ID3D11BlendState の作成に失敗しました　箇所３
+
+32249:ID3D11BlendState の作成に失敗しました　箇所３
+
+32265:ID3D11BlendState の作成に失敗しました　箇所３
+
+32282:ID3D11BlendState の作成に失敗しました　箇所３
+
+32301:ID3D11BlendState の作成に失敗しました　箇所３
+
+32316:ID3D11BlendState の作成に失敗しました　箇所３
+
+32333:ID3D11BlendState の作成に失敗しました　箇所３
+
+32352:ID3D11BlendState の作成に失敗しました　箇所３
+
+32367:ID3D11BlendState の作成に失敗しました　箇所３
+
+32384:ID3D11BlendState の作成に失敗しました　箇所３
+
+32402:ID3D11BlendState の作成に失敗しました　箇所３
+
+32418:ID3D11BlendState の作成に失敗しました　箇所３
+
+32435:ID3D11BlendState の作成に失敗しました　箇所３
+
+32454:ID3D11BlendState の作成に失敗しました　箇所３
+
+32469:ID3D11BlendState の作成に失敗しました　箇所３
+
+32486:ID3D11BlendState の作成に失敗しました　箇所３
+
+32505:ID3D11BlendState の作成に失敗しました　箇所３
+
+32520:ID3D11BlendState の作成に失敗しました　箇所３
+
+32537:ID3D11BlendState の作成に失敗しました　箇所３
+
+32556:ID3D11BlendState の作成に失敗しました　箇所３
+
+32571:ID3D11BlendState の作成に失敗しました　箇所３
+
+32588:ID3D11BlendState の作成に失敗しました　箇所３
+
+32606:ID3D11BlendState の作成に失敗しました　箇所３
+
+32622:ID3D11BlendState の作成に失敗しました　箇所３
+
+32639:ID3D11BlendState の作成に失敗しました　箇所３
+
+32658:ID3D11BlendState の作成に失敗しました　箇所３
+
+32673:ID3D11BlendState の作成に失敗しました　箇所３
+
+32690:ID3D11BlendState の作成に失敗しました　箇所３
+
+32709:ID3D11BlendState の作成に失敗しました　箇所３
+
+32724:ID3D11BlendState の作成に失敗しました　箇所３
+
+32741:ID3D11BlendState の作成に失敗しました　箇所３
+
+32760:ID3D11BlendState の作成に失敗しました　箇所３
+
+32775:ID3D11BlendState の作成に失敗しました　箇所３
+
+32792:ID3D11BlendState の作成に失敗しました　箇所３
+
+32811:ID3D11BlendState の作成に失敗しました　箇所３
+
+32825:ID3D11BlendState の作成に失敗しました　箇所３
+
+32843:ID3D11BlendState の作成に失敗しました　箇所３
+
+32862:ID3D11BlendState の作成に失敗しました　箇所３
+
+32877:ID3D11BlendState の作成に失敗しました　箇所３
+
+32894:ID3D11BlendState の作成に失敗しました　箇所３
+
+32913:ID3D11BlendState の作成に失敗しました　箇所３
+
+32928:ID3D11BlendState の作成に失敗しました　箇所３
+
+32945:ID3D11BlendState の作成に失敗しました　箇所３
+
+32964:ID3D11BlendState の作成に失敗しました　箇所３
+
+32979:ID3D11BlendState の作成に失敗しました　箇所３
+
+32996:ID3D11BlendState の作成に失敗しました　箇所３
+
+33014:ID3D11BlendState の作成に失敗しました　箇所３
+
+33030:ID3D11BlendState の作成に失敗しました　箇所３
+
+33047:ID3D11BlendState の作成に失敗しました　箇所３
+
+33065:ID3D11BlendState の作成に失敗しました　箇所３
+
+33081:ID3D11BlendState の作成に失敗しました　箇所３
+
+33098:ID3D11BlendState の作成に失敗しました　箇所３
+
+33117:ID3D11BlendState の作成に失敗しました　箇所３
+
+33132:ID3D11BlendState の作成に失敗しました　箇所３
+
+33149:ID3D11BlendState の作成に失敗しました　箇所３
+
+33169:ID3D11BlendState の作成に失敗しました　箇所３
+
+33185:ID3D11BlendState の作成に失敗しました　箇所３
+
+33202:ID3D11BlendState の作成に失敗しました　箇所３
+
+33221:ID3D11BlendState の作成に失敗しました　箇所３
+
+33235:ID3D11BlendState の作成に失敗しました　箇所３
+
+33253:ID3D11BlendState の作成に失敗しました　箇所３
+
+33272:ID3D11BlendState の作成に失敗しました　箇所３
+
+33287:ID3D11BlendState の作成に失敗しました　箇所３
+
+33304:ID3D11BlendState の作成に失敗しました　箇所３
+
+33323:ID3D11BlendState の作成に失敗しました　箇所３
+
+33338:ID3D11BlendState の作成に失敗しました　箇所３
+
+33355:ID3D11BlendState の作成に失敗しました　箇所３
+
+33374:ID3D11BlendState の作成に失敗しました　箇所３
+
+33389:ID3D11BlendState の作成に失敗しました　箇所３
+
+33406:ID3D11BlendState の作成に失敗しました　箇所３
+
+33426:ID3D11BlendState の作成に失敗しました　箇所３
+
+33440:ID3D11BlendState の作成に失敗しました　箇所３
+
+33457:ID3D11BlendState の作成に失敗しました　箇所３
+
+33476:ID3D11BlendState の作成に失敗しました　箇所３
+
+33491:ID3D11BlendState の作成に失敗しました　箇所３
+
+33508:ID3D11BlendState の作成に失敗しました　箇所３
+
+33526:ID3D11BlendState の作成に失敗しました　箇所３
+
+33542:ID3D11BlendState の作成に失敗しました　箇所３
+
+33559:ID3D11BlendState の作成に失敗しました　箇所３
+
+33577:ID3D11BlendState の作成に失敗しました　箇所３
+
+33593:ID3D11BlendState の作成に失敗しました　箇所３
+
+33611:ID3D11BlendState の作成に失敗しました　箇所３
+
+33629:ID3D11BlendState の作成に失敗しました　箇所３
+
+33644:ID3D11BlendState の作成に失敗しました　箇所３
+
+33661:ID3D11BlendState の作成に失敗しました　箇所３
+
+33680:ID3D11BlendState の作成に失敗しました　箇所３
+
+33695:ID3D11BlendState の作成に失敗しました　箇所３
+
+33712:ID3D11BlendState の作成に失敗しました　箇所３
+
+33731:ID3D11BlendState の作成に失敗しました　箇所３
+
+33746:ID3D11BlendState の作成に失敗しました　箇所３
+
+33763:ID3D11BlendState の作成に失敗しました　箇所３
+
+33783:ID3D11BlendState の作成に失敗しました　箇所３
+
+33798:ID3D11BlendState の作成に失敗しました　箇所３
+
+33815:ID3D11BlendState の作成に失敗しました　箇所３
+
+33834:ID3D11BlendState の作成に失敗しました　箇所３
+
+33849:ID3D11BlendState の作成に失敗しました　箇所３
+
+33866:ID3D11BlendState の作成に失敗しました　箇所３
+
+33885:ID3D11BlendState の作成に失敗しました　箇所３
+
+33900:ID3D11BlendState の作成に失敗しました　箇所３
+
+33917:ID3D11BlendState の作成に失敗しました　箇所３
+
+33936:ID3D11BlendState の作成に失敗しました　箇所３
+
+33952:ID3D11BlendState の作成に失敗しました　箇所３
+
+33968:ID3D11BlendState の作成に失敗しました　箇所３
+
+33987:ID3D11BlendState の作成に失敗しました　箇所３
+
+34002:ID3D11BlendState の作成に失敗しました　箇所３
+
+34019:ID3D11BlendState の作成に失敗しました　箇所３
+
+34038:ID3D11BlendState の作成に失敗しました　箇所３
+
+34053:ID3D11BlendState の作成に失敗しました　箇所３
+
+34070:ID3D11BlendState の作成に失敗しました　箇所３
+
+34089:ID3D11BlendState の作成に失敗しました　箇所３
+
+34104:ID3D11BlendState の作成に失敗しました　箇所３
+
+34121:ID3D11BlendState の作成に失敗しました　箇所３
+
+34140:ID3D11BlendState の作成に失敗しました　箇所３
+
+34155:ID3D11BlendState の作成に失敗しました　箇所３
+
+34172:ID3D11BlendState の作成に失敗しました　箇所３
+
+34191:ID3D11BlendState の作成に失敗しました　箇所３
+
+34205:ID3D11BlendState の作成に失敗しました　箇所３
+
+34223:ID3D11BlendState の作成に失敗しました　箇所３
+
+34242:ID3D11BlendState の作成に失敗しました　箇所３
+
+34257:ID3D11BlendState の作成に失敗しました　箇所３
+
+34274:ID3D11BlendState の作成に失敗しました　箇所３
+
+34293:ID3D11BlendState の作成に失敗しました　箇所３
+
+34308:ID3D11BlendState の作成に失敗しました　箇所３
+
+34325:ID3D11BlendState の作成に失敗しました　箇所３
+
+34344:ID3D11BlendState の作成に失敗しました　箇所３
+
+34358:ID3D11BlendState の作成に失敗しました　箇所３
+
+34375:ID3D11BlendState の作成に失敗しました　箇所３
+
+34395:ID3D11BlendState の作成に失敗しました　箇所３
+
+34410:ID3D11BlendState の作成に失敗しました　箇所３
+
+34427:ID3D11BlendState の作成に失敗しました　箇所３
+
+34445:ID3D11BlendState の作成に失敗しました　箇所３
+
+34461:ID3D11BlendState の作成に失敗しました　箇所３
+
+34478:ID3D11BlendState の作成に失敗しました　箇所３
+
+34496:ID3D11BlendState の作成に失敗しました　箇所３
+
+34512:ID3D11BlendState の作成に失敗しました　箇所３
+
+34529:ID3D11BlendState の作成に失敗しました　箇所３
+
+34548:ID3D11BlendState の作成に失敗しました　箇所３
+
+34563:ID3D11BlendState の作成に失敗しました　箇所３
+
+34580:ID3D11BlendState の作成に失敗しました　箇所３
+
+34599:ID3D11BlendState の作成に失敗しました　箇所３
+
+34614:ID3D11BlendState の作成に失敗しました　箇所３
+
+34631:ID3D11BlendState の作成に失敗しました　箇所３
+
+34650:ID3D11BlendState の作成に失敗しました　箇所３
+
+34665:ID3D11BlendState の作成に失敗しました　箇所３
+
+34682:ID3D11BlendState の作成に失敗しました　箇所３
+
+34700:ID3D11BlendState の作成に失敗しました　箇所３
+
+34716:ID3D11BlendState の作成に失敗しました　箇所３
+
+34733:ID3D11BlendState の作成に失敗しました　箇所３
+
+34752:ID3D11BlendState の作成に失敗しました　箇所３
+
+34767:ID3D11BlendState の作成に失敗しました　箇所３
+
+34784:ID3D11BlendState の作成に失敗しました　箇所３
+
+34803:ID3D11BlendState の作成に失敗しました　箇所３
+
+34818:ID3D11BlendState の作成に失敗しました　箇所３
+
+34835:ID3D11BlendState の作成に失敗しました　箇所３
+
+34854:ID3D11BlendState の作成に失敗しました　箇所３
+
+34868:ID3D11BlendState の作成に失敗しました　箇所３
+
+34886:ID3D11BlendState の作成に失敗しました　箇所３
+
+34905:ID3D11BlendState の作成に失敗しました　箇所３
+
+34920:ID3D11BlendState の作成に失敗しました　箇所３
+
+34937:ID3D11BlendState の作成に失敗しました　箇所３
+
+34956:ID3D11BlendState の作成に失敗しました　箇所３
+
+34971:ID3D11BlendState の作成に失敗しました　箇所３
+
+34988:ID3D11BlendState の作成に失敗しました　箇所３
+
+35007:ID3D11BlendState の作成に失敗しました　箇所３
+
+35022:ID3D11BlendState の作成に失敗しました　箇所３
+
+35038:ID3D11BlendState の作成に失敗しました　箇所３
+
+35059:ID3D11BlendState の作成に失敗しました　箇所３
+
+35074:ID3D11BlendState の作成に失敗しました　箇所３
+
+35091:ID3D11BlendState の作成に失敗しました　箇所３
+
+35110:ID3D11BlendState の作成に失敗しました　箇所３
+
+35125:ID3D11BlendState の作成に失敗しました　箇所３
+
+35142:ID3D11BlendState の作成に失敗しました　箇所３
+
+35161:ID3D11BlendState の作成に失敗しました　箇所３
+
+35176:ID3D11BlendState の作成に失敗しました　箇所３
+
+35193:ID3D11BlendState の作成に失敗しました　箇所３
+
+35212:ID3D11BlendState の作成に失敗しました　箇所３
+
+35228:ID3D11BlendState の作成に失敗しました　箇所３
+
+35244:ID3D11BlendState の作成に失敗しました　箇所３
+
+35263:ID3D11BlendState の作成に失敗しました　箇所３
+
+35278:ID3D11BlendState の作成に失敗しました　箇所３
+
+35295:ID3D11BlendState の作成に失敗しました　箇所３
+
+35314:ID3D11BlendState の作成に失敗しました　箇所３
+
+35329:ID3D11BlendState の作成に失敗しました　箇所３
+
+35346:ID3D11BlendState の作成に失敗しました　箇所３
+
+35364:ID3D11BlendState の作成に失敗しました　箇所３
+
+35380:ID3D11BlendState の作成に失敗しました　箇所３
+
+35398:ID3D11BlendState の作成に失敗しました　箇所３
+
+35415:ID3D11BlendState の作成に失敗しました　箇所３
+
+35431:ID3D11BlendState の作成に失敗しました　箇所３
+
+35448:ID3D11BlendState の作成に失敗しました　箇所３
+
+35467:ID3D11BlendState の作成に失敗しました　箇所３
+
+35482:ID3D11BlendState の作成に失敗しました　箇所３
+
+35499:ID3D11BlendState の作成に失敗しました　箇所３
+
+35519:ID3D11BlendState の作成に失敗しました　箇所３
+
+35534:ID3D11BlendState の作成に失敗しました　箇所３
+
+35552:ID3D11BlendState の作成に失敗しました　箇所３
+
+35571:ID3D11BlendState の作成に失敗しました　箇所３
+
+35586:ID3D11BlendState の作成に失敗しました　箇所３
+
+35603:ID3D11BlendState の作成に失敗しました　箇所３
+
+35622:ID3D11BlendState の作成に失敗しました　箇所３
+
+35637:ID3D11BlendState の作成に失敗しました　箇所３
+
+35654:ID3D11BlendState の作成に失敗しました　箇所３
+
+35673:ID3D11BlendState の作成に失敗しました　箇所３
+
+35688:ID3D11BlendState の作成に失敗しました　箇所３
+
+35705:ID3D11BlendState の作成に失敗しました　箇所３
+
+35723:ID3D11BlendState の作成に失敗しました　箇所３
+
+35739:ID3D11BlendState の作成に失敗しました　箇所３
+
+35756:ID3D11BlendState の作成に失敗しました　箇所３
+
+35775:ID3D11BlendState の作成に失敗しました　箇所３
+
+35790:ID3D11BlendState の作成に失敗しました　箇所３
+
+35808:ID3D11BlendState の作成に失敗しました　箇所３
+
+35825:ID3D11BlendState の作成に失敗しました　箇所３
+
+35841:ID3D11BlendState の作成に失敗しました　箇所３
+
+35858:ID3D11BlendState の作成に失敗しました　箇所３
+
+35876:ID3D11BlendState の作成に失敗しました　箇所３
+
+35892:ID3D11BlendState の作成に失敗しました　箇所３
+
+35909:ID3D11BlendState の作成に失敗しました　箇所３
+
+35928:ID3D11BlendState の作成に失敗しました　箇所３
+
+35943:ID3D11BlendState の作成に失敗しました　箇所３
+
+35959:ID3D11BlendState の作成に失敗しました　箇所３
+
+35979:ID3D11BlendState の作成に失敗しました　箇所３
+
+35995:ID3D11BlendState の作成に失敗しました　箇所３
+
+36011:ID3D11BlendState の作成に失敗しました　箇所３
+
+36030:ID3D11BlendState の作成に失敗しました　箇所３
+
+36045:ID3D11BlendState の作成に失敗しました　箇所３
+
+36062:ID3D11BlendState の作成に失敗しました　箇所３
+
+36081:ID3D11BlendState の作成に失敗しました　箇所３
+
+36095:ID3D11BlendState の作成に失敗しました　箇所３
+
+36113:ID3D11BlendState の作成に失敗しました　箇所３
+
+36133:ID3D11BlendState の作成に失敗しました　箇所３
+
+36147:ID3D11BlendState の作成に失敗しました　箇所３
+
+36165:ID3D11BlendState の作成に失敗しました　箇所３
+
+36184:ID3D11BlendState の作成に失敗しました　箇所３
+
+36199:ID3D11BlendState の作成に失敗しました　箇所３
+
+36216:ID3D11BlendState の作成に失敗しました　箇所３
+
+36235:ID3D11BlendState の作成に失敗しました　箇所３
+
+36250:ID3D11BlendState の作成に失敗しました　箇所３
+
+36267:ID3D11BlendState の作成に失敗しました　箇所３
+
+36286:ID3D11BlendState の作成に失敗しました　箇所３
+
+36301:ID3D11BlendState の作成に失敗しました　箇所３
+
+36318:ID3D11BlendState の作成に失敗しました　箇所３
+
+36336:ID3D11BlendState の作成に失敗しました　箇所３
+
+36352:ID3D11BlendState の作成に失敗しました　箇所３
+
+36369:ID3D11BlendState の作成に失敗しました　箇所３
+
+36388:ID3D11BlendState の作成に失敗しました　箇所３
+
+36403:ID3D11BlendState の作成に失敗しました　箇所３
+
+36420:ID3D11BlendState の作成に失敗しました　箇所３
+
+36439:ID3D11BlendState の作成に失敗しました　箇所３
+
+36454:ID3D11BlendState の作成に失敗しました　箇所３
+
+36472:ID3D11BlendState の作成に失敗しました　箇所３
+
+36490:ID3D11BlendState の作成に失敗しました　箇所３
+
+36505:ID3D11BlendState の作成に失敗しました　箇所３
+
+36522:ID3D11BlendState の作成に失敗しました　箇所３
+
+36541:ID3D11BlendState の作成に失敗しました　箇所３
+
+36555:ID3D11BlendState の作成に失敗しました　箇所３
+
+36573:ID3D11BlendState の作成に失敗しました　箇所３
+
+36592:ID3D11BlendState の作成に失敗しました　箇所３
+
+36607:ID3D11BlendState の作成に失敗しました　箇所３
+
+36624:ID3D11BlendState の作成に失敗しました　箇所３
+
+36643:ID3D11BlendState の作成に失敗しました　箇所３
+
+36658:ID3D11BlendState の作成に失敗しました　箇所３
+
+36675:ID3D11BlendState の作成に失敗しました　箇所３
+
+36694:ID3D11BlendState の作成に失敗しました　箇所３
+
+36708:ID3D11BlendState の作成に失敗しました　箇所３
+
+36725:ID3D11BlendState の作成に失敗しました　箇所３
+
+36745:ID3D11BlendState の作成に失敗しました　箇所３
+
+36760:ID3D11BlendState の作成に失敗しました　箇所３
+
+36777:ID3D11BlendState の作成に失敗しました　箇所３
+
+36796:ID3D11BlendState の作成に失敗しました　箇所３
+
+36811:ID3D11BlendState の作成に失敗しました　箇所３
+
+36828:ID3D11BlendState の作成に失敗しました　箇所３
+
+36847:ID3D11BlendState の作成に失敗しました　箇所３
+
+36862:ID3D11BlendState の作成に失敗しました　箇所３
+
+36879:ID3D11BlendState の作成に失敗しました　箇所３
+
+36898:ID3D11BlendState の作成に失敗しました　箇所３
+
+36913:ID3D11BlendState の作成に失敗しました　箇所３
+
+36930:ID3D11BlendState の作成に失敗しました　箇所３
+
+36949:ID3D11BlendState の作成に失敗しました　箇所３
+
+36963:ID3D11BlendState の作成に失敗しました　箇所３
+
+36981:ID3D11BlendState の作成に失敗しました　箇所３
+
+36999:ID3D11BlendState の作成に失敗しました　箇所３
+
+37015:ID3D11BlendState の作成に失敗しました　箇所３
+
+37032:ID3D11BlendState の作成に失敗しました　箇所３
+
+37051:ID3D11BlendState の作成に失敗しました　箇所３
+
+37066:ID3D11BlendState の作成に失敗しました　箇所３
+
+37083:ID3D11BlendState の作成に失敗しました　箇所３
+
+37102:ID3D11BlendState の作成に失敗しました　箇所３
+
+37117:ID3D11BlendState の作成に失敗しました　箇所３
+
+37134:ID3D11BlendState の作成に失敗しました　箇所３
+
+37154:ID3D11BlendState の作成に失敗しました　箇所３
+
+37169:ID3D11BlendState の作成に失敗しました　箇所３
+
+37186:ID3D11BlendState の作成に失敗しました　箇所３
+
+37205:ID3D11BlendState の作成に失敗しました　箇所３
+
+37221:ID3D11BlendState の作成に失敗しました　箇所３
+
+37238:ID3D11BlendState の作成に失敗しました　箇所３
+
+37256:ID3D11BlendState の作成に失敗しました　箇所３
+
+37272:ID3D11BlendState の作成に失敗しました　箇所３
+
+37289:ID3D11BlendState の作成に失敗しました　箇所３
+
+37307:ID3D11BlendState の作成に失敗しました　箇所３
+
+37323:ID3D11BlendState の作成に失敗しました　箇所３
+
+37340:ID3D11BlendState の作成に失敗しました　箇所３
+
+37359:ID3D11BlendState の作成に失敗しました　箇所３
+
+37375:ID3D11BlendState の作成に失敗しました　箇所３
+
+37392:ID3D11BlendState の作成に失敗しました　箇所３
+
+37410:ID3D11BlendState の作成に失敗しました　箇所３
+
+37426:ID3D11BlendState の作成に失敗しました　箇所３
+
+37443:ID3D11BlendState の作成に失敗しました　箇所３
+
+37462:ID3D11BlendState の作成に失敗しました　箇所３
+
+37477:ID3D11BlendState の作成に失敗しました　箇所３
+
+37494:ID3D11BlendState の作成に失敗しました　箇所３
+
+37513:ID3D11BlendState の作成に失敗しました　箇所３
+
+37528:ID3D11BlendState の作成に失敗しました　箇所３
+
+37545:ID3D11BlendState の作成に失敗しました　箇所３
+
+37563:ID3D11BlendState の作成に失敗しました　箇所３
+
+37579:ID3D11BlendState の作成に失敗しました　箇所３
+
+37596:ID3D11BlendState の作成に失敗しました　箇所３
+
+37614:ID3D11BlendState の作成に失敗しました　箇所３
+
+37630:ID3D11BlendState の作成に失敗しました　箇所３
+
+37647:ID3D11BlendState の作成に失敗しました　箇所３
+
+37666:ID3D11BlendState の作成に失敗しました　箇所３
+
+37681:ID3D11BlendState の作成に失敗しました　箇所３
+
+37698:ID3D11BlendState の作成に失敗しました　箇所３
+
+37717:ID3D11BlendState の作成に失敗しました　箇所３
+
+37733:ID3D11BlendState の作成に失敗しました　箇所３
+
+37749:ID3D11BlendState の作成に失敗しました　箇所３
+
+37769:ID3D11BlendState の作成に失敗しました　箇所３
+
+37784:ID3D11BlendState の作成に失敗しました　箇所３
+
+37801:ID3D11BlendState の作成に失敗しました　箇所３
+
+37820:ID3D11BlendState の作成に失敗しました　箇所３
+
+37835:ID3D11BlendState の作成に失敗しました　箇所３
+
+37852:ID3D11BlendState の作成に失敗しました　箇所３
+
+37870:ID3D11BlendState の作成に失敗しました　箇所３
+
+37886:ID3D11BlendState の作成に失敗しました　箇所３
+
+37903:ID3D11BlendState の作成に失敗しました　箇所３
+
+37921:ID3D11BlendState の作成に失敗しました　箇所３
+
+37937:ID3D11BlendState の作成に失敗しました　箇所３
+
+37954:ID3D11BlendState の作成に失敗しました　箇所３
+
+37973:ID3D11BlendState の作成に失敗しました　箇所３
+
+37988:ID3D11BlendState の作成に失敗しました　箇所３
+
+38005:ID3D11BlendState の作成に失敗しました　箇所３
+
+38025:ID3D11BlendState の作成に失敗しました　箇所３
+
+38040:ID3D11BlendState の作成に失敗しました　箇所３
+
+38056:ID3D11BlendState の作成に失敗しました　箇所３
+
+38075:ID3D11BlendState の作成に失敗しました　箇所３
+
+38091:ID3D11BlendState の作成に失敗しました　箇所３
+
+38108:ID3D11BlendState の作成に失敗しました　箇所３
+
+38127:ID3D11BlendState の作成に失敗しました　箇所３
+
+38142:ID3D11BlendState の作成に失敗しました　箇所３
+
+38159:ID3D11BlendState の作成に失敗しました　箇所３
+
+38178:ID3D11BlendState の作成に失敗しました　箇所３
+
+38193:ID3D11BlendState の作成に失敗しました　箇所３
+
+38210:ID3D11BlendState の作成に失敗しました　箇所３
+
+38229:ID3D11BlendState の作成に失敗しました　箇所３
+
+38244:ID3D11BlendState の作成に失敗しました　箇所３
+
+38260:ID3D11BlendState の作成に失敗しました　箇所３
+
+38279:ID3D11BlendState の作成に失敗しました　箇所３
+
+38295:ID3D11BlendState の作成に失敗しました　箇所３
+
+38312:ID3D11BlendState の作成に失敗しました　箇所３
+
+38331:ID3D11BlendState の作成に失敗しました　箇所３
+
+38346:ID3D11BlendState の作成に失敗しました　箇所３
+
+38363:ID3D11BlendState の作成に失敗しました　箇所３
+
+38381:ID3D11BlendState の作成に失敗しました　箇所３
+
+38397:ID3D11BlendState の作成に失敗しました　箇所３
+
+38414:ID3D11BlendState の作成に失敗しました　箇所３
+
+38433:ID3D11BlendState の作成に失敗しました　箇所３
+
+38448:ID3D11BlendState の作成に失敗しました　箇所３
+
+38465:ID3D11BlendState の作成に失敗しました　箇所３
+
+38484:ID3D11BlendState の作成に失敗しました　箇所３
+
+38499:ID3D11BlendState の作成に失敗しました　箇所３
+
+38516:ID3D11BlendState の作成に失敗しました　箇所３
+
+38534:ID3D11BlendState の作成に失敗しました　箇所３
+
+38550:ID3D11BlendState の作成に失敗しました　箇所３
+
+38567:ID3D11BlendState の作成に失敗しました　箇所３
+
+38586:ID3D11BlendState の作成に失敗しました　箇所３
+
+38601:ID3D11BlendState の作成に失敗しました　箇所３
+
+38618:ID3D11BlendState の作成に失敗しました　箇所３
+
+38636:ID3D11BlendState の作成に失敗しました　箇所３
+
+38652:ID3D11BlendState の作成に失敗しました　箇所３
+
+38670:ID3D11BlendState の作成に失敗しました　箇所３
+
+38687:ID3D11BlendState の作成に失敗しました　箇所３
+
+38703:ID3D11BlendState の作成に失敗しました　箇所３
+
+38721:ID3D11BlendState の作成に失敗しました　箇所３
+
+38739:ID3D11BlendState の作成に失敗しました　箇所３
+
+38755:ID3D11BlendState の作成に失敗しました　箇所３
+
+38772:ID3D11BlendState の作成に失敗しました　箇所３
+
+38790:ID3D11BlendState の作成に失敗しました　箇所３
+
+38806:ID3D11BlendState の作成に失敗しました　箇所３
+
+38823:ID3D11BlendState の作成に失敗しました　箇所３
+
+38841:ID3D11BlendState の作成に失敗しました　箇所３
+
+38858:ID3D11BlendState の作成に失敗しました　箇所３
+
+38874:ID3D11BlendState の作成に失敗しました　箇所３
+
+38893:ID3D11BlendState の作成に失敗しました　箇所３
+
+38908:ID3D11BlendState の作成に失敗しました　箇所３
+
+38925:ID3D11BlendState の作成に失敗しました　箇所３
+
+38944:ID3D11BlendState の作成に失敗しました　箇所３
+
+38959:ID3D11BlendState の作成に失敗しました　箇所３
+
+38975:ID3D11BlendState の作成に失敗しました　箇所３
+
+38995:ID3D11BlendState の作成に失敗しました　箇所３
+
+39011:ID3D11BlendState の作成に失敗しました　箇所３
+
+39028:ID3D11BlendState の作成に失敗しました　箇所３
+
+39047:ID3D11BlendState の作成に失敗しました　箇所３
+
+39062:ID3D11BlendState の作成に失敗しました　箇所３
+
+39079:ID3D11BlendState の作成に失敗しました　箇所３
+
+39098:ID3D11BlendState の作成に失敗しました　箇所３
+
+39113:ID3D11BlendState の作成に失敗しました　箇所３
+
+39130:ID3D11BlendState の作成に失敗しました　箇所３
+
+39148:ID3D11BlendState の作成に失敗しました　箇所３
+
+39164:ID3D11BlendState の作成に失敗しました　箇所３
+
+39181:ID3D11BlendState の作成に失敗しました　箇所３
+
+39200:ID3D11BlendState の作成に失敗しました　箇所３
+
+39215:ID3D11BlendState の作成に失敗しました　箇所３
+
+39232:ID3D11BlendState の作成に失敗しました　箇所３
+
+39250:ID3D11BlendState の作成に失敗しました　箇所３
+
+39267:ID3D11BlendState の作成に失敗しました　箇所３
+
+39283:ID3D11BlendState の作成に失敗しました　箇所３
+
+39301:ID3D11BlendState の作成に失敗しました　箇所３
+
+39317:ID3D11BlendState の作成に失敗しました　箇所３
+
+39334:ID3D11BlendState の作成に失敗しました　箇所３
+
+39352:ID3D11BlendState の作成に失敗しました　箇所３
+
+39368:ID3D11BlendState の作成に失敗しました　箇所３
+
+39385:ID3D11BlendState の作成に失敗しました　箇所３
+
+39403:ID3D11BlendState の作成に失敗しました　箇所３
+
+39419:ID3D11BlendState の作成に失敗しました　箇所３
+
+39435:ID3D11BlendState の作成に失敗しました　箇所３
+
+39454:ID3D11BlendState の作成に失敗しました　箇所３
+
+39469:ID3D11BlendState の作成に失敗しました　箇所３
+
+39487:ID3D11BlendState の作成に失敗しました　箇所３
+
+39505:ID3D11BlendState の作成に失敗しました　箇所３
+
+39521:ID3D11BlendState の作成に失敗しました　箇所３
+
+39538:ID3D11BlendState の作成に失敗しました　箇所３
+
+39556:ID3D11BlendState の作成に失敗しました　箇所３
+
+39572:ID3D11BlendState の作成に失敗しました　箇所３
+
+39589:ID3D11BlendState の作成に失敗しました　箇所３
+
+39607:ID3D11BlendState の作成に失敗しました　箇所３
+
+39623:ID3D11BlendState の作成に失敗しました　箇所３
+
+39640:ID3D11BlendState の作成に失敗しました　箇所３
+
+39659:ID3D11BlendState の作成に失敗しました　箇所３
+
+39674:ID3D11BlendState の作成に失敗しました　箇所３
+
+39691:ID3D11BlendState の作成に失敗しました　箇所３
+
+39710:ID3D11BlendState の作成に失敗しました　箇所３
+
+39725:ID3D11BlendState の作成に失敗しました　箇所３
+
+39742:ID3D11BlendState の作成に失敗しました　箇所３
+
+39760:ID3D11BlendState の作成に失敗しました　箇所３
+
+39775:ID3D11BlendState の作成に失敗しました　箇所３
+
+39793:ID3D11BlendState の作成に失敗しました　箇所３
+
+39812:ID3D11BlendState の作成に失敗しました　箇所３
+
+39827:ID3D11BlendState の作成に失敗しました　箇所３
+
+39844:ID3D11BlendState の作成に失敗しました　箇所３
+
+39863:ID3D11BlendState の作成に失敗しました　箇所３
+
+39878:ID3D11BlendState の作成に失敗しました　箇所３
+
+39895:ID3D11BlendState の作成に失敗しました　箇所３
+
+39913:ID3D11BlendState の作成に失敗しました　箇所３
+
+39928:ID3D11BlendState の作成に失敗しました　箇所３
+
+39945:ID3D11BlendState の作成に失敗しました　箇所３
+
+39964:ID3D11BlendState の作成に失敗しました　箇所３
+
+39980:ID3D11BlendState の作成に失敗しました　箇所３
+
+39997:ID3D11BlendState の作成に失敗しました　箇所３
+
+40015:ID3D11BlendState の作成に失敗しました　箇所３
+
+40031:ID3D11BlendState の作成に失敗しました　箇所３
+
+40048:ID3D11BlendState の作成に失敗しました　箇所３
+
+40066:ID3D11BlendState の作成に失敗しました　箇所３
+
+40082:ID3D11BlendState の作成に失敗しました　箇所３
+
+40099:ID3D11BlendState の作成に失敗しました　箇所３
+
+40118:ID3D11BlendState の作成に失敗しました　箇所３
+
+40133:ID3D11BlendState の作成に失敗しました　箇所３
+
+40150:ID3D11BlendState の作成に失敗しました　箇所３
+
+40169:ID3D11BlendState の作成に失敗しました　箇所３
+
+40185:ID3D11BlendState の作成に失敗しました　箇所３
+
+40201:ID3D11BlendState の作成に失敗しました　箇所３
+
+40219:ID3D11BlendState の作成に失敗しました　箇所３
+
+40235:ID3D11BlendState の作成に失敗しました　箇所３
+
+40252:ID3D11BlendState の作成に失敗しました　箇所３
+
+40270:ID3D11BlendState の作成に失敗しました　箇所３
+
+40286:ID3D11BlendState の作成に失敗しました　箇所３
+
+40303:ID3D11BlendState の作成に失敗しました　箇所３
+
+40322:ID3D11BlendState の作成に失敗しました　箇所３
+
+40337:ID3D11BlendState の作成に失敗しました　箇所３
+
+40354:ID3D11BlendState の作成に失敗しました　箇所３
+
+40373:ID3D11BlendState の作成に失敗しました　箇所３
+
+40388:ID3D11BlendState の作成に失敗しました　箇所３
+
+40405:ID3D11BlendState の作成に失敗しました　箇所３
+
+40423:ID3D11BlendState の作成に失敗しました　箇所３
+
+40439:ID3D11BlendState の作成に失敗しました　箇所３
+
+40456:ID3D11BlendState の作成に失敗しました　箇所３
+
+40475:ID3D11BlendState の作成に失敗しました　箇所３
+
+40490:ID3D11BlendState の作成に失敗しました　箇所３
+
+40507:ID3D11BlendState の作成に失敗しました　箇所３
+
+40525:ID3D11BlendState の作成に失敗しました　箇所３
+
+40541:ID3D11BlendState の作成に失敗しました　箇所３
+
+41221:フォントの初期化を行います
+41221:フォントの初期化は正常に終了しました
+41264:d3d11.dll の解放 1
+41265:dxgi.dll の解放 1
+41266:Direct3D11 のオブジェクト数を出力
+41266:Direct3D11 のオブジェクト合計数 : 0
+41269:DirectInput 関連の終了処理... 完了
+41270:サウンド関連の終了処理... 完了
+41277:ウィンドウ関連の終了処理... ウインドウを閉じようとしています
+41281:ウインドウが破棄されようとしています
+41282:ソフトを終了する準備が整いました
+41349:完了
+41353:ＣＯＭを終了... 完了
+41353:
+41354:Alloc memory dump
+41354:	Total size:0(0.000kb)  Alloc num:0
+41354:

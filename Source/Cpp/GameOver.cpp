@@ -62,7 +62,7 @@ void GameOver::Initaliza()
     GameOverBGM = LoadSoundMem("Musics/GameOver.mp3");
 
     //É{É^Éì
-    ButtonMusic = LoadSoundMem("Musics/poka01.mp3");
+    ButtonMusic = LoadSoundMem("Musics/Button.mp3");
 
     //BGMçƒê∂
     PlaySoundMem(GameOverBGM, DX_PLAYTYPE_LOOP);

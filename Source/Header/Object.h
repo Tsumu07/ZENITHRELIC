@@ -87,6 +87,22 @@ protected:
     //無敵時間
     float m_invincible;
 
+    //アイテムによる攻撃力アップ
+    float m_attackItemUp;
+
+    //アイテムによるスピードアップ
+    float m_speedItemUp;
+
+    //-----効果時間アイテム-----//
+    //攻撃力
+    bool m_attackUpFlag;
+    int m_attackUpTimer;
+
+    //スピード
+    bool m_speedUpFlag;
+    int m_speedUpTimer;
+    //--------------------------//
+
     unsigned int m_layer;
 
     int m_team;
@@ -155,6 +171,12 @@ public:
     //エディター用のシェーダーの設定
     void SetEditorps(bool Editorflag) { Editorps = Editorflag; }
 
+    //アイテムによる攻撃力アップの設定
+    void SetAttackItem(const float attackUp) { m_attackItemUp = attackUp; }
+
+    //アイテムによるスピードアップの設定
+    void SetSpeedItem(const float speedUp) { m_speedItemUp = speedUp; }
+
     //ポジションの取得
     VECTOR GetPos(void) const { return m_pos; }
 
@@ -189,6 +211,18 @@ public:
 
     //エディター用のシェーダーの取得
     bool GetEditorps(void) const { return Editorps; }
+
+    //アイテムによる攻撃力アップの取得
+    float GetAttackItem(void) const { return m_attackItemUp; }
+
+    //アイテムによるスピードアップの取得
+    float GetSpeedItem(void) const { return m_speedItemUp; }
+
+    //アイテムによるスピードアップの効果時間
+    void StartAttackUp(int time,float power) { m_attackUpFlag = true; m_attackUpTimer = time; SetAttackItem(power); }
+
+    //アイテムによるスピードアップの効果時間
+    void StartSpeedUp(int time,float power) { m_speedUpFlag = true; m_speedUpTimer = time; SetSpeedItem(power); }
 
     //回復させる
     void AddHp(int recoveryamount) { m_hp += recoveryamount; }

@@ -95,7 +95,7 @@ void Inventory::Initaliza()
 	ExitSelectUI = 0;
 	OpenMenu = false;
 
-	CursorMusic = LoadSoundMem("Musics/poka01.mp3");
+	CursorMusic = LoadSoundMem("Musics/Button.mp3");
 
 	TotalAmount = Master::mpItemManeger->GetTotalAmount();
 }
@@ -347,7 +347,7 @@ void Inventory::Draw()
 			DrawStringToHandle(150, y, item->GetName().c_str(), GetColor(0, 0, 0), m_explainFontHandle);
 
 			char price[32];
-			sprintf_s(price, " F %d", item->GetPrice());
+			sprintf_s(price, " F %d$", item->GetPrice());
 			DrawStringToHandle(350, y, price, GetColor(0, 0, 0), m_explainFontHandle);
 
 			EquippedItems* equip = Play->GetEquippedItems();
@@ -376,12 +376,12 @@ void Inventory::Draw()
 
 		if (item0)
 		{
-			DrawGraph(1530, 890, item0->GetIcon(), true);
+			DrawGraph(1565, 900, item0->GetIcon(), true);
 		}
 
-		if (item1)
+		else if (item1)
 		{
-			DrawGraph(1730, 890, item1->GetIcon(), true);
+			DrawGraph(1765, 900, item1->GetIcon(), true);
 		}
 
 		char totalamount[32];

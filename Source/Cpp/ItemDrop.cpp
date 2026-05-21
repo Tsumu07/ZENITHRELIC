@@ -9,6 +9,7 @@
 ItemDrop::ItemDrop(ItemBase* data)
 : itemData(data)
 , modelHandle(-1)
+, PickupSE(-1)
 {
 }
 
@@ -23,6 +24,7 @@ void ItemDrop::Initaliza()
 
     MV1SetScale(modelHandle, VGet(30.0f, 30.0f, 30.0f));
 
+    PickupSE = LoadSoundMem("Musics/Pickup.mp3");
 }
 
 void ItemDrop::Update()
@@ -44,6 +46,8 @@ void ItemDrop::Update()
     if (distSq < r * r && player->GetAnimationState() == Animetion::PickItem)
     {
         //SE
+        PlaySoundMem(PickupSE, DX_PLAYTYPE_BACK);
+
         // プレイヤーへアイテム追加
         player->GetInventory()->AddItem(itemData);
 
@@ -73,4 +77,6 @@ void ItemDrop::Finaliza()
     {
         MV1DeleteModel(modelHandle);
     }
+
+    DeleteSoundMem(PickupSE);
 }

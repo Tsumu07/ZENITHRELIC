@@ -67,17 +67,35 @@ private:
     bool HitEnemy;
 
     //---エフェクト---//
+    //ダメージ
     int DamageEffectLoadGraph;
     int DamageEffectHandle[5];
     int DamageEffectCount;
     int DamageEffectWait;
     bool DamageEffetFlag;
     bool NowHit;
-    
+
+    //アイテムの効果切れエフェクトフラグ
+    //攻撃力
+    int Attack_offEffectLoadGraph;
+    int Attack_offEffectHandle[10];
+    int Attack_offEffectCount;
+    int Attack_offEffectWait;
+
+    //スピード
+    int Speed_offEffectLoadGraph;
+    int Speed_offEffectHandle[10];
+    int Speed_offEffectCount;
+    int Speed_offEffectWait;
+
+    bool Attack_off;
+    bool Speed_off;
+
     //---SE---//
     int ColumnSE;
     int DamageSE;
     int AttackDamageSE;
+    int ItemOffSE;
 
     //---全滅させた---//
     bool AnnihilationFlag;
@@ -130,6 +148,7 @@ public:
     //無敵時間
     int Invincible;
 
+
     //敵に当たったフラグの設定
     void SetHitEnemy(bool flag) { HitEnemy = flag; }
 
@@ -147,10 +166,13 @@ public:
 
     //----アニメーション関連----
     bool IsAnimating() const { return AnimetionFlag; }
+
     //アニメーション切り替え処理
     void ChangeAnimaiton(Animetion index);  
+
     //アニメーション処理
-    void PlayAnimetion();                       
+    void PlayAnimetion();           
+
     //アニメーションの取得
     Animetion GetAnimationState() const { return mState; }
 

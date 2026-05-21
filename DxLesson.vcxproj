@@ -187,6 +187,7 @@
     <ClCompile Include="Source\Cpp\ResourceManeger.cpp" />
     <ClCompile Include="Source\Cpp\SceneBase.cpp" />
     <ClCompile Include="Source\Cpp\SceneManager.cpp" />
+    <ClCompile Include="Source\Cpp\SpeedItem.cpp" />
     <ClCompile Include="Source\Cpp\Spider.cpp" />
     <ClCompile Include="Source\Cpp\GameManager.cpp" />
     <ClCompile Include="Source\Cpp\Object.cpp" />
@@ -245,6 +246,7 @@
     <ClInclude Include="Source\Header\SceneManager.h" />
     <ClInclude Include="Source\Header\SettingExplain.h" />
     <ClInclude Include="Source\Header\SkyBox.h" />
+    <ClInclude Include="Source\Header\SpeedItem.h" />
     <ClInclude Include="Source\Header\Spider.h" />
     <ClInclude Include="Source\Header\Spider_State.h" />
     <ClInclude Include="Source\Header\StageFrame.h" />

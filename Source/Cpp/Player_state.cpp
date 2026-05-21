@@ -150,7 +150,7 @@ int PSWalk::Update(Object* parent)
 	// プレイヤーの移動方向を正規化してセット
 	if (VSize(dir) > 0.1f)
 	{
-		parent->SetSpeed(15.0f);
+		parent->SetSpeed(15.0f + parent->GetSpeedItem());
 		dir = VNorm(dir);
 
 		//カメラのY軸回転角度を取得する

@@ -90,7 +90,7 @@ void Title::Initaliza()
     TitleBGM = LoadSoundMem("Musics/Title.mp3");
 
     //ƒ{ƒ^ƒ“
-    ButtonMusic = LoadSoundMem("Musics/poka01.mp3");
+    ButtonMusic = LoadSoundMem("Musics/Button.mp3");
 
     ChangeVolumeSoundMem(170, TitleBGM);
 

@@ -69,7 +69,7 @@ extern Inventory g_inventory;
      GameClearBGM = LoadSoundMem("Musics/GameClear.mp3");
 
       //É{É^Éì
-     ButtonMusic = LoadSoundMem("Musics/poka01.mp3");
+     ButtonMusic = LoadSoundMem("Musics/Button.mp3");
  
       //BGMçƒê∂
      PlaySoundMem(GameClearBGM, DX_PLAYTYPE_LOOP);

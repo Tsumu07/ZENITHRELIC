@@ -54,11 +54,15 @@ void GameManager::Initaliza()
     Master::mpResourceManager->LoadEffectFromFile("Effect/Attack.efkefc", 5.0f);
     Master::mpResourceManager->LoadEffectFromFile("Effect/Portal.efkefc", 5.0f);
     Master::mpResourceManager->LoadEffectFromFile("Effect/HP.efkefc", 5.0f);
+    Master::mpResourceManager->LoadEffectFromFile("Effect/AttackUp.efkefc", 5.0f);
+    Master::mpResourceManager->LoadEffectFromFile("Effect/SpeedUp.efkefc", 5.0f);
     Master::mpResourceManager->LoadEffectFromFile("Effect/Break.efkefc", 5.0f);
     Master::mpResourceManager->LoadEffectFromFile("Effect/Delete.efkefc", 5.0f);
     Master::mpResourceManager->LoadEffectFromFile("Effect/Delete_Enemy.efkefc", 5.0f);
 
-    Master::mpResourceManager->LoadSoundFromFile("Musics/Heal.mp3");
+    Master::mpResourceManager->LoadSoundFromFile("Musics/HealSE.mp3");
+    Master::mpResourceManager->LoadSoundFromFile("Musics/AttackUp.mp3");
+    Master::mpResourceManager->LoadSoundFromFile("Musics/SpeedUp.mp3");
 
     if (Master::mpObjectManager == nullptr)
     {
@@ -106,6 +110,7 @@ void GameManager::Initaliza()
     player->SetTag(100);
     player->SetLayer(2);
     player->SetHp(420);
+    player->SetAttackItem(0.0f);
     player->SetInvincible(0.0f);
     player->SetTeam(1);
     //オブジェクトリストの追加

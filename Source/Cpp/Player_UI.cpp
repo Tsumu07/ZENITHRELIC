@@ -149,12 +149,12 @@ void Player_UI::Draw()
 
 	if (item0)
 	{
-		DrawGraph(1530, 890, item0->GetIcon(), true);
+		DrawGraph(1565, 900, item0->GetIcon(), true);
 	}
 
 	else if (item1)
 	{
-		DrawGraph(1730, 890, item1->GetIcon(), true);
+		DrawGraph(1765, 900, item1->GetIcon(), true);
 	}
 
 	DrawGraph(20.0f, 15.0f, HPbar_Handle, true);

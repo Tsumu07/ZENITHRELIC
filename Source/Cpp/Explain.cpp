@@ -59,7 +59,7 @@ void Explain::Initaliza()
     ExplainBGM = LoadSoundMem("Musics/Explain.mp3");
 
     //É{É^Éì
-    ButtonMusic = LoadSoundMem("Musics/poka01.mp3");
+    ButtonMusic = LoadSoundMem("Musics/Button.mp3");
 
     //BGMçƒê∂
     PlaySoundMem(ExplainBGM, DX_PLAYTYPE_LOOP);

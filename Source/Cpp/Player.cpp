@@ -46,6 +46,14 @@ Player::Player()
 ,DamageEffectHandle()
 ,DamageEffectCount(0)
 ,DamageEffectWait()
+,Attack_offEffectLoadGraph(-1)
+,Attack_offEffectHandle()
+,Attack_offEffectCount(0)
+,Attack_offEffectWait(-1)
+,Speed_offEffectLoadGraph(-1)
+,Speed_offEffectHandle()
+,Speed_offEffectCount(-1)
+,Speed_offEffectWait(-1)
 ,DamageEffetFlag(false)
 ,NowHit(false)
 ,HitPillar(false)
@@ -63,9 +71,12 @@ Player::Player()
 ,ColumnSE(-1)
 ,DamageSE(-1)
 ,AttackDamageSE(-1)
+,ItemOffSE(-1)
 ,TotalAmount(0)
 ,Equipment_No0(false)
 ,Equipment_No1(false)
+,Attack_off(false)
+,Speed_off(false)
 {
 }
 
@@ -111,22 +122,33 @@ void Player::Initaliza()
 	AnimHandle[Animetion::Dame] = MV1LoadModel("Resource/Anime/GetHit.x");
 	AnimHandle[Animetion::Die] = MV1LoadModel("Resource/Anime/Die.x");
 
-	//エフェクト
+	//-----エフェクト-----//
 	//ダメージ
 	DamageEffectLoadGraph = LoadDivGraph("Effect/Damage.png", 5, 5, 1, 240, 240, DamageEffectHandle);
-	
 	DamageEffectCount = 0;
-
 	DamageEffectWait = 0;
 
+	//アイテムの効果切れ
+	//攻撃力
+	Attack_offEffectLoadGraph = LoadDivGraph("Effect/Attack_off.png", 10, 10, 1, 120, 120, Attack_offEffectHandle);
+	Attack_offEffectCount = 0;
+	Attack_offEffectWait = 0;
+
+	//スピード
+	Speed_offEffectLoadGraph = LoadDivGraph("Effect/Speed_off.png", 10, 10, 1, 120, 120, Speed_offEffectHandle);
+	Speed_offEffectCount = 0;
+	Speed_offEffectWait = 0;
+	//-------------------//
+	
 	//アイテム
 	m_inventory = new ItemManeger();
 	m_equipped = new EquippedItems();
 
 	//SE
 	ColumnSE = LoadSoundMem("Musics/Column.mp3");
-	DamageSE = LoadSoundMem("Musics/Dame-gi.mp3");
+	DamageSE = LoadSoundMem("Musics/Damage.mp3");
 	AttackDamageSE = LoadSoundMem("Musics/AttackDamage.mp3");
+	ItemOffSE = LoadSoundMem("Musics/ItemOff.mp3");
 }
 
 
@@ -238,7 +260,7 @@ void Player::Update()
 			{
 				if (!column->IsDead())
 				{
-					column->Damage(20);
+					column->Damage(10 + GetAttackItem());
 
 					//エフェクト
 					if (Master::mpObjectManager->GetEffectByTag("Break") == -1)
@@ -307,7 +329,7 @@ void Player::Update()
 				if (!spider->IsDead())
 				{
 					//ダメージを与える
-					spider->Damage(200.0f);
+					spider->Damage(200.0f + GetAttackItem());
 
 					spider->SetHitPlayer(true);
 
@@ -326,6 +348,7 @@ void Player::Update()
 		}
 
 	}
+
 
 	//無敵時間
 	if (GetHitEnemy())
@@ -425,6 +448,48 @@ void Player::Update()
 
 	Master::mpItemManeger->SetTotalAmount(TotalAmount);
 
+	//------効果時間ありのアイテム処理------//
+	//攻撃力
+	if (m_attackUpFlag)
+	{
+		m_attackUpTimer--;
+
+		if (m_attackUpTimer <= 0)
+		{
+			m_attackUpFlag = false;
+
+			SetAttackItem(0.0f);
+
+			//効果切れエフェクトを再生
+			Attack_off = true;
+
+			//SE
+			PlaySoundMem(ItemOffSE, DX_PLAYTYPE_BACK);
+
+		}
+	}
+
+	//スピード
+	if (m_speedUpFlag)
+	{
+		m_speedUpTimer--;
+
+		if (m_speedUpTimer <= 0)
+		{
+			m_speedUpFlag = false;
+
+			SetSpeedItem(0.0f);
+
+			//効果切れエフェクトを再生
+			Speed_off = true;
+
+			//SE
+			PlaySoundMem(ItemOffSE, DX_PLAYTYPE_BACK);
+
+		}
+	}
+	//-------------------------------------//
+
 	// 移動中か、移動したい方向がある場合に処理を実行する
 	if (VSize(dir) > 0.001f) // dirはSetDirで正規化された移動方向
 	{
@@ -488,6 +553,7 @@ void Player::Update()
 	//死ぬ処理
 	if (mState == Animetion::Die)
 	{
+
 		Master::mpSceneManager->ChangeScene(SceneName::GameOverScene);
 	}
 
@@ -659,7 +725,54 @@ void Player::Draw()
 
 		DamageEffetFlag = NowHit;
 
+	}
 
+	//-----アイテムの効果切れエフェクト-----//
+	//攻撃力
+	if (Attack_off)
+	{
+		DrawBillboard3D(VGet(GetPos().x, GetPos().y + 200.0f, GetPos().z ), 0.5f, 0.5f, 320.0f, 0.0f, Attack_offEffectHandle[Attack_offEffectCount], TRUE);
+
+		Attack_offEffectWait++;
+
+		if (Attack_offEffectWait >= 10)
+		{
+			Attack_offEffectCount++;
+
+			Attack_offEffectWait = 0;
+
+			if (Attack_offEffectCount >= 10)
+			{
+				Attack_offEffectCount = 0;
+
+				Attack_off = false;
+			}
+
+		}
+
+	}
+	
+	//スピード
+	if (Speed_off)
+	{
+		DrawBillboard3D(VGet(GetPos().x, GetPos().y + 200.0f, GetPos().z), 0.5f, 0.5f, 320.0f, 0.0f, Speed_offEffectHandle[Speed_offEffectCount], TRUE);
+
+		Speed_offEffectWait++;
+
+		if (Speed_offEffectWait >= 10)
+		{
+			Speed_offEffectCount++;
+
+			Speed_offEffectWait = 0;
+
+			if (Speed_offEffectCount >= 10)
+			{
+				Speed_offEffectCount = 0;
+
+				Speed_off = false;
+			}
+
+		}
 	}
 
 }
@@ -673,10 +786,23 @@ void Player::Finaliza()
 	DeleteSoundMem(ColumnSE);
 	DeleteSoundMem(DamageSE);
 	DeleteSoundMem(AttackDamageSE);
+	DeleteSoundMem(ItemOffSE);
 
 	//エフェクト削除
 	for (DamageEffectCount = 0; DamageEffectCount < 5; DamageEffectCount++)
 	{
 		DeleteGraph(DamageEffectHandle[DamageEffectCount]);
 	}
+
+	for (Attack_offEffectCount = 0; Attack_offEffectCount < 10; Attack_offEffectCount++)
+	{
+		DeleteGraph(Attack_offEffectHandle[Attack_offEffectCount]);
+	}
+
+	for (Speed_offEffectCount = 0; Speed_offEffectCount < 10; Speed_offEffectCount++)
+	{
+		DeleteGraph(Speed_offEffectHandle[Speed_offEffectCount]);
+	}
+
+
 }
