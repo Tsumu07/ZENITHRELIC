@@ -256,7 +256,7 @@ void Player::Update()
 				pillarR
 			);
 
-			if (AttackPillar)
+			if (AttackPillar && !GetAnnihilation())
 			{
 				if (!column->IsDead())
 				{

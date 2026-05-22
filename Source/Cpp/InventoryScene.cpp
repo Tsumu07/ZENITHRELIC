@@ -259,7 +259,6 @@ void Inventory::Update()
 				{
 					cursor = inv->GetItemCount() - 1;
 
-
 				}
 
 			}
@@ -358,7 +357,7 @@ void Inventory::Draw()
 				DrawBox(500, y, 520, y + 20, GetColor(50, 50, 255), TRUE);
 			}
 
-			else if (item == equip->GetItem(1))
+			if (item == equip->GetItem(1))
 			{
 				// ‘•”õ’†ƒ}[ƒN
 				DrawBox(500, y, 520, y + 20, GetColor(255, 50, 50), TRUE);
@@ -379,7 +378,7 @@ void Inventory::Draw()
 			DrawGraph(1565, 900, item0->GetIcon(), true);
 		}
 
-		else if (item1)
+		if (item1)
 		{
 			DrawGraph(1765, 900, item1->GetIcon(), true);
 		}

@@ -104,7 +104,7 @@ void Column::Update()
             DeleteColumnCount = 0.0f;
 
             // --- ƒAƒCƒeƒ€¶¬ --- //
-            ItemRandom = GetRand(2);
+            ItemRandom = GetRand(0);
             ItemBase* itemData = nullptr;
 
             switch (ItemRandom)

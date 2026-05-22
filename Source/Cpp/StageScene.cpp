@@ -549,6 +549,32 @@ void Stage::Update()
                 if (Rotation)
                 {
                     //座標
+                    Wall1Position = Position;
+
+                    //左右
+                    Wall* wall1 = new Wall(
+                        "Assets/Side.jpg",
+                        "Assets/Wall.jpg",
+                        Wall1Position,
+                        30.0f,    // 半サイズ X（厚み）
+                        150.0f,   // 半サイズ Y（高さ）
+                        250.0f,    // 半サイズ Z（奥行き）
+                        "Assets/NomalMap_Side.png",
+                        "Assets/NormalMap_Wall.png"
+                    );
+
+                    wall1->SetTag(1500);
+
+                    WallList.push_back(wall1);
+
+                    //表示
+                    WallSet = true;
+
+                }
+
+                else
+                {    
+                    //座標
                     Wall2Position = Position;
 
                     //上下
@@ -570,31 +596,6 @@ void Stage::Update()
                     //表示
                     Wall2Set = true;
 
-                }
-
-                else
-                {
-                    //座標
-                    Wall1Position = Position;
-
-                    //左右
-                    Wall* wall1 = new Wall(
-                        "Assets/Side.jpg",
-                        "Assets/Wall.jpg",
-                        Wall1Position,
-                        30.0f,    // 半サイズ X（厚み）
-                        150.0f,   // 半サイズ Y（高さ）
-                        250.0f,    // 半サイズ Z（奥行き）
-                        "Assets/NomalMap_Side.png",
-                        "Assets/NormalMap_Wall.png"
-                    );
-
-                    wall1->SetTag(1500);
-
-                    WallList.push_back(wall1);
-
-                    //表示
-                    WallSet = true;
                 }
 
             }
@@ -912,20 +913,7 @@ void Stage::Update()
         if (WallSelect == true)
         {
             if (Rotation)
-            {
-                if (WallList2.size() > 0)
-                {
-                    Wall* W = WallList2.back();
-
-                    W->SetDeleteFlag(true);
-
-                    WallList2.pop_back();
-                }
-
-            }
-
-            else
-            {
+            {                
                 if (WallList.size() > 0)
                 {
                     Wall* W = WallList.back();
@@ -937,12 +925,22 @@ void Stage::Update()
 
             }
 
+            else
+            {
+                if (WallList2.size() > 0)
+                {
+                    Wall* W = WallList2.back();
+
+                    W->SetDeleteFlag(true);
+
+                    WallList2.pop_back();
+                }
+
+
+            }
+
         }
 
-        //上下の壁の削除
-        if (Wall2Select == true)
-        {
-        }
     }
 
     // 移動しているかどうかのフラグを倒す

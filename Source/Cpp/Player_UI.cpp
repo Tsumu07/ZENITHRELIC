@@ -152,7 +152,7 @@ void Player_UI::Draw()
 		DrawGraph(1565, 900, item0->GetIcon(), true);
 	}
 
-	else if (item1)
+	if (item1)
 	{
 		DrawGraph(1765, 900, item1->GetIcon(), true);
 	}

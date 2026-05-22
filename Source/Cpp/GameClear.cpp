@@ -74,7 +74,7 @@ extern Inventory g_inventory;
       //BGMçƒê∂
      PlaySoundMem(GameClearBGM, DX_PLAYTYPE_LOOP);
   
-     LoadDivGraph("Assets/GameClearUI.png", 6, 2, 3, 320, 108, GameClearUI);
+     LoadDivGraph("Assets/GameClearUI.png", 6, 2, 3, 324, 108, GameClearUI);
      GameClearLogo = LoadGraph("Assets/GameClear.png");
      SelectPictureR = LoadGraph("Assets/SelectpictureR.png");
      SelectPictureL = LoadGraph("Assets/SelectpictureL.png");

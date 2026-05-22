@@ -78,5 +78,4 @@ void ItemDrop::Finaliza()
         MV1DeleteModel(modelHandle);
     }
 
-    DeleteSoundMem(PickupSE);
 }
