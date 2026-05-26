@@ -19,6 +19,7 @@ extern Inventory g_inventory;
 ,m_skybox()
 ,skyboxPShandle(-1)
 ,skyboxVShandle(-1)
+,m_explainFontHandle(-1)
 ,SelectpictureR(0.0f)
 ,SelectpictureL(0.0f)
 ,SelectY(0.0f)
@@ -74,6 +75,10 @@ extern Inventory g_inventory;
       //BGM再生
      PlaySoundMem(GameClearBGM, DX_PLAYTYPE_LOOP);
   
+     //フォントの指定
+     m_explainFontHandle = CreateFontToHandle("游明朝", 15, 3, DX_FONTTYPE_ANTIALIASING);
+
+     //画像の読み込み
      LoadDivGraph("Assets/GameClearUI.png", 6, 2, 3, 324, 108, GameClearUI);
      GameClearLogo = LoadGraph("Assets/GameClear.png");
      SelectPictureR = LoadGraph("Assets/SelectpictureR.png");
@@ -260,10 +265,7 @@ extern Inventory g_inventory;
      char price[32];
      sprintf_s(price, "合計金額 %d $", m_price);
 
-     SetFontSize(48);
-     DrawString(780, 550, price, GetColor(0, 0, 0));
-     SetFontSize(16);
-
+     DrawExtendStringToHandle(780, 550, 2, 2, price, GetColor(0, 0, 0), m_explainFontHandle);
  }
  
   //終了処理

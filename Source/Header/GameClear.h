@@ -11,6 +11,8 @@ private:
     int skyboxPShandle;
     int skyboxVShandle;
 
+    int m_explainFontHandle;
+
     //---UIŠÖŒW---//
     float SelectpictureR;
     float SelectpictureL;
@@ -27,7 +29,6 @@ private:
     float TitleUI;
 
     float ExitUI;
-
 
     int ContinueSelectUI;
     int TitleSelectUI;
