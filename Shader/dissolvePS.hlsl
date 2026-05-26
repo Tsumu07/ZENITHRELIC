@@ -1560,13 +1560,6 @@ PS_OUTPUT main(PS_INPUT PSInput) : SV_TARGET0
     PSOutput.Normal.y = (Normal.y + 1.0) / 2.0;
     PSOutput.Normal.z = (Normal.z + 1.0) / 2.0;
     PSOutput.Normal.w = 1.0;
-
-//    return PSOutput;
-    ////”wŒiF‚ğİ’è
-    //float4 outDiffuse = float4(float3(0.0, 0.0, 0.0), 1.0);
-   
-    ////–@ü‚ğ³‹K‰»‚µ‚ÄŠi”[‚·‚é
-    //float4 normal = normalize(float4(In.VNormal, 0.0));
         
     float4 outDiffuse;
     outDiffuse = PSOutput.Color0;

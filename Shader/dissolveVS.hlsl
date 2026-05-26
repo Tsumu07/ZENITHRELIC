@@ -206,13 +206,6 @@ VS_OUTPUT main(VS_INPUT VSInput)
 	// スペキュラカラーをセット
     VSOutput.Specular = (g_Base.SpecularSource > 0.5f ? VSInput.Specular : g_Common.Material.Specular) * g_Base.MulSpecularColor;
 
-	// 頂点座標変換 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++( 終了 )
-
-
-
-
-
-	// フォグ計算 =============================================( 開始 )
 
 #if FOG_LINEAR || FOG_EXP || FOG_EXP2
 
@@ -243,42 +236,6 @@ VS_OUTPUT main(VS_INPUT VSInput)
 
 #endif // FOG_LINEAR || FOG_EXP || FOG_EXP2
 
-	//VSOutput.Fog.y = 1.0f ;
-	//if( g_Common.VerticalFog.Mode == 1 || g_Common.VerticalFog.Mode == 2 )
-	//{
-	//	if( g_Common.VerticalFog.Density < 0.0 )
-	//	{
-	//		lVerticalFogY = lWorldPosition.y - g_Common.VerticalFog.DensityStart;
-	//		lFogDensity = -g_Common.VerticalFog.Density ;
-	//	}
-	//	else
-	//	{
-	//		lVerticalFogY = g_Common.VerticalFog.DensityStart - lWorldPosition.y ;
-	//		lFogDensity = g_Common.VerticalFog.Density ;
-	//	}
-	//	if( lVerticalFogY > 0.0f )
-	//	{
-	//		if( g_Common.VerticalFog.Mode == 1 )
-	//		{
-	//			// 指数フォグ計算 1.0f / pow( e, 距離 * density )
-	//			VSOutput.Fog.y = 1.0f / pow( abs( g_Common.VerticalFog.E ), lVerticalFogY * lFogDensity ) ;
-	//		}
-	//		else
-	//		if( g_Common.VerticalFog.Mode == 2 )
-	//		{
-	//			// 指数フォグ２計算 1.0f / pow( e, ( 距離 * density ) * ( 距離 * density ) )
-	//			VSOutput.Fog.y = 1.0f / pow( abs( g_Common.VerticalFog.E ), ( lVerticalFogY * lFogDensity ) * ( lVerticalFogY * lFogDensity ) ) ;
-	//		}
-	//	}
-	//}
-	//else
-	//if( g_Common.VerticalFog.Mode == 3 )
-	//{
-	//	// 線形フォグ計算
-	//	VSOutput.Fog.y = lWorldPosition.y * g_Common.VerticalFog.LinearDiv + g_Common.VerticalFog.LinearAdd ;
-	//}
-
-	// フォグ計算 =============================================( 終了 )
 
 #ifdef SHADOWMAP
 	// 深度影用のライトから見た射影座標を算出 =================( 開始 )
