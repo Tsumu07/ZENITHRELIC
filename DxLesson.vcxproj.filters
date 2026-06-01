@@ -99,9 +99,6 @@
     <ClCompile Include="Source\Cpp\ObjectManager.cpp">
       <Filter>ソース ファイル\Manager</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Cpp\ResourceManeger.cpp">
-      <Filter>ソース ファイル\Manager</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Cpp\GameManager.cpp">
       <Filter>ソース ファイル\Manager</Filter>
     </ClCompile>
@@ -159,9 +156,6 @@
     <ClCompile Include="Source\Cpp\ItemBase.cpp">
       <Filter>ソース ファイル\Object\Item</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Cpp\ItemManeger.cpp">
-      <Filter>ソース ファイル\Manager</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Cpp\EquippedItems.cpp">
       <Filter>ソース ファイル\Object\Item</Filter>
     </ClCompile>
@@ -204,9 +198,6 @@
     <ClCompile Include="Source\Cpp\GoalSubScene.cpp">
       <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Cpp\Colliison.cpp">
-      <Filter>ソース ファイル\Hit</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Cpp\Game.cpp">
       <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
@@ -218,6 +209,15 @@
     </ClCompile>
     <ClCompile Include="Source\Cpp\SpeedItem.cpp">
       <Filter>ソース ファイル\Object\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\HitSphere.cpp">
+      <Filter>ソース ファイル\Hit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\ItemManager.cpp">
+      <Filter>ソース ファイル\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp\ResourceManager.cpp">
+      <Filter>ソース ファイル\Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -236,22 +236,13 @@
     <ClInclude Include="Source\Header\IState.h">
       <Filter>ヘッダー ファイル\FSM</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Header\Colliison.h">
-      <Filter>ヘッダー ファイル\Hit</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Header\HitCapsule.h">
       <Filter>ヘッダー ファイル\Hit</Filter>
     </ClInclude>
     <ClInclude Include="Source\Header\GameManager.h">
       <Filter>ヘッダー ファイル\Manager</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Header\ItemManeger.h">
-      <Filter>ヘッダー ファイル\Manager</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Header\ObujectManager.h">
-      <Filter>ヘッダー ファイル\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Header\ResourceManeger.h">
       <Filter>ヘッダー ファイル\Manager</Filter>
     </ClInclude>
     <ClInclude Include="Source\Header\SceneManager.h">
@@ -361,6 +352,15 @@
     </ClInclude>
     <ClInclude Include="Source\Header\SpeedItem.h">
       <Filter>ヘッダー ファイル\Object\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\HitSphere.h">
+      <Filter>ヘッダー ファイル\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\ItemManager.h">
+      <Filter>ヘッダー ファイル\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Header\ResourceManager.h">
+      <Filter>ヘッダー ファイル\Manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

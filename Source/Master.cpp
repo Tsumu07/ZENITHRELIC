@@ -4,8 +4,8 @@
 #include "Header/Camera.h"
 #include "Header/SceneManager.h"
 #include "Header/ObujectManager.h"
-#include "Header/ResourceManeger.h"
-#include "Header/ItemManeger.h"
+#include "Header/ResourceManager.h"
+#include "Header/ItemManager.h"
 
 GameManager* Master::mpGameManager = nullptr;
 Camera* Master::mpCamera = nullptr;

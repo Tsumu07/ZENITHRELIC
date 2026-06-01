@@ -2,7 +2,7 @@
 #include "../Header/Player.h"
 #include "../Header/Player_UI.h"
 #include "../Header/ObujectManager.h"
-#include "../Header/ResourceManeger.h"
+#include "../Header/ResourceManager.h"
 #include "../Header/ItemBase.h"
 #include "../Header/EquippedItems.h"
 #include "../Master.h"

@@ -8,7 +8,7 @@
 #include "../Header/ObujectManager.h"
 #include "../Header/ItemBase.h" 
 #include "../Header/InventoryScene.h"
-#include "../Header/ItemManeger.h"
+#include "../Header/ItemManager.h"
 #include "../Master.h"
 
 extern Inventory g_inventory;

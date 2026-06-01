@@ -2,7 +2,7 @@
 #include "../Header/GameManager.h"
 #include "../Header/ObujectManager.h"
 #include "../Header/Object.h"
-#include "../Header/Colliison.h"
+#include "../Header/HitSphere.h"
 #include "../Header/Line.h"
 #include "../Header/Spider.h"
 #include "../Header/Player.h"
@@ -10,7 +10,7 @@
 #include "../Header/StageFrame.h"
 #include "../Header/FSM.h"
 #include "../Header/HitCapsule.h"
-#include "../Header/ResourceManeger.h"
+#include "../Header/ResourceManager.h"
 #include "../Master.h"
 #include <math.h>
 #include <string>

@@ -1,6 +1,6 @@
 #include "../Header/SkyBox.h"
 #include "../Header/GameManager.h"
-#include "../Header/ResourceManeger.h"
+#include "../Header/ResourceManager.h"
 #include "../Header/ObujectManager.h"
 #include "../Header/SceneManager.h"
 #include "../Master.h"

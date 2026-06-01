@@ -12,7 +12,7 @@
 #include "../Header/StageFrame.h"
 #include "../Header/Wall.h"
 #include "../Header/Spider.h"
-#include "../Header/ItemManeger.h"
+#include "../Header/ItemManager.h"
 #include "../Header/EquippedItems.h"
 #include "../Master.h"
 #include <cassert>

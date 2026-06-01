@@ -3,7 +3,7 @@
 #include "../Header/ObujectManager.h"
 #include "../Header/Object.h"
 #include "../Header/GameManager.h"
-#include "../Header/ResourceManeger.h"
+#include "../Header/ResourceManager.h"
 #include "../Master.h"
 #include <cassert>
 

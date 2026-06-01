@@ -3,7 +3,7 @@
 #include "../Header/Player.h"
 #include "../Header/Object.h"
 #include "../Header/GameManager.h"
-#include "../Header/ResourceManeger.h"
+#include "../Header/ResourceManager.h"
 #include "../Header/ObujectManager.h"
 #include "../Header/Wall.h"
 #include "../Header/Pathfinding.h"

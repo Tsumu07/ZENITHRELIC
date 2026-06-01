@@ -1,5 +1,5 @@
 #include "../Header/FadeScene.h"
-#include "../Header/ResourceManeger.h"
+#include "../Header/ResourceManager.h"
 #include "../Master.h"
 #include "../Header/SceneManager.h"
 #include "DxLib.h"

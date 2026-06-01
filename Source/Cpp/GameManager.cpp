@@ -14,7 +14,7 @@
 #include "../Header/Field.h"
 #include "../Header/Spider_state.h"
 #include "../Header/FSMFactory.h"
-#include "../Header/ResourceManeger.h"
+#include "../Header/ResourceManager.h"
 #include "../Header/Game.h"
 #include "../Master.h"
 #include "../Header/Player_UI.h"

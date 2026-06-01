@@ -3,7 +3,7 @@
 #include "../Header/SceneBase.h"
 #include "../Header/SceneManager.h"
 #include "../Header/GameManager.h"
-#include "../Header/ResourceManeger.h"
+#include "../Header/ResourceManager.h"
 #include "../Header/ObujectManager.h"
 #include "../Header/CheckKey.h"
 #include "../Header/Object.h"

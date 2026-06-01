@@ -4,7 +4,7 @@
 #include "../Header/SceneManager.h"
 #include "../Header/GameManager.h"
 #include "../Header/CheckKey.h"
-#include "../Header/ResourceManeger.h"
+#include "../Header/ResourceManager.h"
 #include "../Header/ObujectManager.h"
 #include "../Master.h"
 

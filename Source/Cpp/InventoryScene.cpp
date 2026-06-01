@@ -3,7 +3,7 @@
 #include "../Header/GameManager.h"
 #include "../Header/ObujectManager.h"
 #include "../Header/Player.h"
-#include "../Header/ItemManeger.h"
+#include "../Header/ItemManager.h"
 #include "../Header/EquippedItems.h"
 #include "../Header/CheckKey.h"
 #include "../Header/ItemBase.h"

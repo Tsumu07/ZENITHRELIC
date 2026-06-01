@@ -6,7 +6,7 @@
 #include "Header//SceneManager.h"
 #include "Header//Player.h"
 #include "Header//StageFrame.h"
-#include "Header//ResourceManeger.h"
+#include "Header//ResourceManager.h"
 #include "Master.h"
 #include <string>
 #include <EffekseerForDXLib.h>

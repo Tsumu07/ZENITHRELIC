@@ -163,7 +163,6 @@
     <ClCompile Include="Source\Cpp\AttackItem.cpp" />
     <ClCompile Include="Source\Cpp\Camera.cpp" />
     <ClCompile Include="Source\Cpp\CheckKey.cpp" />
-    <ClCompile Include="Source\Cpp\Colliison.cpp" />
     <ClCompile Include="Source\Cpp\Column.cpp" />
     <ClCompile Include="Source\Cpp\Game.cpp" />
     <ClCompile Include="Source\Cpp\Goal.cpp" />
@@ -176,15 +175,17 @@
     <ClCompile Include="Source\Cpp\GameOver.cpp" />
     <ClCompile Include="Source\Cpp\GoalSubScene.cpp" />
     <ClCompile Include="Source\Cpp\HitCapsule.cpp" />
+    <ClCompile Include="Source\Cpp\HitSphere.cpp" />
     <ClCompile Include="Source\Cpp\HpItem.cpp" />
     <ClCompile Include="Source\Cpp\InventoryScene.cpp" />
     <ClCompile Include="Source\Cpp\ItemBase.cpp" />
     <ClCompile Include="Source\Cpp\ItemDrop.cpp" />
+    <ClCompile Include="Source\Cpp\ItemManager.cpp" />
     <ClCompile Include="Source\Cpp\Pathfinding.cpp" />
     <ClCompile Include="Source\Cpp\Player_UI.cpp" />
     <ClCompile Include="Source\Cpp\Player_state.cpp" />
     <ClCompile Include="Source\Cpp\Point.cpp" />
-    <ClCompile Include="Source\Cpp\ResourceManeger.cpp" />
+    <ClCompile Include="Source\Cpp\ResourceManager.cpp" />
     <ClCompile Include="Source\Cpp\SceneBase.cpp" />
     <ClCompile Include="Source\Cpp\SceneManager.cpp" />
     <ClCompile Include="Source\Cpp\SpeedItem.cpp" />
@@ -201,7 +202,6 @@
     <ClCompile Include="Source\Cpp\SubScene.cpp" />
     <ClCompile Include="Source\Cpp\Title.cpp" />
     <ClCompile Include="Source\Cpp\Wall.cpp" />
-    <ClCompile Include="Source\Cpp\ItemManeger.cpp" />
     <ClCompile Include="Source\Cpp\FadeScene.cpp" />
     <ClCompile Include="Source\Main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
@@ -212,7 +212,6 @@
     <ClInclude Include="Source\Header\AttackItem.h" />
     <ClInclude Include="Source\Header\Camera.h" />
     <ClInclude Include="Source\Header\CheckKey.h" />
-    <ClInclude Include="Source\Header\Colliison.h" />
     <ClInclude Include="Source\Header\Column.h" />
     <ClInclude Include="Source\Header\Config.h" />
     <ClInclude Include="Source\Header\EquippedItems.h" />
@@ -228,12 +227,13 @@
     <ClInclude Include="Source\Header\Goal.h" />
     <ClInclude Include="Source\Header\GoalSubScene.h" />
     <ClInclude Include="Source\Header\HitCapsule.h" />
+    <ClInclude Include="Source\Header\HitSphere.h" />
     <ClInclude Include="Source\Header\HpItem.h" />
     <ClInclude Include="Source\Header\InventoryScene.h" />
     <ClInclude Include="Source\Header\IState.h" />
     <ClInclude Include="Source\Header\ItemBase.h" />
     <ClInclude Include="Source\Header\ItemDrop.h" />
-    <ClInclude Include="Source\Header\ItemManeger.h" />
+    <ClInclude Include="Source\Header\ItemManager.h" />
     <ClInclude Include="Source\Header\Object.h" />
     <ClInclude Include="Source\Header\ObujectManager.h" />
     <ClInclude Include="Source\Header\Pathfinding.h" />
@@ -241,7 +241,7 @@
     <ClInclude Include="Source\Header\Player_state.h" />
     <ClInclude Include="Source\Header\Player_UI.h" />
     <ClInclude Include="Source\Header\Point.h" />
-    <ClInclude Include="Source\Header\ResourceManeger.h" />
+    <ClInclude Include="Source\Header\ResourceManager.h" />
     <ClInclude Include="Source\Header\SceneBase.h" />
     <ClInclude Include="Source\Header\SceneManager.h" />
     <ClInclude Include="Source\Header\SettingExplain.h" />
