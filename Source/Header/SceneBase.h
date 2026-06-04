@@ -4,7 +4,7 @@ class SceneBase
 {
 public:
     SceneBase();//コンストラクタ
-    ~SceneBase();//デストラクタ
+    virtual ~SceneBase();//デストラクタ
 
     virtual void Initaliza(); //初期化
     virtual void Update();//更新

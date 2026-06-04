@@ -111,7 +111,7 @@ protected:
 
 public:
     Object();     //コンストラクタ
-    ~Object();    //デストラクタ
+    virtual ~Object();    //デストラクタ
 
     virtual void Initaliza() = 0;   //初期化
     virtual void Update() = 0;      //更新

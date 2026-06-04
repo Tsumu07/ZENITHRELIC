@@ -26,7 +26,7 @@ Object::Object()
 {
     //オブジェクトが生成された時点で、オブジェクト管理に追加しておく
     //thisは自分をさす
-    Master::mpObjectManager->Add(this);
+    Master::GetObjectManager()->Add(this);
 
 }
 
@@ -34,7 +34,8 @@ Object::Object()
 
 Object::~Object()
 {
-    // note: 基本的には、deleteされている時点で管理クラスからは外されているはずなのでここでは何もしない
+    delete m_fsm;
+    m_fsm = nullptr;
 }
 
 void Object::Update()

@@ -29,13 +29,13 @@ void HpItem::UseItem(Player* player)
     player->AddHp(50);
     
     //エフェクト
-    Master::mpObjectManager->AddEffect("Effect/HP.efkefc", "HP", EffectPos, VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
+    Master::GetObjectManager()->AddEffect("Effect/HP.efkefc", "HP", EffectPos, VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
 
-    Master::mpObjectManager->UpdateEffect("HP", EffectPos, VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
+    Master::GetObjectManager()->UpdateEffect("HP", EffectPos, VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
 
-    if (Master::mpObjectManager->GetSoundByTag("HealSE") == -1)
+    if (Master::GetObjectManager()->GetSoundByTag("HealSE") == -1)
     {
-        Master::mpObjectManager->AddSound("Musics/HealSE.mp3", "HealSE", DX_PLAYTYPE_BACK);
+        Master::GetObjectManager()->AddSound("Musics/HealSE.mp3", "HealSE", DX_PLAYTYPE_BACK);
     }
 
 }

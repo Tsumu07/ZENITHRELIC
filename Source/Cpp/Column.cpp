@@ -61,7 +61,7 @@ void Column::Update()
             m_isDeadStarted = true;
 
             //エフェクト再生
-            Master::mpObjectManager->AddEffect("Effect/Delete.efkefc", "Delete", GetPos(), VGet(0.0f, 0.0f, 0.0f), VGet(30.0f, 30.0f, 30.0f));
+            Master::GetObjectManager()->AddEffect("Effect/Delete.efkefc", "Delete", GetPos(), VGet(0.0f, 0.0f, 0.0f), VGet(30.0f, 30.0f, 30.0f));
 
             m_startY = GetPos().y;
             m_deadTimer = 0.0f;
@@ -132,7 +132,7 @@ void Column::Update()
             drop->Initaliza();
             drop->SetTag(500);
 
-            Master::mpObjectManager->AddObjectList(drop);
+            Master::GetObjectManager()->AddObjectList(drop);
 
         }
     }

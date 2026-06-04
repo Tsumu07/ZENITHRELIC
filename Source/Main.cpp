@@ -15,7 +15,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	LPSTR lpCmdLine, int nCmdShow)
 {
 	// ウインドウモードで起動
-	ChangeWindowMode(false);
+	//ChangeWindowMode(false);
+	ChangeWindowMode(true);
 
 	SetFullScreenResolutionMode(DX_FSRESOLUTIONMODE_MAXIMUM);
 
@@ -32,45 +33,45 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	Master::Initialize();
 
 	//シーンマネージャーの初期化
-	Master::mpSceneManager->Initaliza();
+	Master::GetSceneManager()->Initaliza();
 
 	// 定数バッファの作成とセットアップ
 	//シェーダーに受け渡す
 	//カメラ
-	Master::mpResourceManager->CreateConstbuff("Camera", sizeof(CB_LIGHT_CAMERA));
-	Master::mpResourceManager->SetConstbuffPS("Camera", 4);
+	Master::GetResourceManager()->CreateConstbuff("Camera", sizeof(CB_LIGHT_CAMERA));
+	Master::GetResourceManager()->SetConstbuffPS("Camera", 4);
 
 	//skybox
-	Master::mpResourceManager->CreateConstbuff("Rotation", sizeof(CB_ROTATION));
-	Master::mpResourceManager->SetConstbuffPS("Rotation", 5);
+	Master::GetResourceManager()->CreateConstbuff("Rotation", sizeof(CB_ROTATION));
+	Master::GetResourceManager()->SetConstbuffPS("Rotation", 5);
 
 	////フェードイン、フェードアウト
-	Master::mpResourceManager->CreateConstbuff("Dissolve", sizeof(CB_DISSOLVE_PARAM));
-	Master::mpResourceManager->SetConstbuffPS("Dissolve", 6);
+	Master::GetResourceManager()->CreateConstbuff("Dissolve", sizeof(CB_DISSOLVE_PARAM));
+	Master::GetResourceManager()->SetConstbuffPS("Dissolve", 6);
 
 	//ゲージ
-	Master::mpResourceManager->CreateConstbuff("Param", sizeof(CB_PARAM_DATA));
-	Master::mpResourceManager->SetConstbuffPS("Param", 7);
+	Master::GetResourceManager()->CreateConstbuff("Param", sizeof(CB_PARAM_DATA));
+	Master::GetResourceManager()->SetConstbuffPS("Param", 7);
 
 	// ループ
-	while(ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0 && Master::mpGameManager->isGameLoop())
+	while(ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0 && Master::GetGameManager()->isGameLoop())
 	{
 		// 現在のカウントを取得する
 		int time = GetNowCount();
 
-		if(!Master::mpSceneManager->IsInventoryScene())
+		if(!Master::GetSceneManager()->IsInventoryScene())
 		{
 
 			//シーンマネージャーの更新
-			Master::mpSceneManager->Update();
+			Master::GetSceneManager()->Update();
 
 			//シーンマネージャーの描画
-			Master::mpSceneManager->Draw();
+			Master::GetSceneManager()->Draw();
 
 			//必要であればオブジェクトの削除
-			if (Master::mpObjectManager != nullptr)
+			if (Master::GetObjectManager() != nullptr)
 			{
-				Master::mpObjectManager->DeleteAllIfNeeded();
+				Master::GetObjectManager()->DeleteAllIfNeeded();
 			}
 
 		}
@@ -79,17 +80,17 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 		{
 			ClearDrawScreen();
 
-			Master::mpSceneManager->UpdateInventoryScene();
+			Master::GetSceneManager()->UpdateInventoryScene();
 
-			Master::mpSceneManager->DrawInventoryScene();
+			Master::GetSceneManager()->DrawInventoryScene();
 
 			ScreenFlip();
 
-			if (Master::mpSceneManager->InventorySceneEnd())
+			if (Master::GetSceneManager()->InventorySceneEnd())
 			{
-				Master::mpSceneManager->DeleteInventoryScene();
+				Master::GetSceneManager()->DeleteInventoryScene();
 
-				Master::mpSceneManager->SetInventorySceneEnd(false);
+				Master::GetSceneManager()->SetInventorySceneEnd(false);
 
 				//背景の色を灰色にする
 				SetBackgroundColor(0, 0, 0);
@@ -105,12 +106,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	}
 
 	//シーンマネージャーの終了
-	Master::mpSceneManager->Finaliza();
+	Master::GetSceneManager()->Finaliza();
 
-	Master::mpGameManager->Finaliza();
-
-	//
-	delete Master::mpGameManager;
+	Master::GetGameManager()->Finaliza();
 
 	Master::Finalize();
 

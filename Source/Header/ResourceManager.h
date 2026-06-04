@@ -46,7 +46,7 @@ private:
 
 public:
 	ResourceManager() = default;
-	~ResourceManager() = default;
+	~ResourceManager();
 
 	int LoadImageFromFile(std::string name);
 	void ReleaseAllImages();

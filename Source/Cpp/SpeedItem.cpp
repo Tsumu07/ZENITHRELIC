@@ -30,13 +30,13 @@ void SpeedItem::UseItem(Player* player)
     player->StartSpeedUp(300, 10.0f);
 
     //エフェクト
-    Master::mpObjectManager->AddEffect("Effect/SpeedUp.efkefc", "SpeedUp", EffectPos, VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
+    Master::GetObjectManager()->AddEffect("Effect/SpeedUp.efkefc", "SpeedUp", EffectPos, VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
 
-    Master::mpObjectManager->UpdateEffect("SpeedUp", EffectPos, VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
+    Master::GetObjectManager()->UpdateEffect("SpeedUp", EffectPos, VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
 
-    if (Master::mpObjectManager->GetSoundByTag("SpeedUpSE") == -1)
+    if (Master::GetObjectManager()->GetSoundByTag("SpeedUpSE") == -1)
     {
-        Master::mpObjectManager->AddSound("Musics/SpeedUp.mp3", "SpeedUpSE", DX_PLAYTYPE_BACK);
+        Master::GetObjectManager()->AddSound("Musics/SpeedUp.mp3", "SpeedUpSE", DX_PLAYTYPE_BACK);
     }
 
 }

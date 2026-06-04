@@ -44,7 +44,7 @@ bool Capsule::ResolveWallCollision(float radius, float height,int stageFrameTag,
     //==============================
     // StageFrame
     //==============================
-    auto frames = Master::mpObjectManager->FindsByTag(stageFrameTag);
+    auto frames = Master::GetObjectManager()->FindsByTag(stageFrameTag);
 
     for (Object* obj : frames)
     {
@@ -92,7 +92,7 @@ bool Capsule::ResolveWallCollision(float radius, float height,int stageFrameTag,
     //==============================
     // Wall
     //==============================
-    auto walls = Master::mpObjectManager->FindsByTag(wallTag);
+    auto walls = Master::GetObjectManager()->FindsByTag(wallTag);
 
     for (Object* obj : walls)
     {

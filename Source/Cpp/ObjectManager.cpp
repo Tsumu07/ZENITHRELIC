@@ -18,7 +18,7 @@ ObjectManager::ObjectManager()
 //デストラクタ
 ObjectManager::~ObjectManager()
 {
-
+    Finaliza();
 }
 
 //初期化処理
@@ -140,6 +140,7 @@ void ObjectManager::Add(Object *object)
 //オブジェクトを直接削除したいときはこれを呼ぶ
 void ObjectManager::Delete(Object *object)
 {
+
     //最初のオブジェクトがないなら何もしない
     if (mpObject == nullptr)
     {
@@ -237,15 +238,10 @@ void ObjectManager::DeleteAll()
         return;
     }
 
-    //オブジェクトの全削除
-    Object *target = mpObject;
-    do
+    while (mpObject != nullptr)
     {
-        Object *next = target->GetNextObject();
-        Delete(target);
-        target = next;
-
-    } while (target != nullptr);
+        Delete(mpObject);
+    }
 
     objList.clear();
 }
@@ -366,7 +362,7 @@ std::list<Object*> ObjectManager::GetObjectByTag(int tag)
 void ObjectManager::AddEffect(std::string name, std::string tag, VECTOR pos, VECTOR rot, VECTOR scale)
 {
     //リソースマネージャーからハンドルを取得する
-    int handle = Master::mpResourceManager->GetEffect(name);
+    int handle = Master::GetResourceManager()->GetEffect(name);
 
     if (handle == -1)
     {
@@ -416,7 +412,7 @@ int ObjectManager::GetEffectByTag(std::string tag)
 
 void ObjectManager::AddSound(std::string name, std::string tag, int playType)
 {
-    int handle = Master::mpResourceManager->LoadSoundFromFile(name);
+    int handle = Master::GetResourceManager()->LoadSoundFromFile(name);
 
     if (handle == -1)
     {

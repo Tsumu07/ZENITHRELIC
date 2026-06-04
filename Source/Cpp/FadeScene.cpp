@@ -130,7 +130,7 @@ void FadeScene::Draw()
     //フェードは必ず ALPHA ブレンド
     SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);
 
-    int fadeCB = Master::mpResourceManager->GetConstBuff("Dissolve");
+    int fadeCB = Master::GetResourceManager()->GetConstBuff("Dissolve");
     CB_DISSOLVE_PARAM* cb = (CB_DISSOLVE_PARAM*)GetBufferShaderConstantBuffer(fadeCB);
     cb->dissolveThreshold = m_fadeValue;
     cb->dissolveRange = 0.3f;

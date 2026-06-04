@@ -193,13 +193,13 @@ void Player::Update()
 
 	//--------オブジェクト群の取得--------//
 	//柱
-	auto pillars = Master::mpObjectManager->FindsByTag(700);
+	auto pillars = Master::GetObjectManager()->FindsByTag(700);
 
 	//くも
-	auto Spiders = Master::mpObjectManager->FindsByTag(200);
+	auto Spiders = Master::GetObjectManager()->FindsByTag(200);
 
 	//ゴール
-	Object* GetGoal = Master::mpObjectManager->FindByTag(800);
+	Object* GetGoal = Master::GetObjectManager()->FindByTag(800);
 	auto goal = dynamic_cast<Goal*>(GetGoal);
 
     // 柱（縦カプセル）
@@ -263,9 +263,9 @@ void Player::Update()
 					column->Damage(10 + GetAttackItem());
 
 					//エフェクト
-					if (Master::mpObjectManager->GetEffectByTag("Break") == -1)
+					if (Master::GetObjectManager()->GetEffectByTag("Break") == -1)
 					{
-						Master::mpObjectManager->AddEffect("Effect/Break.efkefc", "Break", GetAttack(), VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
+						Master::GetObjectManager()->AddEffect("Effect/Break.efkefc", "Break", GetAttack(), VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
 					}
 
 					//SE
@@ -334,9 +334,9 @@ void Player::Update()
 					spider->SetHitPlayer(true);
 
 					//エフェクト
-					if (Master::mpObjectManager->GetEffectByTag("Attack") == -1)
+					if (Master::GetObjectManager()->GetEffectByTag("Attack") == -1)
 					{
-						Master::mpObjectManager->AddEffect("Effect/Attack.efkefc", "Attack", VGet(GetAttack().x, GetAttack().y + 120.0f, GetAttack().z), VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
+						Master::GetObjectManager()->AddEffect("Effect/Attack.efkefc", "Attack", VGet(GetAttack().x, GetAttack().y + 120.0f, GetAttack().z), VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
 					}
 
 					//SE
@@ -446,7 +446,7 @@ void Player::Update()
 
 	}
 
-	Master::mpItemManeger->SetTotalAmount(TotalAmount);
+	Master::GetItemManeger()->SetTotalAmount(TotalAmount);
 
 	//------効果時間ありのアイテム処理------//
 	//攻撃力
@@ -554,7 +554,7 @@ void Player::Update()
 	if (mState == Animetion::Die)
 	{
 
-		Master::mpSceneManager->ChangeScene(SceneName::GameOverScene);
+		Master::GetSceneManager()->ChangeScene(SceneName::GameOverScene);
 	}
 
 	return;
@@ -803,6 +803,5 @@ void Player::Finaliza()
 	{
 		DeleteGraph(Speed_offEffectHandle[Speed_offEffectCount]);
 	}
-
 
 }

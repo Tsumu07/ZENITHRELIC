@@ -27,7 +27,7 @@ Player_UI::~Player_UI()
 
 void Player_UI::Initaliza()
 {
-	GetPlayer = Master::mpObjectManager->FindByTag(100);
+	GetPlayer = Master::GetObjectManager()->FindByTag(100);
 	auto player = dynamic_cast<Player*>(GetPlayer);
 
 	//プレイヤーの最大HPを取得
@@ -104,7 +104,7 @@ void Player_UI::Update()
 void Player_UI::Draw()
 {
 	//HPバー用のコンスタントバッファ（定数バッファ）にデータを送る
-	int hpCB = Master::mpResourceManager->GetConstBuff("Param");
+	int hpCB = Master::GetResourceManager()->GetConstBuff("Param");
 	CB_PARAM_DATA* cb = (CB_PARAM_DATA*)GetBufferShaderConstantBuffer(hpCB);
 	cb->hp[0] = PlayerHp;
 	cb->hp[1] = PlayerHpOld;

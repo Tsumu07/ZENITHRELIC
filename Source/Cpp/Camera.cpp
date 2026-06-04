@@ -137,7 +137,7 @@ void Camera::Update()
     float nearestT = 1.0f;
 
     //全オブジェクト取得
-    auto& objList = Master::mpObjectManager->GetObjectList();
+    auto& objList = Master::GetObjectManager()->GetObjectList();
 
     //プレイヤーからカメラ方向ベクトル
     VECTOR dir = VSub(desiredPos, mvLookAtPositon);
@@ -326,7 +326,7 @@ void Camera::Update()
     //カメラの設定に反映する
     SetCameraPositionAndTarget_UpVecY(mvPositon, mvLookAtPositon);
 
-    int cameraCB = Master::mpResourceManager->GetConstBuff("Camera");
+    int cameraCB = Master::GetResourceManager()->GetConstBuff("Camera");
     CB_LIGHT_CAMERA* cb = (CB_LIGHT_CAMERA*)GetBufferShaderConstantBuffer(cameraCB);
     cb->CameraPos.x = mvPositon.x;
     cb->CameraPos.y = mvPositon.y;

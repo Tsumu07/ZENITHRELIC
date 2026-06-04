@@ -59,7 +59,7 @@ void Inventory::Initaliza()
 
 	TotalAmount = 0;
 
-	Background = Master::mpSceneManager->GetLastGameScreen();
+	Background = Master::GetSceneManager()->GetLastGameScreen();
 
 	//一瞬の取得
 	InputJoycon = false;
@@ -97,13 +97,13 @@ void Inventory::Initaliza()
 
 	CursorMusic = LoadSoundMem("Musics/Button.mp3");
 
-	TotalAmount = Master::mpItemManeger->GetTotalAmount();
+	TotalAmount = Master::GetItemManeger()->GetTotalAmount();
 }
 
 void Inventory::Update()
 {
 
-	Object* player = Master::mpObjectManager->FindByTag(100);
+	Object* player = Master::GetObjectManager()->FindByTag(100);
 	auto Play = dynamic_cast<Player*>(player);
 	ItemManeger* inv = Play->GetInventory();
 
@@ -145,8 +145,8 @@ void Inventory::Update()
 			//ゲーム画面
 			if (SelectY >= 175.0f && SelectY <= 185.0f)
 			{
-				Master::mpSceneManager->ChangeScene(SceneName::GameScene);
-				Master::mpSceneManager->RequestCloseInventory();
+				Master::GetSceneManager()->ChangeScene(SceneName::GameScene);
+				Master::GetSceneManager()->RequestCloseInventory();
 				OpenMenu = false;
 
 			}
@@ -154,15 +154,15 @@ void Inventory::Update()
 			//タイトル
 			else if (SelectY >= 295.0f && SelectY <= 305.0f)
 			{
-				Master::mpSceneManager->ChangeScene(SceneName::TitleScene);
-				Master::mpSceneManager->RequestCloseInventory();
+				Master::GetSceneManager()->ChangeScene(SceneName::TitleScene);
+				Master::GetSceneManager()->RequestCloseInventory();
 				OpenMenu = false;
 			}
 
 			//終了
 			else if (SelectY >= 415.0f && SelectY <= 425.0f)
 			{
-				Master::mpGameManager->EndGameLoop();
+				Master::GetGameManager()->EndGameLoop();
 
 			}
 
@@ -211,7 +211,7 @@ void Inventory::Update()
 		// 閉じる
 		if (CloseMenu)
 		{
-			Master::mpSceneManager->RequestCloseInventory();
+			Master::GetSceneManager()->RequestCloseInventory();
 			return;
 		}
 
@@ -325,7 +325,7 @@ void Inventory::Draw()
 			DrawStringToHandle(150, 150, "Fでメニュー", GetColor(0, 0, 0), m_explainFontHandle);
 		}
 
-		Object* player = Master::mpObjectManager->FindByTag(100);
+		Object* player = Master::GetObjectManager()->FindByTag(100);
 		auto Play = dynamic_cast<Player*>(player);
 
 		ItemManeger* inv = Play->GetInventory();

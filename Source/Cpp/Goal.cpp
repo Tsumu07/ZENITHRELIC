@@ -33,7 +33,7 @@ void Goal::Initaliza()
 void Goal::Update()
 {
     //プレイヤー
-    Object* GetPlayer = Master::mpObjectManager->FindByTag(100);
+    Object* GetPlayer = Master::GetObjectManager()->FindByTag(100);
     auto player = dynamic_cast<Player*>(GetPlayer);
 
     MV1SetPosition(mnGoalModelHandle, GetPos());
@@ -41,15 +41,15 @@ void Goal::Update()
     MV1SetRotationXYZ(mnGoalModelHandle, mvGoalRotation);
 
     //エフェクト
-    if (Master::mpObjectManager->GetEffectByTag("Portal") == -1 && player->GetAnnihilation())
+    if (Master::GetObjectManager()->GetEffectByTag("Portal") == -1 && player->GetAnnihilation())
     {
-        Master::mpObjectManager->AddEffect("Effect/Portal.efkefc", "Portal", VGet(GetPos().x, GetPos().y + 140.0f, GetPos().z), VGet(0.0f, 0.0f, 0.0f), VGet(15.0f, 15.0f, 15.0f));
+        Master::GetObjectManager()->AddEffect("Effect/Portal.efkefc", "Portal", VGet(GetPos().x, GetPos().y + 140.0f, GetPos().z), VGet(0.0f, 0.0f, 0.0f), VGet(15.0f, 15.0f, 15.0f));
     }
 
     //エフェクト
-    if (Master::mpObjectManager->GetEffectByTag("Light") == -1 && player->GetAnnihilation())
+    if (Master::GetObjectManager()->GetEffectByTag("Light") == -1 && player->GetAnnihilation())
     {
-        Master::mpObjectManager->AddEffect("Effect/Light.efkefc", "Light", GetPos(), VGet(0.0f, 0.0f, 0.0f), VGet(15.0f, 15.0f, 15.0f));
+        Master::GetObjectManager()->AddEffect("Effect/Light.efkefc", "Light", GetPos(), VGet(0.0f, 0.0f, 0.0f), VGet(15.0f, 15.0f, 15.0f));
     }
 
 }

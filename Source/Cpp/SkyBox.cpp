@@ -27,8 +27,8 @@ void SkyBox::Initaliza(void)
 {
 
 	LoadBox = "Assets/SkyBox.dds";
-	graph = Master::mpResourceManager->LoadImageFromFile(LoadBox);
-	GetSceneName = Master::mpSceneManager->GetCurrentScene();
+	graph = Master::GetResourceManager()->LoadImageFromFile(LoadBox);
+	GetSceneName = Master::GetSceneManager()->GetCurrentScene();
 
 	 width = 20000 / 2;
 	 height = 20000 / 2;
@@ -204,7 +204,7 @@ void SkyBox::Initaliza(void)
 void SkyBox::Update(void)
 {	
 	//SkyBoxの切り替え
-	SceneName Current = Master::mpSceneManager->GetCurrentScene();
+	SceneName Current = Master::GetSceneManager()->GetCurrentScene();
 
 	if (Current != GetSceneName)
 	{
@@ -231,7 +231,7 @@ void SkyBox::Update(void)
 			break;
 		}
 
-		graph = Master::mpResourceManager->LoadImageFromFile(LoadBox);
+		graph = Master::GetResourceManager()->LoadImageFromFile(LoadBox);
 
 	}
 
@@ -259,7 +259,7 @@ void SkyBox::Draw(void)
 	VERTEX3DSHADER drawVertex[24];
 
 	//シェーダー
-	int skyboxCB = Master::mpResourceManager->GetConstBuff("Rotation");
+	int skyboxCB = Master::GetResourceManager()->GetConstBuff("Rotation");
 	CB_ROTATION* cb = (CB_ROTATION*)GetBufferShaderConstantBuffer(skyboxCB);
 
 	rotM = MTranspose(rotM);

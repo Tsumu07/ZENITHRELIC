@@ -30,7 +30,7 @@ void ItemDrop::Initaliza()
 void ItemDrop::Update()
 {
     // ƒvƒŒƒCƒ„[Žæ“¾
-    Object* playerObj = Master::mpObjectManager->FindByTag(100);
+    Object* playerObj = Master::GetObjectManager()->FindByTag(100);
     auto player = dynamic_cast<Player*>(playerObj);
 
     if (!player)

@@ -126,7 +126,7 @@ extern Inventory g_inventory;
      //SkyBox用ピクセルシェーダーを読み込む
      skyboxPShandle = LoadPixelShader("cso/SkyBoxPS.cso");
 
-     m_price = Master::mpItemManeger->GetTotalAmount();
+     m_price = Master::GetItemManeger()->GetTotalAmount();
 
  }
  
@@ -201,15 +201,15 @@ extern Inventory g_inventory;
 
          if (SelectpictureL >= 35.0f && SelectpictureL <= 45.0f)
          {
-             Master::mpSceneManager->ChangeScene(SceneName::GameScene);
+             Master::GetSceneManager()->ChangeScene(SceneName::GameScene);
          }
          else if (SelectpictureL >= 600.0f && SelectpictureL <= 610.0f)
          {
-             Master::mpSceneManager->ChangeScene(SceneName::TitleScene);
+             Master::GetSceneManager()->ChangeScene(SceneName::TitleScene);
          }
          else if (SelectpictureL >= 1170.0f && SelectpictureL <= 1180.0f)
          {
-             Master::mpGameManager->EndGameLoop();
+             Master::GetGameManager()->EndGameLoop();
          }
      }
 
@@ -271,7 +271,7 @@ extern Inventory g_inventory;
   //終了処理
  void GameClear::Finaliza()
  {
-     Master::mpObjectManager->Delete(m_skybox);
+     Master::GetObjectManager()->Delete(m_skybox);
      m_skybox = nullptr;
 
      DeleteSoundMem(GameClearBGM);

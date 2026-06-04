@@ -7,31 +7,31 @@
 #include "Header/ResourceManager.h"
 #include "Header/ItemManager.h"
 
-GameManager* Master::mpGameManager = nullptr;
-Camera* Master::mpCamera = nullptr;
-SceneManager* Master::mpSceneManager = nullptr;
-ObjectManager* Master::mpObjectManager = nullptr;
-ResourceManager* Master::mpResourceManager = nullptr;
-ItemManeger* Master::mpItemManeger = nullptr;
+std::unique_ptr<GameManager> Master::mpGameManager;
+std::unique_ptr<Camera> Master::mpCamera;
+std::unique_ptr<SceneManager> Master::mpSceneManager;
+std::unique_ptr<ObjectManager> Master::mpObjectManager;
+std::unique_ptr<ResourceManager> Master::mpResourceManager;
+std::unique_ptr<ItemManeger> Master::mpItemManeger;
 
 void Master::Initialize()
 {
-    mpGameManager = new GameManager();
-    mpCamera = new Camera();
-    mpSceneManager = new SceneManager();
-    mpObjectManager = new ObjectManager();
-    mpResourceManager = new ResourceManager();
-    mpItemManeger = new ItemManeger();
+    mpGameManager = std::make_unique<GameManager>();
+    mpCamera = std::make_unique<Camera>();
+    mpSceneManager = std::make_unique<SceneManager>();
+    mpObjectManager = std::make_unique<ObjectManager>();
+    mpResourceManager = std::make_unique<ResourceManager>();
+    mpItemManeger = std::make_unique<ItemManeger>();
 }
 
 void Master::Finalize()
 {
 
-    mpResourceManager = nullptr;
-    mpObjectManager = nullptr;
-    mpSceneManager = nullptr;
-    mpCamera = nullptr;
-    mpGameManager = nullptr;
-    mpItemManeger = nullptr;
-    mpGameManager = nullptr;
+    mpObjectManager.reset();
+    mpSceneManager.reset();
+    mpCamera.reset();
+    mpGameManager.reset();
+
+    mpResourceManager.reset();
+    mpItemManeger.reset();
 }

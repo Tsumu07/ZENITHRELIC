@@ -683,7 +683,7 @@ int GSDeath::Update(Object* parent)
 Object* GetPlayerObject(Object* parent)
 {
 
-    Object* playerobj = Master::mpObjectManager->FindByTag(100);
+    Object* playerobj = Master::GetObjectManager()->FindByTag(100);
 
     if (playerobj != nullptr)
     {
@@ -734,7 +734,7 @@ static std::vector<ObstacleData> GetObstaclesFromTags(const std::vector<int>& ta
 
     for (int tag : tags)
     {
-        std::vector<Object*> objs = Master::mpObjectManager->FindsByTag(tag);
+        std::vector<Object*> objs = Master::GetObjectManager()->FindsByTag(tag);
 
         for (auto obj : objs)
         {
@@ -766,7 +766,7 @@ std::vector<VECTOR> GetPatrolPointsFromTag(int tag)
     std::vector<VECTOR> result;
 
     // É^ÉOÇ≈PointåQÇåüçı
-    std::vector<Object*> objs = Master::mpObjectManager->FindsByTag(tag);
+    std::vector<Object*> objs = Master::GetObjectManager()->FindsByTag(tag);
 
     for (auto obj : objs)
     {
@@ -789,7 +789,7 @@ std::vector<WallBox>GetWallBoxesFromTags(const std::vector<int>& tags)
 
     for (int tag : tags)
     {
-        std::vector<Object*> objs = Master::mpObjectManager->FindsByTag(tag);
+        std::vector<Object*> objs = Master::GetObjectManager()->FindsByTag(tag);
 
         for (Object* obj : objs)
         {

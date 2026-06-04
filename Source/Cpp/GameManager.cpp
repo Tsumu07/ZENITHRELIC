@@ -50,24 +50,20 @@ void GameManager::Initaliza()
     // ただし、DirectX11を使用する場合は実行する必要はない。
     Effekseer_SetGraphicsDeviceLostCallbackFunctions();
 
-    Master::mpResourceManager->LoadEffectFromFile("Effect/Light.efkefc", 5.0f);
-    Master::mpResourceManager->LoadEffectFromFile("Effect/Attack.efkefc", 5.0f);
-    Master::mpResourceManager->LoadEffectFromFile("Effect/Portal.efkefc", 5.0f);
-    Master::mpResourceManager->LoadEffectFromFile("Effect/HP.efkefc", 5.0f);
-    Master::mpResourceManager->LoadEffectFromFile("Effect/AttackUp.efkefc", 5.0f);
-    Master::mpResourceManager->LoadEffectFromFile("Effect/SpeedUp.efkefc", 5.0f);
-    Master::mpResourceManager->LoadEffectFromFile("Effect/Break.efkefc", 5.0f);
-    Master::mpResourceManager->LoadEffectFromFile("Effect/Delete.efkefc", 5.0f);
-    Master::mpResourceManager->LoadEffectFromFile("Effect/Delete_Enemy.efkefc", 5.0f);
+    Master::GetResourceManager()->LoadEffectFromFile("Effect/Light.efkefc", 5.0f);
+    Master::GetResourceManager()->LoadEffectFromFile("Effect/Attack.efkefc", 5.0f);
+    Master::GetResourceManager()->LoadEffectFromFile("Effect/Portal.efkefc", 5.0f);
+    Master::GetResourceManager()->LoadEffectFromFile("Effect/HP.efkefc", 5.0f);
+    Master::GetResourceManager()->LoadEffectFromFile("Effect/AttackUp.efkefc", 5.0f);
+    Master::GetResourceManager()->LoadEffectFromFile("Effect/SpeedUp.efkefc", 5.0f);
+    Master::GetResourceManager()->LoadEffectFromFile("Effect/Break.efkefc", 5.0f);
+    Master::GetResourceManager()->LoadEffectFromFile("Effect/Delete.efkefc", 5.0f);
+    Master::GetResourceManager()->LoadEffectFromFile("Effect/Delete_Enemy.efkefc", 5.0f);
 
-    Master::mpResourceManager->LoadSoundFromFile("Musics/HealSE.mp3");
-    Master::mpResourceManager->LoadSoundFromFile("Musics/AttackUp.mp3");
-    Master::mpResourceManager->LoadSoundFromFile("Musics/SpeedUp.mp3");
+    Master::GetResourceManager()->LoadSoundFromFile("Musics/HealSE.mp3");
+    Master::GetResourceManager()->LoadSoundFromFile("Musics/AttackUp.mp3");
+    Master::GetResourceManager()->LoadSoundFromFile("Musics/SpeedUp.mp3");
 
-    if (Master::mpObjectManager == nullptr)
-    {
-        Master::mpObjectManager = new ObjectManager();
-    }
 
     SetUseASyncLoadFlag(TRUE);
 
@@ -81,6 +77,7 @@ void GameManager::Initaliza()
     field->SetDir(VGet(1.0f, 0.0f, 0.0f));
     field->SetSpeed(0.0f);
     field->SetTeam(0);
+    Master::GetObjectManager()->AddObjectList(field);
 
     SetUseASyncLoadFlag(FALSE);
 
@@ -114,7 +111,7 @@ void GameManager::Initaliza()
     player->SetInvincible(0.0f);
     player->SetTeam(1);
     //オブジェクトリストの追加
-    Master::mpObjectManager->AddObjectList(player);
+    Master::GetObjectManager()->AddObjectList(player);
 
     player->SetFSM(FSMFactory::Create("Player", player));
 
@@ -154,7 +151,7 @@ void GameManager::Initaliza()
         points->SetTag(400);
         points->SetLayer(1);
         points->SetTeam(1);
-        Master::mpObjectManager->AddObjectList(points);
+        Master::GetObjectManager()->AddObjectList(points);
 
     }
 
@@ -194,7 +191,7 @@ void GameManager::Initaliza()
         Columns->SetHp(40);
         Columns->SetLayer(3);
         Columns->SetTeam(1);
-        Master::mpObjectManager->AddObjectList(Columns);
+        Master::GetObjectManager()->AddObjectList(Columns);
 
     }
 
@@ -238,7 +235,7 @@ void GameManager::Initaliza()
         wall->SetTag(1500);
         wall->SetLayer(2);
         wall->SetTeam(1);
-        Master::mpObjectManager->AddObjectList(wall);
+        Master::GetObjectManager()->AddObjectList(wall);
 
     }
 
@@ -282,7 +279,7 @@ void GameManager::Initaliza()
         wall2->SetTag(2500);
         wall2->SetLayer(2);
         wall2->SetTeam(1);
-        Master::mpObjectManager->AddObjectList(wall2);
+        Master::GetObjectManager()->AddObjectList(wall2);
     }
 
     fclose(fileverticalwall);
@@ -321,7 +318,7 @@ void GameManager::Initaliza()
          spider->SetLayer(1);
          spider->SetTeam(1);
          spider->SetInvincible(0.0f);
-         Master::mpObjectManager->AddObjectList(spider);
+         Master::GetObjectManager()->AddObjectList(spider);
 
     }
 
@@ -353,12 +350,12 @@ void GameManager::Initaliza()
     goal->SetLayer(1);
     goal->SetTeam(1);
     //オブジェクトリストの追加
-    Master::mpObjectManager->AddObjectList(goal);
+    Master::GetObjectManager()->AddObjectList(goal);
 
     fclose(goalfile);
     
     ////カメラの初期化
-    Master::mpCamera->Initaliza(player);
+    Master::GetCamera()->Initaliza(player);
 
     ////////////////////////////////////////////
     //壁
@@ -383,6 +380,7 @@ void GameManager::Initaliza()
             VGet(0.0f, 0.0f, 0.0f)
         );
         right->SetTag(1000);
+        Master::GetObjectManager()->AddObjectList(right);
 
         // 左
         StageFrame* left = new StageFrame(
@@ -391,6 +389,7 @@ void GameManager::Initaliza()
             VGet(0.0f, 0.0f, 0.0f)
         );
         left->SetTag(1000);
+        Master::GetObjectManager()->AddObjectList(left);
 
         zPos -= WALL_SIZE;
     }
@@ -407,6 +406,7 @@ void GameManager::Initaliza()
             VGet(0.0f, 0.0f, 0.0f)
         );
         up->SetTag(2000);
+        Master::GetObjectManager()->AddObjectList(up);
 
         // 下
         StageFrame* down = new StageFrame(
@@ -415,6 +415,7 @@ void GameManager::Initaliza()
             VGet(0.0f, 0.0f, 0.0f)
         );
         down->SetTag(2000);
+        Master::GetObjectManager()->AddObjectList(down);
 
         xPos -= WALL_SIZE;
     }
@@ -427,7 +428,7 @@ void GameManager::Initaliza()
 void GameManager::Update()
 {
 
-    Master::mpCamera->Update();
+    Master::GetCamera()->Update();
 
     // カメラの情報を Effekseer に渡す（DXライブラリと同期）
     Effekseer_Sync3DSetting();
@@ -436,13 +437,13 @@ void GameManager::Update()
     UpdateEffekseer3D();
 
     // 座標更新
-    for (auto obj : Master::mpObjectManager->GetObjectList())
+    for (auto obj : Master::GetObjectManager()->GetObjectList())
     {
         obj->SetPos(VAdd(obj->GetPos(), VScale(obj->GetDir(), obj->GetSpeed())));
     }
 
 
-    Master::mpObjectManager->Update();
+    Master::GetObjectManager()->Update();
 
 }
 
@@ -450,13 +451,13 @@ void GameManager::Update()
 void GameManager::Draw()
 {
     
-    Master::mpObjectManager->Draw();
+    Master::GetObjectManager()->Draw();
     
 }
 
 //終了処理
 void GameManager::Finaliza()
 {    
-    Master::mpObjectManager->DeleteAll();
+    Master::GetObjectManager()->DeleteAll();
 
 }

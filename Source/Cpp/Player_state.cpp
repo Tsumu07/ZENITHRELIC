@@ -154,7 +154,7 @@ int PSWalk::Update(Object* parent)
 		dir = VNorm(dir);
 
 		//ƒJƒƒ‰‚ÌY²‰ñ“]Šp“x‚ğæ“¾‚·‚é
-		float camera_r = Master::mpCamera->GetHorizontalAngle() * DX_PI_F / 180.0f;
+		float camera_r = Master::GetCamera()->GetHorizontalAngle() * DX_PI_F / 180.0f;
 
 		//ƒJƒƒ‰‚ÌY²‰ñ“]Šp“x‚ğˆÚ“®•ûŒü‚É‰ÁZ‚·‚é
 		float roty = atan2(dir.z, -dir.x) + (DX_PI / 2) + camera_r;

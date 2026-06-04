@@ -188,17 +188,17 @@ void GameOver::Update()
 
         if (SelectpictureL >= 35.0f && SelectpictureL <= 45.0f)
         {
-            Master::mpSceneManager->ChangeScene(SceneName::GameScene);
+            Master::GetSceneManager()->ChangeScene(SceneName::GameScene);
         }
 
         else if (SelectpictureL >= 600.0f && SelectpictureL <= 610.0f)
         {
-            Master::mpSceneManager->ChangeScene(SceneName::TitleScene);
+            Master::GetSceneManager()->ChangeScene(SceneName::TitleScene);
         }
 
         else if (SelectpictureL >= 1170.0f && SelectpictureL <= 1180.0f)
         {
-            Master::mpGameManager->EndGameLoop();
+            Master::GetGameManager()->EndGameLoop();
         }
     }
 
@@ -255,7 +255,7 @@ void GameOver::Draw()
 //I—¹ˆ—
 void GameOver::Finaliza()
 {
-    Master::mpObjectManager->Delete(m_skybox);
+    Master::GetObjectManager()->Delete(m_skybox);
     m_skybox = nullptr;
 
     DeleteSoundMem(GameOverBGM);

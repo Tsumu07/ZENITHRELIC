@@ -367,7 +367,7 @@ void Stage::Update()
     {
         if (Back)
         {
-            Master::mpSceneManager->ChangeScene(SceneName::TitleScene);
+            Master::GetSceneManager()->ChangeScene(SceneName::TitleScene);
         }
 
         //右
@@ -820,7 +820,7 @@ void Stage::Update()
                 return;
             }
 
-            std::vector<Object*> obj5 = Master::mpObjectManager->FindsByTag(1500);
+            std::vector<Object*> obj5 = Master::GetObjectManager()->FindsByTag(1500);
 
             for (int i = 0; i < obj5.size(); i++)
             {
@@ -846,7 +846,7 @@ void Stage::Update()
                 return;
             }
 
-            std::vector<Object*> obj6 = Master::mpObjectManager->FindsByTag(2500);
+            std::vector<Object*> obj6 = Master::GetObjectManager()->FindsByTag(2500);
 
             for (int i = 0; i < obj6.size(); i++)
             {
@@ -1107,7 +1107,7 @@ void Stage::Update()
         // カメラの設定に反映する
         SetCameraPositionAndTarget_UpVecY(CameraPosition, CameraLookAtPosition);
 
-        int cameraCB = Master::mpResourceManager->GetConstBuff("Camera");
+        int cameraCB = Master::GetResourceManager()->GetConstBuff("Camera");
         CB_LIGHT_CAMERA* cb = (CB_LIGHT_CAMERA*)GetBufferShaderConstantBuffer(cameraCB);
         cb->CameraPos.x = CameraPosition.x;
         cb->CameraPos.y = CameraPosition.y;
@@ -1153,7 +1153,7 @@ void Stage::Draw()
 
     }
 
-    Master::mpObjectManager->Draw();
+    Master::GetObjectManager()->Draw();
 
     //プレイヤーの座標
     if (PlayerSet == true)
@@ -1288,7 +1288,7 @@ void Stage::Finaliza()
     MV1DeleteModel(ColumnSetModel);
     MV1DeleteModel(GoalSetModel);
 
-    Master::mpObjectManager->SetDeleteFlagAll();
+    Master::GetObjectManager()->SetDeleteFlagAll();
 }
 
 int Stage::CreateObject(int model, std::vector<int>& list, std::vector<VECTOR>& posList, VECTOR pos)

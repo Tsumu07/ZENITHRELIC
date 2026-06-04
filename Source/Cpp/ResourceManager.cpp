@@ -3,6 +3,11 @@
 #include "DxLib.h"
 #include "EffekseerForDXLib.h"
 
+ResourceManager::~ResourceManager()
+{
+	Uninitializa();
+}
+
 //‰æ‘œ‚Ì“Ç‚İ‚İ
 int ResourceManager::LoadImageFromFile(std::string name)
 {

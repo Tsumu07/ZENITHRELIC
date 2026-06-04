@@ -271,7 +271,7 @@ void Title::Update()
 
             if (ExplainFlag)
             {
-                Master::mpSceneManager->ChangeScene(SceneName::ExplainScene);
+                Master::GetSceneManager()->ChangeScene(SceneName::ExplainScene);
             }
 
             else if (SelectpictureL >= 35.0f && SelectpictureL <= 45.0f)
@@ -281,12 +281,12 @@ void Title::Update()
 
             else if (SelectpictureL >= 600.0f && SelectpictureL <= 610.0f)
             {
-                Master::mpSceneManager->ChangeScene(SceneName::StageScene);
+                Master::GetSceneManager()->ChangeScene(SceneName::StageScene);
             }
 
             else if (SelectpictureL >= 1170.0f && SelectpictureL <= 1180.0f)
             {
-                Master::mpGameManager->EndGameLoop();
+                Master::GetGameManager()->EndGameLoop();
             }
         }
     }
@@ -407,7 +407,7 @@ void Title::Update()
 
             else
             {
-                Master::mpSceneManager->ChangeScene(SceneName::GameScene);
+                Master::GetSceneManager()->ChangeScene(SceneName::GameScene);
             }
 
         }
@@ -536,7 +536,7 @@ void Title::Draw()
 //I—¹ˆ—
 void Title::Finaliza()
 {   
-    Master::mpObjectManager->Delete(m_skybox);
+    Master::GetObjectManager()->Delete(m_skybox);
     m_skybox = nullptr;
 
     DeleteSoundMem(TitleBGM);

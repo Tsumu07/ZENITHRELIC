@@ -147,7 +147,7 @@ void Explain::Update()
 
         if (SelectpictureL >= -30.0f && SelectpictureL <= 0)
         {
-            Master::mpSceneManager->ChangeScene(SceneName::TitleScene);
+            Master::GetSceneManager()->ChangeScene(SceneName::TitleScene);
         }
 
         else
@@ -226,7 +226,7 @@ void Explain::Draw()
 void Explain::Finaliza()
 {
 
-    Master::mpObjectManager->Delete(m_skybox);
+    Master::GetObjectManager()->Delete(m_skybox);
     m_skybox = nullptr;
 
     DeleteSoundMem(ExplainBGM);

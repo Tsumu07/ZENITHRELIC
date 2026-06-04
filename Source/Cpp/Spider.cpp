@@ -94,11 +94,11 @@ void Spider::Initaliza()
     //最初のアニメーション
     ChangeAnimaitonSpider(SpiderAnimetion::SpiderIidel);
 
-    modelTexHandle = Master::mpResourceManager->LoadImageFromFile("Resource/BlackWidow Color.png");
+    modelTexHandle = Master::GetResourceManager()->LoadImageFromFile("Resource/BlackWidow Color.png");
 
     vshandle = LoadVertexShader("cso/dissolveVS.cso");
     pshandle = LoadPixelShader("cso/dissolvePS.cso");
-    dissolveTexHandle = Master::mpResourceManager->LoadImageFromFile("トランジション/dissolve.png");
+    dissolveTexHandle = Master::GetResourceManager()->LoadImageFromFile("トランジション/dissolve.png");
 
     //追いかけるフラグ
     HitPlayer = false;
@@ -141,7 +141,7 @@ void Spider::Update()
 
 	 //--------オブジェクト群の取得--------//
 	 //プレイヤー
-     Object* GetPlayer = Master::mpObjectManager->FindByTag(100);
+     Object* GetPlayer = Master::GetObjectManager()->FindByTag(100);
      auto player = dynamic_cast<Player*>(GetPlayer);
 
      VECTOR playerBottom = player->GetPos();
@@ -215,7 +215,7 @@ void Spider::Update()
          {
              m_isDeadStarted = true;
 
-             Master::mpObjectManager->AddEffect("Effect/Delete_Enemy.efkefc", "Delete_Enemy", GetPos(), VGet(0.0f, 0.0f, 0.0f), VGet(5.0f, 5.0f, 5.0f));
+             Master::GetObjectManager()->AddEffect("Effect/Delete_Enemy.efkefc", "Delete_Enemy", GetPos(), VGet(0.0f, 0.0f, 0.0f), VGet(5.0f, 5.0f, 5.0f));
 
              PlaySoundMem(SpiderVoise, DX_PLAYTYPE_BACK);
              DeleteSpiderCount = 120.0f;
@@ -408,7 +408,7 @@ void Spider::Draw()
 
     if (IsDead())
     {
-        int fadeCB = Master::mpResourceManager->GetConstBuff("Dissolve");
+        int fadeCB = Master::GetResourceManager()->GetConstBuff("Dissolve");
         CB_DISSOLVE_PARAM* cb = (CB_DISSOLVE_PARAM*)GetBufferShaderConstantBuffer(fadeCB);
 
         float t = ((float)(180 - DeleteSpiderCount) / 180);

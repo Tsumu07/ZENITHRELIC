@@ -50,7 +50,7 @@ void Game::Initaliza()
 
     m_goalsubscene = nullptr;
 
-    Master::mpGameManager->Initaliza();
+    Master::GetGameManager()->Initaliza();
 
     //スカイボックスのインスタンスを作成する
     {
@@ -116,7 +116,7 @@ void Game::Update()
 {
 
     //---ゴール---//
-    Object* GetPlayer = Master::mpObjectManager->FindByTag(100);
+    Object* GetPlayer = Master::GetObjectManager()->FindByTag(100);
     auto goal = dynamic_cast<Player*>(GetPlayer);
 
     //--------------------------------
@@ -145,7 +145,7 @@ void Game::Update()
         return;
     }
 
-    Master::mpGameManager->Update();
+    Master::GetGameManager()->Update();
     m_skybox->Update();
     m_player_ui->Update();
 
@@ -164,8 +164,8 @@ void Game::Update()
 
         GetDrawScreenGraph(0, 0, width, height, handle);
 
-        Master::mpSceneManager->SetLastGameScreen(handle);
-        Master::mpSceneManager->OpenInventory();
+        Master::GetSceneManager()->SetLastGameScreen(handle);
+        Master::GetSceneManager()->OpenInventory();
     }
 
     //---ゴールしたら---//
@@ -183,11 +183,11 @@ void Game::Draw()
 {    
 
     ShadowMap_DrawSetup(m_shadowMap);
-    Master::mpGameManager->Draw();
+    Master::GetGameManager()->Draw();
     ShadowMap_DrawEnd();
 
     SetDrawScreen(DX_SCREEN_BACK);
-    Master::mpObjectManager->RestoreViewMatrix();
+    Master::GetObjectManager()->RestoreViewMatrix();
     ClearDrawScreen();
 
     //---シェーダーをセット---//
@@ -199,7 +199,7 @@ void Game::Draw()
     SetUsePixelShader(pshandle);
 
     //---ゲーム描画---//
-    Master::mpGameManager->Draw();
+    Master::GetGameManager()->Draw();
 
     SetUseVertexShader(SkyboxVShandle);
 
@@ -243,7 +243,7 @@ void Game::Draw()
 void Game::Finaliza()
 {
 
-    Master::mpGameManager->Finaliza();
+    Master::GetGameManager()->Finaliza();
 
     DeleteSoundMem(InventorySE);
     DeleteSoundMem(GameBGM);

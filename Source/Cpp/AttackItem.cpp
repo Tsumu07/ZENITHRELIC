@@ -30,13 +30,13 @@ void AttackItem::UseItem(Player* player)
     player->StartAttackUp(240, 100.0f);
 
     //エフェクト
-    Master::mpObjectManager->AddEffect("Effect/AttackUp.efkefc", "AttackUp", EffectPos, VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
+    Master::GetObjectManager()->AddEffect("Effect/AttackUp.efkefc", "AttackUp", EffectPos, VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
 
-    Master::mpObjectManager->UpdateEffect("AttackUp", EffectPos, VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
+    Master::GetObjectManager()->UpdateEffect("AttackUp", EffectPos, VGet(0.0f, 0.0f, 0.0f), VGet(20.0f, 20.0f, 20.0f));
 
-    if (Master::mpObjectManager->GetSoundByTag("AttackUpSE") == -1)
+    if (Master::GetObjectManager()->GetSoundByTag("AttackUpSE") == -1)
     {
-        Master::mpObjectManager->AddSound("Musics/AttackUp.mp3", "AttackUpSE", DX_PLAYTYPE_BACK);
+        Master::GetObjectManager()->AddSound("Musics/AttackUp.mp3", "AttackUpSE", DX_PLAYTYPE_BACK);
     }
 
 }

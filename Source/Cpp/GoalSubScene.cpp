@@ -36,7 +36,7 @@ void GoalSubScene::Update()
 
 	if (m_timer <= 0)
 	{
-		Master::mpSceneManager->ChangeScene(SceneName::GameClearScene);
+		Master::GetSceneManager()->ChangeScene(SceneName::GameClearScene);
 	}
 }
 
